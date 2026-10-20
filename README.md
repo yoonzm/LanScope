@@ -15,7 +15,7 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 ## 在 Mac 上运行
 
 1. 打开 `LanScope.xcodeproj`，选择 `LanScope` scheme。
-2. 在 Signing & Capabilities 中选择自己的 Team，将 `com.example.LanScope` 改为唯一 Bundle ID。
+2. 在 Signing & Capabilities 中确认 Team。当前 Bundle ID 为 `com.yoonzm.lanscope`，Team ID 为 `6F7QRYSM6W`。
 3. 连接 iPhone，按 Xcode 提示启用开发者模式，选择真机并运行。
 4. 将 iPhone 连接到测试 Wi-Fi。在系统 Wi-Fi 详情中查看地址和子网掩码，填写正确 CIDR，例如 `192.168.1.0/24`。
 5. 开始扫描并允许局域网访问。首次权限弹窗可能超过探测超时；授权后再次开始即可。拒绝后可在系统设置中打开此 App 的局域网权限。
@@ -33,7 +33,11 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 此工作流用于验证编译，**不会生成可安装到 iPhone 的 IPA，也不会自动发布**。构建状态请查看仓库的 [Actions 页面](https://github.com/yoonzm/LanScope/actions)。
 
-TestFlight/IPA 需要另行配置 Apple Developer Team、唯一 Bundle ID、证书和 provisioning profile；可以在 Codemagic 配置 iOS 原生构建，项目选择 `LanScope.xcodeproj`、scheme 选择 `LanScope`。不要把证书、私钥或 API key 提交进仓库。上架前还需添加正式 App 图标等发布素材。
+根目录 `codemagic.yaml` 提供 `ios-testflight` 工作流。需要在 Codemagic 添加名称为 `LanScope` 的 Apple Developer Portal 集成，并添加匹配 `com.yoonzm.lanscope` 的 Apple Distribution 证书（含私钥）和 App Store 描述文件。
+
+工作流运行核心测试、递增构建号、签名导出 IPA 并上传 App Store Connect。导出限制为 TestFlight 内部测试，不提交外部测试审核或 App Store 审核。首次上传处理完成后，在 App Store Connect 手动分配构建给内部测试组。App Store 类型的 IPA 不可直接通过“文件”App 安装。
+
+已有不透明的 1024×1024 测试版图标。不要把证书、私钥或 API key 提交进仓库。构建号使用 Codemagic 的 `BUILD_NUMBER + 1`；若更换构建平台或重建 Codemagic 应用，请确保构建号高于已上传的版本。
 
 Mac 本地验证命令：
 

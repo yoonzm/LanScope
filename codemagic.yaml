@@ -1,0 +1,43 @@
+workflows:
+  ios-testflight:
+    name: LanScope TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    integrations:
+      app_store_connect: LanScope
+    environment:
+      xcode: latest
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.yoonzm.lanscope
+    scripts:
+      - name: Test IPv4 range validation
+        script: swift test
+      - name: Set build number
+        script: |
+          python3 - <<'PY'
+          import os, re
+          from pathlib import Path
+          project = Path("LanScope.xcodeproj/project.pbxproj")
+          number = int(os.environ["BUILD_NUMBER"]) + 1
+          text = re.sub(r"CURRENT_PROJECT_VERSION = \d+;",
+                        f"CURRENT_PROJECT_VERSION = {number};", project.read_text())
+          project.write_text(text)
+          PY
+      - name: Configure signing for internal TestFlight testing
+        script: |
+          xcode-project use-profiles \
+            --custom-export-options='{"testFlightInternalTestingOnly": true}'
+      - name: Archive and export signed IPA
+        script: |
+          xcode-project build-ipa \
+            --project "LanScope.xcodeproj" \
+            --scheme "LanScope"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: false
+        submit_to_app_store: false
