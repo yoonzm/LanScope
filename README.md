@@ -31,7 +31,7 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 1. 执行 `swift test`，测试 CIDR 解析和范围限制。
 2. 使用 `xcodebuild` 编译未签名的 iOS Simulator 应用。
 
-此工作流用于验证编译，**不会生成可安装到 iPhone 的 IPA，也不会自动发布**。项目尚未推送到远程，CI 尚未运行。
+此工作流用于验证编译，**不会生成可安装到 iPhone 的 IPA，也不会自动发布**。构建状态请查看仓库的 [Actions 页面](https://github.com/yoonzm/LanScope/actions)。
 
 TestFlight/IPA 需要另行配置 Apple Developer Team、唯一 Bundle ID、证书和 provisioning profile；可以在 Codemagic 配置 iOS 原生构建，项目选择 `LanScope.xcodeproj`、scheme 选择 `LanScope`。不要把证书、私钥或 API key 提交进仓库。上架前还需添加正式 App 图标等发布素材。
 
