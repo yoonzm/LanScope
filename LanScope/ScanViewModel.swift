@@ -10,7 +10,7 @@ final class ScanViewModel: ObservableObject {
             networkMessage = nil
         }
     }
-    @Published private(set) var networkMessage: String? = "正在识别 Wi-Fi 网段…"
+    @Published private(set) var networkMessage: String?
     @Published private(set) var hosts: [HostResult] = []
     @Published private(set) var completed = 0
     @Published private(set) var total = 0
@@ -62,7 +62,6 @@ final class ScanViewModel: ObservableObject {
             return
         }
         cidr = network.cidr
-        networkMessage = "已根据本机 IP \(network.address) 自动填入，可直接修改。"
         do { _ = try IPv4Range(network.cidr) }
         catch { networkMessage = "已识别网段 \(network.cidr)。\(error.localizedDescription)请直接修改扫描范围。" }
     }

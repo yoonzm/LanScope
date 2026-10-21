@@ -185,7 +185,17 @@ final class Scanner {
                 } else if case .posix(.ETIMEDOUT) = error { finish(.noResponse) }
                 else { finish(.error, diagnostic: "探测错误（不是离线证明）：\(error)") }
             case .waiting(let error):
-                waitingReason = "等待网络路径：\(error)。请检查 Wi-Fi 和局域网权限后重试。"
+                // Network.framework can report a refused TCP probe as waiting,
+                // not only failed. It is evidence for this port, not a scan-wide
+                // path failure; finish now so the deadline cannot abort all probes.
+                if case .posix(.ECONNREFUSED) = error { finish(.closed) }
+                else if case .posix(.ETIMEDOUT) = error { finish(.noResponse) }
+                else {
+                    waitingReason = "等待网络路径（\(ip):\(port)）：\(error)。请检查 Wi-Fi 和局域网权限后重试。"
+                }
+            case .preparing:
+                // A recovered path must not retain an earlier waiting error.
+                waitingReason = nil
             default: break
             }
         }

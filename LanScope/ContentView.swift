@@ -25,10 +25,6 @@ struct ContentView: View {
                         .keyboardType(.numbersAndPunctuation)
                         .disabled(model.running)
                         .accessibilityLabel("IPv4 网段")
-                    Button("高级设置", systemImage: "slider.horizontal.3") { showingSettings = true }
-                        .disabled(model.running)
-                    Text("\(model.settings.pingOnly ? "仅扫描 ping 成功的设备" : "直接扫描所有目标") · TCP \(model.settings.portsText)")
-                        .font(.footnote).foregroundStyle(.secondary)
                     if let message = model.networkMessage {
                         Text(message).font(.footnote).foregroundStyle(.secondary)
                     }
@@ -37,7 +33,21 @@ struct ContentView: View {
                         if model.running { model.stop() } else { model.start() }
                     }
                 } header: {
-                    Text("扫描范围")
+                    HStack {
+                        Text("扫描范围")
+                        Spacer()
+                        Button {
+                            showingSettings = true
+                        } label: {
+                            Image(systemName: "slider.horizontal.3")
+                                .font(.body)
+                                .frame(width: 44, height: 44)
+                                .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.borderless)
+                        .accessibilityLabel("高级设置")
+                        .disabled(model.running)
+                    }
                 } footer: {
                     Text("仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。打开时自动填入网段，可直接修改；更换 Wi-Fi 后请确认扫描范围。")
                 }
