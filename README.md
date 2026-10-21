@@ -48,7 +48,7 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 上述 Secrets 已配置。发布流程串行执行，避免同时上传；失败时可以在 Actions 页面重试。可在仓库 Actions 页的 `TestFlight` 工作流中下载 IPA 或查看上传结果。
 
-GitHub 构建号采用 `(1000 + GITHUB_RUN_NUMBER).GITHUB_RUN_ATTEMPT`，与历史构建号错开，并为重试生成新构建号。`ITSAppUsesNonExemptEncryption=false` 已写入 Info.plist，与当前应用实现一致；若以后加入新的加密功能，应重新评估该声明。
+应用版本为 `0.1.1`。TestFlight 的 Build 从 `1` 开始，每次新工作流运行自动递增为 `2`、`3` 等，无需手动修改；失败的运行也占用编号，重跑同一次工作流复用原编号。已上传成功后需推送新提交或点击 Run workflow 创建新运行，不能重复上传同一编号。工作流扣除旧版本已执行的 7 次运行，不再添加大数字偏移或重试后缀。`ITSAppUsesNonExemptEncryption=false` 已写入 Info.plist，与当前应用实现一致；若以后加入新的加密功能，应重新评估该声明。
 
 导出限制为 TestFlight 内部测试，不提交外部测试审核或 App Store 审核。App Store 类型的 IPA 不可直接通过“文件”App 安装。不要把证书、私钥或 API key 提交进仓库。
 

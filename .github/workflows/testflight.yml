@@ -62,12 +62,14 @@ jobs:
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
         run: bash scripts/install-signing.sh
       - name: Archive and export internal TestFlight IPA
+        env:
+          # Seven runs predate version 0.1.1; the next run starts at Build 1.
+          BUILD_RUN_BASELINE: 7
         run: |
           set -o pipefail
-          # Separate from Codemagic's existing low build numbers; reruns get a new suffix.
-          major=$((1000 + GITHUB_RUN_NUMBER))
-          test "$major" -lt 10000
-          build_number="$major.$GITHUB_RUN_ATTEMPT"
+          build_number=$((GITHUB_RUN_NUMBER - BUILD_RUN_BASELINE))
+          test "$build_number" -ge 1
+          test "$build_number" -lt 10000
           xcodebuild -project LanScope.xcodeproj -scheme LanScope \
             -configuration Release -destination 'generic/platform=iOS' \
             -archivePath "$RUNNER_TEMP/LanScope.xcarchive" \
