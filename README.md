@@ -37,6 +37,10 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 根目录 `codemagic.yaml` 提供 `ios-testflight` 工作流。需要在 Codemagic 添加名称为 `LanScope` 的 Apple Developer Portal 集成，并添加匹配 `com.yoonzm.lanscope` 的 Apple Distribution 证书（含私钥）和 App Store 描述文件。
 
+推送到 `main` 分支会自动触发此工作流；连续推送会取消同分支旧的排队或运行中构建。其他分支不自动触发签名打包，仍可手动启动。仅在本地执行 `git commit` 不会触发云端构建，需要 `git push origin main`。
+
+自动触发还依赖 GitHub 与 Codemagic 的 Webhook：在 Codemagic 应用的 Webhooks 页面检查配置和投递记录，必要时由添加仓库的团队管理员使用 Update webhook。若推送后没有构建，先检查 Webhook 是否收到 push 事件。配置说明见 [Codemagic 自动构建文档](https://docs.codemagic.io/yaml-running-builds/starting-builds-automatically/)。
+
 工作流运行核心测试、递增构建号、签名导出 IPA 并上传 App Store Connect。导出限制为 TestFlight 内部测试，不提交外部测试审核或 App Store 审核。首次上传处理完成后，在 App Store Connect 手动分配构建给内部测试组。App Store 类型的 IPA 不可直接通过“文件”App 安装。
 
 已有不透明的 1024×1024 测试版图标。不要把证书、私钥或 API key 提交进仓库。构建号使用 Codemagic 的 `BUILD_NUMBER + 1`；若更换构建平台或重建 Codemagic 应用，请确保构建号高于已上传的版本。
