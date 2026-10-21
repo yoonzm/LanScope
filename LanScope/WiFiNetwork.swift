@@ -3,6 +3,7 @@ import Network
 import Darwin
 
 struct WiFiNetwork {
+    let interface: String
     let address: String
     let cidr: String
 
@@ -26,7 +27,7 @@ struct WiFiNetwork {
             let ip = ipv4(address)
             guard ip != "0.0.0.0",
                   let cidr = IPv4Range.subnetCIDR(address: ip, netmask: ipv4(mask)) else { continue }
-            candidates.append(WiFiNetwork(address: ip, cidr: cidr))
+            candidates.append(WiFiNetwork(interface: name, address: ip, cidr: cidr))
         }
         // Multiple IPv4 assignments are ambiguous; let the user choose manually.
         return candidates.count == 1 ? candidates[0] : nil

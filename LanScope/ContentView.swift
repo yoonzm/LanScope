@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var model = ScanViewModel()
     @Environment(\.scenePhase) private var scenePhase
+    @State private var showingSettings = false
 
     var body: some View {
         NavigationStack {
@@ -24,6 +25,10 @@ struct ContentView: View {
                         .keyboardType(.numbersAndPunctuation)
                         .disabled(model.running)
                         .accessibilityLabel("IPv4 网段")
+                    Button("高级设置", systemImage: "slider.horizontal.3") { showingSettings = true }
+                        .disabled(model.running)
+                    Text("\(model.settings.pingOnly ? "仅扫描 ping 成功的设备" : "直接扫描所有目标") · TCP \(model.settings.portsText)")
+                        .font(.footnote).foregroundStyle(.secondary)
                     if let message = model.networkMessage {
                         Text(message).font(.footnote).foregroundStyle(.secondary)
                     }
@@ -58,29 +63,16 @@ struct ContentView: View {
                             .foregroundStyle(.secondary)
                     }
                     ForEach(model.hosts) { host in
-                        VStack(alignment: .leading, spacing: 6) {
-                            HStack {
-                                Text(host.ip).font(.headline).monospaced()
-                                Spacer()
-                                Text("\(host.milliseconds) ms")
-                                    .font(.caption).foregroundStyle(.secondary)
-                            }
-                            Text(host.open
-                                 ? "TCP \(host.port) 连接成功"
-                                 : "TCP \(host.port) 连接被拒绝 · 有响应证据")
-                                .font(.subheadline)
-                            Text(host.discoveredAt, style: .time)
-                                .font(.caption).foregroundStyle(.secondary)
-                        }
-                        .padding(.vertical, 4)
+                        HostResultRow(host: host)
                     }
                 } header: {
                     Text("已发现主机")
                 } footer: {
-                    Text("时间为单次 TCP 探测耗时，不是 ICMP 延迟。拒绝响应也可能来自中间设备；超时不代表离线。首次授权后若扫描中止，请重新开始。")
+                    Text("Ping 与 TCP 耗时分别标注。未响应不代表离线；开启 ping 筛选会跳过不回应 ping 的设备。首次允许局域网权限后，请重新扫描。")
                 }
             }
             .navigationTitle("LanScope")
+            .sheet(isPresented: $showingSettings) { AdvancedSettingsView(model: model) }
             .onChange(of: scenePhase) { _, phase in
                 if phase == .background { model.stop(background: true) }
             }
@@ -156,6 +148,10 @@ private struct ScanRecordView: View {
         List {
             Section("扫描信息") {
                 LabeledContent("网段", value: record.cidr)
+                if let settings = record.settings {
+                    LabeledContent("仅扫描 ping 成功的设备", value: settings.pingOnly ? "是" : "否")
+                    LabeledContent("扫描端口", value: settings.portsText)
+                }
                 if let name = record.wifiName, !name.isEmpty {
                     LabeledContent("扫描时 Wi-Fi", value: name)
                 }
@@ -172,24 +168,42 @@ private struct ScanRecordView: View {
                     Text("本次未发现有响应的主机").foregroundStyle(.secondary)
                 }
                 ForEach(record.hosts) { host in
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack {
-                            Text(host.ip).font(.headline).monospaced()
-                            Spacer()
-                            Text("\(host.milliseconds) ms").font(.caption).foregroundStyle(.secondary)
-                        }
-                        Text(host.open ? "TCP \(host.port) 连接成功" : "TCP \(host.port) 连接被拒绝 · 有响应证据")
-                            .font(.subheadline)
-                        Text(host.discoveredAt, style: .time).font(.caption).foregroundStyle(.secondary)
-                    }.padding(.vertical, 4)
+                    HostResultRow(host: host)
                 }
             } header: {
                 Text("已发现主机（\(record.hosts.count)）")
             } footer: {
-                Text("这是扫描当时的结果，不代表设备当前状态。未发现不代表离线；耗时为 TCP 探测耗时。")
+                Text("这是扫描当时的结果，不代表设备当前状态。未发现不代表离线；中断的扫描可能尚未检查完全部端口。")
             }
         }
         .navigationTitle("扫描结果")
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+private struct HostResultRow: View {
+    let host: HostResult
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(host.ip).font(.headline).monospaced()
+            if let ping = host.pingMilliseconds {
+                Text("Ping 成功 · \(ping) ms").font(.subheadline)
+            }
+            if let ports = host.ports {
+                if ports.isEmpty {
+                    Text("尚无端口探测结果").font(.caption).foregroundStyle(.secondary)
+                }
+                ForEach(ports) { result in
+                    Text("TCP \(result.port) · \(result.state.title) · \(result.milliseconds) ms")
+                        .font(.subheadline)
+                }
+            } else if let port = host.port, let open = host.open {
+                Text("TCP \(port) · \(open ? "连接成功" : "连接被拒绝") · \(host.milliseconds) ms")
+                    .font(.subheadline)
+            }
+            Text(host.discoveredAt, style: .time).font(.caption).foregroundStyle(.secondary)
+        }
+        .padding(.vertical, 4)
     }
 }

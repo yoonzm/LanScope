@@ -3,6 +3,27 @@ import XCTest
 @testable import LanScopeCore
 
 final class ScanHistoryTests: XCTestCase {
+    func testLegacyHostAndNewPingOnlyHostRoundTrip() throws {
+        let legacy = Data("""
+        {"ip":"192.168.1.1","port":80,"open":false,"milliseconds":12,"discoveredAt":0}
+        """.utf8)
+        let old = try JSONDecoder().decode(HostResult.self, from: legacy)
+        XCTAssertEqual(old.port, 80)
+        XCTAssertNil(old.pingMilliseconds)
+        XCTAssertNil(old.ports)
+        let host = HostResult(ip: "192.168.1.2", port: nil, open: nil, milliseconds: 3,
+                              discoveredAt: Date(), pingMilliseconds: 3,
+                              ports: [PortResult(port: 443, state: .noResponse, milliseconds: 1500)])
+        let restored = try JSONDecoder().decode(HostResult.self, from: JSONEncoder().encode(host))
+        XCTAssertEqual(restored.pingMilliseconds, 3)
+        XCTAssertNil(restored.port)
+        XCTAssertEqual(restored.ports?.first?.state, .noResponse)
+        var scan = record(0)
+        scan.settings = ScanSettings(pingOnly: false, ports: [8080])
+        let restoredScan = try JSONDecoder().decode(ScanRecord.self, from: JSONEncoder().encode(scan))
+        XCTAssertEqual(restoredScan.settings, scan.settings)
+    }
+
     private func record(_ index: Int, wifiName: String? = nil) -> ScanRecord {
         ScanRecord(id: UUID(), startedAt: Date(timeIntervalSince1970: Double(index)),
                    endedAt: Date(timeIntervalSince1970: Double(index + 1)),

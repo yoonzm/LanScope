@@ -19,6 +19,9 @@ final class ScanViewModel: ObservableObject {
     @Published private(set) var diagnostic: String?
     @Published private(set) var history: [ScanRecord] = []
     @Published private(set) var historyError: String?
+    @Published private(set) var settings = ScanSettings()
+    private let settingsStore = ScanSettingsStore()
+    private var scanSettings = ScanSettings()
     private let historyStore = ScanHistoryStore()
     private var startedAt = Date()
     private var scanCIDR = ""
@@ -29,6 +32,7 @@ final class ScanViewModel: ObservableObject {
     private var initialDetectionFinished = false
 
     init() {
+        settings = settingsStore.load()
         do { history = try historyStore.load() }
         catch { historyError = "无法读取扫描历史：\(error.localizedDescription)" }
         networkMonitor.pathUpdateHandler = { [weak self] path in
@@ -38,6 +42,13 @@ final class ScanViewModel: ObservableObject {
     }
 
     deinit { networkMonitor.cancel() }
+
+    func saveSettings(pingOnly: Bool, portsText: String) throws {
+        guard !running else { return }
+        let updated = ScanSettings(pingOnly: pingOnly, ports: try ScanSettings.parsePorts(portsText))
+        try settingsStore.save(updated)
+        settings = updated
+    }
 
     private func fillInitialNetwork(path: NWPath) {
         guard !initialDetectionFinished else { return }
@@ -66,11 +77,11 @@ final class ScanViewModel: ObservableObject {
     }
 
     private func saveHistory(outcome: ScanRecord.Outcome) {
-        guard completed > 0 else { return }
+        guard completed > 0 || !hosts.isEmpty else { return }
         let record = ScanRecord(id: session, startedAt: startedAt, endedAt: Date(),
                                 cidr: scanCIDR, wifiName: nil, outcome: outcome,
                                 completed: completed, total: total, hosts: hosts,
-                                diagnostic: diagnostic)
+                                diagnostic: diagnostic, settings: scanSettings)
         history = historyStore.recent([record] + history)
         do {
             try historyStore.save(history)
@@ -88,17 +99,22 @@ final class ScanViewModel: ObservableObject {
             total = range.addresses.count
             diagnostic = nil
             running = true
-            status = "正在探测 TCP 80、443、22、445…"
+            scanSettings = settings
+            status = settings.pingOnly
+                ? "正在 ping；仅对 ping 成功的设备探测 TCP \(settings.portsText)…"
+                : "正在直接探测 TCP \(settings.portsText)…"
             session = UUID()
             startedAt = Date()
             scanCIDR = range.canonicalCIDR
             let current = session
-            scanner.start(addresses: range.addresses) { [weak self] update in
+            scanner.start(addresses: range.addresses, settings: scanSettings) { [weak self] update in
                 DispatchQueue.main.async {
                     guard let self, self.session == current, self.running else { return }
                     self.completed = update.completed
                     if let host = update.host {
-                        self.hosts.append(host)
+                        if let index = self.hosts.firstIndex(where: { $0.ip == host.ip }) {
+                            self.hosts[index] = host
+                        } else { self.hosts.append(host) }
                         self.hosts.sort {
                             (IPv4Range.number($0.ip) ?? 0) < (IPv4Range.number($1.ip) ?? 0)
                         }
@@ -108,7 +124,9 @@ final class ScanViewModel: ObservableObject {
                         self.running = false
                         self.saveHistory(outcome: update.completed == update.total ? .completed : .interrupted)
                         self.status = update.completed == update.total
-                            ? "扫描完成；未发现的地址仍可能在线。"
+                            ? (self.scanSettings.pingOnly
+                               ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
+                               : "扫描完成；未发现的地址仍可能在线。")
                             : "扫描因网络或权限问题中止，请检查后重试。"
                     }
                 }

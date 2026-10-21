@@ -2,11 +2,31 @@ import Foundation
 
 struct HostResult: Identifiable, Codable {
     let ip: String
-    let port: UInt16
-    let open: Bool
+    let port: UInt16?
+    let open: Bool?
     let milliseconds: Int
     let discoveredAt: Date
+    var pingMilliseconds: Int? = nil
+    var ports: [PortResult]? = nil
     var id: String { ip }
+}
+
+struct PortResult: Codable, Identifiable {
+    enum State: String, Codable {
+        case open, closed, noResponse, error
+        var title: String {
+            switch self {
+            case .open: return "开放"
+            case .closed: return "拒绝连接"
+            case .noResponse: return "未响应"
+            case .error: return "探测错误"
+            }
+        }
+    }
+    let port: UInt16
+    let state: State
+    let milliseconds: Int
+    var id: UInt16 { port }
 }
 
 struct ScanRecord: Identifiable, Codable {
@@ -34,6 +54,7 @@ struct ScanRecord: Identifiable, Codable {
     let total: Int
     let hosts: [HostResult]
     let diagnostic: String?
+    var settings: ScanSettings? = nil
 }
 
 struct ScanHistoryStore {
