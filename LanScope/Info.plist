@@ -12,6 +12,7 @@
     <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
     <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
     <key>LSRequiresIPhoneOS</key><true/>
+    <key>ITSAppUsesNonExemptEncryption</key><false/>
     <key>NSLocalNetworkUsageDescription</key>
     <string>用于通过 Wi-Fi 探测你指定的局域网地址，并在本机显示有响应的设备。</string>
     <key>UIApplicationSceneManifest</key>
