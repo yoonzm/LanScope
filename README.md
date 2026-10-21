@@ -29,12 +29,7 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 在 Windows 编辑源码即可。当前机器没有 Swift/Xcode，无法本地编译 iOS。
 
-仓库内 `.github/workflows/ios.yml` 在推送到 GitHub 后，会使用 macOS runner：
-
-1. 执行 `swift test`，测试 CIDR、端口输入与设置持久化、ICMP 报文匹配及历史兼容。
-2. 使用 `xcodebuild` 编译未签名的 iOS Simulator 应用。
-
-此工作流用于验证编译，**不会生成可安装到 iPhone 的 IPA，也不会自动发布**。构建状态请查看仓库的 [Actions 页面](https://github.com/yoonzm/LanScope/actions)。
+云端统一使用 TestFlight 工作流执行单元测试、Release 构建和发布，不再单独运行 Build 工作流。非 `main` 分支推送和 PR 不自动触发检查；模拟器编译可在 Mac 上使用下方命令执行。运行状态请查看仓库的 [Actions 页面](https://github.com/yoonzm/LanScope/actions)。
 
 ### GitHub Actions TestFlight 发布
 
