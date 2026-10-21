@@ -52,9 +52,7 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 上述 Secrets 已配置。发布流程串行执行，避免同时上传；失败时可以在 Actions 页面重试。可在仓库 Actions 页的 `TestFlight` 工作流中下载 IPA 或查看上传结果。
 
-GitHub 构建号采用 `(1000 + GITHUB_RUN_NUMBER).GITHUB_RUN_ATTEMPT`，与现有 Codemagic 构建号错开，并为重试生成新构建号。迁移后不要再用 Codemagic 的低构建号上传相同版本。`ITSAppUsesNonExemptEncryption=false` 已写入 Info.plist，与当前应用实现一致；若以后加入新的加密功能，应重新评估该声明。
-
-根目录 `codemagic.yaml` 保留为手动恢复方案，已关闭推送触发。若使用它恢复发布，需要先调整构建号，确保高于 GitHub 最近上传的构建。原 Codemagic 集成和证书仍保留。
+GitHub 构建号采用 `(1000 + GITHUB_RUN_NUMBER).GITHUB_RUN_ATTEMPT`，与历史构建号错开，并为重试生成新构建号。`ITSAppUsesNonExemptEncryption=false` 已写入 Info.plist，与当前应用实现一致；若以后加入新的加密功能，应重新评估该声明。
 
 导出限制为 TestFlight 内部测试，不提交外部测试审核或 App Store 审核。App Store 类型的 IPA 不可直接通过“文件”App 安装。不要把证书、私钥或 API key 提交进仓库。
 
