@@ -35,6 +35,25 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 此工作流用于验证编译，**不会生成可安装到 iPhone 的 IPA，也不会自动发布**。构建状态请查看仓库的 [Actions 页面](https://github.com/yoonzm/LanScope/actions)。
 
+### GitHub Actions TestFlight 发布（迁移中）
+
+`.github/workflows/testflight.yml` 提供 macOS 上的测试、签名归档、IPA 导出与 App Store Connect 上传。仅允许 `main` 分支发布，不向 PR 提供签名材料。上传成功后由 Apple 处理，再交给已启用自动分发的内部测试组。IPA 和构建日志保留 7 天；临时钥匙串及密钥在任务结束时清理。
+
+需要在仓库 Settings → Secrets and variables → Actions 配置：
+
+| Secret | 内容 |
+|---|---|
+| `BUILD_CERTIFICATE_BASE64` | 含私钥的 Apple Distribution `.p12` 文件的 Base64 |
+| `P12_PASSWORD` | `.p12` 导出密码 |
+| `BUILD_PROVISION_PROFILE_BASE64` | 匹配 `com.yoonzm.lanscope` 的 App Store `.mobileprovision` 的 Base64 |
+| `ASC_KEY_ID` | App Store Connect 团队 API 密钥 ID |
+| `ASC_ISSUER_ID` | API Issuer ID |
+| `ASC_PRIVATE_KEY` | `.p8` 私钥原文（保留换行） |
+
+先手动运行 `TestFlight` 工作流验证签名与上传。确认成功后，移除 `codemagic.yaml` 的 `triggering` 配置，并将仓库变量 `TESTFLIGHT_PUBLISHING_ENABLED` 设置为 `true`，切换为推送 `main` 自动发布。在完成切换前，Codemagic 继续自动打包，GitHub 发布仅支持手动启动。
+
+GitHub 构建号采用 `(1000 + GITHUB_RUN_NUMBER).GITHUB_RUN_ATTEMPT`，与现有 Codemagic 构建号错开，并为重试生成新构建号。迁移后不要再用 Codemagic 的低构建号上传相同版本。`ITSAppUsesNonExemptEncryption=false` 已写入 Info.plist，与当前应用实现一致；若以后加入新的加密功能，应重新评估该声明。
+
 根目录 `codemagic.yaml` 提供 `ios-testflight` 工作流。需要在 Codemagic 添加名称为 `LanScope` 的 Apple Developer Portal 集成，并添加匹配 `com.yoonzm.lanscope` 的 Apple Distribution 证书（含私钥）和 App Store 描述文件。
 
 推送到 `main` 分支会自动触发此工作流；连续推送会取消同分支旧的排队或运行中构建。其他分支不自动触发签名打包，仍可手动启动。仅在本地执行 `git commit` 不会触发云端构建，需要 `git push origin main`。
