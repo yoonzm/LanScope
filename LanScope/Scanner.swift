@@ -1,15 +1,6 @@
 import Foundation
 import Network
 
-struct HostResult: Identifiable {
-    let ip: String
-    let port: UInt16
-    let open: Bool
-    let milliseconds: Int
-    let discoveredAt: Date
-    var id: String { ip }
-}
-
 struct ScanUpdate {
     let completed: Int
     let total: Int
