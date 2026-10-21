@@ -36,8 +36,8 @@ final class Scanner {
                 self.abort("扫描地址或端口列表为空。")
                 return
             }
-            if settings.pingOnly { self.prepareWiFi() }
-            else { self.launchBatch() }
+            // Both scan modes need the current local address before probing.
+            self.prepareWiFi()
         }
     }
 
@@ -70,10 +70,14 @@ final class Scanner {
             self.monitor = nil
             self.timers.removeValue(forKey: id)?.cancel()
             guard let network = WiFiNetwork.current(path: path) else {
-                self.abort("无法确定可用于 ping 的 Wi-Fi IPv4 接口，请检查网络后重试。")
+                self.abort("无法确定本机 Wi-Fi IPv4 地址，请检查网络后重试。")
                 return
             }
             self.interface = network.interface
+            self.addresses.removeAll { $0 == network.address }
+            self.emit()
+            // A /32 targeting this device has no remote hosts to scan.
+            guard !self.addresses.isEmpty else { return }
             self.launchBatch()
         }
         let timeout = DispatchWorkItem { [weak self] in
@@ -152,12 +156,11 @@ final class Scanner {
         let started = DispatchTime.now().uptimeNanoseconds
         var waitingReason: String?
 
-        func finish(_ state: PortResult.State, diagnostic: String? = nil, fatal: Bool = false) {
+        func finish(_ state: PortResult.State, diagnostic: String? = nil) {
             guard token == self.generation, self.active.removeValue(forKey: id) != nil else { return }
             self.timers.removeValue(forKey: id)?.cancel()
             connection.stateUpdateHandler = nil
             connection.cancel()
-            if fatal { self.abort(diagnostic ?? "网络探测失败。"); return }
             let milliseconds = Int((DispatchTime.now().uptimeNanoseconds - started) / 1_000_000)
             let results = results + [PortResult(port: port, state: state, milliseconds: milliseconds)]
             var host = host
@@ -179,19 +182,23 @@ final class Scanner {
             case .failed(let error):
                 if case .posix(.ECONNREFUSED) = error { finish(.closed) }
                 else if case .posix(.EACCES) = error {
-                    finish(.error, diagnostic: "网络访问被拒绝，请检查局域网权限。", fatal: true)
+                    finish(.error, diagnostic: "访问被拒绝（\(ip):\(port)），请检查局域网权限；其余探测继续。")
                 } else if case .posix(.EPERM) = error {
-                    finish(.error, diagnostic: "系统不允许此网络操作，请检查权限。", fatal: true)
+                    finish(.error, diagnostic: "系统不允许此网络操作（\(ip):\(port)），请检查权限；其余探测继续。")
                 } else if case .posix(.ETIMEDOUT) = error { finish(.noResponse) }
-                else { finish(.error, diagnostic: "探测错误（不是离线证明）：\(error)") }
+                else { finish(.error, diagnostic: "探测错误（\(ip):\(port)，不是离线证明）：\(error)。其余探测继续。") }
             case .waiting(let error):
-                // Network.framework can report a refused TCP probe as waiting,
-                // not only failed. It is evidence for this port, not a scan-wide
-                // path failure; finish now so the deadline cannot abort all probes.
+                // Network.framework can report refusal or permission errors as
+                // waiting. Finish those ports now; allow other paths until the
+                // deadline to recover without stopping the remaining probes.
                 if case .posix(.ECONNREFUSED) = error { finish(.closed) }
                 else if case .posix(.ETIMEDOUT) = error { finish(.noResponse) }
-                else {
-                    waitingReason = "等待网络路径（\(ip):\(port)）：\(error)。请检查 Wi-Fi 和局域网权限后重试。"
+                else if case .posix(.EPERM) = error {
+                    finish(.error, diagnostic: "系统不允许此网络操作（\(ip):\(port)），请检查权限；其余探测继续。")
+                } else if case .posix(.EACCES) = error {
+                    finish(.error, diagnostic: "访问被拒绝（\(ip):\(port)），请检查局域网权限；其余探测继续。")
+                } else {
+                    waitingReason = "等待网络路径超时（\(ip):\(port)）：\(error)。请检查 Wi-Fi 和局域网权限；其余探测继续。"
                 }
             case .preparing:
                 // A recovered path must not retain an earlier waiting error.
@@ -200,7 +207,8 @@ final class Scanner {
             }
         }
         let timer = DispatchWorkItem {
-            finish(.noResponse, diagnostic: waitingReason, fatal: waitingReason != nil)
+            // A connection's path error is not evidence that every host is unreachable.
+            finish(waitingReason == nil ? .noResponse : .error, diagnostic: waitingReason)
         }
         timers[id] = timer
         queue.asyncAfter(deadline: .now() + 1.5, execute: timer)

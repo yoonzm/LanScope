@@ -110,6 +110,7 @@ final class ScanViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     guard let self, self.session == current, self.running else { return }
                     self.completed = update.completed
+                    self.total = update.total
                     if let host = update.host {
                         if let index = self.hosts.firstIndex(where: { $0.ip == host.ip }) {
                             self.hosts[index] = host
@@ -122,11 +123,17 @@ final class ScanViewModel: ObservableObject {
                     if update.finished {
                         self.running = false
                         self.saveHistory(outcome: update.completed == update.total ? .completed : .interrupted)
-                        self.status = update.completed == update.total
-                            ? (self.scanSettings.pingOnly
-                               ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
-                               : "扫描完成；未发现的地址仍可能在线。")
-                            : "扫描因网络或权限问题中止，请检查后重试。"
+                        if update.completed != update.total {
+                            self.status = "扫描因网络或权限问题中止，请检查后重试。"
+                        } else if update.total == 0 {
+                            self.status = "已排除本机地址，扫描范围内没有其他地址。"
+                        } else if self.diagnostic != nil {
+                            self.status = "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。"
+                        } else {
+                            self.status = self.scanSettings.pingOnly
+                                ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
+                                : "扫描完成；未发现的地址仍可能在线。"
+                        }
                     }
                 }
             }

@@ -49,7 +49,7 @@ struct ContentView: View {
                         .disabled(model.running)
                     }
                 } footer: {
-                    Text("仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。打开时自动填入网段，可直接修改；更换 Wi-Fi 后请确认扫描范围。")
+                    Text("仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。扫描时自动排除本机地址。打开时自动填入网段，可直接修改；更换 Wi-Fi 后请确认扫描范围。")
                 }
 
                 Section("扫描状态") {
