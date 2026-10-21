@@ -35,9 +35,9 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 
 此工作流用于验证编译，**不会生成可安装到 iPhone 的 IPA，也不会自动发布**。构建状态请查看仓库的 [Actions 页面](https://github.com/yoonzm/LanScope/actions)。
 
-### GitHub Actions TestFlight 发布（迁移中）
+### GitHub Actions TestFlight 发布
 
-`.github/workflows/testflight.yml` 提供 macOS 上的测试、签名归档、IPA 导出与 App Store Connect 上传。仅允许 `main` 分支发布，不向 PR 提供签名材料。上传成功后由 Apple 处理，再交给已启用自动分发的内部测试组。IPA 和构建日志保留 7 天；临时钥匙串及密钥在任务结束时清理。
+`.github/workflows/testflight.yml` 在推送 `main` 时自动执行，也支持手动启动。工作流在 macOS 上选择稳定版 Xcode 26 或更新版本，检查 iOS SDK 至少为 26，然后测试、签名归档、导出 IPA 并上传 App Store Connect。仅允许 `main` 分支发布，不向 PR 提供签名材料。上传成功后由 Apple 处理，再交给已启用自动分发的“个人设备自动测试”内部组。IPA 和构建日志保留 7 天；临时钥匙串及密钥在任务结束时清理。
 
 需要在仓库 Settings → Secrets and variables → Actions 配置：
 
@@ -50,19 +50,13 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 | `ASC_ISSUER_ID` | API Issuer ID |
 | `ASC_PRIVATE_KEY` | `.p8` 私钥原文（保留换行） |
 
-先手动运行 `TestFlight` 工作流验证签名与上传。确认成功后，移除 `codemagic.yaml` 的 `triggering` 配置，并将仓库变量 `TESTFLIGHT_PUBLISHING_ENABLED` 设置为 `true`，切换为推送 `main` 自动发布。在完成切换前，Codemagic 继续自动打包，GitHub 发布仅支持手动启动。
+上述 Secrets 已配置。发布流程串行执行，避免同时上传；失败时可以在 Actions 页面重试。可在仓库 Actions 页的 `TestFlight` 工作流中下载 IPA 或查看上传结果。
 
 GitHub 构建号采用 `(1000 + GITHUB_RUN_NUMBER).GITHUB_RUN_ATTEMPT`，与现有 Codemagic 构建号错开，并为重试生成新构建号。迁移后不要再用 Codemagic 的低构建号上传相同版本。`ITSAppUsesNonExemptEncryption=false` 已写入 Info.plist，与当前应用实现一致；若以后加入新的加密功能，应重新评估该声明。
 
-根目录 `codemagic.yaml` 提供 `ios-testflight` 工作流。需要在 Codemagic 添加名称为 `LanScope` 的 Apple Developer Portal 集成，并添加匹配 `com.yoonzm.lanscope` 的 Apple Distribution 证书（含私钥）和 App Store 描述文件。
+根目录 `codemagic.yaml` 保留为手动恢复方案，已关闭推送触发。若使用它恢复发布，需要先调整构建号，确保高于 GitHub 最近上传的构建。原 Codemagic 集成和证书仍保留。
 
-推送到 `main` 分支会自动触发此工作流；连续推送会取消同分支旧的排队或运行中构建。其他分支不自动触发签名打包，仍可手动启动。仅在本地执行 `git commit` 不会触发云端构建，需要 `git push origin main`。
-
-自动触发还依赖 GitHub 与 Codemagic 的 Webhook：在 Codemagic 应用的 Webhooks 页面检查配置和投递记录，必要时由添加仓库的团队管理员使用 Update webhook。若推送后没有构建，先检查 Webhook 是否收到 push 事件。配置说明见 [Codemagic 自动构建文档](https://docs.codemagic.io/yaml-running-builds/starting-builds-automatically/)。
-
-工作流运行核心测试、递增构建号、签名导出 IPA 并上传 App Store Connect。导出限制为 TestFlight 内部测试，不提交外部测试审核或 App Store 审核。首次上传处理完成后，在 App Store Connect 手动分配构建给内部测试组。App Store 类型的 IPA 不可直接通过“文件”App 安装。
-
-已有不透明的 1024×1024 测试版图标。不要把证书、私钥或 API key 提交进仓库。构建号使用 Codemagic 的 `BUILD_NUMBER + 1`；若更换构建平台或重建 Codemagic 应用，请确保构建号高于已上传的版本。
+导出限制为 TestFlight 内部测试，不提交外部测试审核或 App Store 审核。App Store 类型的 IPA 不可直接通过“文件”App 安装。不要把证书、私钥或 API key 提交进仓库。
 
 Mac 本地验证命令：
 

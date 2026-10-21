@@ -3,14 +3,7 @@ workflows:
     name: LanScope TestFlight
     instance_type: mac_mini_m2
     max_build_duration: 30
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-          source: true
-      cancel_previous_builds: true
+    # GitHub Actions owns automatic publishing. Kept for manual recovery only.
     integrations:
       app_store_connect: LanScope
     environment:
