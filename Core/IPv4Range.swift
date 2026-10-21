@@ -34,6 +34,14 @@ struct IPv4Range {
         addresses = (first...last).map(Self.string)
     }
 
+    // Discover the actual subnet independently of the scan-size/local-address policy.
+    static func subnetCIDR(address: String, netmask: String) -> String? {
+        guard let ip = number(address), let mask = number(netmask) else { return nil }
+        let inverted = ~mask
+        guard inverted & (inverted &+ 1) == 0 else { return nil }
+        return "\(string(ip & mask))/\(mask.nonzeroBitCount)"
+    }
+
     static func number(_ text: String) -> UInt32? {
         let octets = text.split(separator: ".", omittingEmptySubsequences: false)
         guard octets.count == 4 else { return nil }

@@ -1,14 +1,21 @@
 import Foundation
 import Combine
+import Network
 
 @MainActor
 final class ScanViewModel: ObservableObject {
-    @Published var cidr = "192.168.1.0/24"
+    @Published var cidr = "" {
+        didSet {
+            hasEditedCIDR = true
+            networkMessage = nil
+        }
+    }
+    @Published private(set) var networkMessage: String? = "正在识别 Wi-Fi 网段…"
     @Published private(set) var hosts: [HostResult] = []
     @Published private(set) var completed = 0
     @Published private(set) var total = 0
     @Published private(set) var running = false
-    @Published private(set) var status = "连接 Wi-Fi，输入当前局域网的 IPv4 网段。"
+    @Published private(set) var status = "连接 Wi-Fi，确认网段后开始扫描。"
     @Published private(set) var diagnostic: String?
     @Published private(set) var history: [ScanRecord] = []
     @Published private(set) var historyError: String?
@@ -17,10 +24,36 @@ final class ScanViewModel: ObservableObject {
     private var scanCIDR = ""
     private let scanner = Scanner()
     private var session = UUID()
+    private let networkMonitor = NWPathMonitor(requiredInterfaceType: .wifi)
+    private var hasEditedCIDR = false
+    private var initialDetectionFinished = false
 
     init() {
         do { history = try historyStore.load() }
         catch { historyError = "无法读取扫描历史：\(error.localizedDescription)" }
+        networkMonitor.pathUpdateHandler = { [weak self] path in
+            DispatchQueue.main.async { self?.fillInitialNetwork(path: path) }
+        }
+        networkMonitor.start(queue: DispatchQueue(label: "LanScope.network"))
+    }
+
+    deinit { networkMonitor.cancel() }
+
+    private func fillInitialNetwork(path: NWPath) {
+        guard !initialDetectionFinished else { return }
+        initialDetectionFinished = true
+        networkMonitor.cancel()
+        // Never overwrite an edit made while the first network callback was pending,
+        // even if the user has since cleared the field.
+        guard !hasEditedCIDR, !running else { return }
+        guard let network = WiFiNetwork.current(path: path) else {
+            networkMessage = "未能识别 Wi-Fi IPv4 网段，请手动输入扫描范围。"
+            return
+        }
+        cidr = network.cidr
+        networkMessage = "已根据本机 IP \(network.address) 自动填入，可直接修改。"
+        do { _ = try IPv4Range(network.cidr) }
+        catch { networkMessage = "已识别网段 \(network.cidr)。\(error.localizedDescription)请直接修改扫描范围。" }
     }
 
     func deleteHistory(ids: Set<UUID>) {

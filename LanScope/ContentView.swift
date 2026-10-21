@@ -24,6 +24,9 @@ struct ContentView: View {
                         .keyboardType(.numbersAndPunctuation)
                         .disabled(model.running)
                         .accessibilityLabel("IPv4 网段")
+                    if let message = model.networkMessage {
+                        Text(message).font(.footnote).foregroundStyle(.secondary)
+                    }
                     Button(model.running ? "停止扫描" : "开始扫描",
                            systemImage: model.running ? "stop.circle.fill" : "antenna.radiowaves.left.and.right") {
                         if model.running { model.stop() } else { model.start() }
@@ -31,7 +34,7 @@ struct ContentView: View {
                 } header: {
                     Text("扫描范围")
                 } footer: {
-                    Text("仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。可在 iPhone 的 Wi-Fi 详情中查看 IP 和子网掩码；255.255.255.0 对应 /24。")
+                    Text("仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。打开时自动填入网段，可直接修改；更换 Wi-Fi 后请确认扫描范围。")
                 }
 
                 Section("扫描状态") {

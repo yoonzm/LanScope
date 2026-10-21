@@ -2,6 +2,17 @@ import XCTest
 @testable import LanScopeCore
 
 final class IPv4RangeTests: XCTestCase {
+    func testSubnetUsesActualMask() {
+        XCTAssertEqual(IPv4Range.subnetCIDR(address: "192.168.3.37", netmask: "255.255.254.0"), "192.168.2.0/23")
+        XCTAssertEqual(IPv4Range.subnetCIDR(address: "10.2.3.4", netmask: "255.255.0.0"), "10.2.0.0/16")
+        XCTAssertEqual(IPv4Range.subnetCIDR(address: "10.0.0.9", netmask: "255.255.255.254"), "10.0.0.8/31")
+        XCTAssertEqual(IPv4Range.subnetCIDR(address: "10.0.0.9", netmask: "255.255.255.255"), "10.0.0.9/32")
+        XCTAssertEqual(IPv4Range.subnetCIDR(address: "10.0.0.9", netmask: "0.0.0.0"), "0.0.0.0/0")
+        XCTAssertNil(IPv4Range.subnetCIDR(address: "10.0.0.9", netmask: "255.0.255.0"))
+        XCTAssertNil(IPv4Range.subnetCIDR(address: "invalid", netmask: "255.255.255.0"))
+        XCTAssertNil(IPv4Range.subnetCIDR(address: "10.0.0.9", netmask: "255.255.255.256"))
+    }
+
     func testNormalizesAndExcludesNetworkAndBroadcast() throws {
         let range = try IPv4Range("192.168.1.37/24")
         XCTAssertEqual(range.canonicalCIDR, "192.168.1.0/24")
