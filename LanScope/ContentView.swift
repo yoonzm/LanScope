@@ -203,15 +203,19 @@ private struct HostResultRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(host.ip).font(.headline).monospaced()
-            if let ping = host.pingMilliseconds {
-                Text("Ping 成功 · \(ping) ms").font(.subheadline)
+            HStack(alignment: .firstTextBaseline) {
+                Text(host.ip).font(.headline).monospaced()
+                Spacer()
+                if let ping = host.pingMilliseconds {
+                    Text("\(ping) ms")
+                        .font(.subheadline).monospacedDigit()
+                        .foregroundStyle(.secondary)
+                        .fixedSize()
+                        .accessibilityLabel("Ping 耗时 \(ping) 毫秒")
+                }
             }
             if let ports = host.ports {
-                if ports.isEmpty {
-                    Text("尚无端口探测结果").font(.caption).foregroundStyle(.secondary)
-                }
-                ForEach(ports) { result in
+                ForEach(ports.filter { $0.state == .open || $0.state == .closed }) { result in
                     Text("TCP \(result.port) · \(result.state.title) · \(result.milliseconds) ms")
                         .font(.subheadline)
                 }
@@ -219,7 +223,6 @@ private struct HostResultRow: View {
                 Text("TCP \(port) · \(open ? "连接成功" : "连接被拒绝") · \(host.milliseconds) ms")
                     .font(.subheadline)
             }
-            Text(host.discoveredAt, style: .time).font(.caption).foregroundStyle(.secondary)
         }
         .padding(.vertical, 4)
     }
