@@ -2,7 +2,7 @@ import Foundation
 import Network
 import Darwin
 import CoreLocation
-import NetworkExtension
+import class NetworkExtension.NEHotspotNetwork
 
 @MainActor
 final class WiFiNameReader: NSObject, CLLocationManagerDelegate {
@@ -33,11 +33,13 @@ final class WiFiNameReader: NSObject, CLLocationManagerDelegate {
         }
     }
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        guard manager.authorizationStatus != .notDetermined else { return }
-        let waiters = authorizationWaiters
-        authorizationWaiters.removeAll()
-        for waiter in waiters { waiter.resume() }
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        Task { @MainActor [weak self] in
+            guard let self, self.locationManager.authorizationStatus != .notDetermined else { return }
+            let waiters = self.authorizationWaiters
+            self.authorizationWaiters.removeAll()
+            for waiter in waiters { waiter.resume() }
+        }
     }
 }
 
