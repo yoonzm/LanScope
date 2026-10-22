@@ -47,7 +47,7 @@ struct ScanRecord: Identifiable, Codable {
     let startedAt: Date
     let endedAt: Date
     let cidr: String
-    // Snapshot metadata; nil until Wi-Fi name acquisition is supported.
+    // Snapshot at scan start; nil for older records or when access is unavailable.
     let wifiName: String?
     let outcome: Outcome
     let completed: Int

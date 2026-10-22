@@ -25,6 +25,8 @@ final class ScanViewModel: ObservableObject {
     private let historyStore = ScanHistoryStore()
     private var startedAt = Date()
     private var scanCIDR = ""
+    private var scanWiFiName: String?
+    private lazy var wifiNameReader = WiFiNameReader()
     private let scanner = Scanner()
     private var session = UUID()
     private let networkMonitor = NWPathMonitor(requiredInterfaceType: .wifi)
@@ -78,7 +80,7 @@ final class ScanViewModel: ObservableObject {
     private func saveHistory(outcome: ScanRecord.Outcome) {
         guard completed > 0 || !hosts.isEmpty else { return }
         let record = ScanRecord(id: session, startedAt: startedAt, endedAt: Date(),
-                                cidr: scanCIDR, wifiName: nil, outcome: outcome,
+                                cidr: scanCIDR, wifiName: scanWiFiName, outcome: outcome,
                                 completed: completed, total: total, hosts: hosts,
                                 diagnostic: diagnostic, settings: scanSettings)
         history = historyStore.recent([record] + history)
@@ -99,46 +101,59 @@ final class ScanViewModel: ObservableObject {
             diagnostic = nil
             running = true
             scanSettings = settings
-            status = settings.pingOnly
-                ? "正在 ping；仅对 ping 成功的设备探测 TCP \(settings.portsText)…"
-                : "正在直接探测 TCP \(settings.portsText)…"
+            status = "正在读取 Wi-Fi 名称…"
             session = UUID()
             startedAt = Date()
             scanCIDR = range.canonicalCIDR
+            scanWiFiName = nil
             let current = session
-            scanner.start(addresses: range.addresses, settings: scanSettings) { [weak self] update in
-                DispatchQueue.main.async {
-                    guard let self, self.session == current, self.running else { return }
-                    self.completed = update.completed
-                    self.total = update.total
-                    if let host = update.host {
-                        if let index = self.hosts.firstIndex(where: { $0.ip == host.ip }) {
-                            self.hosts[index] = host
-                        } else { self.hosts.append(host) }
-                        self.hosts.sort {
-                            (IPv4Range.number($0.ip) ?? 0) < (IPv4Range.number($1.ip) ?? 0)
-                        }
-                    }
-                    if let diagnostic = update.diagnostic { self.diagnostic = diagnostic }
-                    if update.finished {
-                        self.running = false
-                        self.saveHistory(outcome: update.completed == update.total ? .completed : .interrupted)
-                        if update.completed != update.total {
-                            self.status = "扫描因网络或权限问题中止，请检查后重试。"
-                        } else if update.total == 0 {
-                            self.status = "已排除本机地址，扫描范围内没有其他地址。"
-                        } else if self.diagnostic != nil {
-                            self.status = "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。"
-                        } else {
-                            self.status = self.scanSettings.pingOnly
-                                ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
-                                : "扫描完成；未发现的地址仍可能在线。"
-                        }
-                    }
-                }
+            Task {
+                guard session == current, running else { return }
+                let name = await wifiNameReader.currentName()
+                guard session == current, running else { return }
+                scanWiFiName = name
+                startedAt = Date()
+                beginScan(range: range, session: current)
             }
         } catch {
             diagnostic = error.localizedDescription
+        }
+    }
+
+    private func beginScan(range: IPv4Range, session current: UUID) {
+        status = scanSettings.pingOnly
+            ? "正在 ping；仅对 ping 成功的设备探测 TCP \(scanSettings.portsText)…"
+            : "正在直接探测 TCP \(scanSettings.portsText)…"
+        scanner.start(addresses: range.addresses, settings: scanSettings) { [weak self] update in
+            DispatchQueue.main.async {
+                guard let self, self.session == current, self.running else { return }
+                self.completed = update.completed
+                self.total = update.total
+                if let host = update.host {
+                    if let index = self.hosts.firstIndex(where: { $0.ip == host.ip }) {
+                        self.hosts[index] = host
+                    } else { self.hosts.append(host) }
+                    self.hosts.sort {
+                        (IPv4Range.number($0.ip) ?? 0) < (IPv4Range.number($1.ip) ?? 0)
+                    }
+                }
+                if let diagnostic = update.diagnostic { self.diagnostic = diagnostic }
+                if update.finished {
+                    self.running = false
+                    self.saveHistory(outcome: update.completed == update.total ? .completed : .interrupted)
+                    if update.completed != update.total {
+                        self.status = "扫描因网络或权限问题中止，请检查后重试。"
+                    } else if update.total == 0 {
+                        self.status = "已排除本机地址，扫描范围内没有其他地址。"
+                    } else if self.diagnostic != nil {
+                        self.status = "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。"
+                    } else {
+                        self.status = self.scanSettings.pingOnly
+                            ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
+                            : "扫描完成；未发现的地址仍可能在线。"
+                    }
+                }
+            }
         }
     }
 

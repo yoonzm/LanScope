@@ -120,20 +120,28 @@ private struct ScanHistoryView: View {
                             NavigationLink {
                                 ScanRecordView(record: record)
                             } label: {
-                                VStack(alignment: .leading, spacing: 6) {
-                                    Text(record.cidr).font(.headline).monospaced()
-                                    if let name = record.wifiName, !name.isEmpty {
-                                        Label(name, systemImage: "wifi").font(.subheadline)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                                        Label(record.wifiName.flatMap { $0.isEmpty ? nil : $0 } ?? "未记录 Wi-Fi",
+                                              systemImage: "wifi")
+                                            .font(.headline)
+                                            .lineLimit(1)
+                                            .truncationMode(.middle)
+                                        Spacer(minLength: 0)
+                                        Text(record.startedAt.formatted(
+                                            date: group.title == "更早" ? .numeric : .omitted,
+                                            time: .shortened))
+                                            .font(.caption).foregroundStyle(.secondary)
+                                            .fixedSize()
                                     }
-                                    Text(record.startedAt.formatted(date: .abbreviated, time: .shortened))
-                                        .font(.caption).foregroundStyle(.secondary)
+                                    Text(record.cidr).font(.subheadline).monospaced()
                                     Text("发现 \(record.hosts.count) 台 · \(record.outcome.title)")
                                         .font(.subheadline)
                                     if record.outcome != .completed {
                                         Text("已扫描 \(record.completed)/\(record.total) 个地址")
                                             .font(.caption).foregroundStyle(.secondary)
                                     }
-                                }.padding(.vertical, 4)
+                                }.padding(.vertical, 2)
                             }
                         }
                         .onDelete { offsets in
@@ -162,9 +170,8 @@ private struct ScanRecordView: View {
                     LabeledContent("仅扫描 ping 成功的设备", value: settings.pingOnly ? "是" : "否")
                     LabeledContent("扫描端口", value: settings.portsText)
                 }
-                if let name = record.wifiName, !name.isEmpty {
-                    LabeledContent("扫描时 Wi-Fi", value: name)
-                }
+                LabeledContent("扫描时 Wi-Fi",
+                               value: record.wifiName.flatMap { $0.isEmpty ? nil : $0 } ?? "未记录 Wi-Fi")
                 LabeledContent("开始时间", value: record.startedAt.formatted(date: .abbreviated, time: .standard))
                 LabeledContent("结束时间", value: record.endedAt.formatted(date: .abbreviated, time: .standard))
                 LabeledContent("状态", value: record.outcome.title)

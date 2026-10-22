@@ -1,6 +1,45 @@
 import Foundation
 import Network
 import Darwin
+import CoreLocation
+import NetworkExtension
+
+@MainActor
+final class WiFiNameReader: NSObject, CLLocationManagerDelegate {
+    private let locationManager = CLLocationManager()
+    private var authorizationWaiters: [CheckedContinuation<Void, Never>] = []
+
+    override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+
+    func currentName() async -> String? {
+        if locationManager.authorizationStatus == .notDetermined {
+            await withCheckedContinuation { continuation in
+                authorizationWaiters.append(continuation)
+                if authorizationWaiters.count == 1 {
+                    locationManager.requestWhenInUseAuthorization()
+                }
+            }
+        }
+        guard locationManager.authorizationStatus == .authorizedWhenInUse ||
+                locationManager.authorizationStatus == .authorizedAlways,
+              locationManager.accuracyAuthorization == .fullAccuracy else { return nil }
+        return await withCheckedContinuation { continuation in
+            NEHotspotNetwork.fetchCurrent { network in
+                continuation.resume(returning: network?.ssid)
+            }
+        }
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard manager.authorizationStatus != .notDetermined else { return }
+        let waiters = authorizationWaiters
+        authorizationWaiters.removeAll()
+        for waiter in waiters { waiter.resume() }
+    }
+}
 
 struct WiFiNetwork {
     let interface: String
