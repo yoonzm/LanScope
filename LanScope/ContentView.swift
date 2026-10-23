@@ -221,8 +221,8 @@ private struct DiscoveredAssetsSection: View {
     var body: some View {
         Section {
             Picker("资产类型", selection: $showingWeb) {
-                Text("IP").tag(false)
-                Text("Web").tag(true)
+                Text("IP（\(hosts.count)）").tag(false)
+                Text("Web（\(hosts.reduce(0) { $0 + ($1.webServices?.count ?? 0) })）").tag(true)
             }
             .pickerStyle(.segmented)
             if showingWeb {
@@ -263,10 +263,21 @@ private struct WebAssetRows: View {
                 if let url = URL(string: service.url) {
                     Link(destination: url) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Label(service.url, systemImage: "globe")
+                            Label(service.title ?? service.url, systemImage: "globe")
                                 .font(.headline)
+                                .lineLimit(2)
+                            if service.title != nil {
+                                Text(service.url).font(.subheadline).foregroundStyle(.secondary)
+                            }
                             Text("\(url.scheme?.uppercased() ?? "HTTP") · 状态码 \(service.statusCode) · 点击打开")
                                 .font(.subheadline).foregroundStyle(.secondary)
+                            if let server = service.server {
+                                Text("服务器：\(server)").font(.caption).foregroundStyle(.secondary)
+                            }
+                            if let redirect = service.redirectURL {
+                                Text("跳转至：\(redirect)").font(.caption).foregroundStyle(.secondary)
+                                    .lineLimit(2)
+                            }
                         }.padding(.vertical, 4)
                     }
                 }

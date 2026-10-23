@@ -49,13 +49,60 @@ final class ScanHistoryTests: XCTestCase {
 
     func testWebAssetsPersistInHistory() throws {
         var host = record(0).hosts[0]
-        host.webServices = [WebService(url: "https://192.168.1.1:8443/", statusCode: 401)]
+        host.webServices = [WebService(url: "https://192.168.1.1:8443/", statusCode: 401,
+                                       title: "管理中心", server: "nginx", redirectURL: nil)]
         let restored = try JSONDecoder().decode(HostResult.self, from: JSONEncoder().encode(host))
         XCTAssertEqual(restored.webServices?.first?.url, "https://192.168.1.1:8443/")
         XCTAssertEqual(restored.webServices?.first?.statusCode, 401)
+        XCTAssertEqual(restored.webServices?.first?.title, "管理中心")
+        XCTAssertEqual(restored.webServices?.first?.server, "nginx")
         host.webServices = []
         let empty = try JSONDecoder().decode(HostResult.self, from: JSONEncoder().encode(host))
         XCTAssertEqual(empty.webServices?.count, 0)
+    }
+
+    func testWebMetadataAndLegacyService() throws {
+        let url = "http://192.168.41.1:8080/"
+        let data = Data("HTTP/1.1 302 Found\r\nsErVeR: nginx\r\nLocation: /login\r\nContent-Type: text/html; charset=utf-8\r\n\r\n<TITLE> 管理中心 &amp; NAS &#x41; &#66;\n 登录 </TITLE>".utf8)
+        let service = try XCTUnwrap(WebService.response(in: data, url: url))
+        XCTAssertEqual(service.title, "管理中心 & NAS A B 登录")
+        XCTAssertEqual(service.server, "nginx")
+        XCTAssertEqual(service.redirectURL, "http://192.168.41.1:8080/login")
+        let restored = try JSONDecoder().decode(WebService.self, from: JSONEncoder().encode(service))
+        XCTAssertEqual(restored.redirectURL, service.redirectURL)
+        let legacy = try JSONDecoder().decode(WebService.self, from: Data("{\"url\":\"http://192.168.41.1/\",\"statusCode\":200}".utf8))
+        XCTAssertNil(legacy.title)
+        XCTAssertNil(legacy.server)
+        XCTAssertNil(legacy.redirectURL)
+    }
+
+    func testChunkedAndIncompletePages() throws {
+        let url = "http://192.168.41.1/"
+        let chunks = ["<html><ti", "tle>设备", " &amp; NAS</title></html>"]
+        var response = "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n"
+        for chunk in chunks {
+            response += "\(String(chunk.utf8.count, radix: 16));extension=value\r\n\(chunk)\r\n"
+        }
+        response += "0\r\n\r\n"
+        XCTAssertEqual(WebService.response(in: Data(response.utf8), url: url)?.title, "设备 & NAS")
+        let incomplete = Data("HTTP/1.1 200 OK\r\nServer: nginx\r\n\r\n<title>unfinished".utf8)
+        let service = try XCTUnwrap(WebService.response(in: incomplete, url: url))
+        XCTAssertNil(service.title)
+        XCTAssertEqual(service.server, "nginx")
+        XCTAssertEqual(WebService.response(in: Data("HTTP/1.1 403 Forbidden\r\n".utf8), url: url)?.statusCode, 403)
+        XCTAssertNil(WebService.response(in: Data("SSH-2.0-test\r\n".utf8), url: url))
+    }
+
+    func testNonHTMLAndUnsafeRedirectDoNotProducePageMetadata() {
+        let url = "http://192.168.41.1/"
+        for extra in ["Content-Type: application/json", "Content-Encoding: gzip"] {
+            let response = "HTTP/1.1 200 OK\r\nServer: test\r\n\(extra)\r\n\r\n<title>Not HTML</title>"
+            let service = WebService.response(in: Data(response.utf8), url: url)
+            XCTAssertNil(service?.title)
+            XCTAssertEqual(service?.server, "test")
+        }
+        let redirect = Data("HTTP/1.1 302 Found\r\nLocation: javascript:alert(1)\r\n\r\n".utf8)
+        XCTAssertNil(WebService.response(in: redirect, url: url)?.redirectURL)
     }
 
     func testPersistenceRetentionAndDeletion() throws {

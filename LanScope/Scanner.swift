@@ -247,7 +247,7 @@ final class Scanner {
         next(0)
     }
 
-    private func probeWeb(ip: String, port: UInt16, tls: Bool, token: UUID,
+    private func probeWeb(ip: String, port: UInt16, tls: Bool, token: UUID, fetchPage: Bool = false,
                           completion: @escaping (WebService?) -> Void) {
         guard token == generation else { return }
         let id = UUID()
@@ -257,39 +257,51 @@ final class Scanner {
                                       using: parameters)
         active[id] = connection
         var received = Data()
-        func finish(_ code: Int?) {
+        let url = "\(tls ? "https" : "http")://\(ip):\(port)/"
+        let limit = fetchPage ? 65_536 : 16_384
+        func finish() {
             guard token == self.generation, self.active.removeValue(forKey: id) != nil else { return }
             self.timers.removeValue(forKey: id)?.cancel()
             connection.stateUpdateHandler = nil
             connection.cancel()
-            completion(code.map { WebService(url: "\(tls ? "https" : "http")://\(ip):\(port)/", statusCode: $0) })
+            let service = WebService.response(in: received, url: url)
+            if !fetchPage, let service {
+                self.probeWeb(ip: ip, port: port, tls: tls, token: token, fetchPage: true) { page in
+                    guard var page else { completion(service); return }
+                    page.server = page.server ?? service.server
+                    completion(page)
+                }
+            } else { completion(service) }
         }
         func receive() {
-            connection.receive(minimumIncompleteLength: 1, maximumLength: 2048) { data, _, complete, error in
+            connection.receive(minimumIncompleteLength: 1, maximumLength: min(4096, limit - received.count)) { data, _, complete, error in
                 guard token == self.generation, self.active[id] != nil else { return }
                 if let data { received.append(data) }
-                if let code = WebService.statusCode(in: received) { finish(code) }
-                else if received.count >= 2048 || received.range(of: Data("\r\n".utf8)) != nil || complete || error != nil {
-                    finish(nil)
+                let hasHeaders = received.range(of: Data("\r\n\r\n".utf8)) != nil
+                let invalidStatus = received.range(of: Data("\r\n".utf8)) != nil && WebService.statusCode(in: received) == nil
+                let hasTitle = fetchPage && WebService.response(in: received, url: url)?.title != nil
+                if (!fetchPage && hasHeaders) || hasTitle || invalidStatus || received.count >= limit || complete || error != nil {
+                    finish()
                 } else { receive() }
             }
         }
         connection.stateUpdateHandler = { state in
             switch state {
             case .ready:
-                // No cookies, credentials, response body download or redirect following.
-                let request = "HEAD / HTTP/1.1\r\nHost: \(ip):\(port)\r\nConnection: close\r\n\r\n"
+                // Read a bounded page after HEAD; never follow redirects or send credentials.
+                let method = fetchPage ? "GET" : "HEAD"
+                let request = "\(method) / HTTP/1.1\r\nHost: \(ip):\(port)\r\nAccept-Encoding: identity\r\nConnection: close\r\n\r\n"
                 connection.send(content: Data(request.utf8), completion: .contentProcessed { error in
                     guard token == self.generation, self.active[id] != nil else { return }
-                    if error != nil { finish(nil) } else { receive() }
+                    if error != nil { finish() } else { receive() }
                 })
-            case .failed: finish(nil)
+            case .failed: finish()
             default: break
             }
         }
-        let timer = DispatchWorkItem { finish(nil) }
+        let timer = DispatchWorkItem { finish() }
         timers[id] = timer
-        queue.asyncAfter(deadline: .now() + 2, execute: timer)
+        queue.asyncAfter(deadline: .now() + (fetchPage ? 3 : 2), execute: timer)
         connection.start(queue: queue)
     }
 }
