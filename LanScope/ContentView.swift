@@ -10,6 +10,14 @@ struct ContentView: View {
         .onChange(of: scenePhase) { _, phase in
             if phase == .background { model.stop(background: true) }
         }
+        .task(id: scenePhase) {
+            guard scenePhase == .active else { return }
+            while !Task.isCancelled {
+                await model.refreshWiFiName()
+                do { try await Task.sleep(nanoseconds: 3_000_000_000) }
+                catch { return }
+            }
+        }
     }
 
     private var scanView: some View {
@@ -41,8 +49,12 @@ struct ContentView: View {
                     }
                 } header: {
                     HStack {
-                        Text("扫描范围")
-                        Spacer()
+                        Label(model.currentWiFiName ?? "Wi-Fi", systemImage: "wifi")
+                            .lineLimit(1)
+                            .truncationMode(.middle)
+                            .textCase(nil)
+                            .accessibilityLabel("当前 Wi-Fi：\(model.currentWiFiName ?? "未获取到名称")")
+                        Spacer(minLength: 8)
                         Button {
                             showingSettings = true
                         } label: {

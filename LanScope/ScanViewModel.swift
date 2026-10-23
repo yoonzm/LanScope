@@ -11,6 +11,7 @@ final class ScanViewModel: ObservableObject {
         }
     }
     @Published private(set) var networkMessage: String?
+    @Published private(set) var currentWiFiName: String?
     @Published private(set) var hosts: [HostResult] = []
     @Published private(set) var completed = 0
     @Published private(set) var total = 0
@@ -44,6 +45,12 @@ final class ScanViewModel: ObservableObject {
     }
 
     deinit { networkMonitor.cancel() }
+
+    func refreshWiFiName() async {
+        let name = await wifiNameReader.currentName()
+        guard !Task.isCancelled else { return }
+        currentWiFiName = name.flatMap { $0.isEmpty ? nil : $0 }
+    }
 
     func saveSettings(pingOnly: Bool, portsText: String) throws {
         guard !running else { return }
