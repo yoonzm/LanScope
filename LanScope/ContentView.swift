@@ -6,6 +6,29 @@ struct ContentView: View {
     @State private var showingSettings = false
 
     var body: some View {
+        TabView {
+            scanView
+                .tabItem { Label("扫描", systemImage: "network") }
+            NavigationStack {
+                List {
+                    Section {
+                        Text(model.running ? "正在扫描…" : "显示本次扫描确认的 Web 服务")
+                            .font(.footnote).foregroundStyle(.secondary)
+                        Text("仅探测已配置的开放端口。未确认不代表没有 Web 服务；证书校验失败的 HTTPS 服务可能无法识别。")
+                            .font(.footnote).foregroundStyle(.secondary)
+                    }
+                    WebAssetsSection(hosts: model.hosts)
+                }
+                .navigationTitle("Web 资产")
+            }
+            .tabItem { Label("Web 资产", systemImage: "globe") }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { model.stop(background: true) }
+        }
+    }
+
+    private var scanView: some View {
         NavigationStack {
             List {
                 Section {
@@ -69,7 +92,7 @@ struct ContentView: View {
 
                 Section {
                     if model.hosts.isEmpty {
-                        Text(model.running ? "等待设备响应…" : "暂无已发现主机")
+                        Text(model.running ? "正在扫描…" : "暂无已发现主机")
                             .foregroundStyle(.secondary)
                     }
                     ForEach(model.hosts) { host in
@@ -83,9 +106,6 @@ struct ContentView: View {
             }
             .navigationTitle("LanScope")
             .sheet(isPresented: $showingSettings) { AdvancedSettingsView(model: model) }
-            .onChange(of: scenePhase) { _, phase in
-                if phase == .background { model.stop(background: true) }
-            }
         }
     }
 }
@@ -192,6 +212,7 @@ private struct ScanRecordView: View {
             } footer: {
                 Text("这是扫描当时的结果，不代表设备当前状态。未发现不代表离线；中断的扫描可能尚未检查完全部端口。")
             }
+            WebAssetsSection(hosts: record.hosts)
         }
         .navigationTitle("扫描结果")
         .navigationBarTitleDisplayMode(.inline)
@@ -205,6 +226,9 @@ private struct HostResultRow: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text(host.ip).font(.headline).monospaced()
+                if !(host.webServices ?? []).isEmpty {
+                    Text("Web").font(.caption).foregroundStyle(.blue)
+                }
                 Spacer()
                 if let ping = host.pingMilliseconds {
                     Text("\(ping) ms")
@@ -225,5 +249,33 @@ private struct HostResultRow: View {
             }
         }
         .padding(.vertical, 4)
+    }
+}
+
+private struct WebAssetsSection: View {
+    let hosts: [HostResult]
+
+    private var services: [WebService] {
+        hosts.flatMap { $0.webServices ?? [] }
+    }
+
+    var body: some View {
+        Section("Web 服务（\(services.count)）") {
+            if services.isEmpty {
+                Text("暂无已确认的 Web 资产").foregroundStyle(.secondary)
+            }
+            ForEach(services) { service in
+                if let url = URL(string: service.url) {
+                    Link(destination: url) {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Label(service.url, systemImage: "globe")
+                                .font(.headline)
+                            Text("\(url.scheme?.uppercased() ?? "HTTP") · 状态码 \(service.statusCode) · 点击打开")
+                                .font(.subheadline).foregroundStyle(.secondary)
+                        }.padding(.vertical, 4)
+                    }
+                }
+            }
+        }
     }
 }

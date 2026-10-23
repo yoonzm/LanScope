@@ -101,7 +101,7 @@ final class ScanViewModel: ObservableObject {
             diagnostic = nil
             running = true
             scanSettings = settings
-            status = "正在读取 Wi-Fi 名称…"
+            status = "正在扫描…"
             session = UUID()
             startedAt = Date()
             scanCIDR = range.canonicalCIDR
@@ -121,9 +121,7 @@ final class ScanViewModel: ObservableObject {
     }
 
     private func beginScan(range: IPv4Range, session current: UUID) {
-        status = scanSettings.pingOnly
-            ? "正在 ping；仅对 ping 成功的设备探测 TCP \(scanSettings.portsText)…"
-            : "正在直接探测 TCP \(scanSettings.portsText)…"
+        status = "正在扫描…"
         scanner.start(addresses: range.addresses, settings: scanSettings) { [weak self] update in
             DispatchQueue.main.async {
                 guard let self, self.session == current, self.running else { return }

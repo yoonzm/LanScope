@@ -170,9 +170,8 @@ final class Scanner {
             }
             host?.ports = results
             let last = portIndex + 1 == self.settings.ports.count
-            if last { self.completed += 1 }
             self.emit(host: host, diagnostic: diagnostic)
-            if last { self.launchNext() }
+            if last { self.identifyWeb(host: host, token: token) }
             else { self.probe(ip: ip, portIndex: portIndex + 1, host: host, results: results, token: token) }
         }
 
@@ -212,6 +211,85 @@ final class Scanner {
         }
         timers[id] = timer
         queue.asyncAfter(deadline: .now() + 1.5, execute: timer)
+        connection.start(queue: queue)
+    }
+
+    // Keep each host in its existing concurrency slot until application probes finish.
+    private func identifyWeb(host: HostResult?, token: UUID) {
+        guard token == generation else { return }
+        guard var host else {
+            completed += 1
+            emit()
+            launchNext()
+            return
+        }
+        host.webServices = []
+        let endpoints = (host.ports ?? []).filter { $0.state == .open }.flatMap { result in
+            [false, true].map { (port: result.port, tls: $0) }
+        }
+        func next(_ index: Int) {
+            guard token == self.generation else { return }
+            guard index < endpoints.count else {
+                self.completed += 1
+                self.emit(host: host)
+                self.launchNext()
+                return
+            }
+            let endpoint = endpoints[index]
+            self.probeWeb(ip: host.ip, port: endpoint.port, tls: endpoint.tls, token: token) { service in
+                if let service {
+                    host.webServices?.append(service)
+                    self.emit(host: host)
+                }
+                next(index + 1)
+            }
+        }
+        next(0)
+    }
+
+    private func probeWeb(ip: String, port: UInt16, tls: Bool, token: UUID,
+                          completion: @escaping (WebService?) -> Void) {
+        guard token == generation else { return }
+        let id = UUID()
+        let parameters = NWParameters(tls: tls ? NWProtocolTLS.Options() : nil, tcp: NWProtocolTCP.Options())
+        parameters.requiredInterfaceType = .wifi
+        let connection = NWConnection(host: NWEndpoint.Host(ip), port: NWEndpoint.Port(rawValue: port)!,
+                                      using: parameters)
+        active[id] = connection
+        var received = Data()
+        func finish(_ code: Int?) {
+            guard token == self.generation, self.active.removeValue(forKey: id) != nil else { return }
+            self.timers.removeValue(forKey: id)?.cancel()
+            connection.stateUpdateHandler = nil
+            connection.cancel()
+            completion(code.map { WebService(url: "\(tls ? "https" : "http")://\(ip):\(port)/", statusCode: $0) })
+        }
+        func receive() {
+            connection.receive(minimumIncompleteLength: 1, maximumLength: 2048) { data, _, complete, error in
+                guard token == self.generation, self.active[id] != nil else { return }
+                if let data { received.append(data) }
+                if let code = WebService.statusCode(in: received) { finish(code) }
+                else if received.count >= 2048 || received.range(of: Data("\r\n".utf8)) != nil || complete || error != nil {
+                    finish(nil)
+                } else { receive() }
+            }
+        }
+        connection.stateUpdateHandler = { state in
+            switch state {
+            case .ready:
+                // No cookies, credentials, response body download or redirect following.
+                let request = "HEAD / HTTP/1.1\r\nHost: \(ip):\(port)\r\nConnection: close\r\n\r\n"
+                connection.send(content: Data(request.utf8), completion: .contentProcessed { error in
+                    guard token == self.generation, self.active[id] != nil else { return }
+                    if error != nil { finish(nil) } else { receive() }
+                })
+            case .failed: finish(nil)
+            default: break
+            }
+        }
+        let timer = DispatchWorkItem { finish(nil) }
+        timers[id] = timer
+        queue.asyncAfter(deadline: .now() + 2, execute: timer)
         connection.start(queue: queue)
     }
 }

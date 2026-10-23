@@ -8,7 +8,25 @@ struct HostResult: Identifiable, Codable {
     let discoveredAt: Date
     var pingMilliseconds: Int? = nil
     var ports: [PortResult]? = nil
+    // nil means this historical host predates Web detection.
+    var webServices: [WebService]? = nil
     var id: String { ip }
+}
+
+struct WebService: Codable, Identifiable {
+    let url: String
+    let statusCode: Int
+    var id: String { url }
+
+    static func statusCode(in data: Data) -> Int? {
+        guard let end = data.range(of: Data("\r\n".utf8)), end.lowerBound <= 1024,
+              let line = String(data: data[..<end.lowerBound], encoding: .ascii) else { return nil }
+        let parts = line.split(separator: " ", omittingEmptySubsequences: false)
+        guard parts.count >= 3, ["HTTP/1.0", "HTTP/1.1"].contains(String(parts[0])),
+              parts[1].count == 3, parts[1].allSatisfy({ $0.isASCII && $0.isNumber }),
+              let code = Int(parts[1]), (100...599).contains(code) else { return nil }
+        return code
+    }
 }
 
 struct PortResult: Codable, Identifiable {
