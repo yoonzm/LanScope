@@ -6,23 +6,7 @@ struct ContentView: View {
     @State private var showingSettings = false
 
     var body: some View {
-        TabView {
-            scanView
-                .tabItem { Label("扫描", systemImage: "network") }
-            NavigationStack {
-                List {
-                    Section {
-                        Text(model.running ? "正在扫描…" : "显示本次扫描确认的 Web 服务")
-                            .font(.footnote).foregroundStyle(.secondary)
-                        Text("仅探测已配置的开放端口。未确认不代表没有 Web 服务；证书校验失败的 HTTPS 服务可能无法识别。")
-                            .font(.footnote).foregroundStyle(.secondary)
-                    }
-                    WebAssetsSection(hosts: model.hosts)
-                }
-                .navigationTitle("Web 资产")
-            }
-            .tabItem { Label("Web 资产", systemImage: "globe") }
-        }
+        scanView
         .onChange(of: scenePhase) { _, phase in
             if phase == .background { model.stop(background: true) }
         }
@@ -90,19 +74,7 @@ struct ContentView: View {
                     }
                 }
 
-                Section {
-                    if model.hosts.isEmpty {
-                        Text(model.running ? "正在扫描…" : "暂无已发现主机")
-                            .foregroundStyle(.secondary)
-                    }
-                    ForEach(model.hosts) { host in
-                        HostResultRow(host: host)
-                    }
-                } header: {
-                    Text("已发现主机")
-                } footer: {
-                    Text("Ping 与 TCP 耗时分别标注。未响应不代表离线；开启 ping 筛选会跳过不回应 ping 的设备。首次允许局域网权限后，请重新扫描。")
-                }
+                DiscoveredAssetsSection(hosts: model.hosts, running: model.running)
             }
             .navigationTitle("LanScope")
             .sheet(isPresented: $showingSettings) { AdvancedSettingsView(model: model) }
@@ -200,19 +172,7 @@ private struct ScanRecordView: View {
                     Text(diagnostic).font(.footnote).foregroundStyle(.orange)
                 }
             }
-            Section {
-                if record.hosts.isEmpty {
-                    Text("本次未发现有响应的主机").foregroundStyle(.secondary)
-                }
-                ForEach(record.hosts) { host in
-                    HostResultRow(host: host)
-                }
-            } header: {
-                Text("已发现主机（\(record.hosts.count)）")
-            } footer: {
-                Text("这是扫描当时的结果，不代表设备当前状态。未发现不代表离线；中断的扫描可能尚未检查完全部端口。")
-            }
-            WebAssetsSection(hosts: record.hosts)
+            DiscoveredAssetsSection(hosts: record.hosts, historical: true)
         }
         .navigationTitle("扫描结果")
         .navigationBarTitleDisplayMode(.inline)
@@ -252,17 +212,52 @@ private struct HostResultRow: View {
     }
 }
 
-private struct WebAssetsSection: View {
+private struct DiscoveredAssetsSection: View {
     let hosts: [HostResult]
+    var running = false
+    var historical = false
+    @State private var showingWeb = false
+
+    var body: some View {
+        Section {
+            Picker("资产类型", selection: $showingWeb) {
+                Text("IP").tag(false)
+                Text("Web").tag(true)
+            }
+            .pickerStyle(.segmented)
+            if showingWeb {
+                WebAssetRows(hosts: hosts, running: running)
+            } else {
+                if hosts.isEmpty {
+                    Text(running ? "正在扫描…" : "暂无已发现资产")
+                        .foregroundStyle(.secondary)
+                }
+                ForEach(hosts) { host in
+                    HostResultRow(host: host)
+                }
+            }
+        } header: {
+            Text("已发现资产")
+        } footer: {
+            if historical {
+                Text("这是扫描当时的结果，不代表设备当前状态。")
+            }
+        }
+    }
+}
+
+private struct WebAssetRows: View {
+    let hosts: [HostResult]
+    let running: Bool
 
     private var services: [WebService] {
         hosts.flatMap { $0.webServices ?? [] }
     }
 
     var body: some View {
-        Section("Web 服务（\(services.count)）") {
+        Group {
             if services.isEmpty {
-                Text("暂无已确认的 Web 资产").foregroundStyle(.secondary)
+                Text(running ? "正在扫描…" : "暂无已确认的 Web 资产").foregroundStyle(.secondary)
             }
             ForEach(services) { service in
                 if let url = URL(string: service.url) {
