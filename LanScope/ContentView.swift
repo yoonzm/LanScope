@@ -211,12 +211,12 @@ private struct HostResultRow: View {
                 }
             }
             if let ports = host.ports {
-                ForEach(ports.filter { $0.state == .open || $0.state == .closed }) { result in
+                ForEach(ports.filter { $0.state == .open }) { result in
                     Text("TCP \(result.port) · \(result.state.title) · \(result.milliseconds) ms")
                         .font(.subheadline)
                 }
-            } else if let port = host.port, let open = host.open {
-                Text("TCP \(port) · \(open ? "连接成功" : "连接被拒绝") · \(host.milliseconds) ms")
+            } else if let port = host.port, host.open == true {
+                Text("TCP \(port) · 连接成功 · \(host.milliseconds) ms")
                     .font(.subheadline)
             }
         }
