@@ -2,7 +2,11 @@ import Foundation
 
 struct ScanSettings: Codable, Equatable {
     var pingOnly = true
-    var ports: [UInt16] = [80, 443, 22, 445]
+    var ports: [UInt16] = [
+        21, 22, 80, 443, 445, 548, 631, 2049,
+        3000, 3306, 3389, 5000, 5001, 5432, 5900, 6379,
+        8000, 8080, 8081, 8123, 8443, 9000, 9090, 32400
+    ]
 
     var portsText: String { ports.map(String.init).joined(separator: ", ") }
 

@@ -23,7 +23,7 @@ struct AdvancedSettingsView: View {
                     Text("开启后先进行 ICMP ping，只有回应的设备才会扫描端口。关闭后直接探测所有目标的指定 TCP 端口。不回应 ping 不代表设备离线。")
                 }
                 Section {
-                    TextField("80, 443, 22, 445", text: $portsText, axis: .vertical)
+                    TextField(ScanSettings().portsText, text: $portsText, axis: .vertical)
                         .keyboardType(.numbersAndPunctuation)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()

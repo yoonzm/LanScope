@@ -18,6 +18,7 @@ final class Scanner {
     private var next = 0
     private var completed = 0
     private var active: [UUID: NWConnection] = [:]
+    private let connections = ProbeScheduler(limit: 64)
     private var pings: [UUID: PingProbe] = [:]
     private var timers: [UUID: DispatchWorkItem] = [:]
     private var monitor: NWPathMonitor?
@@ -45,6 +46,7 @@ final class Scanner {
 
     private func clear() {
         generation = UUID()
+        connections.cancel()
         monitor?.cancel()
         monitor = nil
         for timer in timers.values { timer.cancel() }
@@ -103,7 +105,7 @@ final class Scanner {
         next += 1
         let token = generation
         guard settings.pingOnly else {
-            probe(ip: ip, portIndex: 0, host: nil, token: token)
+            probePorts(ip: ip, host: nil, token: token)
             return
         }
         let id = UUID()
@@ -117,7 +119,7 @@ final class Scanner {
                 let host = HostResult(ip: ip, port: nil, open: nil, milliseconds: milliseconds,
                                       discoveredAt: Date(), pingMilliseconds: milliseconds, ports: [])
                 self.emit(host: host)
-                self.probe(ip: ip, portIndex: 0, host: host, token: token)
+                self.probePorts(ip: ip, host: host, token: token)
             case .timeout:
                 self.completed += 1
                 self.emit()
@@ -144,11 +146,38 @@ final class Scanner {
         callback?(update)
     }
 
-    private func probe(ip: String, portIndex: Int, host: HostResult?,
-                       results: [PortResult] = [], token: UUID) {
+    private func probePorts(ip: String, host: HostResult?, token: UUID) {
+        var host = host
+        let ports = settings.ports
+        var nextPort = 0
+        var finished = 0
+        var results: [UInt16: PortResult] = [:]
+        func launch() {
+            guard token == self.generation, nextPort < ports.count else { return }
+            let port = ports[nextPort]
+            nextPort += 1
+            self.connections.submit { id in
+                self.probe(ip: ip, port: port, id: id, token: token) { result, diagnostic in
+                    guard token == self.generation else { return }
+                    results[port] = result
+                    if host == nil, result.state == .open || result.state == .closed {
+                        host = HostResult(ip: ip, port: port, open: result.state == .open,
+                                          milliseconds: result.milliseconds, discoveredAt: Date())
+                    }
+                    host?.ports = ports.compactMap { results[$0] }
+                    finished += 1
+                    self.emit(host: host, diagnostic: diagnostic)
+                    if finished == ports.count { self.identifyWeb(host: host, token: token) }
+                    else { launch() }
+                }
+            }
+        }
+        for _ in 0..<min(4, ports.count) { launch() }
+    }
+
+    private func probe(ip: String, port: UInt16, id: UUID, token: UUID,
+                       completion: @escaping (PortResult, String?) -> Void) {
         guard token == generation else { return }
-        let id = UUID()
-        let port = settings.ports[portIndex]
         let parameters = NWParameters.tcp
         parameters.requiredInterfaceType = .wifi
         let connection = NWConnection(host: NWEndpoint.Host(ip), port: NWEndpoint.Port(rawValue: port)!, using: parameters)
@@ -162,17 +191,8 @@ final class Scanner {
             connection.stateUpdateHandler = nil
             connection.cancel()
             let milliseconds = Int((DispatchTime.now().uptimeNanoseconds - started) / 1_000_000)
-            let results = results + [PortResult(port: port, state: state, milliseconds: milliseconds)]
-            var host = host
-            if host == nil, state == .open || state == .closed {
-                host = HostResult(ip: ip, port: port, open: state == .open,
-                                  milliseconds: milliseconds, discoveredAt: Date())
-            }
-            host?.ports = results
-            let last = portIndex + 1 == self.settings.ports.count
-            self.emit(host: host, diagnostic: diagnostic)
-            if last { self.identifyWeb(host: host, token: token) }
-            else { self.probe(ip: ip, portIndex: portIndex + 1, host: host, results: results, token: token) }
+            self.connections.finish(id)
+            completion(PortResult(port: port, state: state, milliseconds: milliseconds), diagnostic)
         }
 
         connection.stateUpdateHandler = { state in
@@ -227,30 +247,47 @@ final class Scanner {
         let endpoints = (host.ports ?? []).filter { $0.state == .open }.flatMap { result in
             [false, true].map { (port: result.port, tls: $0) }
         }
-        func next(_ index: Int) {
+        var nextEndpoint = 0
+        var finished = 0
+        func launch() {
             guard token == self.generation else { return }
-            guard index < endpoints.count else {
-                self.completed += 1
-                self.emit(host: host)
-                self.launchNext()
-                return
-            }
-            let endpoint = endpoints[index]
+            guard nextEndpoint < endpoints.count else { return }
+            let endpoint = endpoints[nextEndpoint]
+            nextEndpoint += 1
             self.probeWeb(ip: host.ip, port: endpoint.port, tls: endpoint.tls, token: token) { service in
+                guard token == self.generation else { return }
                 if let service {
                     host.webServices?.append(service)
-                    self.emit(host: host)
+                    host.webServices?.sort { $0.url < $1.url }
                 }
-                next(index + 1)
+                finished += 1
+                if finished == endpoints.count { self.completed += 1 }
+                self.emit(host: host)
+                if finished == endpoints.count { self.launchNext() }
+                else { launch() }
             }
         }
-        next(0)
+        if endpoints.isEmpty {
+            completed += 1
+            emit(host: host)
+            launchNext()
+        } else {
+            for _ in 0..<min(4, endpoints.count) { launch() }
+        }
     }
 
     private func probeWeb(ip: String, port: UInt16, tls: Bool, token: UUID, fetchPage: Bool = false,
                           completion: @escaping (WebService?) -> Void) {
         guard token == generation else { return }
-        let id = UUID()
+        connections.submit { id in
+            self.startWeb(ip: ip, port: port, tls: tls, token: token, fetchPage: fetchPage,
+                          id: id, completion: completion)
+        }
+    }
+
+    private func startWeb(ip: String, port: UInt16, tls: Bool, token: UUID, fetchPage: Bool,
+                          id: UUID, completion: @escaping (WebService?) -> Void) {
+        guard token == generation else { return }
         let parameters = NWParameters(tls: tls ? NWProtocolTLS.Options() : nil, tcp: NWProtocolTCP.Options())
         parameters.requiredInterfaceType = .wifi
         let connection = NWConnection(host: NWEndpoint.Host(ip), port: NWEndpoint.Port(rawValue: port)!,
@@ -264,6 +301,7 @@ final class Scanner {
             self.timers.removeValue(forKey: id)?.cancel()
             connection.stateUpdateHandler = nil
             connection.cancel()
+            self.connections.finish(id)
             let service = WebService.response(in: received, url: url)
             if !fetchPage, let service {
                 self.probeWeb(ip: ip, port: port, tls: tls, token: token, fetchPage: true) { page in
