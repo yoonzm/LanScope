@@ -74,6 +74,45 @@ final class ScanHistoryTests: XCTestCase {
         XCTAssertNil(legacy.title)
         XCTAssertNil(legacy.server)
         XCTAssertNil(legacy.redirectURL)
+        XCTAssertNil(legacy.certificateTrusted)
+    }
+
+    func testHTTPSCertificateStatusRoundTrip() throws {
+        for trusted in [true, false] {
+            let service = WebService(url: "https://172.18.120.84:443/", statusCode: 200,
+                                     certificateTrusted: trusted)
+            let restored = try JSONDecoder().decode(WebService.self, from: JSONEncoder().encode(service))
+            XCTAssertEqual(restored.certificateTrusted, trusted)
+            XCTAssertEqual(restored.url, service.url)
+        }
+        let http = WebService.response(in: Data("HTTP/1.1 400 Bad Request\r\n\r\n".utf8),
+                                       url: "http://172.18.120.84:443/")
+        XCTAssertEqual(http?.statusCode, 400)
+        XCTAssertNil(http?.certificateTrusted)
+    }
+
+    func testExplicitHTTPToHTTPSMismatch() throws {
+        let page = "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html\r\n\r\n<html><head><title>400 The plain HTTP request was sent to HTTPS port</title></head><body>The plain HTTP request was sent to HTTPS port</body></html>"
+        for port in [443, 8443] {
+            let service = try XCTUnwrap(WebService.response(in: Data(page.utf8), url: "http://172.18.120.84:\(port)/"))
+            XCTAssertTrue(service.isHTTPToHTTPSMismatch)
+        }
+        let https = try XCTUnwrap(WebService.response(in: Data(page.utf8), url: "https://172.18.120.84:443/"))
+        XCTAssertFalse(https.isHTTPToHTTPSMismatch)
+        for code in [200, 401, 403, 404] {
+            let service = WebService(url: "http://172.18.120.84:443/", statusCode: code,
+                                     title: "400 The plain HTTP request was sent to HTTPS port")
+            XCTAssertFalse(service.isHTTPToHTTPSMismatch)
+        }
+        let titles: [String?] = [nil, "400 Bad Request", "Invalid request", "Help: The plain HTTP request was sent to HTTPS port"]
+        for title in titles {
+            let service = WebService(url: "http://172.18.120.84:443/", statusCode: 400, title: title)
+            XCTAssertFalse(service.isHTTPToHTTPSMismatch)
+        }
+        // HEAD has no page evidence. Do not drop it if the later GET fails.
+        let head = try XCTUnwrap(WebService.response(in: Data("HTTP/1.1 400 Bad Request\r\n\r\n".utf8),
+                                                   url: "http://172.18.120.84:443/"))
+        XCTAssertFalse(head.isHTTPToHTTPSMismatch)
     }
 
     func testChunkedAndIncompletePages() throws {

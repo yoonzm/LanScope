@@ -1,5 +1,6 @@
 import Foundation
 import Network
+import Security
 
 struct ScanUpdate {
     let completed: Int
@@ -256,7 +257,7 @@ final class Scanner {
             nextEndpoint += 1
             self.probeWeb(ip: host.ip, port: endpoint.port, tls: endpoint.tls, token: token) { service in
                 guard token == self.generation else { return }
-                if let service {
+                if let service, !service.isHTTPToHTTPSMismatch {
                     host.webServices?.append(service)
                     host.webServices?.sort { $0.url < $1.url }
                 }
@@ -288,7 +289,36 @@ final class Scanner {
     private func startWeb(ip: String, port: UInt16, tls: Bool, token: UUID, fetchPage: Bool,
                           id: UUID, completion: @escaping (WebService?) -> Void) {
         guard token == generation else { return }
-        let parameters = NWParameters(tls: tls ? NWProtocolTLS.Options() : nil, tcp: NWProtocolTCP.Options())
+        let tlsOptions = tls ? NWProtocolTLS.Options() : nil
+        var certificateTrusted: Bool?
+        if let tlsOptions {
+            sec_protocol_options_set_verify_block(tlsOptions.securityProtocolOptions, { [weak self] _, trust, verify in
+                guard let self, self.generation == token, self.active[id] != nil else {
+                    verify(false)
+                    return
+                }
+                let securityTrust = sec_trust_copy_ref(trust).takeRetainedValue()
+                // Evaluate the scanned IP locally, without fetching certificates over other routes.
+                let policyStatus = SecTrustSetPolicies(securityTrust, SecPolicyCreateSSL(true, ip as CFString))
+                let fetchStatus = SecTrustSetNetworkFetchAllowed(securityTrust, false)
+                guard policyStatus == errSecSuccess, fetchStatus == errSecSuccess else {
+                    verify(true)
+                    return
+                }
+                let evaluationStatus = SecTrustEvaluateAsyncWithError(securityTrust, self.queue) { [weak self] _, trusted, _ in
+                    guard let self, self.generation == token, self.active[id] != nil else {
+                        verify(false)
+                        return
+                    }
+                    certificateTrusted = trusted
+                    // Discovery only: keep TLS encryption but permit an untrusted peer certificate.
+                    // A valid HTTP response is still required before creating a Web asset.
+                    verify(true)
+                }
+                if evaluationStatus != errSecSuccess { verify(true) }
+            }, queue)
+        }
+        let parameters = NWParameters(tls: tlsOptions, tcp: NWProtocolTCP.Options())
         parameters.requiredInterfaceType = .wifi
         let connection = NWConnection(host: NWEndpoint.Host(ip), port: NWEndpoint.Port(rawValue: port)!,
                                       using: parameters)
@@ -302,11 +332,13 @@ final class Scanner {
             connection.stateUpdateHandler = nil
             connection.cancel()
             self.connections.finish(id)
-            let service = WebService.response(in: received, url: url)
+            var service = WebService.response(in: received, url: url)
+            service?.certificateTrusted = certificateTrusted
             if !fetchPage, let service {
                 self.probeWeb(ip: ip, port: port, tls: tls, token: token, fetchPage: true) { page in
                     guard var page else { completion(service); return }
                     page.server = page.server ?? service.server
+                    page.certificateTrusted = page.certificateTrusted ?? service.certificateTrusted
                     completion(page)
                 }
             } else { completion(service) }

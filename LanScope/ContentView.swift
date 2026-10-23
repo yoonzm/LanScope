@@ -286,6 +286,10 @@ private struct WebAssetRows: View {
                             if let server = service.server {
                                 Text("服务器：\(server)").font(.caption).foregroundStyle(.secondary)
                             }
+                            if service.certificateTrusted == false {
+                                Label("证书校验未通过", systemImage: "exclamationmark.shield")
+                                    .font(.caption).foregroundStyle(.orange)
+                            }
                             if let redirect = service.redirectURL {
                                 Text("跳转至：\(redirect)").font(.caption).foregroundStyle(.secondary)
                                     .lineLimit(2)

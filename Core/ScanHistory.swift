@@ -19,7 +19,18 @@ struct WebService: Codable, Identifiable {
     var title: String? = nil
     var server: String? = nil
     var redirectURL: String? = nil
+    // nil for HTTP, older records, or when no trust evaluation result is available.
+    var certificateTrusted: Bool? = nil
     var id: String { url }
+
+    // Match the explicit nginx error page, not every HTTP 400 or port 443.
+    var isHTTPToHTTPSMismatch: Bool {
+        guard statusCode == 400, URL(string: url)?.scheme?.lowercased() == "http",
+              let title else { return false }
+        let normalized = title.split(whereSeparator: { $0.isWhitespace }).joined(separator: " ").lowercased()
+        let message = "the plain http request was sent to https port"
+        return normalized == message || normalized == "400 " + message
+    }
 
     static func response(in data: Data, url: String) -> WebService? {
         guard let code = statusCode(in: data) else { return nil }
