@@ -24,6 +24,8 @@ final class Scanner {
     private var addresses: [String] = []
     private var next = 0
     private var completed = 0
+    // Addresses whose probing fully finished; a suspended scan resumes with the rest.
+    private var done = Set<String>()
     private var active: [UUID: NWConnection] = [:]
     private let connections = ProbeScheduler(limit: 64)
     private var pings: [UUID: PingProbe] = [:]
@@ -37,12 +39,14 @@ final class Scanner {
     private var lookedUp = Set<String>()
     private var bonjourStop: DispatchWorkItem?
 
-    func start(addresses: [String], settings: ScanSettings, update: @escaping (ScanUpdate) -> Void) {
+    func start(addresses: [String], settings: ScanSettings, done: Set<String> = [],
+               update: @escaping (ScanUpdate) -> Void) {
         queue.async {
             self.clear()
             self.addresses = addresses
             self.settings = settings
             self.next = 0
+            self.done = done
             self.completed = 0
             self.callback = update
             guard !addresses.isEmpty, !settings.ports.isEmpty else {
@@ -55,6 +59,19 @@ final class Scanner {
     }
 
     func cancel() { queue.async { self.clear() } }
+
+    // Stops probing and hands back the addresses that already finished, for a later resume.
+    func suspend(completion: @escaping (Set<String>) -> Void) {
+        queue.async {
+            let snapshot = self.done
+            self.clear()
+            DispatchQueue.main.async { completion(snapshot) }
+        }
+    }
+
+    private func markDone(_ ip: String) {
+        if done.insert(ip).inserted { completed += 1 }
+    }
 
     private func clear() {
         generation = UUID()
@@ -97,6 +114,12 @@ final class Scanner {
             self.emit()
             // A /32 targeting this device has no remote hosts to scan.
             guard !self.addresses.isEmpty else { return }
+            self.done.formIntersection(self.addresses)
+            self.completed = self.done.count
+            if self.completed == self.addresses.count {
+                self.emit()
+                return
+            }
             self.addressSet = Set(self.addresses)
             self.startBonjour(token: token)
             self.launchBatch()
@@ -119,6 +142,7 @@ final class Scanner {
     }
 
     private func launchNext() {
+        while next < addresses.count, done.contains(addresses[next]) { next += 1 }
         guard next < addresses.count else { return }
         let ip = addresses[next]
         next += 1
@@ -140,7 +164,7 @@ final class Scanner {
                 self.emit(host: host)
                 self.probePorts(ip: ip, host: host, token: token)
             case .timeout:
-                self.completed += 1
+                self.markDone(ip)
                 self.emit()
                 self.queue.async { [weak self] in
                     guard let self, self.generation == token else { return }
@@ -219,7 +243,7 @@ final class Scanner {
                     host?.ports = ports.compactMap { results[$0] }
                     finished += 1
                     self.emit(host: host, diagnostic: diagnostic)
-                    if finished == ports.count { self.identifyWeb(host: host, token: token) }
+                    if finished == ports.count { self.identifyWeb(ip: ip, host: host, token: token) }
                     else { launch() }
                 }
             }
@@ -287,10 +311,10 @@ final class Scanner {
     }
 
     // Keep each host in its existing concurrency slot until application probes finish.
-    private func identifyWeb(host: HostResult?, token: UUID) {
+    private func identifyWeb(ip: String, host: HostResult?, token: UUID) {
         guard token == generation else { return }
         guard var host else {
-            completed += 1
+            markDone(ip)
             emit()
             launchNext()
             return
@@ -313,14 +337,14 @@ final class Scanner {
                     host.webServices?.sort { $0.url < $1.url }
                 }
                 finished += 1
-                if finished == endpoints.count { self.completed += 1 }
+                if finished == endpoints.count { self.markDone(host.ip) }
                 self.emit(host: host)
                 if finished == endpoints.count { self.launchNext() }
                 else { launch() }
             }
         }
         if endpoints.isEmpty {
-            completed += 1
+            markDone(host.ip)
             emit(host: host)
             launchNext()
         } else {
