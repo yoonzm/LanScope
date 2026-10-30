@@ -225,21 +225,27 @@ final class ScanViewModel: ObservableObject {
 
     func stop(background: Bool = false) {
         guard running else { return }
+        if background, let network = scanNetwork {
+            // Results queued before the snapshot reach the main queue first, so keep accepting
+            // updates until it arrives; the retained hosts then match the completed addresses.
+            let current = session
+            let cidr = scanCIDR, wifiName = scanWiFiName
+            scanner.suspend { [weak self] done in
+                guard let self, self.session == current, self.running else { return }
+                self.saveHistory(outcome: .background)
+                self.session = UUID()
+                self.running = false
+                self.pausedScan = PausedScan(cidr: cidr, network: network, wifiName: wifiName, done: done)
+                self.status = "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。"
+            }
+            return
+        }
         saveHistory(outcome: background ? .background : .stopped)
         session = UUID()
         running = false
-        if background, let network = scanNetwork {
-            let cidr = scanCIDR, wifiName = scanWiFiName
-            scanner.suspend { [weak self] done in
-                guard let self, !self.running else { return }
-                self.pausedScan = PausedScan(cidr: cidr, network: network, wifiName: wifiName, done: done)
-            }
-            status = "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。"
-        } else {
-            pausedScan = nil
-            scanner.cancel()
-            status = background ? "进入后台，扫描已停止；已发现结果保留。" : "扫描已停止；已发现结果保留。"
-        }
+        pausedScan = nil
+        scanner.cancel()
+        status = background ? "进入后台，扫描已停止；已发现结果保留。" : "扫描已停止；已发现结果保留。"
     }
 
     private static func snapshot(_ network: WiFiNetwork) -> NetworkSnapshot {
