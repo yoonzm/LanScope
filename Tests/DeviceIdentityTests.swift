@@ -41,7 +41,8 @@ final class DeviceIdentityTests: XCTestCase {
         XCTAssertEqual(DeviceIdentity.fromTXT(["model": "iPhone15,2"]).model, "iPhone15,2")
         XCTAssertNil(DeviceIdentity.fromTXT([:]).name)
         let identity = DeviceIdentity(hostname: "Yins-Mac", names: ["Yin 的 Mac"], model: "Mac14,2")
-        XCTAssertEqual(identity.summary, "Mac · Mac14,2 · Yins-Mac")
+        XCTAssertEqual(identity.summary, "Mac · Mac14,2")
+        XCTAssertNil(DeviceIdentity(hostname: "tv").summary)
     }
 
     func testLegacyHostHasNoIdentityAndIdentityRoundTrips() throws {

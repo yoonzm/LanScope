@@ -201,9 +201,6 @@ private struct HostResultRow: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text(host.ip).font(.headline).monospaced()
-                if let name = host.identity?.displayName {
-                    Text(name).font(.subheadline).lineLimit(1)
-                }
                 if !(host.webServices ?? []).isEmpty {
                     Text("Web").font(.caption).foregroundStyle(.blue)
                 }
@@ -216,20 +213,36 @@ private struct HostResultRow: View {
                         .accessibilityLabel("Ping 耗时 \(ping) 毫秒")
                 }
             }
+            if let name = host.identity?.displayName {
+                Text(name).font(.subheadline).lineLimit(2)
+            }
             if let summary = host.identity?.summary {
                 Text(summary).font(.caption).foregroundStyle(.secondary)
             }
-            if let ports = host.ports {
-                ForEach(ports.filter { $0.state == .open }) { result in
-                    Text("TCP \(result.port) · \(result.state.title) · \(result.milliseconds) ms")
+            // String(port) avoids locale grouping such as "5,000" in port numbers.
+            let openPorts = (host.ports ?? []).filter { $0.state == .open }
+            if host.ports != nil {
+                ForEach(openPorts) { result in
+                    Text("TCP \(String(result.port)) · \(result.state.title) · \(result.milliseconds) ms")
                         .font(.subheadline)
                 }
             } else if let port = host.port, host.open == true {
-                Text("TCP \(port) · 连接成功 · \(host.milliseconds) ms")
+                Text("TCP \(String(port)) · 连接成功 · \(host.milliseconds) ms")
                     .font(.subheadline)
+            }
+            if let hint = emptyHint(openPorts: openPorts) {
+                Text(hint).font(.caption).foregroundStyle(.secondary)
             }
         }
         .padding(.vertical, 4)
+    }
+
+    // Explain rows that would otherwise show nothing below the address.
+    private func emptyHint(openPorts: [PortResult]) -> String? {
+        guard openPorts.isEmpty, host.ports != nil, host.open != true else { return nil }
+        if host.pingMilliseconds != nil { return "仅响应 Ping，未发现开放端口" }
+        if host.identity != nil { return "仅通过 Bonjour 发现，未发现开放端口" }
+        return nil
     }
 }
 
