@@ -31,6 +31,7 @@ final class ScanViewModel: ObservableObject {
     private let scanner = Scanner()
     private var session = UUID()
     private let networkMonitor = NWPathMonitor(requiredInterfaceType: .wifi)
+    private var identities: [String: DeviceIdentity] = [:]
     private var hasEditedCIDR = false
     private var initialDetectionFinished = false
 
@@ -103,6 +104,7 @@ final class ScanViewModel: ObservableObject {
             let range = try IPv4Range(cidr)
             cidr = range.canonicalCIDR
             hosts = []
+            identities = [:]
             completed = 0
             total = range.addresses.count
             diagnostic = nil
@@ -134,14 +136,8 @@ final class ScanViewModel: ObservableObject {
                 guard let self, self.session == current, self.running else { return }
                 self.completed = update.completed
                 self.total = update.total
-                if let host = update.host {
-                    if let index = self.hosts.firstIndex(where: { $0.ip == host.ip }) {
-                        self.hosts[index] = host
-                    } else { self.hosts.append(host) }
-                    self.hosts.sort {
-                        (IPv4Range.number($0.ip) ?? 0) < (IPv4Range.number($1.ip) ?? 0)
-                    }
-                }
+                if let host = update.host { self.upsert(host) }
+                if let item = update.identity { self.applyIdentity(item) }
                 if let diagnostic = update.diagnostic { self.diagnostic = diagnostic }
                 if update.finished {
                     self.running = false
@@ -159,6 +155,29 @@ final class ScanViewModel: ObservableObject {
                     }
                 }
             }
+        }
+    }
+
+    // Scanner results replace a whole host, so identity hints are re-attached from the side table.
+    private func upsert(_ host: HostResult) {
+        var host = host
+        host.identity = identities[host.ip]
+        if let index = hosts.firstIndex(where: { $0.ip == host.ip }) {
+            hosts[index] = host
+        } else { hosts.append(host) }
+        hosts.sort { (IPv4Range.number($0.ip) ?? 0) < (IPv4Range.number($1.ip) ?? 0) }
+    }
+
+    private func applyIdentity(_ item: HostIdentityUpdate) {
+        var merged = identities[item.ip] ?? DeviceIdentity()
+        merged.merge(item.identity)
+        identities[item.ip] = merged
+        if let index = hosts.firstIndex(where: { $0.ip == item.ip }) {
+            hosts[index].identity = merged
+        } else {
+            // Devices that ignore ping and the probed ports can still announce themselves over Bonjour.
+            upsert(HostResult(ip: item.ip, port: nil, open: nil, milliseconds: 0,
+                              discoveredAt: Date(), ports: []))
         }
     }
 

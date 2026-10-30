@@ -10,6 +10,8 @@ struct HostResult: Identifiable, Codable {
     var ports: [PortResult]? = nil
     // nil means this historical host predates Web detection.
     var webServices: [WebService]? = nil
+    // Name and type hints from Bonjour / reverse DNS; nil for older records.
+    var identity: DeviceIdentity? = nil
     var id: String { ip }
 }
 

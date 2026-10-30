@@ -198,6 +198,9 @@ private struct HostResultRow: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text(host.ip).font(.headline).monospaced()
+                if let name = host.identity?.displayName {
+                    Text(name).font(.subheadline).lineLimit(1)
+                }
                 if !(host.webServices ?? []).isEmpty {
                     Text("Web").font(.caption).foregroundStyle(.blue)
                 }
@@ -209,6 +212,9 @@ private struct HostResultRow: View {
                         .fixedSize()
                         .accessibilityLabel("Ping 耗时 \(ping) 毫秒")
                 }
+            }
+            if let summary = host.identity?.summary {
+                Text(summary).font(.caption).foregroundStyle(.secondary)
             }
             if let ports = host.ports {
                 ForEach(ports.filter { $0.state == .open }) { result in

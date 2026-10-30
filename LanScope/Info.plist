@@ -14,7 +14,9 @@
     <key>LSRequiresIPhoneOS</key><true/>
     <key>ITSAppUsesNonExemptEncryption</key><false/>
     <key>NSLocalNetworkUsageDescription</key>
-    <string>用于通过 Wi-Fi 探测你指定的局域网地址，并在本机显示有响应的设备。</string>
+    <string>用于通过 Wi-Fi 探测你指定的局域网地址，并通过 Bonjour 和主机名读取设备名称与类型，在本机显示有响应的设备。</string>
+    <key>NSBonjourServices</key>
+    <array><string>_airplay._tcp</string><string>_raop._tcp</string><string>_googlecast._tcp</string><string>_androidtvremote2._tcp</string><string>_mediaremotetv._tcp</string><string>_companion-link._tcp</string><string>_rdlink._tcp</string><string>_device-info._tcp</string><string>_homekit._tcp</string><string>_hap._tcp</string><string>_smb._tcp</string><string>_afpovertcp._tcp</string><string>_workstation._tcp</string><string>_ipp._tcp</string><string>_printer._tcp</string><string>_spotify-connect._tcp</string><string>_http._tcp</string><string>_ssh._tcp</string></array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>用于读取当前 Wi-Fi 名称并保存到扫描历史，不收集或保存你的位置。允许精确位置后可显示 Wi-Fi 名称，拒绝不影响扫描。</string>
     <key>UIApplicationSceneManifest</key>
