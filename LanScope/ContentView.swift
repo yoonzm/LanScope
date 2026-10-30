@@ -199,20 +199,7 @@ private struct HostResultRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(host.ip).font(.headline).monospaced()
-                if !(host.webServices ?? []).isEmpty {
-                    Text("Web").font(.caption).foregroundStyle(.blue)
-                }
-                Spacer()
-                if let ping = host.pingMilliseconds {
-                    Text("\(ping) ms")
-                        .font(.subheadline).monospacedDigit()
-                        .foregroundStyle(.secondary)
-                        .fixedSize()
-                        .accessibilityLabel("Ping 耗时 \(ping) 毫秒")
-                }
-            }
+            Text(host.ip).font(.headline).monospaced()
             if let name = host.identity?.displayName {
                 Text(name).font(.subheadline).lineLimit(2)
             }
@@ -223,11 +210,11 @@ private struct HostResultRow: View {
             let openPorts = (host.ports ?? []).filter { $0.state == .open }
             if host.ports != nil {
                 ForEach(openPorts) { result in
-                    Text("TCP \(String(result.port)) · \(result.state.title) · \(result.milliseconds) ms")
+                    Text("TCP \(String(result.port))")
                         .font(.subheadline)
                 }
             } else if let port = host.port, host.open == true {
-                Text("TCP \(String(port)) · 连接成功 · \(host.milliseconds) ms")
+                Text("TCP \(String(port))")
                     .font(.subheadline)
             }
             if let hint = emptyHint(openPorts: openPorts) {
