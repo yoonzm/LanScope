@@ -8,6 +8,12 @@ struct ScanUpdate {
     let host: HostResult?
     let diagnostic: String?
     let finished: Bool
+    var identity: HostIdentityUpdate? = nil
+}
+
+struct HostIdentityUpdate {
+    let ip: String
+    let identity: DeviceIdentity
 }
 
 // All mutable scan state, sockets and callbacks are confined to this queue.
@@ -25,6 +31,11 @@ final class Scanner {
     private var monitor: NWPathMonitor?
     private var interface = ""
     private var callback: ((ScanUpdate) -> Void)?
+    private let bonjour = BonjourDiscovery()
+    private let nameLookups = DispatchQueue(label: "LanScope.reverse-dns", attributes: .concurrent)
+    private var addressSet = Set<String>()
+    private var lookedUp = Set<String>()
+    private var bonjourStop: DispatchWorkItem?
 
     func start(addresses: [String], settings: ScanSettings, update: @escaping (ScanUpdate) -> Void) {
         queue.async {
@@ -56,6 +67,11 @@ final class Scanner {
             connection.stateUpdateHandler = nil
             connection.cancel()
         }
+        bonjour.stop()
+        bonjourStop?.cancel()
+        bonjourStop = nil
+        lookedUp.removeAll()
+        addressSet.removeAll()
         timers.removeAll()
         pings.removeAll()
         active.removeAll()
@@ -81,6 +97,8 @@ final class Scanner {
             self.emit()
             // A /32 targeting this device has no remote hosts to scan.
             guard !self.addresses.isEmpty else { return }
+            self.addressSet = Set(self.addresses)
+            self.startBonjour(token: token)
             self.launchBatch()
         }
         let timeout = DispatchWorkItem { [weak self] in
@@ -135,8 +153,41 @@ final class Scanner {
     }
 
     private func emit(host: HostResult? = nil, diagnostic: String? = nil) {
+        if let host { lookUpName(ip: host.ip) }
         callback?(ScanUpdate(completed: completed, total: addresses.count, host: host,
                              diagnostic: diagnostic, finished: completed == addresses.count))
+        if completed == addresses.count { bonjour.stop() }
+    }
+
+    private func emit(identity: HostIdentityUpdate) {
+        guard completed < addresses.count else { return }
+        callback?(ScanUpdate(completed: completed, total: addresses.count, host: nil,
+                             diagnostic: nil, finished: false, identity: identity))
+    }
+
+    // Bonjour only needs a few seconds; the browser also stops when the scan finishes.
+    private func startBonjour(token: UUID) {
+        bonjour.start { [weak self] ip, identity in
+            self?.queue.async {
+                guard let self, self.generation == token, self.addressSet.contains(ip) else { return }
+                self.emit(identity: HostIdentityUpdate(ip: ip, identity: identity))
+            }
+        }
+        let stop = DispatchWorkItem { [weak self] in self?.bonjour.stop() }
+        bonjourStop = stop
+        queue.asyncAfter(deadline: .now() + 25, execute: stop)
+    }
+
+    private func lookUpName(ip: String) {
+        guard lookedUp.insert(ip).inserted else { return }
+        let token = generation
+        nameLookups.async { [weak self] in
+            guard let name = ReverseDNS.lookup(ip) else { return }
+            self?.queue.async {
+                guard let self, self.generation == token else { return }
+                self.emit(identity: HostIdentityUpdate(ip: ip, identity: DeviceIdentity(hostname: name)))
+            }
+        }
     }
 
     private func abort(_ diagnostic: String) {
