@@ -19,12 +19,12 @@ struct DeviceIdentity: Codable, Equatable {
         return nil
     }
 
-    // Secondary line: type, model and the host name when it adds information.
+    // Secondary line: type and model. The host name is omitted; it is the title when no name exists
+    // and otherwise only repeats the friendly name in another spelling.
     var summary: String? {
         var parts: [String] = []
         if let kind { parts.append(kind) }
         if let model, model != kind { parts.append(model) }
-        if let hostname, hostname != displayName { parts.append(hostname) }
         return parts.isEmpty ? nil : parts.joined(separator: " · ")
     }
 

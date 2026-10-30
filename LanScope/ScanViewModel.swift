@@ -2,6 +2,20 @@ import Foundation
 import Combine
 import Network
 
+// Path updates may repeat; only the first one may resume the continuation.
+private final class OneShot: @unchecked Sendable {
+    private let lock = NSLock()
+    private var fired = false
+
+    func fire() -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        if fired { return false }
+        fired = true
+        return true
+    }
+}
+
 private struct PausedScan {
     let cidr: String
     let network: NetworkSnapshot
@@ -139,7 +153,7 @@ final class ScanViewModel: ObservableObject {
                 let network = await currentNetwork()
                 guard session == current, running else { return }
                 scanWiFiName = name
-                scanNetwork = network
+                scanNetwork = network.map(Self.snapshot)
                 startedAt = Date()
                 beginScan(range: range, session: current)
             }
@@ -255,10 +269,9 @@ final class ScanViewModel: ObservableObject {
     private func currentNetwork() async -> WiFiNetwork? {
         await withCheckedContinuation { continuation in
             let monitor = NWPathMonitor(requiredInterfaceType: .wifi)
-            var finished = false
+            let finished = OneShot()
             monitor.pathUpdateHandler = { path in
-                guard !finished else { return }
-                finished = true
+                guard finished.fire() else { return }
                 monitor.cancel()
                 continuation.resume(returning: WiFiNetwork.current(path: path))
             }
