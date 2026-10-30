@@ -43,7 +43,10 @@ struct ContentView: View {
                     if let message = model.networkMessage {
                         Text(message).font(.footnote).foregroundStyle(.secondary)
                     }
-                    Button(model.running ? "停止扫描" : "开始扫描",
+                    if model.canResume {
+                        Button("继续扫描", systemImage: "play.circle.fill") { model.resume() }
+                    }
+                    Button(model.running ? "停止扫描" : (model.canResume ? "重新开始扫描" : "开始扫描"),
                            systemImage: model.running ? "stop.circle.fill" : "antenna.radiowaves.left.and.right") {
                         if model.running { model.stop() } else { model.start() }
                     }

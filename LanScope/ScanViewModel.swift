@@ -2,12 +2,20 @@ import Foundation
 import Combine
 import Network
 
+private struct PausedScan {
+    let cidr: String
+    let network: NetworkSnapshot
+    let wifiName: String?
+    let done: Set<String>
+}
+
 @MainActor
 final class ScanViewModel: ObservableObject {
     @Published var cidr = "" {
         didSet {
             hasEditedCIDR = true
             networkMessage = nil
+            if cidr != pausedScan?.cidr { pausedScan = nil }
         }
     }
     @Published private(set) var networkMessage: String?
@@ -21,12 +29,17 @@ final class ScanViewModel: ObservableObject {
     @Published private(set) var history: [ScanRecord] = []
     @Published private(set) var historyError: String?
     @Published private(set) var settings = ScanSettings()
+    // Set while a scan paused by the app going to the background can still continue.
+    @Published private var pausedScan: PausedScan?
+    var canResume: Bool { pausedScan != nil && !running }
     private let settingsStore = ScanSettingsStore()
     private var scanSettings = ScanSettings()
     private let historyStore = ScanHistoryStore()
     private var startedAt = Date()
     private var scanCIDR = ""
     private var scanWiFiName: String?
+    private var scanNetwork: NetworkSnapshot?
+    private var recordID = UUID()
     private lazy var wifiNameReader = WiFiNameReader()
     private let scanner = Scanner()
     private var session = UUID()
@@ -87,11 +100,12 @@ final class ScanViewModel: ObservableObject {
 
     private func saveHistory(outcome: ScanRecord.Outcome) {
         guard completed > 0 || !hosts.isEmpty else { return }
-        let record = ScanRecord(id: session, startedAt: startedAt, endedAt: Date(),
+        let record = ScanRecord(id: recordID, startedAt: startedAt, endedAt: Date(),
                                 cidr: scanCIDR, wifiName: scanWiFiName, outcome: outcome,
                                 completed: completed, total: total, hosts: hosts,
                                 diagnostic: diagnostic, settings: scanSettings)
-        history = historyStore.recent([record] + history)
+        // A resumed scan keeps its record id so the paused snapshot is replaced, not duplicated.
+        history = historyStore.recent([record] + history.filter { $0.id != record.id })
         do {
             try historyStore.save(history)
             historyError = nil
@@ -112,15 +126,20 @@ final class ScanViewModel: ObservableObject {
             scanSettings = settings
             status = "正在扫描…"
             session = UUID()
+            recordID = UUID()
+            pausedScan = nil
             startedAt = Date()
             scanCIDR = range.canonicalCIDR
             scanWiFiName = nil
+            scanNetwork = nil
             let current = session
             Task {
                 guard session == current, running else { return }
                 let name = await wifiNameReader.currentName()
+                let network = await currentNetwork()
                 guard session == current, running else { return }
                 scanWiFiName = name
+                scanNetwork = network
                 startedAt = Date()
                 beginScan(range: range, session: current)
             }
@@ -129,9 +148,9 @@ final class ScanViewModel: ObservableObject {
         }
     }
 
-    private func beginScan(range: IPv4Range, session current: UUID) {
+    private func beginScan(range: IPv4Range, session current: UUID, done: Set<String> = []) {
         status = "正在扫描…"
-        scanner.start(addresses: range.addresses, settings: scanSettings) { [weak self] update in
+        scanner.start(addresses: range.addresses, settings: scanSettings, done: done) { [weak self] update in
             DispatchQueue.main.async {
                 guard let self, self.session == current, self.running else { return }
                 self.completed = update.completed
@@ -181,12 +200,63 @@ final class ScanViewModel: ObservableObject {
         }
     }
 
+    // Continue a scan paused in the background, but only if the Wi-Fi environment is unchanged.
+    func resume() {
+        guard !running, let paused = pausedScan, let range = try? IPv4Range(paused.cidr) else { return }
+        running = true
+        status = "正在检查网络…"
+        session = UUID()
+        let current = session
+        Task {
+            let name = await wifiNameReader.currentName()
+            let network = await currentNetwork()
+            guard session == current, running else { return }
+            guard ScanResume.canResume(paused: paused.network, current: network.map(Self.snapshot),
+                                       pausedWiFi: paused.wifiName, currentWiFi: name) else {
+                running = false
+                pausedScan = nil
+                status = "网络已变化，无法继续扫描；已保留之前的结果，请确认网段后重新开始。"
+                return
+            }
+            pausedScan = nil
+            beginScan(range: range, session: current, done: paused.done)
+        }
+    }
+
     func stop(background: Bool = false) {
         guard running else { return }
         saveHistory(outcome: background ? .background : .stopped)
         session = UUID()
-        scanner.cancel()
         running = false
-        status = background ? "进入后台，扫描已停止；已发现结果保留。" : "扫描已停止；已发现结果保留。"
+        if background, let network = scanNetwork {
+            let cidr = scanCIDR, wifiName = scanWiFiName
+            scanner.suspend { [weak self] done in
+                guard let self, !self.running else { return }
+                self.pausedScan = PausedScan(cidr: cidr, network: network, wifiName: wifiName, done: done)
+            }
+            status = "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。"
+        } else {
+            pausedScan = nil
+            scanner.cancel()
+            status = background ? "进入后台，扫描已停止；已发现结果保留。" : "扫描已停止；已发现结果保留。"
+        }
+    }
+
+    private static func snapshot(_ network: WiFiNetwork) -> NetworkSnapshot {
+        NetworkSnapshot(interface: network.interface, address: network.address, cidr: network.cidr)
+    }
+
+    private func currentNetwork() async -> WiFiNetwork? {
+        await withCheckedContinuation { continuation in
+            let monitor = NWPathMonitor(requiredInterfaceType: .wifi)
+            var finished = false
+            monitor.pathUpdateHandler = { path in
+                guard !finished else { return }
+                finished = true
+                monitor.cancel()
+                continuation.resume(returning: WiFiNetwork.current(path: path))
+            }
+            monitor.start(queue: DispatchQueue(label: "LanScope.network.check"))
+        }
     }
 }
