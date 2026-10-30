@@ -144,6 +144,26 @@ final class ScanHistoryTests: XCTestCase {
         XCTAssertNil(WebService.response(in: redirect, url: url)?.redirectURL)
     }
 
+    func testOnlyBrowsablePagesAreMarkedAsWebPages() throws {
+        let url = "http://192.168.31.76:5000/"
+        func page(_ response: String) throws -> Bool? {
+            try XCTUnwrap(WebService.response(in: Data(response.utf8), url: url)).isPage
+        }
+        XCTAssertEqual(try page("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n"), true)
+        XCTAssertEqual(try page("HTTP/1.1 200 OK\r\n\r\n<!DOCTYPE html><body>hi</body>"), true)
+        XCTAssertEqual(try page("HTTP/1.1 302 Found\r\nLocation: /login\r\n\r\n"), true)
+        XCTAssertEqual(try page("HTTP/1.1 401 Unauthorized\r\nWWW-Authenticate: Basic realm=\"x\"\r\n\r\n"), true)
+        XCTAssertEqual(try page("HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<title>Not Found</title>"), true)
+        XCTAssertEqual(try page("HTTP/1.1 403 Forbidden\r\nServer: AirTunes/870.14.1\r\nContent-Length: 0\r\n\r\n"), false)
+        XCTAssertEqual(try page("HTTP/1.1 200 OK\r\nServer: AirTunes/870.14.1\r\nContent-Type: text/html\r\n\r\n<title>x</title>"), false)
+        XCTAssertEqual(try page("HTTP/1.1 404 Not Found\r\nContent-Type: application/json\r\n\r\n{}"), false)
+        XCTAssertEqual(try page("HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{}"), false)
+        XCTAssertEqual(try page("HTTP/1.1 401 Unauthorized\r\n\r\n"), false)
+        XCTAssertEqual(try page("HTTP/1.1 403 Forbidden\r\n\r\n"), false)
+        let legacy = try JSONDecoder().decode(WebService.self, from: Data("{\"url\":\"http://192.168.41.1/\",\"statusCode\":403}".utf8))
+        XCTAssertNil(legacy.isPage)
+    }
+
     func testPersistenceRetentionAndDeletion() throws {
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: directory) }

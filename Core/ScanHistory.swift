@@ -21,6 +21,8 @@ struct WebService: Codable, Identifiable {
     var redirectURL: String? = nil
     // nil for HTTP, older records, or when no trust evaluation result is available.
     var certificateTrusted: Bool? = nil
+    // Whether the root path serves a browsable page; nil for older records, which stay visible.
+    var isPage: Bool? = nil
     var id: String { url }
 
     // Match the explicit nginx error page, not every HTTP 400 or port 443.
@@ -35,6 +37,7 @@ struct WebService: Codable, Identifiable {
     static func response(in data: Data, url: String) -> WebService? {
         guard let code = statusCode(in: data) else { return nil }
         var service = WebService(url: url, statusCode: code)
+        service.isPage = false
         guard let separator = data.range(of: Data("\r\n\r\n".utf8)) else { return service }
         let header = String(decoding: data[..<separator.lowerBound], as: UTF8.self)
         var headers: [String: String] = [:]
@@ -45,14 +48,23 @@ struct WebService: Codable, Identifiable {
             if headers[name] == nil { headers[name] = value }
         }
         service.server = headers["server"].flatMap { $0.isEmpty ? nil : String($0.prefix(256)) }
+        // AirPlay and similar protocols speak HTTP but never serve a page.
+        let nonWebServer = headers["server"]?.lowercased().contains("airtunes") == true
         if (300...399).contains(code), let location = headers["location"], !location.isEmpty,
            let destination = URL(string: location, relativeTo: URL(string: url))?.absoluteURL,
            ["http", "https"].contains(destination.scheme?.lowercased() ?? "") {
             service.redirectURL = destination.absoluteString
         }
+        let contentType = headers["content-type"]?.lowercased() ?? ""
+        let htmlType = contentType.contains("text/html") || contentType.contains("application/xhtml+xml")
+        switch code {
+        case 200...299: service.isPage = htmlType && !nonWebServer
+        case 300...399: service.isPage = service.redirectURL != nil && !nonWebServer
+        case 401: service.isPage = headers["www-authenticate"] != nil && !nonWebServer
+        default: service.isPage = false
+        }
         // Request identity encoding; compressed responses still retain their metadata.
         guard headers["content-encoding"] == nil || headers["content-encoding"]?.lowercased() == "identity" else { return service }
-        let contentType = headers["content-type"]?.lowercased() ?? ""
         guard contentType.isEmpty || contentType.contains("text/html") || contentType.contains("application/xhtml+xml") else { return service }
         var body = Data(data[separator.upperBound...])
         if headers["transfer-encoding"]?.lowercased().contains("chunked") == true {
@@ -64,13 +76,22 @@ struct WebService: Codable, Identifiable {
         } else {
             html = String(decoding: body, as: UTF8.self)
         }
+        if (200...299).contains(code), contentType.isEmpty, !nonWebServer, looksLikeHTML(html) { service.isPage = true }
         guard let expression = try? NSRegularExpression(pattern: "<title\\b[^>]*>(.*?)</title\\s*>",
                                                          options: [.caseInsensitive, .dotMatchesLineSeparators]),
               let match = expression.firstMatch(in: html, range: NSRange(html.startIndex..., in: html)),
               let range = Range(match.range(at: 1), in: html) else { return service }
         let title = decodeEntities(String(html[range])).split(whereSeparator: { $0.isWhitespace }).joined(separator: " ")
-        if !title.isEmpty { service.title = String(title.prefix(256)) }
+        if !title.isEmpty {
+            service.title = String(title.prefix(256))
+            if !nonWebServer { service.isPage = true }
+        }
         return service
+    }
+
+    private static func looksLikeHTML(_ text: String) -> Bool {
+        let head = text.prefix(1024).lowercased()
+        return ["<!doctype html", "<html", "<head", "<body", "<title"].contains { head.contains($0) }
     }
 
     // Preserve complete and partial chunk payloads so a title split across chunks works.

@@ -257,7 +257,7 @@ final class Scanner {
             nextEndpoint += 1
             self.probeWeb(ip: host.ip, port: endpoint.port, tls: endpoint.tls, token: token) { service in
                 guard token == self.generation else { return }
-                if let service, !service.isHTTPToHTTPSMismatch {
+                if let service, service.isPage != false, !service.isHTTPToHTTPSMismatch {
                     host.webServices?.append(service)
                     host.webServices?.sort { $0.url < $1.url }
                 }
