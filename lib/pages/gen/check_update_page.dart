@@ -9,7 +9,7 @@ class CheckUpdatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class CheckUpdatePage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class CheckUpdatePage extends StatelessWidget {
                         '检查更新',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -82,10 +93,10 @@ class CheckUpdatePage extends StatelessWidget {
                       hbox(
                         w: 72,
                         h: 72,
-                        bg: Color(0xFF18181B),
+                        bg: dk(context, Color(0xFF18181B), Color(0xFF34343A)),
                         radius: BorderRadius.circular(22),
                         child: hrow(
-                          [hsvg(Svgs.s43, w: 38, h: 38)],
+                          [hsvg(Svgs.s77, w: 38, h: 38)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -93,11 +104,18 @@ class CheckUpdatePage extends StatelessWidget {
                       ),
                       Text(
                         '已是最新版本',
-                        style: hts(20, Color(0xFF18181B), w: FontWeight.w600),
+                        style: hts(
+                          20,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w600,
+                        ),
                       ),
                       Text(
                         '当前版本 1.0.0 (100) · 刚刚检查',
-                        style: hts(13, Color(0xFF71717A)),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -106,28 +124,39 @@ class CheckUpdatePage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -142,11 +171,27 @@ class CheckUpdatePage extends StatelessWidget {
                                 [
                                   Text(
                                     '自动检查更新',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '有新版本时提示',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -163,7 +208,7 @@ class CheckUpdatePage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -177,11 +222,27 @@ class CheckUpdatePage extends StatelessWidget {
                                 [
                                   Text(
                                     '仅在 Wi-Fi 下自动下载',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '节省流量',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -198,7 +259,7 @@ class CheckUpdatePage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -212,14 +273,30 @@ class CheckUpdatePage extends StatelessWidget {
                                 flex: 1,
                                 child: Text(
                                   '更新日志',
-                                  style: hts(14, Color(0xFF52525B), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 20,
+                                  ),
                                 ),
                               ),
                               Text(
                                 '查看',
-                                style: hts(15, Color(0xFF18181B), lh: 22),
+                                style: hts(
+                                  15,
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
+                                  lh: 22,
+                                ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,

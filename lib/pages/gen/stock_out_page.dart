@@ -9,7 +9,7 @@ class StockOutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1240,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class StockOutPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class StockOutPage extends StatelessWidget {
                         '商品出库',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,28 +87,39 @@ class StockOutPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -105,7 +127,7 @@ class StockOutPage extends StatelessWidget {
                         '出库类型',
                         style: hts(
                           14,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 20,
                         ),
@@ -121,7 +143,11 @@ class StockOutPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -135,7 +161,11 @@ class StockOutPage extends StatelessWidget {
                                     '施工领用',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -144,7 +174,11 @@ class StockOutPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -154,7 +188,11 @@ class StockOutPage extends StatelessWidget {
                                     '施工领用',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -167,7 +205,11 @@ class StockOutPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -181,7 +223,11 @@ class StockOutPage extends StatelessWidget {
                                     '损耗报废',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -190,7 +236,11 @@ class StockOutPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -200,7 +250,11 @@ class StockOutPage extends StatelessWidget {
                                     '损耗报废',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -213,7 +267,11 @@ class StockOutPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -227,7 +285,11 @@ class StockOutPage extends StatelessWidget {
                                     '退回供应商',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -236,7 +298,11 @@ class StockOutPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -246,7 +312,11 @@ class StockOutPage extends StatelessWidget {
                                     '退回供应商',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -259,7 +329,11 @@ class StockOutPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -273,7 +347,11 @@ class StockOutPage extends StatelessWidget {
                                     '内部使用',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -282,7 +360,11 @@ class StockOutPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -292,7 +374,11 @@ class StockOutPage extends StatelessWidget {
                                     '内部使用',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -320,35 +406,46 @@ class StockOutPage extends StatelessWidget {
                         '关联信息',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -367,16 +464,32 @@ class StockOutPage extends StatelessWidget {
                                         '关联工单',
                                         style: hts(
                                           14,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
                                     ),
                                     hStr(
                                       s2,
-                                      hts(15, Color(0xFF18181B), lh: 22),
+                                      hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -389,7 +502,11 @@ class StockOutPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           HStrHolder(
@@ -407,16 +524,32 @@ class StockOutPage extends StatelessWidget {
                                         '领用技师',
                                         style: hts(
                                           14,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
                                     ),
                                     hStr(
                                       s3,
-                                      hts(15, Color(0xFF18181B), lh: 22),
+                                      hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -445,35 +578,46 @@ class StockOutPage extends StatelessWidget {
                         '出库明细',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -487,14 +631,26 @@ class StockOutPage extends StatelessWidget {
                                       'TPU 隐形车衣 7.5mil',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
                                     Text(
                                       '出库后 1.5 卷，低于安全库存',
-                                      style: hts(12, Color(0xFFA43433), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFFA43433),
+                                          Color(0xFFFF7B7E),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -509,10 +665,20 @@ class StockOutPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(16),
                                       child: hrow(
-                                        [hsvg(Svgs.s9, w: 14, h: 14)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s16, Svgs.s17),
+                                            w: 14,
+                                            h: 14,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -528,7 +694,11 @@ class StockOutPage extends StatelessWidget {
                                         '0.5',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                           tab: true,
@@ -542,10 +712,20 @@ class StockOutPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(16),
                                       child: hrow(
-                                        [hsvg(Svgs.s10, w: 14, h: 14)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s18, Svgs.s19),
+                                            w: 14,
+                                            h: 14,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -563,7 +743,14 @@ class StockOutPage extends StatelessWidget {
                             cross: CrossAxisAlignment.center,
                             gap: 10,
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hrow(
                             [
                               Expanded(
@@ -574,14 +761,26 @@ class StockOutPage extends StatelessWidget {
                                       '9H 陶瓷镀晶液 50ml',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
                                     Text(
                                       '库存 6 瓶 → 出库后 5 瓶',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -600,10 +799,20 @@ class StockOutPage extends StatelessWidget {
                                         hbox(
                                           w: 32,
                                           h: 32,
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFF4F4F5),
+                                            Color(0xFF27272A),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           child: hrow(
-                                            [hsvg(Svgs.s9, w: 14, h: 14)],
+                                            [
+                                              hsvg(
+                                                dk(context, Svgs.s16, Svgs.s17),
+                                                w: 14,
+                                                h: 14,
+                                              ),
+                                            ],
                                             main: MainAxisAlignment.center,
                                             cross: CrossAxisAlignment.center,
                                             gap: 0,
@@ -619,7 +828,11 @@ class StockOutPage extends StatelessWidget {
                                             c4,
                                             hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                               tab: true,
@@ -632,10 +845,20 @@ class StockOutPage extends StatelessWidget {
                                         hbox(
                                           w: 32,
                                           h: 32,
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFF4F4F5),
+                                            Color(0xFF27272A),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           child: hrow(
-                                            [hsvg(Svgs.s10, w: 14, h: 14)],
+                                            [
+                                              hsvg(
+                                                dk(context, Svgs.s18, Svgs.s19),
+                                                w: 14,
+                                                h: 14,
+                                              ),
+                                            ],
                                             main: MainAxisAlignment.center,
                                             cross: CrossAxisAlignment.center,
                                             gap: 0,
@@ -659,18 +882,30 @@ class StockOutPage extends StatelessWidget {
                             context,
                             hbox(
                               h: 42,
-                              bg: Color(0xFFE1F0FE),
+                              bg: dk(
+                                context,
+                                Color(0xFFE1F0FE),
+                                Color.fromRGBO(4, 133, 247, 0.18),
+                              ),
                               radius: BorderRadius.circular(21),
                               child: hrow(
                                 [
-                                  hsvg(Svgs.s163, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s298, Svgs.s299),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                   Flexible(
                                     flex: 56,
                                     child: Text(
                                       '添加商品',
                                       style: hts(
                                         14,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 20,
                                       ),
@@ -696,38 +931,59 @@ class StockOutPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hrow(
                     [
                       hbox(
                         w: 32,
                         h: 32,
-                        bg: Color(0xFFFDEFD6),
+                        bg: dk(
+                          context,
+                          Color(0xFFFDEFD6),
+                          Color.fromRGBO(245, 165, 36, 0.16),
+                        ),
                         radius: BorderRadius.circular(10),
                         child: hrow(
-                          [hsvg(Svgs.s165, w: 18, h: 18)],
+                          [
+                            hsvg(
+                              dk(context, Svgs.s302, Svgs.s303),
+                              w: 18,
+                              h: 18,
+                            ),
+                          ],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -741,14 +997,26 @@ class StockOutPage extends StatelessWidget {
                               '本次领用成本',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
                             ),
                             Text(
                               '将计入该工单的成本核算',
-                              style: hts(12, Color(0xFF71717A), lh: 16),
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
+                                lh: 16,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -760,7 +1028,7 @@ class StockOutPage extends StatelessWidget {
                         '¥1,358.00',
                         style: hts(
                           20,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 26,
                         ),
@@ -772,28 +1040,39 @@ class StockOutPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -801,7 +1080,7 @@ class StockOutPage extends StatelessWidget {
                         TextSpan(
                           style: hts(
                             14,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w600,
                             lh: 20,
                           ),
@@ -810,25 +1089,41 @@ class StockOutPage extends StatelessWidget {
                               text: '备注 ',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 20,
                               ),
                             ),
                             TextSpan(
                               text: '· 选填',
-                              style: hts(14, Color(0xFF71717A), lh: 20),
+                              style: hts(
+                                14,
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
+                                lh: 20,
+                              ),
                             ),
                           ],
                         ),
                       ),
                       hbox(
                         minH: 64,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(14),
                         pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                         child: HInput(
-                          style: hts(14, Color(0xFF18181B), lh: 20),
+                          style: hts(
+                            14,
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                            lh: 20,
+                          ),
                           maxLines: 4,
                           hint: '如：边角料损耗、重新施工补领',
                         ),
@@ -853,15 +1148,30 @@ class StockOutPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -871,7 +1181,7 @@ class StockOutPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -880,7 +1190,7 @@ class StockOutPage extends StatelessWidget {
                           '取消',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -896,7 +1206,7 @@ class StockOutPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -905,7 +1215,7 @@ class StockOutPage extends StatelessWidget {
                           '确认出库',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

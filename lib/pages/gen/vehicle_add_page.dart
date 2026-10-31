@@ -9,7 +9,7 @@ class VehicleAddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 940,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class VehicleAddPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s32, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s58, Svgs.s59), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class VehicleAddPage extends StatelessWidget {
                         '添加车辆',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -101,7 +112,7 @@ class VehicleAddPage extends StatelessWidget {
                   context,
                   hbox(
                     h: 150,
-                    bg: Color(0xFFFFFFFF),
+                    bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                     radius: BorderRadius.circular(24),
                     border: Border.all(color: Color(0xFFA1A1AA), width: 1.5),
                     child: hstack(
@@ -110,10 +121,20 @@ class VehicleAddPage extends StatelessWidget {
                           hbox(
                             w: 48,
                             h: 48,
-                            bg: Color(0xFF18181B),
+                            bg: dk(
+                              context,
+                              Color(0xFF18181B),
+                              Color(0xFFFAFAFA),
+                            ),
                             radius: BorderRadius.circular(24),
                             child: hrow(
-                              [hsvg(Svgs.s179, w: 22, h: 22)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s329, Svgs.s330),
+                                  w: 22,
+                                  h: 22,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -123,7 +144,7 @@ class VehicleAddPage extends StatelessWidget {
                             '拍摄行驶证，自动填写',
                             style: hts(
                               14,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w500,
                               lh: 20,
                             ),
@@ -142,7 +163,11 @@ class VehicleAddPage extends StatelessWidget {
                           right: 14,
                           bottom: 14,
                           child: hbox(
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                           ),
                         ),
@@ -152,33 +177,44 @@ class VehicleAddPage extends StatelessWidget {
                   label: '拍摄行驶证，自动填写',
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 16, 0, 4),
                   child: hcol(
                     [
                       hbox(
-                        bg: Color(0xFFEEEEF0),
+                        bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                         margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
@@ -197,14 +233,14 @@ class VehicleAddPage extends StatelessWidget {
                                   on: hbox(
                                     h: 32,
                                     radius: BorderRadius.circular(16),
-                                    shadow: [
+                                    shadow: dk(context, [
                                       BoxShadow(
                                         color: Color.fromRGBO(0, 0, 0, 0.08),
                                         offset: Offset(0, 1),
                                         blurRadius: 2,
                                         spreadRadius: 0,
                                       ),
-                                    ],
+                                    ], null),
                                     child: Align(
                                       alignment: Alignment.center,
                                       widthFactor: 1,
@@ -212,7 +248,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '燃油车 · 蓝牌',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -229,7 +269,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '燃油车 · 蓝牌',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -245,16 +289,31 @@ class VehicleAddPage extends StatelessWidget {
                                   index: 1,
                                   on: hbox(
                                     h: 32,
-                                    bg: Color(0xFFFFFFFF),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFFFFF),
+                                      Color(0xFF18181B),
+                                    ),
                                     radius: BorderRadius.circular(16),
-                                    shadow: [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.08),
-                                        offset: Offset(0, 1),
-                                        blurRadius: 2,
-                                        spreadRadius: 0,
-                                      ),
-                                    ],
+                                    shadow: dk(
+                                      context,
+                                      [
+                                        BoxShadow(
+                                          color: Color.fromRGBO(0, 0, 0, 0.08),
+                                          offset: Offset(0, 1),
+                                          blurRadius: 2,
+                                          spreadRadius: 0,
+                                        ),
+                                      ],
+                                      [
+                                        BoxShadow(
+                                          color: Color(0xFF26262B),
+                                          offset: Offset(0, 0),
+                                          blurRadius: 0,
+                                          spreadRadius: 1,
+                                        ),
+                                      ],
+                                    ),
                                     child: Align(
                                       alignment: Alignment.center,
                                       widthFactor: 1,
@@ -262,7 +321,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '新能源 · 绿牌',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -271,7 +334,11 @@ class VehicleAddPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 32,
-                                    bg: Color(0xFFFFFFFF),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFFFFF),
+                                      Color(0xFF18181B),
+                                    ),
                                     radius: BorderRadius.circular(16),
                                     child: Align(
                                       alignment: Alignment.center,
@@ -280,7 +347,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '新能源 · 绿牌',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -315,16 +386,32 @@ class VehicleAddPage extends StatelessWidget {
                                         '品牌车型',
                                         style: hts(
                                           14,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
                                     ),
                                     hStr(
                                       s2,
-                                      hts(15, Color(0xFF18181B), lh: 22),
+                                      hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -336,7 +423,11 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -348,14 +439,26 @@ class VehicleAddPage extends StatelessWidget {
                                   w: 64,
                                   child: Text(
                                     '车架号',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Expanded(
                                   child: HInput(
                                     style: hts(
                                       15,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       lh: 22,
                                       ls: 0.3,
                                     ),
@@ -371,7 +474,11 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -383,7 +490,15 @@ class VehicleAddPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '当前里程',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Expanded(
@@ -392,7 +507,11 @@ class VehicleAddPage extends StatelessWidget {
                                     child: HInput(
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
@@ -404,7 +523,15 @@ class VehicleAddPage extends StatelessWidget {
                                 ),
                                 Text(
                                   'km',
-                                  style: hts(14, Color(0xFF71717A), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 20,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -431,35 +558,46 @@ class VehicleAddPage extends StatelessWidget {
                         '到期提醒 · 自动加入回访',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -476,7 +614,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '车险到期',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -484,7 +626,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '2027.03.12 · 提前 30 天提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -503,7 +649,11 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -519,7 +669,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '镀晶养护',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -527,7 +681,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '施工后每 3 个月提醒复养',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -546,7 +704,11 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -562,7 +724,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '年检到期',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -570,7 +736,11 @@ class VehicleAddPage extends StatelessWidget {
                                         '未设置',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),

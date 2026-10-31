@@ -9,7 +9,7 @@ class AboutAppPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1008,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class AboutAppPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class AboutAppPage extends StatelessWidget {
                         '关于汽美管家',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -79,17 +90,23 @@ class AboutAppPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(0, 12, 0, 12),
                   child: hcol(
                     [
-                      hsvg(Svgs.s1, w: 88, h: 88),
+                      hsvg(Svgs.s2, w: 88, h: 88),
                       Text(
                         '汽美管家',
                         style: hts(
                           20,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 28,
                         ),
                       ),
-                      Text('版本 1.0.0 (100)', style: hts(13, Color(0xFF71717A))),
+                      Text(
+                        '版本 1.0.0 (100)',
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        ),
+                      ),
                     ],
                     main: MainAxisAlignment.start,
                     cross: CrossAxisAlignment.center,
@@ -97,28 +114,39 @@ class AboutAppPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -135,7 +163,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '检查更新',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -144,14 +180,22 @@ class AboutAppPage extends StatelessWidget {
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(9),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Text(
                                   '已是最新',
                                   style: hts(
                                     11,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 18,
                                   ),
@@ -159,7 +203,7 @@ class AboutAppPage extends StatelessWidget {
                                   maxLines: 1,
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -170,7 +214,7 @@ class AboutAppPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -186,7 +230,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '更新日志',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -194,7 +246,7 @@ class AboutAppPage extends StatelessWidget {
                                   gap: 1,
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -205,7 +257,7 @@ class AboutAppPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -221,7 +273,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '清除缓存',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -231,9 +291,17 @@ class AboutAppPage extends StatelessWidget {
                               ),
                               Text(
                                 '128 MB',
-                                style: hts(13, Color(0xFF71717A), lh: 18),
+                                style: hts(
+                                  13,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 18,
+                                ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -249,28 +317,39 @@ class AboutAppPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -287,7 +366,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '用户协议',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -295,7 +382,7 @@ class AboutAppPage extends StatelessWidget {
                                   gap: 1,
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -306,7 +393,7 @@ class AboutAppPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -322,7 +409,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '隐私政策',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -330,7 +425,7 @@ class AboutAppPage extends StatelessWidget {
                                   gap: 1,
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -341,7 +436,7 @@ class AboutAppPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -357,7 +452,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '第三方信息共享清单',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -365,7 +468,7 @@ class AboutAppPage extends StatelessWidget {
                                   gap: 1,
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -381,28 +484,39 @@ class AboutAppPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -417,11 +531,27 @@ class AboutAppPage extends StatelessWidget {
                                 [
                                   Text(
                                     '客服热线',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                   Text(
                                     '工作日 9:00–18:00',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -433,7 +563,11 @@ class AboutAppPage extends StatelessWidget {
                               '拨打',
                               style: hts(
                                 14,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -445,7 +579,7 @@ class AboutAppPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -461,7 +595,15 @@ class AboutAppPage extends StatelessWidget {
                                   [
                                     Text(
                                       '意见反馈',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -469,7 +611,7 @@ class AboutAppPage extends StatelessWidget {
                                   gap: 1,
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -488,7 +630,11 @@ class AboutAppPage extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Text(
                     '© 2026 汽美管家 · 版权所有',
-                    style: hts(11, Color(0xFFA1A1AA), lh: 16),
+                    style: hts(
+                      11,
+                      dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                      lh: 16,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),

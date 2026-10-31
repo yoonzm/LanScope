@@ -9,7 +9,7 @@ class DataBackupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1144,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class DataBackupPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class DataBackupPage extends StatelessWidget {
                         '数据备份',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,10 +87,20 @@ class DataBackupPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -91,7 +112,7 @@ class DataBackupPage extends StatelessWidget {
                               bg: Color(0xFF27272A),
                               radius: BorderRadius.circular(14),
                               child: hrow(
-                                [hsvg(Svgs.s44, w: 24, h: 24)],
+                                [hsvg(Svgs.s78, w: 24, h: 24)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -103,7 +124,14 @@ class DataBackupPage extends StatelessWidget {
                                 [
                                   Text(
                                     '下次发送',
-                                    style: hts(12, Color(0xFFA1A1AA)),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                    ),
                                   ),
                                   Text(
                                     '明天 03:00',
@@ -121,14 +149,22 @@ class DataBackupPage extends StatelessWidget {
                               ),
                             ),
                             hbox(
-                              bg: Color(0xFFDDF6E7),
+                              bg: dk(
+                                context,
+                                Color(0xFFDDF6E7),
+                                Color.fromRGBO(23, 201, 100, 0.16),
+                              ),
                               radius: BorderRadius.circular(9),
                               pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: Text(
                                 '已开启',
                                 style: hts(
                                   11,
-                                  Color(0xFF2B7745),
+                                  dk(
+                                    context,
+                                    Color(0xFF2B7745),
+                                    Color(0xFF5FD48C),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 18,
                                 ),
@@ -158,7 +194,15 @@ class DataBackupPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '发送频率',
-                                    style: hts(11, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      11,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -181,7 +225,15 @@ class DataBackupPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '文件格式',
-                                    style: hts(11, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      11,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -204,7 +256,15 @@ class DataBackupPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '接收邮箱',
-                                    style: hts(11, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      11,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -221,18 +281,30 @@ class DataBackupPage extends StatelessWidget {
                           context,
                           hbox(
                             h: 44,
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(22),
                             child: hrow(
                               [
-                                hsvg(Svgs.s45, w: 18, h: 18),
+                                hsvg(
+                                  dk(context, Svgs.s79, Svgs.s80),
+                                  w: 18,
+                                  h: 18,
+                                ),
                                 Flexible(
                                   flex: 90,
                                   child: Text(
                                     '立即发送一份',
                                     style: hts(
                                       15,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                     ),
                                   ),
@@ -255,7 +327,11 @@ class DataBackupPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
@@ -268,35 +344,46 @@ class DataBackupPage extends StatelessWidget {
                         '发送设置',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -313,7 +400,11 @@ class DataBackupPage extends StatelessWidget {
                                         '定时发送数据',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -321,7 +412,11 @@ class DataBackupPage extends StatelessWidget {
                                         '按设定频率自动生成并发送到邮箱',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -340,7 +435,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -354,14 +453,34 @@ class DataBackupPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '发送频率',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '每天 03:00',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -372,7 +491,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -386,14 +509,34 @@ class DataBackupPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '接收邮箱',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     'c***@chiguang.example',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -404,7 +547,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -418,14 +565,34 @@ class DataBackupPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '发送内容',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '会员、订单等 4 项',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -436,7 +603,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -452,7 +623,11 @@ class DataBackupPage extends StatelessWidget {
                                         '发送后微信提醒',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -460,7 +635,11 @@ class DataBackupPage extends StatelessWidget {
                                         '送达后推送一条微信通知',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -479,7 +658,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -495,7 +678,11 @@ class DataBackupPage extends StatelessWidget {
                                         '文件设置打开密码',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -503,7 +690,11 @@ class DataBackupPage extends StatelessWidget {
                                         '密码通过短信告知，更安全',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -539,35 +730,46 @@ class DataBackupPage extends StatelessWidget {
                         '发送记录',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -584,7 +786,11 @@ class DataBackupPage extends StatelessWidget {
                                         '今天 03:00',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -592,7 +798,11 @@ class DataBackupPage extends StatelessWidget {
                                         '发送至 c***@chiguang.example',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -603,14 +813,22 @@ class DataBackupPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '已送达',
                                     style: hts(
                                       11,
-                                      Color(0xFF2B7745),
+                                      dk(
+                                        context,
+                                        Color(0xFF2B7745),
+                                        Color(0xFF5FD48C),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -622,7 +840,14 @@ class DataBackupPage extends StatelessWidget {
                                   minW: 44,
                                   child: Text(
                                     '3.1 MB',
-                                    style: hts(12, Color(0xFFA1A1AA)),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                    ),
                                     textAlign: TextAlign.right,
                                   ),
                                 ),
@@ -634,7 +859,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -650,7 +879,11 @@ class DataBackupPage extends StatelessWidget {
                                         '昨天 03:00',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -658,7 +891,11 @@ class DataBackupPage extends StatelessWidget {
                                         '发送至 c***@chiguang.example',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -669,14 +906,22 @@ class DataBackupPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '已送达',
                                     style: hts(
                                       11,
-                                      Color(0xFF2B7745),
+                                      dk(
+                                        context,
+                                        Color(0xFF2B7745),
+                                        Color(0xFF5FD48C),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -688,7 +933,14 @@ class DataBackupPage extends StatelessWidget {
                                   minW: 44,
                                   child: Text(
                                     '3.1 MB',
-                                    style: hts(12, Color(0xFFA1A1AA)),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                    ),
                                     textAlign: TextAlign.right,
                                   ),
                                 ),
@@ -700,7 +952,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -716,7 +972,11 @@ class DataBackupPage extends StatelessWidget {
                                         '10.29 03:00',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -724,7 +984,11 @@ class DataBackupPage extends StatelessWidget {
                                         '邮箱已满，退信',
                                         style: hts(
                                           12,
-                                          Color(0xFFA43433),
+                                          dk(
+                                            context,
+                                            Color(0xFFA43433),
+                                            Color(0xFFFF7B7E),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -738,7 +1002,11 @@ class DataBackupPage extends StatelessWidget {
                                   context,
                                   hbox(
                                     h: 30,
-                                    bg: Color(0xFFFFE1E2),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFE1E2),
+                                      Color.fromRGBO(255, 56, 60, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(15),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -748,7 +1016,11 @@ class DataBackupPage extends StatelessWidget {
                                         '重新发送',
                                         style: hts(
                                           13,
-                                          Color(0xFFA43433),
+                                          dk(
+                                            context,
+                                            Color(0xFFA43433),
+                                            Color(0xFFFF7B7E),
+                                          ),
                                           w: FontWeight.w600,
                                         ),
                                       ),
@@ -764,7 +1036,11 @@ class DataBackupPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -780,7 +1056,11 @@ class DataBackupPage extends StatelessWidget {
                                         '10.28 03:00',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -788,7 +1068,11 @@ class DataBackupPage extends StatelessWidget {
                                         '发送至 c***@chiguang.example',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -799,14 +1083,22 @@ class DataBackupPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '已送达',
                                     style: hts(
                                       11,
-                                      Color(0xFF2B7745),
+                                      dk(
+                                        context,
+                                        Color(0xFF2B7745),
+                                        Color(0xFF5FD48C),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -818,7 +1110,14 @@ class DataBackupPage extends StatelessWidget {
                                   minW: 44,
                                   child: Text(
                                     '3.0 MB',
-                                    style: hts(12, Color(0xFFA1A1AA)),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                    ),
                                     textAlign: TextAlign.right,
                                   ),
                                 ),
@@ -843,11 +1142,19 @@ class DataBackupPage extends StatelessWidget {
                   [
                     Align(
                       alignment: Alignment.topLeft,
-                      child: hsvg(Svgs.s46, w: 12, h: 12),
+                      child: hsvg(
+                        dk(context, Svgs.s81, Svgs.s82),
+                        w: 12,
+                        h: 12,
+                      ),
                     ),
                     Text(
                       '数据始终归您所有，定时发送一份副本，方便您自行留存',
-                      style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                      style: hts(
+                        12,
+                        dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                        lh: 18,
+                      ),
                     ),
                   ],
                   main: MainAxisAlignment.start,

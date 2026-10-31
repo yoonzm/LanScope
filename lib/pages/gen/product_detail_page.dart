@@ -9,7 +9,7 @@ class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1420,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class ProductDetailPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class ProductDetailPage extends StatelessWidget {
                         '商品详情',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -74,30 +85,47 @@ class ProductDetailPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s140, w: 20, h: 20)],
+                          [
+                            hsvg(
+                              dk(context, Svgs.s256, Svgs.s257),
+                              w: 20,
+                              h: 20,
+                            ),
+                          ],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -111,10 +139,20 @@ class ProductDetailPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -126,7 +164,7 @@ class ProductDetailPage extends StatelessWidget {
                               bg: Color(0xFF27272A),
                               radius: BorderRadius.circular(14),
                               child: hrow(
-                                [hsvg(Svgs.s141, w: 22, h: 22)],
+                                [hsvg(Svgs.s258, w: 22, h: 22)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -147,7 +185,15 @@ class ProductDetailPage extends StatelessWidget {
                                   ),
                                   Text(
                                     'SKU TPU-75-152 · 贴膜',
-                                    style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -168,7 +214,15 @@ class ProductDetailPage extends StatelessWidget {
                                 [
                                   Text(
                                     '当前库存',
-                                    style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   hrow(
                                     [
@@ -188,7 +242,14 @@ class ProductDetailPage extends StatelessWidget {
                                         flex: 14,
                                         child: Text(
                                           '卷',
-                                          style: hts(14, Color(0xFFA1A1AA)),
+                                          style: hts(
+                                            14,
+                                            dk(
+                                              context,
+                                              Color(0xFFA1A1AA),
+                                              Color(0xFF80808A),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -203,14 +264,22 @@ class ProductDetailPage extends StatelessWidget {
                               ),
                             ),
                             hbox(
-                              bg: Color(0xFFFFE1E2),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFE1E2),
+                                Color.fromRGBO(255, 56, 60, 0.18),
+                              ),
                               radius: BorderRadius.circular(9),
                               pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: Text(
                                 '低于安全库存',
                                 style: hts(
                                   11,
-                                  Color(0xFFA43433),
+                                  dk(
+                                    context,
+                                    Color(0xFFA43433),
+                                    Color(0xFFFF7B7E),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 18,
                                 ),
@@ -271,12 +340,28 @@ class ProductDetailPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '0',
-                                    style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                    style: hts(
+                                      11,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 14,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '安全库存 5 卷',
-                                  style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                  style: hts(
+                                    11,
+                                    dk(
+                                      context,
+                                      Color(0xFFA1A1AA),
+                                      Color(0xFF80808A),
+                                    ),
+                                    lh: 14,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -300,7 +385,15 @@ class ProductDetailPage extends StatelessWidget {
                                   [
                                     Text(
                                       '本月消耗',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                     Text(
                                       '4.2 卷',
@@ -328,7 +421,15 @@ class ProductDetailPage extends StatelessWidget {
                                   [
                                     Text(
                                       '预计可用',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                     Text(
                                       '约 9 天',
@@ -356,7 +457,15 @@ class ProductDetailPage extends StatelessWidget {
                                   [
                                     Text(
                                       '建议补货',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                     Text(
                                       '6 卷',
@@ -390,7 +499,11 @@ class ProductDetailPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
@@ -403,35 +516,46 @@ class ProductDetailPage extends StatelessWidget {
                         '基本信息',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -444,12 +568,28 @@ class ProductDetailPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '规格',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '1.52m × 15m / 卷',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -459,7 +599,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -471,12 +615,28 @@ class ProductDetailPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '成本价',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥2,380.00 / 卷',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -486,7 +646,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -498,12 +662,28 @@ class ProductDetailPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '库存成本',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥4,760.00',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -513,7 +693,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           HStrHolder(
@@ -531,16 +715,32 @@ class ProductDetailPage extends StatelessWidget {
                                         '供应商',
                                         style: hts(
                                           14,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
                                     ),
                                     hStr(
                                       s1,
-                                      hts(15, Color(0xFF18181B), lh: 22),
+                                      hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -553,7 +753,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -565,12 +769,28 @@ class ProductDetailPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '货位',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   'A-02 · 贴膜架',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -597,35 +817,46 @@ class ProductDetailPage extends StatelessWidget {
                         '批次库存 · 先进先出',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -642,7 +873,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '批次 B1008',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -651,7 +886,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '入库 2026.09.12',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -665,7 +904,11 @@ class ProductDetailPage extends StatelessWidget {
                                   '剩 1 卷',
                                   style: hts(
                                     15,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 22,
                                   ),
@@ -678,7 +921,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -694,7 +941,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '批次 B1021',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -703,7 +954,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '入库 2026.10.26',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -717,7 +972,11 @@ class ProductDetailPage extends StatelessWidget {
                                   '剩 1 卷',
                                   style: hts(
                                     15,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 22,
                                   ),
@@ -747,14 +1006,14 @@ class ProductDetailPage extends StatelessWidget {
                         '出入库流水',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFE9E9EB),
+                      bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                       radius: BorderRadius.circular(20),
                       pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                       child: HSelHolder(
@@ -770,22 +1029,37 @@ class ProductDetailPage extends StatelessWidget {
                                 index: 0,
                                 on: hbox(
                                   h: 32,
-                                  bg: Color(0xFFFFFFFF),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFFFFFF),
+                                    Color(0xFF18181B),
+                                  ),
                                   radius: BorderRadius.circular(16),
-                                  shadow: [
-                                    BoxShadow(
-                                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                                      offset: Offset(0, 2),
-                                      blurRadius: 4,
-                                      spreadRadius: 0,
-                                    ),
-                                    BoxShadow(
-                                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                                      offset: Offset(0, 1),
-                                      blurRadius: 2,
-                                      spreadRadius: 0,
-                                    ),
-                                  ],
+                                  shadow: dk(
+                                    context,
+                                    [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                                        offset: Offset(0, 2),
+                                        blurRadius: 4,
+                                        spreadRadius: 0,
+                                      ),
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                                        offset: Offset(0, 1),
+                                        blurRadius: 2,
+                                        spreadRadius: 0,
+                                      ),
+                                    ],
+                                    [
+                                      BoxShadow(
+                                        color: Color(0xFF26262B),
+                                        offset: Offset(0, 0),
+                                        blurRadius: 0,
+                                        spreadRadius: 1,
+                                      ),
+                                    ],
+                                  ),
                                   child: Align(
                                     alignment: Alignment.center,
                                     widthFactor: 1,
@@ -793,7 +1067,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '全部',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -802,7 +1080,11 @@ class ProductDetailPage extends StatelessWidget {
                                 ),
                                 off: hbox(
                                   h: 32,
-                                  bg: Color(0xFFFFFFFF),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFFFFFF),
+                                    Color(0xFF18181B),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   child: Align(
                                     alignment: Alignment.center,
@@ -811,7 +1093,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '全部',
                                       style: hts(
                                         13,
-                                        Color(0xFF52525B),
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -828,7 +1114,7 @@ class ProductDetailPage extends StatelessWidget {
                                 on: hbox(
                                   h: 32,
                                   radius: BorderRadius.circular(16),
-                                  shadow: [
+                                  shadow: dk(context, [
                                     BoxShadow(
                                       color: Color.fromRGBO(0, 0, 0, 0.04),
                                       offset: Offset(0, 2),
@@ -841,7 +1127,7 @@ class ProductDetailPage extends StatelessWidget {
                                       blurRadius: 2,
                                       spreadRadius: 0,
                                     ),
-                                  ],
+                                  ], null),
                                   child: Align(
                                     alignment: Alignment.center,
                                     widthFactor: 1,
@@ -849,7 +1135,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '入库',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -866,7 +1156,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '入库',
                                       style: hts(
                                         13,
-                                        Color(0xFF52525B),
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -883,7 +1177,7 @@ class ProductDetailPage extends StatelessWidget {
                                 on: hbox(
                                   h: 32,
                                   radius: BorderRadius.circular(16),
-                                  shadow: [
+                                  shadow: dk(context, [
                                     BoxShadow(
                                       color: Color.fromRGBO(0, 0, 0, 0.04),
                                       offset: Offset(0, 2),
@@ -896,7 +1190,7 @@ class ProductDetailPage extends StatelessWidget {
                                       blurRadius: 2,
                                       spreadRadius: 0,
                                     ),
-                                  ],
+                                  ], null),
                                   child: Align(
                                     alignment: Alignment.center,
                                     widthFactor: 1,
@@ -904,7 +1198,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '出库',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -921,7 +1219,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '出库',
                                       style: hts(
                                         13,
-                                        Color(0xFF52525B),
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -938,7 +1240,7 @@ class ProductDetailPage extends StatelessWidget {
                                 on: hbox(
                                   h: 32,
                                   radius: BorderRadius.circular(16),
-                                  shadow: [
+                                  shadow: dk(context, [
                                     BoxShadow(
                                       color: Color.fromRGBO(0, 0, 0, 0.04),
                                       offset: Offset(0, 2),
@@ -951,7 +1253,7 @@ class ProductDetailPage extends StatelessWidget {
                                       blurRadius: 2,
                                       spreadRadius: 0,
                                     ),
-                                  ],
+                                  ], null),
                                   child: Align(
                                     alignment: Alignment.center,
                                     widthFactor: 1,
@@ -959,7 +1261,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '盘点',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -976,7 +1282,11 @@ class ProductDetailPage extends StatelessWidget {
                                       '盘点',
                                       style: hts(
                                         13,
-                                        Color(0xFF52525B),
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -994,28 +1304,39 @@ class ProductDetailPage extends StatelessWidget {
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -1027,10 +1348,20 @@ class ProductDetailPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFFDEFD6),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFDEFD6),
+                                    Color.fromRGBO(245, 165, 36, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s142, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s259, Svgs.s260),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1044,7 +1375,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '施工领用',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -1053,7 +1388,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '沪A·8K29M · 镀晶养护 · 老周',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1069,14 +1408,26 @@ class ProductDetailPage extends StatelessWidget {
                                       '−0.5 卷',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
                                     Text(
                                       '10.31 14:20',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -1091,7 +1442,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -1102,10 +1457,20 @@ class ProductDetailPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFFDEFD6),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFDEFD6),
+                                    Color.fromRGBO(245, 165, 36, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s142, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s259, Svgs.s260),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1119,7 +1484,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '施工领用',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -1128,7 +1497,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '沪B·2C519 · 贴膜 · 小陈',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1144,14 +1517,26 @@ class ProductDetailPage extends StatelessWidget {
                                       '−1 卷',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
                                     Text(
                                       '10.28 10:05',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -1166,7 +1551,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -1177,10 +1566,20 @@ class ProductDetailPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s143, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s261, Svgs.s262),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1194,7 +1593,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '采购入库',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -1203,7 +1606,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '蓝盾膜业 · RK-20261026-01',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1219,14 +1626,26 @@ class ProductDetailPage extends StatelessWidget {
                                       '+3 卷',
                                       style: hts(
                                         15,
-                                        Color(0xFF2B7745),
+                                        dk(
+                                          context,
+                                          Color(0xFF2B7745),
+                                          Color(0xFF5FD48C),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
                                     Text(
                                       '10.26 09:30',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -1241,7 +1660,11 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -1252,10 +1675,20 @@ class ProductDetailPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s144, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s263, Svgs.s264),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1269,7 +1702,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '盘点调整',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -1278,7 +1715,11 @@ class ProductDetailPage extends StatelessWidget {
                                         '盘亏 · 备注：边角料报废',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1294,14 +1735,26 @@ class ProductDetailPage extends StatelessWidget {
                                       '−0.2 卷',
                                       style: hts(
                                         15,
-                                        Color(0xFFA43433),
+                                        dk(
+                                          context,
+                                          Color(0xFFA43433),
+                                          Color(0xFFFF7B7E),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
                                     Text(
                                       '10.20 18:10',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -1339,15 +1792,30 @@ class ProductDetailPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -1357,7 +1825,7 @@ class ProductDetailPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -1366,7 +1834,7 @@ class ProductDetailPage extends StatelessWidget {
                           '出库',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -1386,7 +1854,7 @@ class ProductDetailPage extends StatelessWidget {
                       radius: BorderRadius.circular(25),
                       child: hrow(
                         [
-                          hsvg(Svgs.s8, w: 18, h: 18),
+                          hsvg(Svgs.s14, w: 18, h: 18),
                           Flexible(
                             flex: 60,
                             child: Text(

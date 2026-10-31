@@ -9,7 +9,7 @@ class ChangelogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class ChangelogPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class ChangelogPage extends StatelessWidget {
                         '更新日志',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,28 +87,39 @@ class ChangelogPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -107,19 +129,27 @@ class ChangelogPage extends StatelessWidget {
                             'v1.0.0',
                             style: hts(
                               17,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                             ),
                           ),
                           hbox(
-                            bg: Color(0xFFE1F0FE),
+                            bg: dk(
+                              context,
+                              Color(0xFFE1F0FE),
+                              Color.fromRGBO(4, 133, 247, 0.18),
+                            ),
                             radius: BorderRadius.circular(9),
                             pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                             child: Text(
                               '当前版本',
                               style: hts(
                                 11,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 18,
                               ),
@@ -128,7 +158,13 @@ class ChangelogPage extends StatelessWidget {
                             ),
                           ),
                           Expanded(flex: 1, child: SizedBox.shrink()),
-                          Text('2026.10.31', style: hts(12, Color(0xFFA1A1AA))),
+                          Text(
+                            '2026.10.31',
+                            style: hts(
+                              12,
+                              dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            ),
+                          ),
                         ],
                         main: MainAxisAlignment.start,
                         cross: CrossAxisAlignment.center,
@@ -136,12 +172,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 221,
                             child: Text(
                               '首发：会员、开单、挂单、库存、统计',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -151,12 +195,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 156,
                             child: Text(
                               '新增预约管理与工位时间表',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -166,12 +218,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 117,
                             child: Text(
                               '新增开支与预算管理',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -181,12 +241,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 143,
                             child: Text(
                               '新增自助开通与套餐订阅',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -196,12 +264,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 208,
                             child: Text(
                               '支持微信与短信通知，商家自选渠道',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -216,28 +292,39 @@ class ChangelogPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -247,12 +334,18 @@ class ChangelogPage extends StatelessWidget {
                             'v0.9.0',
                             style: hts(
                               17,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                             ),
                           ),
                           Expanded(flex: 1, child: SizedBox.shrink()),
-                          Text('2026.10.15', style: hts(12, Color(0xFFA1A1AA))),
+                          Text(
+                            '2026.10.15',
+                            style: hts(
+                              12,
+                              dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            ),
+                          ),
                         ],
                         main: MainAxisAlignment.start,
                         cross: CrossAxisAlignment.center,
@@ -260,12 +353,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 169,
                             child: Text(
                               '内测版：开单收银与会员充值',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -275,12 +376,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 91,
                             child: Text(
                               '员工权限与角色',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],
@@ -290,12 +399,20 @@ class ChangelogPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s40, w: 14, h: 14),
+                          hsvg(Svgs.s73, w: 14, h: 14),
                           Flexible(
                             flex: 143,
                             child: Text(
                               '门店信息与服务价格设置',
-                              style: hts(13, Color(0xFF3F3F46), lh: 19),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                                lh: 19,
+                              ),
                             ),
                           ),
                         ],

@@ -74,7 +74,7 @@ class _OrderPageState extends State<OrderPage> {
                       height: 44,
                       padding: const EdgeInsets.symmetric(horizontal: 14),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: C.card,
                         borderRadius: BorderRadius.circular(22),
                         boxShadow: softShadow,
                       ),
@@ -129,10 +129,10 @@ class _OrderPageState extends State<OrderPage> {
                 20,
                 bottom > 0 ? bottom : 16,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: C.card,
                 boxShadow: [
-                  BoxShadow(color: Color(0xFFE8E8EA), offset: Offset(0, -1)),
+                  BoxShadow(color: C.line, offset: const Offset(0, -1)),
                   BoxShadow(
                     color: Color(0x0A000000),
                     blurRadius: 24,
@@ -251,7 +251,7 @@ class _OrderPageState extends State<OrderPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 14),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: cat == i ? C.ink : C.bg,
+                  color: cat == i ? C.btn : C.inset,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
@@ -259,7 +259,7 @@ class _OrderPageState extends State<OrderPage> {
                   style: ts(
                     13,
                     w: FontWeight.w500,
-                    color: cat == i ? Colors.white : const Color(0xFF3F3F46),
+                    color: cat == i ? C.btnFg : C.sub,
                     h: 18,
                   ),
                 ),
@@ -281,7 +281,7 @@ class _OrderPageState extends State<OrderPage> {
       behavior: HitTestBehavior.opaque,
       onTap: () => setState(() => on ? picked.remove(i) : picked.add(i)),
       child: Container(
-        color: on ? const Color(0xFFF3F9FF) : Colors.transparent,
+        color: on ? C.primarySoft : Colors.transparent,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
           children: [
@@ -377,7 +377,7 @@ class _OrderPageState extends State<OrderPage> {
                     height: 36,
                     padding: const EdgeInsets.fromLTRB(4, 0, 12, 0),
                     decoration: BoxDecoration(
-                      color: techs.contains(t) ? C.primarySoft : C.bg,
+                      color: techs.contains(t) ? C.primarySoft : C.inset,
                       borderRadius: BorderRadius.circular(18),
                       border: techs.contains(t)
                           ? Border.all(color: C.primary, width: 1.5)
@@ -389,7 +389,7 @@ class _OrderPageState extends State<OrderPage> {
                         Avatar(
                           t.substring(0, 1),
                           size: 28,
-                          bg: Colors.white,
+                          bg: C.card,
                           fg: C.ink,
                         ),
                         const SizedBox(width: 6),
@@ -400,7 +400,7 @@ class _OrderPageState extends State<OrderPage> {
                             w: FontWeight.w500,
                             color: techs.contains(t)
                                 ? C.primaryInk
-                                : const Color(0xFF3F3F46),
+                                : C.sub,
                             h: 18,
                           ),
                         ),
@@ -426,7 +426,7 @@ class _OrderPageState extends State<OrderPage> {
   Widget _kv(String k, String v) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
     decoration: BoxDecoration(
-      color: C.bg,
+      color: C.inset,
       borderRadius: BorderRadius.circular(14),
     ),
     child: Column(
@@ -474,7 +474,7 @@ class _OrderPageState extends State<OrderPage> {
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
-                    color: pay == i ? C.ink : C.bg,
+                    color: pay == i ? C.btn : C.inset,
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Column(
@@ -486,7 +486,7 @@ class _OrderPageState extends State<OrderPage> {
                         style: ts(
                           14,
                           w: FontWeight.w500,
-                          color: pay == i ? const Color(0xFFFAFAFA) : C.ink,
+                          color: pay == i ? C.btnFg : C.ink,
                           h: 20,
                         ),
                       ),

@@ -9,7 +9,7 @@ class BackupFreqSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -24,13 +24,18 @@ class BackupFreqSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '发送频率',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           HSelHolder(
             groups: [
@@ -42,7 +47,11 @@ class BackupFreqSheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 0,
                   on: hbox(
-                    bg: Color(0xFFE1F0FE),
+                    bg: dk(
+                      context,
+                      Color(0xFFE1F0FE),
+                      Color.fromRGBO(4, 133, 247, 0.18),
+                    ),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -56,14 +65,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每天',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '凌晨 03:00 发送前一天的数据，推荐',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -77,7 +98,7 @@ class BackupFreqSheet extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -90,7 +111,11 @@ class BackupFreqSheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFE1F0FE),
+                    bg: dk(
+                      context,
+                      Color(0xFFE1F0FE),
+                      Color.fromRGBO(4, 133, 247, 0.18),
+                    ),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -103,14 +128,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每天',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '凌晨 03:00 发送前一天的数据，推荐',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -124,7 +161,7 @@ class BackupFreqSheet extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -141,7 +178,7 @@ class BackupFreqSheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 1,
                   on: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -155,14 +192,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每周',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '每周一凌晨 03:00，含上周汇总',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -177,7 +226,7 @@ class BackupFreqSheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -190,14 +239,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每周',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '每周一凌晨 03:00，含上周汇总',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -216,7 +277,7 @@ class BackupFreqSheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 2,
                   on: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -230,14 +291,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每月',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '每月 1 日凌晨 03:00，含上月汇总',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -252,7 +325,7 @@ class BackupFreqSheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -265,14 +338,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每月',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '每月 1 日凌晨 03:00，含上月汇总',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -291,7 +376,7 @@ class BackupFreqSheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 3,
                   on: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -305,14 +390,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每次打烊后',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '营业结束时间后 30 分钟',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -327,7 +424,7 @@ class BackupFreqSheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -340,14 +437,26 @@ class BackupFreqSheet extends StatelessWidget {
                                 '每次打烊后',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '营业结束时间后 30 分钟',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -376,7 +485,7 @@ class BackupFreqSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -385,7 +494,7 @@ class BackupFreqSheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -401,7 +510,7 @@ class BackupFreqSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -410,7 +519,7 @@ class BackupFreqSheet extends StatelessWidget {
                         '确定',
                         style: hts(
                           15,
-                          Color(0xFFFFFFFF),
+                          dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),

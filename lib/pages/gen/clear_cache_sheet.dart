@@ -8,7 +8,7 @@ class ClearCacheSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -23,20 +23,29 @@ class ClearCacheSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '清除缓存',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           Text(
             '清除后将重新下载图片等内容，不会删除会员、订单等业务数据。',
-            style: hts(13, Color(0xFF71717A), lh: 18),
+            style: hts(
+              13,
+              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+              lh: 18,
+            ),
           ),
           hbox(
-            bg: Color(0xFFF4F4F5),
+            bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
             radius: BorderRadius.circular(18),
             pad: EdgeInsets.fromLTRB(14, 4, 14, 4),
             child: hcol(
@@ -47,11 +56,21 @@ class ClearCacheSheet extends StatelessWidget {
                     [
                       Expanded(
                         flex: 1,
-                        child: Text('图片缓存', style: hts(14, Color(0xFF18181B))),
+                        child: Text(
+                          '图片缓存',
+                          style: hts(
+                            14,
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          ),
+                        ),
                       ),
                       Text(
                         '96 MB',
-                        style: hts(14, Color(0xFF18181B), w: FontWeight.w500),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w500,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -59,18 +78,31 @@ class ClearCacheSheet extends StatelessWidget {
                     gap: 0,
                   ),
                 ),
-                hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                hbox(
+                  h: 1,
+                  bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                ),
                 hbox(
                   minH: 44,
                   child: hrow(
                     [
                       Expanded(
                         flex: 1,
-                        child: Text('离线数据', style: hts(14, Color(0xFF18181B))),
+                        child: Text(
+                          '离线数据',
+                          style: hts(
+                            14,
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          ),
+                        ),
                       ),
                       Text(
                         '24 MB',
-                        style: hts(14, Color(0xFF18181B), w: FontWeight.w500),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w500,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -78,7 +110,10 @@ class ClearCacheSheet extends StatelessWidget {
                     gap: 0,
                   ),
                 ),
-                hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                hbox(
+                  h: 1,
+                  bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                ),
                 hbox(
                   minH: 44,
                   child: hrow(
@@ -87,12 +122,19 @@ class ClearCacheSheet extends StatelessWidget {
                         flex: 1,
                         child: Text(
                           '其他临时文件',
-                          style: hts(14, Color(0xFF18181B)),
+                          style: hts(
+                            14,
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          ),
                         ),
                       ),
                       Text(
                         '8 MB',
-                        style: hts(14, Color(0xFF18181B), w: FontWeight.w500),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w500,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -114,7 +156,7 @@ class ClearCacheSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -123,7 +165,7 @@ class ClearCacheSheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -139,7 +181,7 @@ class ClearCacheSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -148,7 +190,7 @@ class ClearCacheSheet extends StatelessWidget {
                         '清除 128 MB',
                         style: hts(
                           15,
-                          Color(0xFFFFFFFF),
+                          dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),

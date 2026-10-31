@@ -57,8 +57,8 @@ class HomePage extends StatelessWidget {
       if (st != SubState.trialEnding && st != SubState.expiring) {
         return const SizedBox.shrink();
       }
-      final bg = trial ? const Color(0xFFFFE1E2) : C.amberSoft;
-      final fg = trial ? const Color(0xFF8A2A29) : const Color(0xFF6B4A1F);
+      final bg = trial ? C.redSoft : C.amberSoft;
+      final fg = trial ? C.redInk : C.amberInk;
       return Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Container(
@@ -103,12 +103,12 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 14),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: trial ? const Color(0xFFA43433) : C.ink,
+                    color: trial ? C.red : C.btn,
                     borderRadius: BorderRadius.circular(17),
                   ),
                   child: Text(
                     trial ? '去订阅' : '去续费',
-                    style: ts(13, w: FontWeight.w600, color: Colors.white),
+                    style: ts(13, w: FontWeight.w600, color: trial ? Colors.white : C.btnFg),
                   ),
                 ),
               ),
@@ -157,10 +157,10 @@ class HomePage extends StatelessWidget {
           width: 44,
           height: 44,
           alignment: Alignment.center,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: C.primary,
             shape: BoxShape.circle,
-            boxShadow: [BoxShadow(color: Colors.white, spreadRadius: 3)],
+            boxShadow: [BoxShadow(color: C.card, spreadRadius: 3)],
           ),
           child: Text(
             '陈',
@@ -195,7 +195,8 @@ class HomePage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: C.ink,
+        color: C.heroCard,
+        border: C.heroBorder,
         borderRadius: BorderRadius.circular(28),
       ),
       child: Stack(
@@ -427,7 +428,7 @@ class HomePage extends StatelessWidget {
                       '今日 ¥12,600',
                       'card',
                       C.greenSoft,
-                      const Color(0xFF1F5E37),
+                      C.greenInk,
                       () => openRoute(context, 'Recharge'),
                     ),
                     const SizedBox(height: 10),
@@ -436,7 +437,7 @@ class HomePage extends StatelessWidget {
                       '3 件待补货',
                       'box',
                       C.amberSoft,
-                      const Color(0xFF6B4A1F),
+                      C.amberInk,
                       () => tabIndex.value = 2,
                     ),
                   ],
@@ -453,7 +454,7 @@ class HomePage extends StatelessWidget {
             clipBehavior: Clip.antiAlias,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: C.ink,
+              color: C.heroCard,
               borderRadius: BorderRadius.circular(24),
             ),
             child: Stack(
@@ -473,7 +474,7 @@ class HomePage extends StatelessWidget {
                         color: C.gold,
                         shape: BoxShape.circle,
                       ),
-                      child: AppIcon('calendar', size: 18, color: C.ink),
+                      child: AppIcon('calendar', size: 18, color: C.onGold),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
@@ -561,7 +562,7 @@ class HomePage extends StatelessWidget {
               style: ts(12, w: FontWeight.w500, h: 16, tabular: true),
             ),
             const SizedBox(width: 10),
-            Avatar(j.tech, size: 24, bg: const Color(0xFFE4E4E7), fg: C.ink),
+            Avatar(j.tech, size: 24, bg: C.stroke, fg: C.ink),
           ],
         ),
       ],

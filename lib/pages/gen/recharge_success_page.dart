@@ -9,7 +9,7 @@ class RechargeSuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1060,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class RechargeSuccessPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -86,7 +97,7 @@ class RechargeSuccessPage extends StatelessWidget {
                                   ),
                                 ],
                                 child: hrow(
-                                  [hsvg(Svgs.s17, w: 36, h: 36)],
+                                  [hsvg(Svgs.s29, w: 36, h: 36)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -102,7 +113,7 @@ class RechargeSuccessPage extends StatelessWidget {
                             Positioned(
                               left: -32,
                               top: -32,
-                              child: hsvg(Svgs.s16, w: 160, h: 160),
+                              child: hsvg(Svgs.s28, w: 160, h: 160),
                             ),
                           ],
                         ),
@@ -111,7 +122,7 @@ class RechargeSuccessPage extends StatelessWidget {
                         '充值成功',
                         style: hts(
                           17,
-                          Color(0xFF2B7745),
+                          dk(context, Color(0xFF2B7745), Color(0xFF5FD48C)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -120,7 +131,7 @@ class RechargeSuccessPage extends StatelessWidget {
                         '¥2,000.00',
                         style: hts(
                           40,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 48,
                           ls: -1,
@@ -128,7 +139,11 @@ class RechargeSuccessPage extends StatelessWidget {
                       ),
                       Text(
                         '王建国 · 微信支付 · 14:38',
-                        style: hts(13, Color(0xFF71717A), lh: 18),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 18,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -137,28 +152,39 @@ class RechargeSuccessPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(18, 6, 18, 6),
                   child: hcol(
                     [
@@ -170,14 +196,26 @@ class RechargeSuccessPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '储值充值',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '¥2,000.00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -188,7 +226,10 @@ class RechargeSuccessPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 36,
                         child: hrow(
@@ -197,14 +238,26 @@ class RechargeSuccessPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '赠送金额',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '+¥300.00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -215,7 +268,10 @@ class RechargeSuccessPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 36,
                         child: hrow(
@@ -224,14 +280,26 @@ class RechargeSuccessPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '到账合计',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '¥2,300.00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 20,
                               ),
@@ -242,7 +310,10 @@ class RechargeSuccessPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 36,
                         child: hrow(
@@ -251,14 +322,26 @@ class RechargeSuccessPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '充值后余额',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '¥5,980.00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -269,7 +352,10 @@ class RechargeSuccessPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 36,
                         child: hrow(
@@ -278,14 +364,26 @@ class RechargeSuccessPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '获得积分',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '+2,000',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -303,28 +401,39 @@ class RechargeSuccessPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(18, 18, 18, 18),
                   child: hcol(
                     [
@@ -333,10 +442,20 @@ class RechargeSuccessPage extends StatelessWidget {
                           hbox(
                             w: 32,
                             h: 32,
-                            bg: Color(0xFFFFE1E2),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFE1E2),
+                              Color.fromRGBO(255, 56, 60, 0.18),
+                            ),
                             radius: BorderRadius.circular(10),
                             child: hrow(
-                              [hsvg(Svgs.s21, w: 18, h: 18)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s36, Svgs.s37),
+                                  w: 18,
+                                  h: 18,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -348,7 +467,11 @@ class RechargeSuccessPage extends StatelessWidget {
                               '通知会员',
                               style: hts(
                                 16,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
@@ -369,15 +492,35 @@ class RechargeSuccessPage extends StatelessWidget {
                       ),
                       Text.rich(
                         TextSpan(
-                          style: hts(13, Color(0xFF52525B), lh: 18),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                            lh: 18,
+                          ),
                           children: [
                             TextSpan(
                               text: '王建国 · 138 **** 0912 ',
-                              style: hts(13, Color(0xFF52525B), lh: 18),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF52525B),
+                                  Color(0xFFA8A8B3),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                             TextSpan(
                               text: '· 已关注公众号',
-                              style: hts(13, Color(0xFF2B7745), lh: 18),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF2B7745),
+                                  Color(0xFF5FD48C),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                           ],
                         ),
@@ -393,7 +536,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                 ctrl: g1[0],
                                 index: 0,
                                 on: hbox(
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(18),
                                   border: Border.all(
                                     color: Color(0xFF0485F7),
@@ -405,10 +552,20 @@ class RechargeSuccessPage extends StatelessWidget {
                                       hbox(
                                         w: 36,
                                         h: 36,
-                                        bg: Color(0xFFDDF6E7),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFDDF6E7),
+                                          Color.fromRGBO(23, 201, 100, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s130, w: 20, h: 20)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s239, Svgs.s240),
+                                              w: 20,
+                                              h: 20,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -422,7 +579,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '微信通知',
                                               style: hts(
                                                 15,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w600,
                                                 lh: 22,
                                               ),
@@ -431,7 +592,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '模板：充值通知 · 免费',
                                               style: hts(
                                                 12,
-                                                Color(0xFF52525B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF52525B),
+                                                  Color(0xFFA8A8B3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -447,7 +612,7 @@ class RechargeSuccessPage extends StatelessWidget {
                                         bg: Color(0xFF0485F7),
                                         radius: BorderRadius.circular(11),
                                         child: hrow(
-                                          [hsvg(Svgs.s131, w: 14, h: 14)],
+                                          [hsvg(Svgs.s241, w: 14, h: 14)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -460,7 +625,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                   ),
                                 ),
                                 off: hbox(
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(18),
                                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                   child: hrow(
@@ -468,10 +637,20 @@ class RechargeSuccessPage extends StatelessWidget {
                                       hbox(
                                         w: 36,
                                         h: 36,
-                                        bg: Color(0xFFDDF6E7),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFDDF6E7),
+                                          Color.fromRGBO(23, 201, 100, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s130, w: 20, h: 20)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s239, Svgs.s240),
+                                              w: 20,
+                                              h: 20,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -485,7 +664,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '微信通知',
                                               style: hts(
                                                 15,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w600,
                                                 lh: 22,
                                               ),
@@ -494,7 +677,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '模板：充值通知 · 免费',
                                               style: hts(
                                                 12,
-                                                Color(0xFF52525B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF52525B),
+                                                  Color(0xFFA8A8B3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -510,7 +697,7 @@ class RechargeSuccessPage extends StatelessWidget {
                                         bg: Color(0xFF0485F7),
                                         radius: BorderRadius.circular(11),
                                         child: hrow(
-                                          [hsvg(Svgs.s131, w: 14, h: 14)],
+                                          [hsvg(Svgs.s241, w: 14, h: 14)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -527,7 +714,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                 ctrl: g1[0],
                                 index: 1,
                                 on: hbox(
-                                  bg: Color(0xFFF4F4F5),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFF4F4F5),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(18),
                                   border: Border.all(
                                     color: Color(0xFF0485F7),
@@ -539,10 +730,20 @@ class RechargeSuccessPage extends StatelessWidget {
                                       hbox(
                                         w: 36,
                                         h: 36,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s132, w: 20, h: 20)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s242, Svgs.s243),
+                                              w: 20,
+                                              h: 20,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -556,7 +757,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '短信通知',
                                               style: hts(
                                                 15,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w600,
                                                 lh: 22,
                                               ),
@@ -565,7 +770,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '64 字 · 1 条 · 约 ¥0.06',
                                               style: hts(
                                                 12,
-                                                Color(0xFF52525B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF52525B),
+                                                  Color(0xFFA8A8B3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -579,9 +788,16 @@ class RechargeSuccessPage extends StatelessWidget {
                                         w: 22,
                                         h: 22,
                                         radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
+                                        border: dk(
+                                          context,
+                                          Border.all(
+                                            color: Color(0xFFD4D4D8),
+                                            width: 2,
+                                          ),
+                                          Border.all(
+                                            color: Color(0xFF3F3F46),
+                                            width: 2,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -591,7 +807,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                   ),
                                 ),
                                 off: hbox(
-                                  bg: Color(0xFFF4F4F5),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFF4F4F5),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(18),
                                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                   child: hrow(
@@ -599,10 +819,20 @@ class RechargeSuccessPage extends StatelessWidget {
                                       hbox(
                                         w: 36,
                                         h: 36,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s132, w: 20, h: 20)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s242, Svgs.s243),
+                                              w: 20,
+                                              h: 20,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -616,7 +846,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '短信通知',
                                               style: hts(
                                                 15,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w600,
                                                 lh: 22,
                                               ),
@@ -625,7 +859,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                               '64 字 · 1 条 · 约 ¥0.06',
                                               style: hts(
                                                 12,
-                                                Color(0xFF52525B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF52525B),
+                                                  Color(0xFFA8A8B3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -639,9 +877,16 @@ class RechargeSuccessPage extends StatelessWidget {
                                         w: 22,
                                         h: 22,
                                         radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
+                                        border: dk(
+                                          context,
+                                          Border.all(
+                                            color: Color(0xFFD4D4D8),
+                                            width: 2,
+                                          ),
+                                          Border.all(
+                                            color: Color(0xFF3F3F46),
+                                            width: 2,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -666,7 +911,14 @@ class RechargeSuccessPage extends StatelessWidget {
                                 clip: true,
                                 child: Text(
                                   '发送渠道',
-                                  style: hts(16, Color(0xFF18181B)),
+                                  style: hts(
+                                    16,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -681,7 +933,11 @@ class RechargeSuccessPage extends StatelessWidget {
                               context,
                               hbox(
                                 h: 46,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(23),
                                 child: Align(
                                   alignment: Alignment.center,
@@ -690,7 +946,11 @@ class RechargeSuccessPage extends StatelessWidget {
                                     '本次不通知',
                                     style: hts(
                                       15,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
@@ -733,7 +993,11 @@ class RechargeSuccessPage extends StatelessWidget {
                       ),
                       Text(
                         '按"优先微信，失败转短信"策略，已默认选中微信',
-                        style: hts(12, Color(0xFF71717A), lh: 16),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 16,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -756,15 +1020,30 @@ class RechargeSuccessPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.92),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.92),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -774,7 +1053,7 @@ class RechargeSuccessPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -783,7 +1062,7 @@ class RechargeSuccessPage extends StatelessWidget {
                           '再充一笔',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -799,7 +1078,7 @@ class RechargeSuccessPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -808,7 +1087,7 @@ class RechargeSuccessPage extends StatelessWidget {
                           '完成',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

@@ -9,7 +9,7 @@ class EcoFilingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 968,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class EcoFilingPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class EcoFilingPage extends StatelessWidget {
                         '排水许可 / 环保备案',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,28 +87,39 @@ class EcoFilingPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -106,10 +128,20 @@ class EcoFilingPage extends StatelessWidget {
                           hbox(
                             w: 28,
                             h: 28,
-                            bg: Color(0xFFFDEFD6),
+                            bg: dk(
+                              context,
+                              Color(0xFFFDEFD6),
+                              Color.fromRGBO(245, 165, 36, 0.16),
+                            ),
                             radius: BorderRadius.circular(14),
                             child: hrow(
-                              [hsvg(Svgs.s50, w: 16, h: 16)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s88, Svgs.s89),
+                                  w: 16,
+                                  h: 16,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -123,13 +155,24 @@ class EcoFilingPage extends StatelessWidget {
                                   '待上传',
                                   style: hts(
                                     15,
-                                    Color(0xFF855F2E),
+                                    dk(
+                                      context,
+                                      Color(0xFF855F2E),
+                                      Color(0xFFF0C46A),
+                                    ),
                                     w: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
                                   '汽车美容门店通常需要办理，请按当地要求准备',
-                                  style: hts(12, Color(0xFF71717A)),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -156,35 +199,46 @@ class EcoFilingPage extends StatelessWidget {
                         '上传材料',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -193,22 +247,41 @@ class EcoFilingPage extends StatelessWidget {
                             bg: Color(0xFFFAFAFA),
                             radius: BorderRadius.circular(20),
                             dashed: true,
-                            dashColor: Color(0xFFD4D4D8),
+                            dashColor: dk(
+                              context,
+                              Color(0xFFD4D4D8),
+                              Color(0xFF3F3F46),
+                            ),
                             dashWidth: 2,
                             child: hcol(
                               [
-                                hsvg(Svgs.s51, w: 28, h: 28),
+                                hsvg(
+                                  dk(context, Svgs.s90, Svgs.s91),
+                                  w: 28,
+                                  h: 28,
+                                ),
                                 Text(
                                   '上传排水许可证',
                                   style: hts(
                                     14,
-                                    Color(0xFF3F3F46),
+                                    dk(
+                                      context,
+                                      Color(0xFF3F3F46),
+                                      Color(0xFFD4D4D8),
+                                    ),
                                     w: FontWeight.w500,
                                   ),
                                 ),
                                 Text(
                                   '拍照或从相册选择 · 支持 JPG、PNG、PDF',
-                                  style: hts(12, Color(0xFF71717A)),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.center,
@@ -221,22 +294,41 @@ class EcoFilingPage extends StatelessWidget {
                             bg: Color(0xFFFAFAFA),
                             radius: BorderRadius.circular(20),
                             dashed: true,
-                            dashColor: Color(0xFFD4D4D8),
+                            dashColor: dk(
+                              context,
+                              Color(0xFFD4D4D8),
+                              Color(0xFF3F3F46),
+                            ),
                             dashWidth: 2,
                             child: hcol(
                               [
-                                hsvg(Svgs.s51, w: 28, h: 28),
+                                hsvg(
+                                  dk(context, Svgs.s90, Svgs.s91),
+                                  w: 28,
+                                  h: 28,
+                                ),
                                 Text(
                                   '上传环保备案回执',
                                   style: hts(
                                     14,
-                                    Color(0xFF3F3F46),
+                                    dk(
+                                      context,
+                                      Color(0xFF3F3F46),
+                                      Color(0xFFD4D4D8),
+                                    ),
                                     w: FontWeight.w500,
                                   ),
                                 ),
                                 Text(
                                   '拍照或从相册选择 · 支持 JPG、PNG、PDF',
-                                  style: hts(12, Color(0xFF71717A)),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.center,
@@ -263,35 +355,46 @@ class EcoFilingPage extends StatelessWidget {
                         '填写信息',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -301,7 +404,11 @@ class EcoFilingPage extends StatelessWidget {
                                 TextSpan(
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -310,7 +417,11 @@ class EcoFilingPage extends StatelessWidget {
                                       text: '许可证编号 ',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -319,7 +430,11 @@ class EcoFilingPage extends StatelessWidget {
                                       text: '*',
                                       style: hts(
                                         13,
-                                        Color(0xFFA43433),
+                                        dk(
+                                          context,
+                                          Color(0xFFA43433),
+                                          Color(0xFFFF7B7E),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -329,7 +444,11 @@ class EcoFilingPage extends StatelessWidget {
                               ),
                               hbox(
                                 minH: 48,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: hrow(
@@ -338,7 +457,11 @@ class EcoFilingPage extends StatelessWidget {
                                       child: HInput(
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                         hint: '请输入编号',
@@ -361,7 +484,11 @@ class EcoFilingPage extends StatelessWidget {
                                 TextSpan(
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -370,7 +497,11 @@ class EcoFilingPage extends StatelessWidget {
                                       text: '有效期至 ',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -379,7 +510,11 @@ class EcoFilingPage extends StatelessWidget {
                                       text: '*',
                                       style: hts(
                                         13,
-                                        Color(0xFFA43433),
+                                        dk(
+                                          context,
+                                          Color(0xFFA43433),
+                                          Color(0xFFFF7B7E),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -389,7 +524,11 @@ class EcoFilingPage extends StatelessWidget {
                               ),
                               hbox(
                                 minH: 48,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: hrow(
@@ -398,10 +537,21 @@ class EcoFilingPage extends StatelessWidget {
                                       flex: 1,
                                       child: Text(
                                         '请选择日期',
-                                        style: hts(15, Color(0xFFA1A1AA)),
+                                        style: hts(
+                                          15,
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    hsvg(Svgs.s52, w: 18, h: 18),
+                                    hsvg(
+                                      dk(context, Svgs.s92, Svgs.s93),
+                                      w: 18,
+                                      h: 18,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -426,7 +576,11 @@ class EcoFilingPage extends StatelessWidget {
                 ),
                 Text(
                   '审核通常在 1 个工作日内完成，结果将以站内消息通知。',
-                  style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                    lh: 18,
+                  ),
                 ),
               ],
               main: MainAxisAlignment.start,
@@ -442,15 +596,30 @@ class EcoFilingPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -460,7 +629,7 @@ class EcoFilingPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -469,7 +638,7 @@ class EcoFilingPage extends StatelessWidget {
                           '提交审核',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

@@ -8,7 +8,7 @@ class BindInviteSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -23,7 +23,7 @@ class BindInviteSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
@@ -33,7 +33,12 @@ class BindInviteSheet extends StatelessWidget {
                 flex: 1,
                 child: Text(
                   '发送绑定邀请',
-                  style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+                  style: hts(
+                    20,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 28,
+                  ),
                 ),
               ),
             ],
@@ -42,7 +47,7 @@ class BindInviteSheet extends StatelessWidget {
             gap: 0,
           ),
           hbox(
-            bg: Color(0xFFF4F4F5),
+            bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
             radius: BorderRadius.circular(18),
             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
             child: hrow(
@@ -50,12 +55,20 @@ class BindInviteSheet extends StatelessWidget {
                 hbox(
                   w: 40,
                   h: 40,
-                  bg: Color(0xFFE1F0FE),
+                  bg: dk(
+                    context,
+                    Color(0xFFE1F0FE),
+                    Color.fromRGBO(4, 133, 247, 0.18),
+                  ),
                   radius: BorderRadius.circular(20),
                   align: Alignment(0, 0),
                   child: Text(
                     '李',
-                    style: hts(16, Color(0xFF1E63AE), w: FontWeight.w600),
+                    style: hts(
+                      16,
+                      dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
+                      w: FontWeight.w600,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -66,14 +79,18 @@ class BindInviteSheet extends StatelessWidget {
                         '李女士',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
                       ),
                       Text(
                         '139 **** 5530',
-                        style: hts(12, Color(0xFF71717A), lh: 16),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 16,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -82,14 +99,18 @@ class BindInviteSheet extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFE1F0FE),
+                  bg: dk(
+                    context,
+                    Color(0xFFE1F0FE),
+                    Color.fromRGBO(4, 133, 247, 0.18),
+                  ),
                   radius: BorderRadius.circular(9),
                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                   child: Text(
                     '短信',
                     style: hts(
                       11,
-                      Color(0xFF1E63AE),
+                      dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                       w: FontWeight.w600,
                       lh: 18,
                     ),
@@ -105,12 +126,17 @@ class BindInviteSheet extends StatelessWidget {
             [
               Text(
                 '短信预览',
-                style: hts(13, Color(0xFF18181B), w: FontWeight.w600, lh: 18),
+                style: hts(
+                  13,
+                  dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                  w: FontWeight.w600,
+                  lh: 18,
+                ),
               ),
               Align(
                 alignment: Alignment.topLeft,
                 child: hbox(
-                  bg: Color(0xFFF4F4F5),
+                  bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                   radius: BorderRadius.only(
                     topLeft: Radius.circular(4),
                     topRight: Radius.circular(18),
@@ -120,7 +146,11 @@ class BindInviteSheet extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(14, 10, 14, 10),
                   child: Text(
                     '【驰光汽车】李女士您好，点击链接绑定微信会员，随时查看余额、次卡和消费记录：https://qm.link/Ab3x 退订回T',
-                    style: hts(14, Color(0xFF18181B), lh: 21),
+                    style: hts(
+                      14,
+                      dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                      lh: 21,
+                    ),
                   ),
                 ),
               ),
@@ -133,11 +163,19 @@ class BindInviteSheet extends StatelessWidget {
             [
               Text(
                 '· 链接 7 天内有效，会员点开并验证手机号即完成绑定',
-                style: hts(12, Color(0xFF71717A), lh: 18),
+                style: hts(
+                  12,
+                  dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                  lh: 18,
+                ),
               ),
               Text(
                 '· 本条按 1 条短信计费，约 ¥0.06',
-                style: hts(12, Color(0xFF71717A), lh: 18),
+                style: hts(
+                  12,
+                  dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                  lh: 18,
+                ),
               ),
             ],
             main: MainAxisAlignment.start,
@@ -152,7 +190,7 @@ class BindInviteSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -161,7 +199,7 @@ class BindInviteSheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),

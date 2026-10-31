@@ -8,7 +8,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -23,17 +23,26 @@ class AppointmentRescheduleSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '改期 · 刘先生',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           Text(
             '原预约：今天 17:30 · 车身打蜡 · 4 号工位',
-            style: hts(13, Color(0xFF71717A), lh: 18),
+            style: hts(
+              13,
+              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+              lh: 18,
+            ),
           ),
           hcol(
             [
@@ -41,7 +50,12 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '新日期',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -55,7 +69,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -69,7 +87,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '今天 10.31',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -78,7 +96,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -88,7 +110,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '今天 10.31',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -101,7 +123,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -115,7 +137,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '明天 11.01',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -124,7 +146,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -134,7 +156,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '明天 11.01',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -147,7 +169,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -161,7 +183,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '周一 11.02',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -170,7 +192,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -180,7 +202,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '周一 11.02',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -193,7 +215,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -207,7 +229,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '周二 11.03',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -216,7 +238,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -226,7 +248,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '周二 11.03',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -253,7 +275,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                   TextSpan(
                     style: hts(
                       14,
-                      Color(0xFF18181B),
+                      dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       w: FontWeight.w600,
                       lh: 20,
                     ),
@@ -262,14 +284,18 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         text: '新时间 ',
                         style: hts(
                           14,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 20,
                         ),
                       ),
                       TextSpan(
                         text: '· 18:30 – 20:00',
-                        style: hts(14, Color(0xFF71717A), lh: 20),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 20,
+                        ),
                       ),
                     ],
                   ),
@@ -284,7 +310,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         context,
                         hbox(
                           h: 38,
-                          bg: Color(0xFFEEEEF0),
+                          bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                           radius: BorderRadius.circular(12),
                           border: Border.all(
                             color: Color(0xFFC7C7CC),
@@ -297,7 +323,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                               '17:30 原',
                               style: hts(
                                 14,
-                                Color(0xFF71717A),
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -313,7 +343,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         context,
                         hbox(
                           h: 38,
-                          bg: Color(0xFFF4F4F5),
+                          bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                           radius: BorderRadius.circular(12),
                           child: Align(
                             alignment: Alignment.center,
@@ -322,7 +352,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                               '18:00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -338,7 +372,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         context,
                         hbox(
                           h: 38,
-                          bg: Color(0xFFE1F0FE),
+                          bg: dk(
+                            context,
+                            Color(0xFFE1F0FE),
+                            Color.fromRGBO(4, 133, 247, 0.18),
+                          ),
                           radius: BorderRadius.circular(12),
                           border: Border.all(
                             color: Color(0xFF0485F7),
@@ -351,7 +389,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                               '18:30',
                               style: hts(
                                 14,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -375,7 +417,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         context,
                         hbox(
                           h: 38,
-                          bg: Color(0xFFF4F4F5),
+                          bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                           radius: BorderRadius.circular(12),
                           child: Align(
                             alignment: Alignment.center,
@@ -384,7 +426,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                               '19:00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -400,7 +446,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         context,
                         hbox(
                           h: 38,
-                          bg: Color(0xFFF4F4F5),
+                          bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                           radius: BorderRadius.circular(12),
                           child: Align(
                             alignment: Alignment.center,
@@ -409,7 +455,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                               '19:30',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -425,7 +475,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         context,
                         hbox(
                           h: 38,
-                          bg: Color(0xFFF4F4F5),
+                          bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                           radius: BorderRadius.circular(12),
                           child: Align(
                             alignment: Alignment.center,
@@ -463,10 +513,21 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                 flex: 1,
                 child: hcol(
                   [
-                    Text('改期后通知客户', style: hts(14, Color(0xFF18181B), lh: 20)),
+                    Text(
+                      '改期后通知客户',
+                      style: hts(
+                        14,
+                        dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                        lh: 20,
+                      ),
+                    ),
                     Text(
                       '微信优先，失败转短信',
-                      style: hts(12, Color(0xFF71717A), lh: 16),
+                      style: hts(
+                        12,
+                        dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        lh: 16,
+                      ),
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -488,7 +549,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -497,7 +558,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -513,7 +574,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -522,7 +583,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                         '确认改期',
                         style: hts(
                           15,
-                          Color(0xFFFFFFFF),
+                          dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
@@ -538,14 +599,19 @@ class AppointmentRescheduleSheet extends StatelessWidget {
             gap: 10,
             intrinsic: true,
           ),
-          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+          hbox(h: 1, bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E))),
           hcol(
             [
               hbox(
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '或者取消预约',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -559,7 +625,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -573,7 +643,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '客户有事',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -582,7 +652,11 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -592,7 +666,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '客户有事',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -605,7 +679,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -619,7 +693,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '时间冲突',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -628,7 +702,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -638,7 +712,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '时间冲突',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -651,7 +725,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -665,7 +739,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '联系不上',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -674,7 +748,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -684,7 +758,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '联系不上',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -697,7 +771,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -711,7 +785,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '其他',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -720,7 +794,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -730,7 +804,7 @@ class AppointmentRescheduleSheet extends StatelessWidget {
                             '其他',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -753,14 +827,23 @@ class AppointmentRescheduleSheet extends StatelessWidget {
             context,
             hbox(
               h: 46,
-              bg: Color(0xFFFFE1E2),
+              bg: dk(
+                context,
+                Color(0xFFFFE1E2),
+                Color.fromRGBO(255, 56, 60, 0.18),
+              ),
               radius: BorderRadius.circular(23),
               child: Align(
                 alignment: Alignment(0, 0),
                 widthFactor: 1,
                 child: Text(
                   '取消这个预约',
-                  style: hts(15, Color(0xFFA43433), w: FontWeight.w600, lh: 22),
+                  style: hts(
+                    15,
+                    dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
+                    w: FontWeight.w600,
+                    lh: 22,
+                  ),
                 ),
               ),
             ),

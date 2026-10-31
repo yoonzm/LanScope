@@ -9,7 +9,7 @@ class CardTierEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1140,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class CardTierEditPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s32, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s58, Svgs.s59), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class CardTierEditPage extends StatelessWidget {
                         '编辑卡种',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -99,7 +110,7 @@ class CardTierEditPage extends StatelessWidget {
                 ),
                 hbox(
                   h: 168,
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF34343A)),
                   radius: BorderRadius.circular(24),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
@@ -114,7 +125,11 @@ class CardTierEditPage extends StatelessWidget {
                                 '驰光汽车美容',
                                 style: hts(
                                   12,
-                                  Color(0xFFA1A1AA),
+                                  dk(
+                                    context,
+                                    Color(0xFFA1A1AA),
+                                    Color(0xFF80808A),
+                                  ),
                                   lh: 16,
                                   ls: 0.96,
                                 ),
@@ -122,7 +137,15 @@ class CardTierEditPage extends StatelessWidget {
                             ),
                             Text(
                               '卡面预览',
-                              style: hts(11, Color(0xFFA1A1AA), lh: 18),
+                              style: hts(
+                                11,
+                                dk(
+                                  context,
+                                  Color(0xFFA1A1AA),
+                                  Color(0xFF80808A),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -154,34 +177,49 @@ class CardTierEditPage extends StatelessWidget {
                       Positioned(
                         right: -80,
                         bottom: -110,
-                        child: hsvg(Svgs.s33, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s60, Svgs.s61),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -194,12 +232,28 @@ class CardTierEditPage extends StatelessWidget {
                               w: 72,
                               child: Text(
                                 '卡种名称',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Expanded(
                               child: HInput(
-                                style: hts(15, Color(0xFF18181B), lh: 22),
+                                style: hts(
+                                  15,
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
+                                  lh: 22,
+                                ),
                                 value: '黑金卡',
                                 align: TextAlign.right,
                               ),
@@ -212,7 +266,7 @@ class CardTierEditPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -224,7 +278,15 @@ class CardTierEditPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '卡面颜色',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             HSelHolder(
@@ -239,7 +301,11 @@ class CardTierEditPage extends StatelessWidget {
                                     on: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFF18181B),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFF34343A),
+                                      ),
                                       radius: BorderRadius.circular(16),
                                       shadow: [
                                         BoxShadow(
@@ -259,7 +325,11 @@ class CardTierEditPage extends StatelessWidget {
                                     off: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFF18181B),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFF34343A),
+                                      ),
                                       radius: BorderRadius.circular(16),
                                     ),
                                   ),
@@ -299,7 +369,11 @@ class CardTierEditPage extends StatelessWidget {
                                     on: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFD4D4D8),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFD4D4D8),
+                                        Color(0xFF3F3F46),
+                                      ),
                                       radius: BorderRadius.circular(16),
                                       shadow: [
                                         BoxShadow(
@@ -319,7 +393,11 @@ class CardTierEditPage extends StatelessWidget {
                                     off: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFD4D4D8),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFD4D4D8),
+                                        Color(0xFF3F3F46),
+                                      ),
                                       radius: BorderRadius.circular(16),
                                     ),
                                   ),
@@ -380,35 +458,46 @@ class CardTierEditPage extends StatelessWidget {
                         '开卡条件（满足任一即可）',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -421,12 +510,28 @@ class CardTierEditPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '单次充值满',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥',
-                                  style: hts(15, Color(0xFF71717A), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                                 Expanded(
                                   child: hbox(
@@ -434,7 +539,11 @@ class CardTierEditPage extends StatelessWidget {
                                     child: HInput(
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
@@ -454,7 +563,11 @@ class CardTierEditPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -466,12 +579,28 @@ class CardTierEditPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '累计消费满',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥',
-                                  style: hts(15, Color(0xFF71717A), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                                 Expanded(
                                   child: hbox(
@@ -479,7 +608,11 @@ class CardTierEditPage extends StatelessWidget {
                                     child: HInput(
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
@@ -516,35 +649,46 @@ class CardTierEditPage extends StatelessWidget {
                         '会员权益',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -556,14 +700,22 @@ class CardTierEditPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFFDEFD6),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFDEFD6),
+                                    Color.fromRGBO(245, 165, 36, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   align: Alignment(0, 0),
                                   child: Text(
                                     '%',
                                     style: hts(
                                       13,
-                                      Color(0xFF855F2E),
+                                      dk(
+                                        context,
+                                        Color(0xFF855F2E),
+                                        Color(0xFFF0C46A),
+                                      ),
                                       w: FontWeight.w700,
                                     ),
                                   ),
@@ -572,7 +724,15 @@ class CardTierEditPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '项目折扣',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 hrow(
@@ -582,14 +742,22 @@ class CardTierEditPage extends StatelessWidget {
                                       hbox(
                                         w: 30,
                                         h: 30,
-                                        bg: Color(0xFFEEEEF0),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFEEEEF0),
+                                          Color(0xFF27272A),
+                                        ),
                                         radius: BorderRadius.circular(15),
                                         align: Alignment.center,
                                         child: Text(
                                           '−',
                                           style: hts(
                                             17,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 17,
                                           ),
@@ -603,7 +771,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '9.0 折',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                         ),
@@ -615,7 +787,11 @@ class CardTierEditPage extends StatelessWidget {
                                       hbox(
                                         w: 30,
                                         h: 30,
-                                        bg: Color(0xFF18181B),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFF34343A),
+                                        ),
                                         radius: BorderRadius.circular(15),
                                         align: Alignment.center,
                                         child: Text(
@@ -643,7 +819,11 @@ class CardTierEditPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           HStrHolder(
@@ -658,10 +838,20 @@ class CardTierEditPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFE1F0FE),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFE1F0FE),
+                                        Color.fromRGBO(4, 133, 247, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s34, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s62, Svgs.s63),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -673,7 +863,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '积分倍率',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -682,12 +876,20 @@ class CardTierEditPage extends StatelessWidget {
                                       s2,
                                       hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -700,7 +902,11 @@ class CardTierEditPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           HStrHolder(
@@ -715,10 +921,20 @@ class CardTierEditPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFFFE1E2),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFFFE1E2),
+                                        Color.fromRGBO(255, 56, 60, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s35, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s64, Svgs.s65),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -732,13 +948,25 @@ class CardTierEditPage extends StatelessWidget {
                                             '生日礼',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               lh: 22,
                                             ),
                                           ),
                                           hStr(
                                             s3,
-                                            hts(12, Color(0xFF71717A), lh: 16),
+                                            hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
+                                              lh: 16,
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -746,7 +974,11 @@ class CardTierEditPage extends StatelessWidget {
                                         gap: 0,
                                       ),
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -758,7 +990,11 @@ class CardTierEditPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hbox(
@@ -769,10 +1005,20 @@ class CardTierEditPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s36, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s66, Svgs.s67),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -782,7 +1028,15 @@ class CardTierEditPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '预约优先排期',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -804,28 +1058,39 @@ class CardTierEditPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -833,13 +1098,13 @@ class CardTierEditPage extends StatelessWidget {
                         '有效期',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
                       ),
                       hbox(
-                        bg: Color(0xFFEEEEF0),
+                        bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                         child: HSelHolder(
@@ -855,16 +1120,31 @@ class CardTierEditPage extends StatelessWidget {
                                   index: 0,
                                   on: hbox(
                                     h: 32,
-                                    bg: Color(0xFFFFFFFF),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFFFFF),
+                                      Color(0xFF18181B),
+                                    ),
                                     radius: BorderRadius.circular(16),
-                                    shadow: [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.08),
-                                        offset: Offset(0, 1),
-                                        blurRadius: 2,
-                                        spreadRadius: 0,
-                                      ),
-                                    ],
+                                    shadow: dk(
+                                      context,
+                                      [
+                                        BoxShadow(
+                                          color: Color.fromRGBO(0, 0, 0, 0.08),
+                                          offset: Offset(0, 1),
+                                          blurRadius: 2,
+                                          spreadRadius: 0,
+                                        ),
+                                      ],
+                                      [
+                                        BoxShadow(
+                                          color: Color(0xFF26262B),
+                                          offset: Offset(0, 0),
+                                          blurRadius: 0,
+                                          spreadRadius: 1,
+                                        ),
+                                      ],
+                                    ),
                                     child: Align(
                                       alignment: Alignment.center,
                                       widthFactor: 1,
@@ -872,7 +1152,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '永久有效',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -881,7 +1165,11 @@ class CardTierEditPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 32,
-                                    bg: Color(0xFFFFFFFF),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFFFFF),
+                                      Color(0xFF18181B),
+                                    ),
                                     radius: BorderRadius.circular(16),
                                     child: Align(
                                       alignment: Alignment.center,
@@ -890,7 +1178,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '永久有效',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -907,14 +1199,14 @@ class CardTierEditPage extends StatelessWidget {
                                   on: hbox(
                                     h: 32,
                                     radius: BorderRadius.circular(16),
-                                    shadow: [
+                                    shadow: dk(context, [
                                       BoxShadow(
                                         color: Color.fromRGBO(0, 0, 0, 0.08),
                                         offset: Offset(0, 1),
                                         blurRadius: 2,
                                         spreadRadius: 0,
                                       ),
-                                    ],
+                                    ], null),
                                     child: Align(
                                       alignment: Alignment.center,
                                       widthFactor: 1,
@@ -922,7 +1214,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '1 年',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -939,7 +1235,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '1 年',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -956,14 +1256,14 @@ class CardTierEditPage extends StatelessWidget {
                                   on: hbox(
                                     h: 32,
                                     radius: BorderRadius.circular(16),
-                                    shadow: [
+                                    shadow: dk(context, [
                                       BoxShadow(
                                         color: Color.fromRGBO(0, 0, 0, 0.08),
                                         offset: Offset(0, 1),
                                         blurRadius: 2,
                                         spreadRadius: 0,
                                       ),
-                                    ],
+                                    ], null),
                                     child: Align(
                                       alignment: Alignment.center,
                                       widthFactor: 1,
@@ -971,7 +1271,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '2 年',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -988,7 +1292,11 @@ class CardTierEditPage extends StatelessWidget {
                                         '2 年',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -1023,7 +1331,7 @@ class CardTierEditPage extends StatelessWidget {
                         '停用此卡种',
                         style: hts(
                           15,
-                          Color(0xFFA43433),
+                          dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),

@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import '../mock/mock_data.dart';
 import 'keyboard.dart';
 
-const _ink = Color(0xFF18181B);
-const _muted = Color(0xFF71717A);
+import '../theme.dart' show C;
+
+Color get _ink => C.ink;
+Color get _muted => C.muted;
 const _primary = Color(0xFF0485F7);
-const _line = Color(0xFFEFEFF1);
+Color get _line => C.line;
 
 // ───────── 取值控制器 ─────────
 class StrCtrl extends ChangeNotifier {
@@ -63,7 +65,7 @@ Future<T?> _sheet<T>(
 ) => showModalBottomSheet<T>(
   context: context,
   isScrollControlled: true,
-  backgroundColor: Colors.white,
+  backgroundColor: C.card,
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
   ),
@@ -75,11 +77,11 @@ Future<T?> _sheet<T>(
   ),
 );
 
-TextStyle _ts(double s, {FontWeight w = FontWeight.w400, Color c = _ink}) =>
+TextStyle _ts(double s, {FontWeight w = FontWeight.w400, Color? c}) =>
     TextStyle(
       fontSize: s,
       fontWeight: w,
-      color: c,
+      color: c ?? _ink,
       decoration: TextDecoration.none,
     );
 
@@ -89,7 +91,7 @@ Widget _handle() => Center(
     height: 5,
     margin: const EdgeInsets.only(top: 10, bottom: 6),
     decoration: BoxDecoration(
-      color: const Color(0xFFD4D4D8),
+      color: C.stroke,
       borderRadius: BorderRadius.circular(3),
     ),
   ),
@@ -154,7 +156,7 @@ Future<String?> pickFromList(
                   onTap: () => Navigator.pop(ctx, o),
                   child: Container(
                     height: 52,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       border: Border(bottom: BorderSide(color: _line)),
                     ),
                     child: Row(
@@ -192,8 +194,8 @@ Future<String?> pickFromList(
 Widget _wheelTheme(Widget child) => CupertinoTheme(
   // 显式指定亮色和文字颜色：系统为深色模式时，Cupertino 滚轮默认文字是白色，
   // 放在白色面板上就看不见了。
-  data: const CupertinoThemeData(
-    brightness: Brightness.light,
+  data: CupertinoThemeData(
+    brightness: C.dark ? Brightness.dark : Brightness.light,
     textTheme: CupertinoTextThemeData(
       pickerTextStyle: TextStyle(fontSize: 20, color: _ink),
       dateTimePickerTextStyle: TextStyle(fontSize: 20, color: _ink),
@@ -220,7 +222,7 @@ Future<Member?> pickMember(
   return showModalBottomSheet<Member>(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: C.card,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
     ),
@@ -281,19 +283,19 @@ class _MemberPickerState extends State<_MemberPicker> {
                   height: 44,
                   padding: const EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF4F4F5),
+                    color: C.inset,
                     borderRadius: BorderRadius.circular(22),
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.search_rounded, size: 20, color: _muted),
+                      Icon(Icons.search_rounded, size: 20, color: _muted),
                       const SizedBox(width: 8),
                       Expanded(
                         child: TextField(
                           onChanged: (v) => setState(() => q = v),
                           onTapOutside: onTapOutsideDismiss,
                           style: _ts(14),
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             isCollapsed: true,
                             border: InputBorder.none,
                             hintText: '搜索姓名 / 车牌 / 手机号',
@@ -304,10 +306,10 @@ class _MemberPickerState extends State<_MemberPicker> {
                       if (q.isNotEmpty)
                         GestureDetector(
                           onTap: () => setState(() => q = ''),
-                          child: const Icon(
+                          child: Icon(
                             Icons.cancel_rounded,
                             size: 18,
-                            color: Color(0xFFA1A1AA),
+                            color: C.faint,
                           ),
                         ),
                     ],
@@ -332,7 +334,7 @@ class _MemberPickerState extends State<_MemberPicker> {
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 10,
                                 ),
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   border: Border(
                                     bottom: BorderSide(color: _line),
                                   ),
@@ -346,7 +348,7 @@ class _MemberPickerState extends State<_MemberPicker> {
                                       decoration: BoxDecoration(
                                         color: m.level == '黑金'
                                             ? _ink
-                                            : const Color(0xFFEEEEF0),
+                                            : C.chip,
                                         shape: BoxShape.circle,
                                       ),
                                       child: Text(
@@ -356,7 +358,7 @@ class _MemberPickerState extends State<_MemberPicker> {
                                           w: FontWeight.w600,
                                           c: m.level == '黑金'
                                               ? const Color(0xFFF5D78E)
-                                              : const Color(0xFF52525B),
+                                              : C.sub,
                                         ),
                                       ),
                                     ),
@@ -736,7 +738,7 @@ Future<String?> pickAmount(BuildContext context, String title, String current) {
   return showDialog<String>(
     context: context,
     builder: (ctx) => AlertDialog(
-      backgroundColor: Colors.white,
+      backgroundColor: C.card,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       title: Text(title, style: _ts(17, w: FontWeight.w600)),
       content: TextField(
@@ -987,7 +989,7 @@ class _HPlateState extends State<HPlate> {
     _sheetOpen = true;
     await showModalBottomSheet<void>(
       context: context,
-      backgroundColor: const Color(0xFFF2F2F7),
+      backgroundColor: C.dark ? const Color(0xFF111114) : const Color(0xFFF2F2F7),
       barrierColor: Colors.black12,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -1034,7 +1036,7 @@ class _HPlateState extends State<HPlate> {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: const Color(0xFFD4D4D8)),
+            border: Border.all(color: C.stroke),
           ),
           child: Text('新能源', style: _ts(9, c: _muted)),
         ),
@@ -1043,8 +1045,8 @@ class _HPlateState extends State<HPlate> {
     final first = i == 0;
     final bg = first
         ? (g ? const Color(0xFF1F9D55) : const Color(0xFF0B5FD6))
-        : (g ? const Color(0xFFE8F7EE) : const Color(0xFFF4F4F5));
-    final fg = first ? Colors.white : (g ? const Color(0xFF14532D) : _ink);
+        : (g ? C.greenSoft : C.inset);
+    final fg = first ? Colors.white : (g ? C.greenInk : _ink);
     return GestureDetector(
       onTap: () {
         ctrl.focusAt(i);
@@ -1120,7 +1122,7 @@ class _PlateKeyboard extends StatelessWidget {
                         height: 44,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: C.card,
                           borderRadius: BorderRadius.circular(8),
                           boxShadow: const [
                             BoxShadow(
@@ -1139,10 +1141,10 @@ class _PlateKeyboard extends StatelessWidget {
                       height: 44,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFD1D1D6),
+                        color: C.stroke,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.backspace_outlined,
                         size: 20,
                         color: _ink,

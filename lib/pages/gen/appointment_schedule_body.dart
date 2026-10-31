@@ -11,28 +11,39 @@ class AppointmentScheduleBody extends StatelessWidget {
     return hcol(
       [
         hbox(
-          bg: Color(0xFFFFFFFF),
+          bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
           radius: BorderRadius.circular(24),
-          shadow: [
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.04),
-              offset: Offset(0, 2),
-              blurRadius: 4,
-              spreadRadius: 0,
-            ),
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.06),
-              offset: Offset(0, 1),
-              blurRadius: 2,
-              spreadRadius: 0,
-            ),
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.06),
-              offset: Offset(0, 0),
-              blurRadius: 1,
-              spreadRadius: 0,
-            ),
-          ],
+          shadow: dk(
+            context,
+            [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.04),
+                offset: Offset(0, 2),
+                blurRadius: 4,
+                spreadRadius: 0,
+              ),
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.06),
+                offset: Offset(0, 1),
+                blurRadius: 2,
+                spreadRadius: 0,
+              ),
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.06),
+                offset: Offset(0, 0),
+                blurRadius: 1,
+                spreadRadius: 0,
+              ),
+            ],
+            [
+              BoxShadow(
+                color: Color(0xFF26262B),
+                offset: Offset(0, 0),
+                blurRadius: 0,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
           pad: EdgeInsets.fromLTRB(8, 14, 0, 14),
           clip: true,
           child: hcol(
@@ -47,7 +58,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         '1 号',
                         style: hts(
                           12,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w600,
                           lh: 18,
                         ),
@@ -60,7 +71,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         '2 号',
                         style: hts(
                           12,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w600,
                           lh: 18,
                         ),
@@ -73,7 +84,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         '3 号',
                         style: hts(
                           12,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w600,
                           lh: 18,
                         ),
@@ -86,7 +97,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         '4 号',
                         style: hts(
                           12,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w600,
                           lh: 18,
                         ),
@@ -99,7 +110,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         '贴膜间',
                         style: hts(
                           12,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w600,
                           lh: 18,
                         ),
@@ -129,7 +140,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 0,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -139,7 +153,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '09:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -149,7 +168,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 44,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -159,7 +181,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '10:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -169,7 +196,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 88,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -179,7 +209,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '11:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -189,7 +224,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 132,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -199,7 +237,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '12:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -209,7 +252,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 176,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -219,7 +265,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '13:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -229,7 +280,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 220,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -239,7 +293,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '14:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -249,7 +308,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 264,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -259,7 +321,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '15:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -269,7 +336,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 308,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -279,7 +349,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '16:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -289,7 +364,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 352,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -299,7 +377,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '17:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -309,7 +392,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 396,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -319,7 +405,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '18:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -329,7 +420,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 440,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -339,7 +433,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '19:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -349,7 +448,10 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 484,
                       right: 0,
                       height: 1,
-                      child: hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      child: hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                     ),
                     Positioned(
                       left: 0,
@@ -359,7 +461,12 @@ class AppointmentScheduleBody extends StatelessWidget {
                         w: 34,
                         child: Text(
                           '20:00',
-                          style: hts(10, Color(0xFFA1A1AA), lh: 14, tab: true),
+                          style: hts(
+                            10,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 14,
+                            tab: true,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -369,42 +476,60 @@ class AppointmentScheduleBody extends StatelessWidget {
                       top: 0,
                       bottom: 0,
                       width: 1,
-                      child: hbox(w: 1, bg: Color(0xFFF4F4F5)),
+                      child: hbox(
+                        w: 1,
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                      ),
                     ),
                     Positioned(
                       left: 102,
                       top: 0,
                       bottom: 0,
                       width: 1,
-                      child: hbox(w: 1, bg: Color(0xFFF4F4F5)),
+                      child: hbox(
+                        w: 1,
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                      ),
                     ),
                     Positioned(
                       left: 164,
                       top: 0,
                       bottom: 0,
                       width: 1,
-                      child: hbox(w: 1, bg: Color(0xFFF4F4F5)),
+                      child: hbox(
+                        w: 1,
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                      ),
                     ),
                     Positioned(
                       left: 226,
                       top: 0,
                       bottom: 0,
                       width: 1,
-                      child: hbox(w: 1, bg: Color(0xFFF4F4F5)),
+                      child: hbox(
+                        w: 1,
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                      ),
                     ),
                     Positioned(
                       left: 288,
                       top: 0,
                       bottom: 0,
                       width: 1,
-                      child: hbox(w: 1, bg: Color(0xFFF4F4F5)),
+                      child: hbox(
+                        w: 1,
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                      ),
                     ),
                     Positioned(
                       left: 350,
                       top: 0,
                       bottom: 0,
                       width: 1,
-                      child: hbox(w: 1, bg: Color(0xFFF4F4F5)),
+                      child: hbox(
+                        w: 1,
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                      ),
                     ),
                     Positioned(
                       left: 42,
@@ -416,7 +541,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 40,
-                          bg: Color(0xFFEEEEF0),
+                          bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -432,14 +557,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪B·3D82',
                                 style: hts(
                                   10,
-                                  Color(0xFF52525B),
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '赵女士',
-                                style: hts(10, Color(0xFF52525B), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -461,7 +598,11 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 62,
-                          bg: Color(0xFFE1F0FE),
+                          bg: dk(
+                            context,
+                            Color(0xFFE1F0FE),
+                            Color.fromRGBO(4, 133, 247, 0.18),
+                          ),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -477,14 +618,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪A·6Q55',
                                 style: hts(
                                   10,
-                                  Color(0xFF1E63AE),
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '周女士',
-                                style: hts(10, Color(0xFF1E63AE), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -506,7 +659,7 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 62,
-                          bg: Color(0xFFEEEEF0),
+                          bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -522,14 +675,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪A·7L30',
                                 style: hts(
                                   10,
-                                  Color(0xFF52525B),
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '陈女士',
-                                style: hts(10, Color(0xFF52525B), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -551,7 +716,11 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 62,
-                          bg: Color(0xFFDDF6E7),
+                          bg: dk(
+                            context,
+                            Color(0xFFDDF6E7),
+                            Color.fromRGBO(23, 201, 100, 0.16),
+                          ),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -567,14 +736,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '苏K·5F21',
                                 style: hts(
                                   10,
-                                  Color(0xFF2B7745),
+                                  dk(
+                                    context,
+                                    Color(0xFF2B7745),
+                                    Color(0xFF5FD48C),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '散客',
-                                style: hts(10, Color(0xFF2B7745), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF2B7745),
+                                    Color(0xFF5FD48C),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -596,7 +777,11 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 126.7,
-                          bg: Color(0xFFFDEFD6),
+                          bg: dk(
+                            context,
+                            Color(0xFFFDEFD6),
+                            Color.fromRGBO(245, 165, 36, 0.16),
+                          ),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -612,14 +797,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪A·8K29',
                                 style: hts(
                                   10,
-                                  Color(0xFF855F2E),
+                                  dk(
+                                    context,
+                                    Color(0xFF855F2E),
+                                    Color(0xFFF0C46A),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '王建国',
-                                style: hts(10, Color(0xFF855F2E), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF855F2E),
+                                    Color(0xFFF0C46A),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -641,7 +838,11 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 40,
-                          bg: Color(0xFFFFE1E2),
+                          bg: dk(
+                            context,
+                            Color(0xFFFFE1E2),
+                            Color.fromRGBO(255, 56, 60, 0.18),
+                          ),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -657,14 +858,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪A·2M11',
                                 style: hts(
                                   10,
-                                  Color(0xFFA43433),
+                                  dk(
+                                    context,
+                                    Color(0xFFA43433),
+                                    Color(0xFFFF7B7E),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '孙先生',
-                                style: hts(10, Color(0xFFA43433), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFFA43433),
+                                    Color(0xFFFF7B7E),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -686,7 +899,11 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 62,
-                          bg: Color(0xFFE1F0FE),
+                          bg: dk(
+                            context,
+                            Color(0xFFE1F0FE),
+                            Color.fromRGBO(4, 133, 247, 0.18),
+                          ),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -702,14 +919,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪C·9H31',
                                 style: hts(
                                   10,
-                                  Color(0xFF1E63AE),
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '刘先生',
-                                style: hts(10, Color(0xFF1E63AE), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -731,7 +960,11 @@ class AppointmentScheduleBody extends StatelessWidget {
                         hbox(
                           w: 58,
                           h: 480,
-                          bg: Color(0xFFFDEFD6),
+                          bg: dk(
+                            context,
+                            Color(0xFFFDEFD6),
+                            Color.fromRGBO(245, 165, 36, 0.16),
+                          ),
                           radius: BorderRadius.circular(10),
                           border: Border(
                             left: BorderSide(
@@ -747,14 +980,26 @@ class AppointmentScheduleBody extends StatelessWidget {
                                 '沪AD·6120',
                                 style: hts(
                                   10,
-                                  Color(0xFF855F2E),
+                                  dk(
+                                    context,
+                                    Color(0xFF855F2E),
+                                    Color(0xFFF0C46A),
+                                  ),
                                   w: FontWeight.w700,
                                   lh: 13,
                                 ),
                               ),
                               Text(
                                 '隐形车衣',
-                                style: hts(10, Color(0xFF855F2E), lh: 13),
+                                style: hts(
+                                  10,
+                                  dk(
+                                    context,
+                                    Color(0xFF855F2E),
+                                    Color(0xFFF0C46A),
+                                  ),
+                                  lh: 13,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -795,14 +1040,22 @@ class AppointmentScheduleBody extends StatelessWidget {
                       hbox(
                         w: 10,
                         h: 10,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(3),
                       ),
                       Flexible(
                         flex: 33,
                         child: Text(
                           '待到店',
-                          style: hts(11, Color(0xFF52525B), lh: 14),
+                          style: hts(
+                            11,
+                            dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                            lh: 14,
+                          ),
                         ),
                       ),
                     ],
@@ -815,14 +1068,22 @@ class AppointmentScheduleBody extends StatelessWidget {
                       hbox(
                         w: 10,
                         h: 10,
-                        bg: Color(0xFFDDF6E7),
+                        bg: dk(
+                          context,
+                          Color(0xFFDDF6E7),
+                          Color.fromRGBO(23, 201, 100, 0.16),
+                        ),
                         radius: BorderRadius.circular(3),
                       ),
                       Flexible(
                         flex: 33,
                         child: Text(
                           '已到店',
-                          style: hts(11, Color(0xFF52525B), lh: 14),
+                          style: hts(
+                            11,
+                            dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                            lh: 14,
+                          ),
                         ),
                       ),
                     ],
@@ -835,14 +1096,22 @@ class AppointmentScheduleBody extends StatelessWidget {
                       hbox(
                         w: 10,
                         h: 10,
-                        bg: Color(0xFFFDEFD6),
+                        bg: dk(
+                          context,
+                          Color(0xFFFDEFD6),
+                          Color.fromRGBO(245, 165, 36, 0.16),
+                        ),
                         radius: BorderRadius.circular(3),
                       ),
                       Flexible(
                         flex: 33,
                         child: Text(
                           '施工中',
-                          style: hts(11, Color(0xFF52525B), lh: 14),
+                          style: hts(
+                            11,
+                            dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                            lh: 14,
+                          ),
                         ),
                       ),
                     ],
@@ -855,14 +1124,22 @@ class AppointmentScheduleBody extends StatelessWidget {
                       hbox(
                         w: 10,
                         h: 10,
-                        bg: Color(0xFFFFE1E2),
+                        bg: dk(
+                          context,
+                          Color(0xFFFFE1E2),
+                          Color.fromRGBO(255, 56, 60, 0.18),
+                        ),
                         radius: BorderRadius.circular(3),
                       ),
                       Flexible(
                         flex: 44,
                         child: Text(
                           '超时未到',
-                          style: hts(11, Color(0xFF52525B), lh: 14),
+                          style: hts(
+                            11,
+                            dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                            lh: 14,
+                          ),
                         ),
                       ),
                     ],
@@ -875,14 +1152,18 @@ class AppointmentScheduleBody extends StatelessWidget {
                       hbox(
                         w: 10,
                         h: 10,
-                        bg: Color(0xFFEEEEF0),
+                        bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                         radius: BorderRadius.circular(3),
                       ),
                       Flexible(
                         flex: 33,
                         child: Text(
                           '已完成',
-                          style: hts(11, Color(0xFF52525B), lh: 14),
+                          style: hts(
+                            11,
+                            dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                            lh: 14,
+                          ),
                         ),
                       ),
                     ],
@@ -903,7 +1184,11 @@ class AppointmentScheduleBody extends StatelessWidget {
         ),
         Text(
           '共 6 个工位，此处显示 5 个 · 点击色块查看预约',
-          style: hts(12, Color(0xFFA1A1AA), lh: 18),
+          style: hts(
+            12,
+            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+            lh: 18,
+          ),
           textAlign: TextAlign.center,
         ),
       ],

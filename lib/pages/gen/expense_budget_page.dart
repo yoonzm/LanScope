@@ -9,7 +9,7 @@ class ExpenseBudgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1900,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class ExpenseBudgetPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                         '月度预算',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -105,30 +116,51 @@ class ExpenseBudgetPage extends StatelessWidget {
                           hbox(
                             w: 36,
                             h: 36,
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(18),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             child: hrow(
-                              [hsvg(Svgs.s62, w: 16, h: 16)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s112, Svgs.s113),
+                                  w: 16,
+                                  h: 16,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -144,7 +176,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                               m1,
                               hts(
                                 15,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
@@ -156,30 +192,51 @@ class ExpenseBudgetPage extends StatelessWidget {
                           hbox(
                             w: 36,
                             h: 36,
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(18),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             child: hrow(
-                              [hsvg(Svgs.s63, w: 16, h: 16)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s114, Svgs.s115),
+                                  w: 16,
+                                  h: 16,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -195,10 +252,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                   },
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -210,7 +277,15 @@ class ExpenseBudgetPage extends StatelessWidget {
                                 [
                                   Text(
                                     '本月总预算 ¥171,000',
-                                    style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
                                   hrow(
                                     [
@@ -230,7 +305,14 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         flex: 42,
                                         child: Text(
                                           '已使用',
-                                          style: hts(14, Color(0xFFA1A1AA)),
+                                          style: hts(
+                                            14,
+                                            dk(
+                                              context,
+                                              Color(0xFFA1A1AA),
+                                              Color(0xFF80808A),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -253,7 +335,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: hrow(
                                   [
-                                    hsvg(Svgs.s64, w: 15, h: 15),
+                                    hsvg(Svgs.s116, w: 15, h: 15),
                                     Flexible(
                                       flex: 26,
                                       child: Text(
@@ -314,7 +396,15 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   [
                                     Text(
                                       '已用',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                     Text(
                                       '¥167,070',
@@ -343,7 +433,15 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   [
                                     Text(
                                       '剩余',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                     Text(
                                       '¥3,930',
@@ -372,7 +470,15 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   [
                                     Text(
                                       '剩余天数',
-                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 14,
+                                      ),
                                     ),
                                     Text(
                                       '1 天',
@@ -407,13 +513,21 @@ class ExpenseBudgetPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFE1E2),
+                  bg: dk(
+                    context,
+                    Color(0xFFFFE1E2),
+                    Color.fromRGBO(255, 56, 60, 0.18),
+                  ),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                   child: hrow(
@@ -421,10 +535,16 @@ class ExpenseBudgetPage extends StatelessWidget {
                       hbox(
                         w: 36,
                         h: 36,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(12),
                         child: hrow(
-                          [hsvg(Svgs.s65, w: 19, h: 19)],
+                          [
+                            hsvg(
+                              dk(context, Svgs.s117, Svgs.s118),
+                              w: 19,
+                              h: 19,
+                            ),
+                          ],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -445,7 +565,15 @@ class ExpenseBudgetPage extends StatelessWidget {
                             ),
                             Text(
                               '可追加预算或从其他分类调剂',
-                              style: hts(12, Color(0xFFA43433), lh: 16),
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFFA43433),
+                                  Color(0xFFFF7B7E),
+                                ),
+                                lh: 16,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -488,38 +616,59 @@ class ExpenseBudgetPage extends StatelessWidget {
                       child: hTap(
                         context,
                         hbox(
-                          bg: Color(0xFFFFFFFF),
+                          bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           radius: BorderRadius.circular(18),
-                          shadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.04),
-                              offset: Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 1),
-                              blurRadius: 2,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 0),
-                              blurRadius: 1,
-                              spreadRadius: 0,
-                            ),
-                          ],
+                          shadow: dk(
+                            context,
+                            [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            [
+                              BoxShadow(
+                                color: Color(0xFF26262B),
+                                offset: Offset(0, 0),
+                                blurRadius: 0,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
                           pad: EdgeInsets.fromLTRB(4, 12, 4, 12),
                           child: hcol(
                             [
                               hbox(
                                 w: 34,
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(11),
                                 child: hrow(
-                                  [hsvg(Svgs.s66, w: 18, h: 18)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s119, Svgs.s120),
+                                      w: 18,
+                                      h: 18,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -529,7 +678,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                 '复制上月预算',
                                 style: hts(
                                   12,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w500,
                                   lh: 16,
                                 ),
@@ -548,38 +701,59 @@ class ExpenseBudgetPage extends StatelessWidget {
                       child: hTap(
                         context,
                         hbox(
-                          bg: Color(0xFFFFFFFF),
+                          bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           radius: BorderRadius.circular(18),
-                          shadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.04),
-                              offset: Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 1),
-                              blurRadius: 2,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 0),
-                              blurRadius: 1,
-                              spreadRadius: 0,
-                            ),
-                          ],
+                          shadow: dk(
+                            context,
+                            [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            [
+                              BoxShadow(
+                                color: Color(0xFF26262B),
+                                offset: Offset(0, 0),
+                                blurRadius: 0,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
                           pad: EdgeInsets.fromLTRB(4, 12, 4, 12),
                           child: hcol(
                             [
                               hbox(
                                 w: 34,
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(11),
                                 child: hrow(
-                                  [hsvg(Svgs.s67, w: 18, h: 18)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s121, Svgs.s122),
+                                      w: 18,
+                                      h: 18,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -589,7 +763,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                 '按营收比例分配',
                                 style: hts(
                                   12,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w500,
                                   lh: 16,
                                 ),
@@ -608,38 +786,59 @@ class ExpenseBudgetPage extends StatelessWidget {
                       child: hTap(
                         context,
                         hbox(
-                          bg: Color(0xFFFFFFFF),
+                          bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           radius: BorderRadius.circular(18),
-                          shadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.04),
-                              offset: Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 1),
-                              blurRadius: 2,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 0),
-                              blurRadius: 1,
-                              spreadRadius: 0,
-                            ),
-                          ],
+                          shadow: dk(
+                            context,
+                            [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            [
+                              BoxShadow(
+                                color: Color(0xFF26262B),
+                                offset: Offset(0, 0),
+                                blurRadius: 0,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
                           pad: EdgeInsets.fromLTRB(4, 12, 4, 12),
                           child: hcol(
                             [
                               hbox(
                                 w: 34,
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(11),
                                 child: hrow(
-                                  [hsvg(Svgs.s68, w: 18, h: 18)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s123, Svgs.s124),
+                                      w: 18,
+                                      h: 18,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -649,7 +848,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                 '添加分类预算',
                                 style: hts(
                                   12,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w500,
                                   lh: 16,
                                 ),
@@ -677,35 +880,46 @@ class ExpenseBudgetPage extends StatelessWidget {
                         '分类预算 · 点击可调整',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -720,10 +934,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                                       hbox(
                                         w: 32,
                                         h: 32,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s24, w: 17, h: 17)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s42, Svgs.s43),
+                                              w: 17,
+                                              h: 17,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -735,7 +959,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '房租',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
@@ -745,11 +973,19 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '100%',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
-                                      hsvg(Svgs.s2, w: 16, h: 16),
+                                      hsvg(
+                                        dk(context, Svgs.s3, Svgs.s4),
+                                        w: 16,
+                                        h: 16,
+                                      ),
                                     ],
                                     main: MainAxisAlignment.start,
                                     cross: CrossAxisAlignment.center,
@@ -757,7 +993,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   ),
                                   hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     child: hcol(
                                       [
@@ -781,7 +1021,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '已用 ¥28,000 · 预算 ¥28,000',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -790,7 +1034,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '100% 提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -809,7 +1057,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -823,10 +1075,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                                       hbox(
                                         w: 32,
                                         h: 32,
-                                        bg: Color(0xFFDDF6E7),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFDDF6E7),
+                                          Color.fromRGBO(23, 201, 100, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s25, w: 17, h: 17)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s44, Svgs.s45),
+                                              w: 17,
+                                              h: 17,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -838,7 +1100,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '人工',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
@@ -848,11 +1114,19 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '95%',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
-                                      hsvg(Svgs.s2, w: 16, h: 16),
+                                      hsvg(
+                                        dk(context, Svgs.s3, Svgs.s4),
+                                        w: 16,
+                                        h: 16,
+                                      ),
                                     ],
                                     main: MainAxisAlignment.start,
                                     cross: CrossAxisAlignment.center,
@@ -860,7 +1134,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   ),
                                   hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     child: hcol(
                                       [
@@ -890,7 +1168,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '已用 ¥82,000 · 预算 ¥86,000',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -899,7 +1181,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '80% 提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -918,7 +1204,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -932,10 +1222,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                                       hbox(
                                         w: 32,
                                         h: 32,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s26, w: 17, h: 17)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s46, Svgs.s47),
+                                              w: 17,
+                                              h: 17,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -947,27 +1247,43 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '材料采购',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
                                         ),
                                       ),
                                       hbox(
-                                        bg: Color(0xFFFFE1E2),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFFFE1E2),
+                                          Color.fromRGBO(255, 56, 60, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(9),
                                         pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                         child: Text(
                                           '超支 ¥4,570',
                                           style: hts(
                                             11,
-                                            Color(0xFFA43433),
+                                            dk(
+                                              context,
+                                              Color(0xFFA43433),
+                                              Color(0xFFFF7B7E),
+                                            ),
                                             w: FontWeight.w600,
                                             lh: 18,
                                           ),
                                         ),
                                       ),
-                                      hsvg(Svgs.s2, w: 16, h: 16),
+                                      hsvg(
+                                        dk(context, Svgs.s3, Svgs.s4),
+                                        w: 16,
+                                        h: 16,
+                                      ),
                                     ],
                                     main: MainAxisAlignment.start,
                                     cross: CrossAxisAlignment.center,
@@ -975,7 +1291,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   ),
                                   hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     child: hcol(
                                       [
@@ -999,7 +1319,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '已用 ¥36,570 · 预算 ¥32,000',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -1008,7 +1332,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '80% 提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1027,7 +1355,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -1041,10 +1373,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                                       hbox(
                                         w: 32,
                                         h: 32,
-                                        bg: Color(0xFFFDEFD6),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFFDEFD6),
+                                          Color.fromRGBO(245, 165, 36, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s27, w: 17, h: 17)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s48, Svgs.s49),
+                                              w: 17,
+                                              h: 17,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -1056,7 +1398,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '水电',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
@@ -1066,11 +1412,19 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '89%',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
-                                      hsvg(Svgs.s2, w: 16, h: 16),
+                                      hsvg(
+                                        dk(context, Svgs.s3, Svgs.s4),
+                                        w: 16,
+                                        h: 16,
+                                      ),
                                     ],
                                     main: MainAxisAlignment.start,
                                     cross: CrossAxisAlignment.center,
@@ -1078,7 +1432,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   ),
                                   hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     child: hcol(
                                       [
@@ -1108,7 +1466,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '已用 ¥6,200 · 预算 ¥7,000',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -1117,7 +1479,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '80% 提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1136,7 +1502,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -1150,10 +1520,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                                       hbox(
                                         w: 32,
                                         h: 32,
-                                        bg: Color(0xFFFFE1E2),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFFFE1E2),
+                                          Color.fromRGBO(255, 56, 60, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s28, w: 17, h: 17)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s50, Svgs.s51),
+                                              w: 17,
+                                              h: 17,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -1165,7 +1545,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '营销',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
@@ -1175,11 +1559,19 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '82%',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
-                                      hsvg(Svgs.s2, w: 16, h: 16),
+                                      hsvg(
+                                        dk(context, Svgs.s3, Svgs.s4),
+                                        w: 16,
+                                        h: 16,
+                                      ),
                                     ],
                                     main: MainAxisAlignment.start,
                                     cross: CrossAxisAlignment.center,
@@ -1187,7 +1579,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   ),
                                   hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     child: hcol(
                                       [
@@ -1217,7 +1613,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '已用 ¥9,800 · 预算 ¥12,000',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -1226,7 +1626,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '90% 提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1245,7 +1649,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -1259,10 +1667,20 @@ class ExpenseBudgetPage extends StatelessWidget {
                                       hbox(
                                         w: 32,
                                         h: 32,
-                                        bg: Color(0xFFEEEEF0),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFEEEEF0),
+                                          Color(0xFF27272A),
+                                        ),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s29, w: 17, h: 17)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s52, Svgs.s53),
+                                              w: 17,
+                                              h: 17,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -1274,7 +1692,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '其他',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
@@ -1284,11 +1706,19 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '75%',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
-                                      hsvg(Svgs.s2, w: 16, h: 16),
+                                      hsvg(
+                                        dk(context, Svgs.s3, Svgs.s4),
+                                        w: 16,
+                                        h: 16,
+                                      ),
                                     ],
                                     main: MainAxisAlignment.start,
                                     cross: CrossAxisAlignment.center,
@@ -1296,7 +1726,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   ),
                                   hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     child: hcol(
                                       [
@@ -1326,7 +1760,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                           '已用 ¥4,500 · 预算 ¥6,000',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -1335,7 +1773,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '80% 提醒',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1371,35 +1813,46 @@ class ExpenseBudgetPage extends StatelessWidget {
                         '提醒与规则',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -1416,7 +1869,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '使用达阈值时提醒我',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -1424,7 +1881,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '各分类可单独设置阈值',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1443,7 +1904,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -1459,7 +1924,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '超支时通知店长',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -1467,7 +1936,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '推送到店长手机',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1486,7 +1959,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -1502,7 +1979,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '下月沿用本月预算',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -1510,7 +1991,11 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         '月初自动生成，可再调整',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -1552,15 +2037,30 @@ class ExpenseBudgetPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -1570,7 +2070,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -1579,7 +2079,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                           '调整预算',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

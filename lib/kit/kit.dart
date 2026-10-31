@@ -92,6 +92,10 @@ double bottomInset(BuildContext context, [double min = 16]) =>
 double topInset(BuildContext context) =>
     MediaQuery.of(context).padding.top + 12;
 
+/// 浅色 / 深色二选一：按当前主题亮度返回对应值（依赖 Theme，主题切换时自动重建）。
+T dk<T>(BuildContext context, T light, T dark) =>
+    Theme.of(context).brightness == Brightness.dark ? dark : light;
+
 // ───────── 点击与导航 ─────────
 Widget hTap(
   BuildContext context,
@@ -127,7 +131,7 @@ void hToast(BuildContext context, String msg) {
         content: Text(msg),
         behavior: SnackBarBehavior.floating,
         duration: const Duration(milliseconds: 1400),
-        backgroundColor: const Color(0xFF18181B),
+        backgroundColor: dk(context, const Color(0xFF18181B), const Color(0xFF34343A)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     );
@@ -142,18 +146,18 @@ Future<bool> hConfirm(
   final r = await showDialog<bool>(
     context: context,
     builder: (ctx) => AlertDialog(
-      backgroundColor: Colors.white,
+      backgroundColor: dk(ctx, Colors.white, const Color(0xFF1F1F23)),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       title: Text(
         title,
-        style: hts(17, const Color(0xFF18181B), w: FontWeight.w600),
+        style: hts(17, dk(ctx, const Color(0xFF18181B), const Color(0xFFFAFAFA)), w: FontWeight.w600),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(ctx, false),
           child: Text(
             '取消',
-            style: hts(15, const Color(0xFF71717A), w: FontWeight.w500),
+            style: hts(15, dk(ctx, const Color(0xFF71717A), const Color(0xFF9A9AA3)), w: FontWeight.w500),
           ),
         ),
         TextButton(
@@ -162,7 +166,7 @@ Future<bool> hConfirm(
             ok,
             style: hts(
               15,
-              danger ? const Color(0xFFA43433) : const Color(0xFF0485F7),
+              danger ? dk(ctx, const Color(0xFFA43433), const Color(0xFFFF7B7E)) : const Color(0xFF0485F7),
               w: FontWeight.w600,
             ),
           ),
@@ -486,7 +490,7 @@ class _HSwitchState extends State<HSwitch> {
       padding: const EdgeInsets.all(2),
       alignment: on ? Alignment.centerRight : Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: on ? widget.onColor : widget.offColor,
+        color: on ? widget.onColor : dk(context, widget.offColor, widget.offColor == const Color(0xFFD4D4D8) ? const Color(0xFF3F3F46) : widget.offColor),
         borderRadius: BorderRadius.circular(14),
       ),
       child: Container(
@@ -531,7 +535,7 @@ class _HCheckState extends State<HCheck> {
       width: widget.size,
       height: widget.size,
       decoration: BoxDecoration(
-        color: on ? widget.color : Colors.white,
+        color: on ? widget.color : dk(context, Colors.white, const Color(0xFF1F1F23)),
         borderRadius: BorderRadius.circular(widget.size * 0.25),
         border: Border.all(
           color: on ? widget.color : const Color(0xFFA1A1AA),
@@ -586,7 +590,11 @@ class HInput extends StatelessWidget {
       isCollapsed: true,
       border: InputBorder.none,
       hintText: hint,
-      hintStyle: style.copyWith(color: hintColor),
+      hintStyle: style.copyWith(
+        color: hintColor == const Color(0xFF71717A)
+            ? dk(context, hintColor, const Color(0xFF9A9AA3))
+            : hintColor,
+      ),
     ),
   );
 }

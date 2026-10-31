@@ -9,7 +9,7 @@ class MemberFilterSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return hbox(
       minH: 712,
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -24,7 +24,7 @@ class MemberFilterSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
@@ -34,14 +34,24 @@ class MemberFilterSheet extends StatelessWidget {
                 flex: 1,
                 child: Text(
                   '筛选会员',
-                  style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+                  style: hts(
+                    20,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 28,
+                  ),
                 ),
               ),
               hTap(
                 context,
                 Text(
                   '重置',
-                  style: hts(14, Color(0xFF52525B), w: FontWeight.w500, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                    w: FontWeight.w500,
+                    lh: 20,
+                  ),
                 ),
                 label: '重置',
               ),
@@ -58,7 +68,7 @@ class MemberFilterSheet extends StatelessWidget {
                   TextSpan(
                     style: hts(
                       14,
-                      Color(0xFF18181B),
+                      dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       w: FontWeight.w600,
                       lh: 20,
                     ),
@@ -67,14 +77,18 @@ class MemberFilterSheet extends StatelessWidget {
                         text: '卡种 ',
                         style: hts(
                           14,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 20,
                         ),
                       ),
                       TextSpan(
                         text: '· 可多选',
-                        style: hts(14, Color(0xFF71717A), lh: 20),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 20,
+                        ),
                       ),
                     ],
                   ),
@@ -91,7 +105,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -105,7 +119,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '普通会员',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -114,7 +128,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -124,7 +138,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '普通会员',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -137,7 +151,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -151,7 +165,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '银卡',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -160,7 +174,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -170,7 +184,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '银卡',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -183,7 +197,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -197,7 +215,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '金卡',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -206,7 +224,11 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -216,7 +238,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '金卡',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -229,7 +251,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -243,7 +269,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '黑金卡',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -252,7 +278,11 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -262,7 +292,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '黑金卡',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -287,7 +317,12 @@ class MemberFilterSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '储值余额',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -301,7 +336,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -315,7 +350,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '不限',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -324,7 +359,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -334,7 +369,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '不限',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -347,7 +382,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -361,7 +396,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '¥500 以下',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -370,7 +405,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -380,7 +415,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '¥500 以下',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -393,7 +428,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -407,7 +442,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '¥500–2,000',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -416,7 +451,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -426,7 +461,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '¥500–2,000',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -439,7 +474,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -453,7 +492,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '¥2,000 以上',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -462,7 +501,11 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -472,7 +515,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '¥2,000 以上',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -497,7 +540,12 @@ class MemberFilterSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '最近到店',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -511,7 +559,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -525,7 +573,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '7 天内',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -534,7 +582,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -544,7 +592,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '7 天内',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -557,7 +605,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -571,7 +623,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '30 天内',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -580,7 +632,11 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -590,7 +646,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '30 天内',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -603,7 +659,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -617,7 +673,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '超过 60 天',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -626,7 +682,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -636,7 +692,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '超过 60 天',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -649,7 +705,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -663,7 +719,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '超过 90 天',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -672,7 +728,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -682,7 +738,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '超过 90 天',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -707,7 +763,12 @@ class MemberFilterSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '次卡状态',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -719,7 +780,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -733,7 +798,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '7 天内到期',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -742,7 +807,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -752,7 +817,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '7 天内到期',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -765,7 +830,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -779,7 +848,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '剩余 ≤ 2 次',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -788,7 +857,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -798,7 +867,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '剩余 ≤ 2 次',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -811,7 +880,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -825,7 +898,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '已用完',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -834,7 +907,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -844,7 +917,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '已用完',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -869,7 +942,12 @@ class MemberFilterSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '车辆与项目',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -884,7 +962,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -898,7 +976,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '新能源车主',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -907,7 +985,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -917,7 +995,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '新能源车主',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -930,7 +1008,11 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -944,7 +1026,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '做过镀晶',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -953,7 +1035,11 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -963,7 +1049,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '做过镀晶',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -976,7 +1062,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -990,7 +1076,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '车衣质保中',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -999,7 +1085,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -1009,7 +1095,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '车衣质保中',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -1022,7 +1108,7 @@ class MemberFilterSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -1036,7 +1122,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '多辆车',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -1045,7 +1131,7 @@ class MemberFilterSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 36,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(18),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -1055,7 +1141,7 @@ class MemberFilterSheet extends StatelessWidget {
                             '多辆车',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -1075,14 +1161,25 @@ class MemberFilterSheet extends StatelessWidget {
             gap: 0,
           ),
           hbox(
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFEFEFF1),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFEFEFF1),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF2A2A2E),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(0, 12, 0, 30),
             child: hrow(
               [
@@ -1092,7 +1189,7 @@ class MemberFilterSheet extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -1101,7 +1198,7 @@ class MemberFilterSheet extends StatelessWidget {
                           '取消',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),

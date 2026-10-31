@@ -8,7 +8,7 @@ class HoldSheetSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -23,16 +23,21 @@ class HoldSheetSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '挂单保存',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           hbox(
-            bg: Color(0xFFF4F4F5),
+            bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
             radius: BorderRadius.circular(18),
             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
             child: hrow(
@@ -40,7 +45,7 @@ class HoldSheetSheet extends StatelessWidget {
                 hbox(
                   w: 40,
                   h: 40,
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF34343A)),
                   radius: BorderRadius.circular(20),
                   align: Alignment(0, 0),
                   child: Text(
@@ -56,26 +61,29 @@ class HoldSheetSheet extends StatelessWidget {
                         '王建国',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
                       ),
-                      hbox(
-                        bg: Color(0xFF0B5FD6),
-                        radius: BorderRadius.circular(4),
-                        border: Border.all(
-                          color: Color(0xFF5B9BF0),
-                          width: 1.5,
-                        ),
-                        pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
-                        child: Text(
-                          '沪A·8K29M',
-                          style: hts(
-                            11,
-                            Color(0xFFFFFFFF),
-                            w: FontWeight.w600,
-                            lh: 16,
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: hbox(
+                          bg: Color(0xFF0B5FD6),
+                          radius: BorderRadius.circular(4),
+                          border: Border.all(
+                            color: Color(0xFF5B9BF0),
+                            width: 1.5,
+                          ),
+                          pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
+                          child: Text(
+                            '沪A·8K29M',
+                            style: hts(
+                              11,
+                              Color(0xFFFFFFFF),
+                              w: FontWeight.w600,
+                              lh: 16,
+                            ),
                           ),
                         ),
                       ),
@@ -87,12 +95,19 @@ class HoldSheetSheet extends StatelessWidget {
                 ),
                 hcol(
                   [
-                    Text('2 项服务', style: hts(12, Color(0xFF71717A), lh: 16)),
+                    Text(
+                      '2 项服务',
+                      style: hts(
+                        12,
+                        dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        lh: 16,
+                      ),
+                    ),
                     Text(
                       '¥1,422.00',
                       style: hts(
                         16,
-                        Color(0xFF18181B),
+                        dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         w: FontWeight.w600,
                         lh: 22,
                       ),
@@ -114,7 +129,12 @@ class HoldSheetSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '车辆状态',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -128,7 +148,7 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -142,7 +162,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '待施工',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -151,7 +171,7 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -161,7 +181,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '待施工',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -174,7 +194,11 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -188,7 +212,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '施工中',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -197,7 +221,11 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -207,7 +235,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '施工中',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -220,7 +248,7 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -234,7 +262,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '待结算',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -243,7 +271,7 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -253,7 +281,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '待结算',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -276,31 +304,44 @@ class HoldSheetSheet extends StatelessWidget {
             [
               Text.rich(
                 TextSpan(
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                   children: [
                     TextSpan(
                       text: '备注 ',
                       style: hts(
                         14,
-                        Color(0xFF18181B),
+                        dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         w: FontWeight.w600,
                         lh: 20,
                       ),
                     ),
                     TextSpan(
                       text: '· 选填',
-                      style: hts(14, Color(0xFF71717A), lh: 20),
+                      style: hts(
+                        14,
+                        dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        lh: 20,
+                      ),
                     ),
                   ],
                 ),
               ),
               hbox(
                 minH: 64,
-                bg: Color(0xFFF4F4F5),
+                bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                 radius: BorderRadius.circular(14),
                 pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                 child: HInput(
-                  style: hts(14, Color(0xFF18181B), lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    lh: 20,
+                  ),
                   maxLines: 4,
                   value: '客户去开会，17:00 取车',
                 ),
@@ -316,7 +357,12 @@ class HoldSheetSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '到点提醒我',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -330,7 +376,7 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -344,7 +390,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '不提醒',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -353,7 +399,7 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -363,7 +409,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '不提醒',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -376,7 +422,7 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -390,7 +436,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '30 分钟',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -399,7 +445,7 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -409,7 +455,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '30 分钟',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -422,7 +468,7 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -436,7 +482,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '1 小时',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -445,7 +491,7 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -455,7 +501,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '1 小时',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -468,7 +514,11 @@ class HoldSheetSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -482,7 +532,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '完工时',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -491,7 +541,11 @@ class HoldSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -501,7 +555,7 @@ class HoldSheetSheet extends StatelessWidget {
                             '完工时',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -530,7 +584,7 @@ class HoldSheetSheet extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -539,7 +593,7 @@ class HoldSheetSheet extends StatelessWidget {
                           '取消',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -555,7 +609,7 @@ class HoldSheetSheet extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -564,7 +618,7 @@ class HoldSheetSheet extends StatelessWidget {
                           '确认挂单',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

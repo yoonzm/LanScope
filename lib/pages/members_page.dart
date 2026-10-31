@@ -56,19 +56,19 @@ class _MembersPageState extends State<MembersPage> {
                     height: 44,
                     padding: const EdgeInsets.fromLTRB(12, 0, 16, 0),
                     decoration: BoxDecoration(
-                      color: C.ink,
+                      color: C.btn,
                       borderRadius: BorderRadius.circular(22),
                     ),
                     child: Row(
                       children: [
-                        AppIcon('add', size: 18, color: Colors.white),
+                        AppIcon('add', size: 18, color: C.btnFg),
                         const SizedBox(width: 6),
                         Text(
                           '新增会员',
                           style: ts(
                             14,
                             w: FontWeight.w500,
-                            color: Colors.white,
+                            color: C.btnFg,
                             h: 20,
                           ),
                         ),
@@ -91,7 +91,7 @@ class _MembersPageState extends State<MembersPage> {
               height: 44,
               padding: const EdgeInsets.symmetric(horizontal: 14),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: C.card,
                 borderRadius: BorderRadius.circular(22),
                 boxShadow: softShadow,
               ),
@@ -114,8 +114,8 @@ class _MembersPageState extends State<MembersPage> {
                   ),
                   GestureDetector(
                     onTap: () => openRoute(context, 'MemberFilter'),
-                    child: const Padding(
-                      padding: EdgeInsets.all(6),
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
                       child: AppIcon('filter', size: 20, color: C.ink),
                     ),
                   ),
@@ -163,7 +163,7 @@ class _MembersPageState extends State<MembersPage> {
       String label,
       String value,
       String? note, {
-      Color noteColor = C.greenInk,
+      Color? noteColor,
     }) => Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +202,7 @@ class _MembersPageState extends State<MembersPage> {
           children: [
             Avatar(
               m.name.substring(0, 1),
-              bg: m.level == '黑金' ? C.ink : C.chip,
+              bg: m.level == '黑金' ? C.pill : C.chip,
               fg: m.level == '黑金' ? C.gold : C.sub,
             ),
             const SizedBox(width: 12),

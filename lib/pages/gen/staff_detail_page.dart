@@ -9,7 +9,7 @@ class StaffDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 980,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class StaffDetailPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class StaffDetailPage extends StatelessWidget {
                         '员工详情',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -73,28 +84,39 @@ class StaffDetailPage extends StatelessWidget {
                       context,
                       hbox(
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
                         child: Align(
                           alignment: Alignment.center,
@@ -103,7 +125,7 @@ class StaffDetailPage extends StatelessWidget {
                             '编辑',
                             style: hts(
                               14,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w500,
                               lh: 20,
                             ),
@@ -118,10 +140,20 @@ class StaffDetailPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -130,14 +162,22 @@ class StaffDetailPage extends StatelessWidget {
                             hbox(
                               w: 56,
                               h: 56,
-                              bg: Color(0xFFE1F0FE),
+                              bg: dk(
+                                context,
+                                Color(0xFFE1F0FE),
+                                Color.fromRGBO(4, 133, 247, 0.18),
+                              ),
                               radius: BorderRadius.circular(28),
                               align: Alignment(0, 0),
                               child: Text(
                                 '李',
                                 style: hts(
                                   20,
-                                  Color(0xFF1E63AE),
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
                                   w: FontWeight.w600,
                                 ),
                               ),
@@ -202,7 +242,15 @@ class StaffDetailPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '施工技师 · 入职 2022.03',
-                                    style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -231,7 +279,11 @@ class StaffDetailPage extends StatelessWidget {
                                         '本月台次',
                                         style: hts(
                                           12,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -258,7 +310,11 @@ class StaffDetailPage extends StatelessWidget {
                                         '本月提成',
                                         style: hts(
                                           12,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -285,7 +341,11 @@ class StaffDetailPage extends StatelessWidget {
                                         '客户好评',
                                         style: hts(
                                           12,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -322,34 +382,49 @@ class StaffDetailPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -80,
-                        child: hsvg(Svgs.s160, w: 220, h: 220),
+                        child: hsvg(
+                          dk(context, Svgs.s292, Svgs.s293),
+                          w: 220,
+                          h: 220,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -362,12 +437,28 @@ class StaffDetailPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '手机号',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '138 **** 2207',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -377,7 +468,7 @@ class StaffDetailPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hTap(
@@ -391,24 +482,40 @@ class StaffDetailPage extends StatelessWidget {
                                 flex: 1,
                                 child: Text(
                                   '角色与权限',
-                                  style: hts(14, Color(0xFF52525B), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 20,
+                                  ),
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(10),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Text(
                                   '施工技师',
                                   style: hts(
                                     12,
-                                    Color(0xFF1E63AE),
+                                    dk(
+                                      context,
+                                      Color(0xFF1E63AE),
+                                      Color(0xFF6AB4FA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
                                 ),
                               ),
-                              hsvg(Svgs.s2, w: 16, h: 16),
+                              hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -419,7 +526,7 @@ class StaffDetailPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -431,48 +538,80 @@ class StaffDetailPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '擅长项目',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             hwrap(
                               [
                                 hbox(
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(11),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '镀晶',
                                     style: hts(
                                       12,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(11),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '抛光',
                                     style: hts(
                                       12,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(11),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '石墨烯镀膜',
                                     style: hts(
                                       12,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
@@ -491,7 +630,7 @@ class StaffDetailPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -503,12 +642,28 @@ class StaffDetailPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '提成方案',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '跟随项目设置',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -523,28 +678,39 @@ class StaffDetailPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -556,7 +722,11 @@ class StaffDetailPage extends StatelessWidget {
                               '最近施工',
                               style: hts(
                                 15,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
@@ -568,7 +738,11 @@ class StaffDetailPage extends StatelessWidget {
                               '全部记录',
                               style: hts(
                                 13,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -600,14 +774,22 @@ class StaffDetailPage extends StatelessWidget {
                             flex: 1,
                             child: Text(
                               '全车镀晶 · 9H',
-                              style: hts(14, Color(0xFF18181B), lh: 20),
+                              style: hts(
+                                14,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 20,
+                              ),
                             ),
                           ),
                           Text(
                             '进行中',
                             style: hts(
                               12,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 16,
                             ),
@@ -617,7 +799,10 @@ class StaffDetailPage extends StatelessWidget {
                         cross: CrossAxisAlignment.center,
                         gap: 12,
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hrow(
                         [
                           hbox(
@@ -638,19 +823,34 @@ class StaffDetailPage extends StatelessWidget {
                             flex: 1,
                             child: Text(
                               '漆面抛光',
-                              style: hts(14, Color(0xFF18181B), lh: 20),
+                              style: hts(
+                                14,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 20,
+                              ),
                             ),
                           ),
                           Text(
                             '昨天 · +¥60',
-                            style: hts(12, Color(0xFF71717A), lh: 16),
+                            style: hts(
+                              12,
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                              lh: 16,
+                            ),
                           ),
                         ],
                         main: MainAxisAlignment.start,
                         cross: CrossAxisAlignment.center,
                         gap: 12,
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hrow(
                         [
                           hbox(
@@ -671,12 +871,24 @@ class StaffDetailPage extends StatelessWidget {
                             flex: 1,
                             child: Text(
                               '石墨烯镀膜',
-                              style: hts(14, Color(0xFF18181B), lh: 20),
+                              style: hts(
+                                14,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 20,
+                              ),
                             ),
                           ),
                           Text(
                             '10.28 · +¥214',
-                            style: hts(12, Color(0xFF71717A), lh: 16),
+                            style: hts(
+                              12,
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                              lh: 16,
+                            ),
                           ),
                         ],
                         main: MainAxisAlignment.start,
@@ -693,33 +905,44 @@ class StaffDetailPage extends StatelessWidget {
                   context,
                   hbox(
                     h: 48,
-                    bg: Color(0xFFFFFFFF),
+                    bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                     radius: BorderRadius.circular(24),
-                    shadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.04),
-                        offset: Offset(0, 2),
-                        blurRadius: 4,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 1),
-                        blurRadius: 2,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 0),
-                        blurRadius: 1,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                    shadow: dk(
+                      context,
+                      [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.04),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 1),
+                          blurRadius: 2,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 0),
+                          blurRadius: 1,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                      [
+                        BoxShadow(
+                          color: Color(0xFF26262B),
+                          offset: Offset(0, 0),
+                          blurRadius: 0,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
                     child: Text(
                       '停用账号',
                       style: hts(
                         15,
-                        Color(0xFFA43433),
+                        dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
                         w: FontWeight.w500,
                         lh: 22,
                       ),

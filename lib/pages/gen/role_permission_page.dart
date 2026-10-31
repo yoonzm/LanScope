@@ -9,7 +9,7 @@ class RolePermissionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1080,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class RolePermissionPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class RolePermissionPage extends StatelessWidget {
                         '角色权限',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -98,7 +109,7 @@ class RolePermissionPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFE9E9EB),
+                  bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                   child: HSelHolder(
@@ -115,7 +126,7 @@ class RolePermissionPage extends StatelessWidget {
                             on: hbox(
                               h: 34,
                               radius: BorderRadius.circular(17),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -128,7 +139,7 @@ class RolePermissionPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -136,7 +147,11 @@ class RolePermissionPage extends StatelessWidget {
                                   '店长',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -153,7 +168,11 @@ class RolePermissionPage extends StatelessWidget {
                                   '店长',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -170,7 +189,7 @@ class RolePermissionPage extends StatelessWidget {
                             on: hbox(
                               h: 34,
                               radius: BorderRadius.circular(17),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -183,7 +202,7 @@ class RolePermissionPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -191,7 +210,11 @@ class RolePermissionPage extends StatelessWidget {
                                   '前台收银',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -208,7 +231,11 @@ class RolePermissionPage extends StatelessWidget {
                                   '前台收银',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -224,22 +251,37 @@ class RolePermissionPage extends StatelessWidget {
                             index: 2,
                             on: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(17),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -247,7 +289,11 @@ class RolePermissionPage extends StatelessWidget {
                                   '施工技师',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -256,7 +302,11 @@ class RolePermissionPage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(17),
                               child: Align(
                                 alignment: Alignment.center,
@@ -265,7 +315,11 @@ class RolePermissionPage extends StatelessWidget {
                                   '施工技师',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -283,17 +337,25 @@ class RolePermissionPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFE1F0FE),
+                  bg: dk(
+                    context,
+                    Color(0xFFE1F0FE),
+                    Color.fromRGBO(4, 133, 247, 0.18),
+                  ),
                   radius: BorderRadius.circular(18),
                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                   child: hrow(
                     [
-                      hsvg(Svgs.s152, w: 18, h: 18),
+                      hsvg(dk(context, Svgs.s276, Svgs.s277), w: 18, h: 18),
                       Flexible(
                         flex: 210,
                         child: Text(
                           '修改后对该角色的 5 名员工立即生效',
-                          style: hts(13, Color(0xFF1E63AE), lh: 18),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
+                            lh: 18,
+                          ),
                         ),
                       ),
                     ],
@@ -310,35 +372,46 @@ class RolePermissionPage extends StatelessWidget {
                         '工单与施工',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -351,7 +424,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '查看派给自己的工单',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -363,7 +444,11 @@ class RolePermissionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -375,7 +460,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '查看全店工单',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: false),
@@ -387,7 +480,11 @@ class RolePermissionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -403,7 +500,11 @@ class RolePermissionPage extends StatelessWidget {
                                         '更新施工进度与拍照',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -411,7 +512,11 @@ class RolePermissionPage extends StatelessWidget {
                                         '完工照片同步给车主',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -447,35 +552,46 @@ class RolePermissionPage extends StatelessWidget {
                         '收银与会员',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -488,7 +604,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '开单收银',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: false),
@@ -500,7 +624,11 @@ class RolePermissionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -512,7 +640,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '查看会员资料',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -524,7 +660,11 @@ class RolePermissionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -540,7 +680,11 @@ class RolePermissionPage extends StatelessWidget {
                                         '会员充值与退款',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -548,7 +692,11 @@ class RolePermissionPage extends StatelessWidget {
                                         '涉及资金，建议仅店长开启',
                                         style: hts(
                                           12,
-                                          Color(0xFFA43433),
+                                          dk(
+                                            context,
+                                            Color(0xFFA43433),
+                                            Color(0xFFFF7B7E),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -584,35 +732,46 @@ class RolePermissionPage extends StatelessWidget {
                         '库存',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -625,7 +784,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '领用耗材',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -637,7 +804,11 @@ class RolePermissionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -649,7 +820,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '入库与盘点',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: false),
@@ -678,35 +857,46 @@ class RolePermissionPage extends StatelessWidget {
                         '经营数据',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -719,7 +909,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '查看个人业绩与提成',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -731,7 +929,11 @@ class RolePermissionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -743,7 +945,15 @@ class RolePermissionPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '查看门店营业统计',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: false),

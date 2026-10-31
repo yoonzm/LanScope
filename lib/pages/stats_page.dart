@@ -173,13 +173,13 @@ class _StatsPageState extends State<StatsPage> {
       height: 44,
       padding: const EdgeInsets.symmetric(horizontal: 14),
       decoration: BoxDecoration(
-        color: dark ? C.ink : Colors.white,
+        color: dark ? C.heroCard : C.card,
         borderRadius: BorderRadius.circular(22),
         boxShadow: softShadow,
       ),
       child: Row(
         children: [
-          AppIcon(icon, size: 18, color: dark ? Colors.white : C.ink),
+          AppIcon(icon, size: 18, color: dark ? (C.dark ? C.gold : Colors.white) : C.ink),
           const SizedBox(width: 6),
           Text(
             t,
@@ -232,7 +232,7 @@ class _StatsPageState extends State<StatsPage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const AppIcon(
+                  AppIcon(
                     'trendUp',
                     size: 14,
                     color: C.greenInk,
@@ -286,7 +286,7 @@ class _StatsPageState extends State<StatsPage> {
   );
 
   Widget _composition() {
-    const colors = [C.ink, C.primary, Color(0xFF7CC4FB), Color(0xFFD4D4D8)];
+    final colors = [C.ink, C.primary, const Color(0xFF7CC4FB), C.stroke];
     final maxP = revenueShares
         .map((e) => e.percent)
         .reduce((a, b) => a > b ? a : b);
@@ -327,7 +327,7 @@ class _StatsPageState extends State<StatsPage> {
             Container(
               height: 8,
               decoration: BoxDecoration(
-                color: const Color(0xFFF1F1F3),
+                color: C.chip,
                 borderRadius: BorderRadius.circular(4),
               ),
               alignment: Alignment.centerLeft,
@@ -386,7 +386,7 @@ class _DashPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final p = Paint()
-      ..color = const Color(0xFFA1A1AA)
+      ..color = C.faint
       ..strokeWidth = 2;
     canvas.drawLine(Offset(0, size.height / 2), Offset(4, size.height / 2), p);
     canvas.drawLine(Offset(8, size.height / 2), Offset(12, size.height / 2), p);
@@ -405,7 +405,7 @@ class _LinePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width, h = size.height;
     final grid = Paint()
-      ..color = const Color(0xFFEFEFF1)
+      ..color = C.line
       ..strokeWidth = 1;
     for (final f in [0.25, 0.5, 0.75]) {
       canvas.drawLine(Offset(0, h * f), Offset(w, h * f), grid);
@@ -424,7 +424,7 @@ class _LinePainter extends CustomPainter {
 
     // 上期（虚线）
     final dashPaint = Paint()
-      ..color = const Color(0xFFC4C4C9)
+      ..color = C.stroke
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
       ..strokeCap = StrokeCap.round;
@@ -452,7 +452,7 @@ class _LinePainter extends CustomPainter {
         ..strokeJoin = StrokeJoin.round,
     );
     final end = pt(now, now.length - 1);
-    canvas.drawCircle(end, 5, Paint()..color = Colors.white);
+    canvas.drawCircle(end, 5, Paint()..color = C.card);
     canvas.drawCircle(
       end,
       5,

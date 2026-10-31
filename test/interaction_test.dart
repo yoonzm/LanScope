@@ -29,7 +29,7 @@ void main() {
     expect(find.textContaining('王建国'), findsWidgets);
     expect(find.textContaining('李女士'), findsWidgets);
     await t.tap(
-      find.descendant(of: find.byType(HSel), matching: find.text('待施工')).first,
+      find.descendant(of: find.byType(HSel), matching: find.text('待施工 1')).first,
     );
     await t.pump();
     expect(find.textContaining('王建国'), findsNothing);

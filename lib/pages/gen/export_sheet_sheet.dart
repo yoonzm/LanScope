@@ -9,7 +9,7 @@ class ExportSheetSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -24,13 +24,18 @@ class ExportSheetSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '导出报表',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           hcol(
             [
@@ -38,7 +43,11 @@ class ExportSheetSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 8),
                 child: Text(
                   '时间范围',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -52,7 +61,11 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -66,7 +79,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '本月',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -75,7 +88,11 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -85,7 +102,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '本月',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -98,7 +115,7 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -112,7 +129,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '上月',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -121,7 +138,7 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -131,7 +148,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '上月',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -144,7 +161,7 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -158,7 +175,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '近 3 个月',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -167,7 +184,7 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -177,7 +194,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '近 3 个月',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -190,7 +207,7 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -204,7 +221,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '自定义',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -213,7 +230,7 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -223,7 +240,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '自定义',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -248,7 +265,11 @@ class ExportSheetSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 8),
                 child: Text(
                   '导出内容',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -262,7 +283,11 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -276,7 +301,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '营业流水',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -285,7 +310,11 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -295,7 +324,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '营业流水',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -308,7 +337,11 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -322,7 +355,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '会员与充值',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -331,7 +364,11 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -341,7 +378,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '会员与充值',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -354,7 +391,7 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -368,7 +405,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '库存出入库',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -377,7 +414,7 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -387,7 +424,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '库存出入库',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -400,7 +437,7 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 3,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -414,7 +451,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '开支明细',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -423,7 +460,7 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -433,7 +470,7 @@ class ExportSheetSheet extends StatelessWidget {
                             '开支明细',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -458,7 +495,11 @@ class ExportSheetSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 8),
                 child: Text(
                   '文件格式',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -472,7 +513,11 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -486,7 +531,7 @@ class ExportSheetSheet extends StatelessWidget {
                             'Excel',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -495,7 +540,11 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -505,7 +554,7 @@ class ExportSheetSheet extends StatelessWidget {
                             'Excel',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -518,7 +567,7 @@ class ExportSheetSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -532,7 +581,7 @@ class ExportSheetSheet extends StatelessWidget {
                             'PDF',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -541,7 +590,7 @@ class ExportSheetSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -551,7 +600,7 @@ class ExportSheetSheet extends StatelessWidget {
                             'PDF',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -571,7 +620,7 @@ class ExportSheetSheet extends StatelessWidget {
             gap: 0,
           ),
           hbox(
-            bg: Color(0xFFF4F4F5),
+            bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
             radius: BorderRadius.circular(18),
             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
             child: hrow(
@@ -582,11 +631,18 @@ class ExportSheetSheet extends StatelessWidget {
                     [
                       Text(
                         '发送到邮箱',
-                        style: hts(14, Color(0xFF18181B), w: FontWeight.w500),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w500,
+                        ),
                       ),
                       Text(
                         'finance@chiguang.example',
-                        style: hts(12, Color(0xFF71717A)),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -594,7 +650,7 @@ class ExportSheetSheet extends StatelessWidget {
                     gap: 0,
                   ),
                 ),
-                hsvg(Svgs.s2, w: 16, h: 16),
+                hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
               ],
               main: MainAxisAlignment.start,
               cross: CrossAxisAlignment.center,
@@ -609,7 +665,7 @@ class ExportSheetSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -618,7 +674,7 @@ class ExportSheetSheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -634,7 +690,7 @@ class ExportSheetSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -643,7 +699,7 @@ class ExportSheetSheet extends StatelessWidget {
                         '导出',
                         style: hts(
                           15,
-                          Color(0xFFFFFFFF),
+                          dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),

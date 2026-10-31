@@ -9,7 +9,7 @@ class ChangePasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class ChangePasswordPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class ChangePasswordPage extends StatelessWidget {
                         '修改登录密码',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,28 +87,39 @@ class ChangePasswordPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -107,7 +129,11 @@ class ChangePasswordPage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -116,7 +142,11 @@ class ChangePasswordPage extends StatelessWidget {
                                   text: '当前密码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -125,7 +155,11 @@ class ChangePasswordPage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -135,7 +169,11 @@ class ChangePasswordPage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: HHolder(
@@ -150,7 +188,11 @@ class ChangePasswordPage extends StatelessWidget {
                                         builder: (context, _) => HInput(
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                           hint: '请输入当前密码',
@@ -160,7 +202,17 @@ class ChangePasswordPage extends StatelessWidget {
                                     ),
                                     hTap(
                                       context,
-                                      hPwdLabel(p1, hts(13, Color(0xFF71717A))),
+                                      hPwdLabel(
+                                        p1,
+                                        hts(
+                                          13,
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
+                                        ),
+                                      ),
                                       onTap: () => p1.flip(),
                                     ),
                                   ],
@@ -182,7 +234,11 @@ class ChangePasswordPage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -191,7 +247,11 @@ class ChangePasswordPage extends StatelessWidget {
                                   text: '新密码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -200,7 +260,11 @@ class ChangePasswordPage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -210,7 +274,11 @@ class ChangePasswordPage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: HHolder(
@@ -225,7 +293,11 @@ class ChangePasswordPage extends StatelessWidget {
                                         builder: (context, _) => HInput(
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                           hint: '8-20 位，含字母和数字',
@@ -236,7 +308,17 @@ class ChangePasswordPage extends StatelessWidget {
                                     ),
                                     hTap(
                                       context,
-                                      hPwdLabel(p2, hts(13, Color(0xFF71717A))),
+                                      hPwdLabel(
+                                        p2,
+                                        hts(
+                                          13,
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
+                                        ),
+                                      ),
                                       onTap: () => p2.flip(),
                                     ),
                                   ],
@@ -284,7 +366,11 @@ class ChangePasswordPage extends StatelessWidget {
                                 flex: 1,
                                 child: hbox(
                                   h: 4,
-                                  bg: Color(0xFFE4E4E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE4E4E7),
+                                    Color(0xFF3A3A40),
+                                  ),
                                   radius: BorderRadius.circular(2),
                                 ),
                               ),
@@ -298,7 +384,7 @@ class ChangePasswordPage extends StatelessWidget {
                             '强度：强',
                             style: hts(
                               12,
-                              Color(0xFF2B7745),
+                              dk(context, Color(0xFF2B7745), Color(0xFF5FD48C)),
                               w: FontWeight.w500,
                             ),
                           ),
@@ -313,7 +399,11 @@ class ChangePasswordPage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -322,7 +412,11 @@ class ChangePasswordPage extends StatelessWidget {
                                   text: '确认新密码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -331,7 +425,11 @@ class ChangePasswordPage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -341,14 +439,26 @@ class ChangePasswordPage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: hrow(
                               [
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '再次输入新密码',
                                     value: 'Aa123456xy',
                                     obscure: true,
@@ -372,39 +482,57 @@ class ChangePasswordPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
                       hrow(
                         [
-                          hsvg(Svgs.s39, w: 14, h: 14),
+                          hsvg(Svgs.s72, w: 14, h: 14),
                           Flexible(
                             flex: 76,
                             child: Text(
                               '长度 8–20 位',
-                              style: hts(13, Color(0xFF3F3F46)),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -414,12 +542,19 @@ class ChangePasswordPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s39, w: 14, h: 14),
+                          hsvg(Svgs.s72, w: 14, h: 14),
                           Flexible(
                             flex: 117,
                             child: Text(
                               '同时包含字母和数字',
-                              style: hts(13, Color(0xFF3F3F46)),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -429,12 +564,19 @@ class ChangePasswordPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s39, w: 14, h: 14),
+                          hsvg(Svgs.s72, w: 14, h: 14),
                           Flexible(
                             flex: 117,
                             child: Text(
                               '不能与当前密码相同',
-                              style: hts(13, Color(0xFF3F3F46)),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -444,12 +586,19 @@ class ChangePasswordPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hsvg(Svgs.s39, w: 14, h: 14),
+                          hsvg(Svgs.s72, w: 14, h: 14),
                           Flexible(
                             flex: 117,
                             child: Text(
                               '不含手机号连续数字',
-                              style: hts(13, Color(0xFF3F3F46)),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF3F3F46),
+                                  Color(0xFFD4D4D8),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -467,7 +616,10 @@ class ChangePasswordPage extends StatelessWidget {
                   context,
                   Text(
                     '忘记当前密码？用验证码重置',
-                    style: hts(13, Color(0xFF1E63AE)),
+                    style: hts(
+                      13,
+                      dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   to: 'ChangePhone',
@@ -486,15 +638,30 @@ class ChangePasswordPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -504,7 +671,7 @@ class ChangePasswordPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -513,7 +680,7 @@ class ChangePasswordPage extends StatelessWidget {
                           '确认修改',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

@@ -9,7 +9,7 @@ class HolidayEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class HolidayEditPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class HolidayEditPage extends StatelessWidget {
                         '添加休息日',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -95,28 +106,39 @@ class HolidayEditPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -126,7 +148,11 @@ class HolidayEditPage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -135,7 +161,11 @@ class HolidayEditPage extends StatelessWidget {
                                   text: '名称 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -144,7 +174,11 @@ class HolidayEditPage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -154,14 +188,26 @@ class HolidayEditPage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: hrow(
                               [
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '如：春节、五一',
                                     value: '春节',
                                   ),
@@ -183,7 +229,7 @@ class HolidayEditPage extends StatelessWidget {
                             '类型',
                             style: hts(
                               14,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -199,7 +245,11 @@ class HolidayEditPage extends StatelessWidget {
                                   index: 0,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -213,7 +263,11 @@ class HolidayEditPage extends StatelessWidget {
                                         '全天休息',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -222,7 +276,11 @@ class HolidayEditPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -232,7 +290,11 @@ class HolidayEditPage extends StatelessWidget {
                                         '全天休息',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -245,7 +307,11 @@ class HolidayEditPage extends StatelessWidget {
                                   index: 1,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -259,7 +325,11 @@ class HolidayEditPage extends StatelessWidget {
                                         '缩短营业时间',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -268,7 +338,11 @@ class HolidayEditPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -278,7 +352,11 @@ class HolidayEditPage extends StatelessWidget {
                                         '缩短营业时间',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -311,14 +389,22 @@ class HolidayEditPage extends StatelessWidget {
                                       '开始日期',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
                                     ),
                                     hbox(
                                       minH: 48,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(14),
                                       pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                       child: hrow(
@@ -327,10 +413,21 @@ class HolidayEditPage extends StatelessWidget {
                                             flex: 1,
                                             child: hStr(
                                               s2,
-                                              hts(15, Color(0xFF18181B)),
+                                              hts(
+                                                15,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                          hsvg(Svgs.s79, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s146, Svgs.s147),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -359,14 +456,22 @@ class HolidayEditPage extends StatelessWidget {
                                       '结束日期',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
                                     ),
                                     hbox(
                                       minH: 48,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(14),
                                       pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                       child: hrow(
@@ -375,10 +480,21 @@ class HolidayEditPage extends StatelessWidget {
                                             flex: 1,
                                             child: hStr(
                                               s3,
-                                              hts(15, Color(0xFF18181B)),
+                                              hts(
+                                                15,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                          hsvg(Svgs.s79, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s146, Svgs.s147),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -407,28 +523,39 @@ class HolidayEditPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -443,11 +570,27 @@ class HolidayEditPage extends StatelessWidget {
                                 [
                                   Text(
                                     '每年重复',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '按公历日期自动生成',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -464,7 +607,7 @@ class HolidayEditPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -478,11 +621,27 @@ class HolidayEditPage extends StatelessWidget {
                                 [
                                   Text(
                                     '休息期间关闭在线预约',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '客户无法选择这些日期',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -499,7 +658,7 @@ class HolidayEditPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -513,11 +672,27 @@ class HolidayEditPage extends StatelessWidget {
                                 [
                                   Text(
                                     '提前通知已预约客户',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '预约冲突时发送微信 / 短信',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -539,17 +714,25 @@ class HolidayEditPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFDEFD6),
+                  bg: dk(
+                    context,
+                    Color(0xFFFDEFD6),
+                    Color.fromRGBO(245, 165, 36, 0.16),
+                  ),
                   radius: BorderRadius.circular(18),
                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                   child: hrow(
                     [
-                      hsvg(Svgs.s14, w: 18, h: 18),
+                      hsvg(dk(context, Svgs.s24, Svgs.s25), w: 18, h: 18),
                       Flexible(
                         flex: 301,
                         child: Text(
                           '该日期区间已有 2 个预约，保存后将提示客户改期。',
-                          style: hts(13, Color(0xFF855F2E), lh: 19),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFF855F2E), Color(0xFFF0C46A)),
+                            lh: 19,
+                          ),
                         ),
                       ),
                     ],

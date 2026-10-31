@@ -9,7 +9,7 @@ class DisableStaffSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -24,16 +24,21 @@ class DisableStaffSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '停用 李国强 的账号？',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           hbox(
-            bg: Color(0xFFF4F4F5),
+            bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
             radius: BorderRadius.circular(18),
             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
             child: hrow(
@@ -41,12 +46,16 @@ class DisableStaffSheet extends StatelessWidget {
                 hbox(
                   w: 40,
                   h: 40,
-                  bg: Color(0xFFE4E4E7),
+                  bg: dk(context, Color(0xFFE4E4E7), Color(0xFF3A3A40)),
                   radius: BorderRadius.circular(20),
                   align: Alignment(0, 0),
                   child: Text(
                     '李',
-                    style: hts(16, Color(0xFF18181B), w: FontWeight.w600),
+                    style: hts(
+                      16,
+                      dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                      w: FontWeight.w600,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -55,11 +64,18 @@ class DisableStaffSheet extends StatelessWidget {
                     [
                       Text(
                         '李国强',
-                        style: hts(15, Color(0xFF18181B), w: FontWeight.w600),
+                        style: hts(
+                          15,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w600,
+                        ),
                       ),
                       Text(
                         '施工技师 · 施工中 · 2 号工位',
-                        style: hts(12, Color(0xFF71717A)),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -77,12 +93,16 @@ class DisableStaffSheet extends StatelessWidget {
             [
               hrow(
                 [
-                  hsvg(Svgs.s49, w: 14, h: 14),
+                  hsvg(dk(context, Svgs.s86, Svgs.s87), w: 14, h: 14),
                   Flexible(
                     flex: 260,
                     child: Text(
                       '该员工将无法登录，历史施工记录与提成保留',
-                      style: hts(13, Color(0xFF52525B), lh: 19),
+                      style: hts(
+                        13,
+                        dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                        lh: 19,
+                      ),
                     ),
                   ),
                 ],
@@ -92,12 +112,16 @@ class DisableStaffSheet extends StatelessWidget {
               ),
               hrow(
                 [
-                  hsvg(Svgs.s49, w: 14, h: 14),
+                  hsvg(dk(context, Svgs.s86, Svgs.s87), w: 14, h: 14),
                   Flexible(
                     flex: 223,
                     child: Text(
                       '进行中的 1 个订单需先转交给其他技师',
-                      style: hts(13, Color(0xFF52525B), lh: 19),
+                      style: hts(
+                        13,
+                        dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                        lh: 19,
+                      ),
                     ),
                   ),
                 ],
@@ -107,12 +131,16 @@ class DisableStaffSheet extends StatelessWidget {
               ),
               hrow(
                 [
-                  hsvg(Svgs.s49, w: 14, h: 14),
+                  hsvg(dk(context, Svgs.s86, Svgs.s87), w: 14, h: 14),
                   Flexible(
                     flex: 169,
                     child: Text(
                       '可随时在员工详情中重新启用',
-                      style: hts(13, Color(0xFF52525B), lh: 19),
+                      style: hts(
+                        13,
+                        dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                        lh: 19,
+                      ),
                     ),
                   ),
                 ],
@@ -133,7 +161,7 @@ class DisableStaffSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -142,7 +170,7 @@ class DisableStaffSheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -158,7 +186,11 @@ class DisableStaffSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFFFE1E2),
+                    bg: dk(
+                      context,
+                      Color(0xFFFFE1E2),
+                      Color.fromRGBO(255, 56, 60, 0.18),
+                    ),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -167,7 +199,7 @@ class DisableStaffSheet extends StatelessWidget {
                         '确认停用',
                         style: hts(
                           15,
-                          Color(0xFFA43433),
+                          dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),

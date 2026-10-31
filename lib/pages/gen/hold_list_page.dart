@@ -9,8 +9,8 @@ class HoldListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
-      height: 1180,
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
+      height: 1370,
       fixedHeight: false,
       flow: hcol(
         [
@@ -38,30 +38,51 @@ class HoldListPage extends StatelessWidget {
                           hbox(
                             w: 44,
                             h: 44,
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(22),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             child: hrow(
-                              [hsvg(Svgs.s0, w: 20, h: 20)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s0, Svgs.s1),
+                                  w: 20,
+                                  h: 20,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -75,7 +96,7 @@ class HoldListPage extends StatelessWidget {
                             '挂单',
                             style: hts(
                               17,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 24,
                             ),
@@ -89,10 +110,23 @@ class HoldListPage extends StatelessWidget {
                       gap: 8,
                     ),
                     hbox(
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                       radius: BorderRadius.circular(28),
                       pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                       clip: true,
+                      border: dk(
+                        context,
+                        null,
+                        Border(
+                          top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                          right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                          bottom: BorderSide(
+                            color: Color(0xFF2E2E33),
+                            width: 1,
+                          ),
+                          left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                        ),
+                      ),
                       child: hstack(
                         hcol(
                           [
@@ -103,38 +137,50 @@ class HoldListPage extends StatelessWidget {
                                   child: hcol(
                                     [
                                       Text(
-                                        '当前挂单',
+                                        '挂单待收款',
                                         style: hts(
                                           13,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 18,
                                         ),
                                       ),
                                       hrow(
                                         [
                                           Flexible(
-                                            flex: 21,
+                                            flex: 200,
                                             child: Text(
-                                              '4',
+                                              '¥21,200.00',
                                               style: hts(
                                                 36,
                                                 Color(0xFFFAFAFA),
                                                 w: FontWeight.w600,
                                                 lh: 44,
+                                                tab: true,
                                               ),
                                             ),
                                           ),
                                           Flexible(
-                                            flex: 139,
+                                            flex: 45,
                                             child: Text(
-                                              '单 · 合计 ¥21,200.00',
-                                              style: hts(14, Color(0xFFA1A1AA)),
+                                              '共 4 单',
+                                              style: hts(
+                                                14,
+                                                dk(
+                                                  context,
+                                                  Color(0xFFA1A1AA),
+                                                  Color(0xFF80808A),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.baseline,
-                                        gap: 6,
+                                        gap: 8,
                                       ),
                                     ],
                                     main: MainAxisAlignment.start,
@@ -147,109 +193,68 @@ class HoldListPage extends StatelessWidget {
                               cross: CrossAxisAlignment.end,
                               gap: 0,
                             ),
-                            hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hbox(
-                                    bg: Color(0xFF27272A),
-                                    radius: BorderRadius.circular(16),
-                                    pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '施工中',
-                                          style: hts(
-                                            11,
-                                            Color(0xFFA1A1AA),
-                                            lh: 14,
-                                          ),
+                            hbox(
+                              bg: Color(0xFF27272A),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 10, 10, 10),
+                              child: hrow(
+                                [
+                                  hrow(
+                                    [hsvg(Svgs.s141, w: 18, h: 18)],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.start,
+                                    gap: 0,
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: hbox(
+                                      minW: 0,
+                                      child: Text(
+                                        '1 单已完工，等待超 20 分钟',
+                                        style: hts(
+                                          13,
+                                          Color(0xFFF5D78E),
+                                          lh: 18,
                                         ),
-                                        Text(
-                                          '2 单',
-                                          style: hts(
-                                            15,
-                                            Color(0xFFFAFAFA),
-                                            w: FontWeight.w600,
-                                            lh: 20,
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
+                                        softWrap: false,
+                                        maxLines: 1,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: hbox(
-                                    bg: Color(0xFF27272A),
-                                    radius: BorderRadius.circular(16),
-                                    pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '待结算',
+                                  hTap(
+                                    context,
+                                    hbox(
+                                      h: 30,
+                                      bg: Color(0xFFF5D78E),
+                                      radius: BorderRadius.circular(15),
+                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        widthFactor: 1,
+                                        child: Text(
+                                          '提醒取车',
                                           style: hts(
-                                            11,
-                                            Color(0xFFA1A1AA),
-                                            lh: 14,
-                                          ),
-                                        ),
-                                        Text(
-                                          '1 单 · 超 20 分钟',
-                                          style: hts(
-                                            15,
-                                            Color(0xFFF5D78E),
+                                            13,
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w600,
-                                            lh: 20,
+                                            lh: 18,
                                           ),
+                                          softWrap: false,
+                                          maxLines: 1,
                                         ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
+                                      ),
                                     ),
+                                    label: '提醒取车',
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: hbox(
-                                    bg: Color(0xFF27272A),
-                                    radius: BorderRadius.circular(16),
-                                    pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '待施工',
-                                          style: hts(
-                                            11,
-                                            Color(0xFFA1A1AA),
-                                            lh: 14,
-                                          ),
-                                        ),
-                                        Text(
-                                          '1 单',
-                                          style: hts(
-                                            15,
-                                            Color(0xFFFAFAFA),
-                                            w: FontWeight.w600,
-                                            lh: 20,
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.stretch,
-                              gap: 8,
-                              intrinsic: true,
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.center,
+                                gap: 10,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -261,13 +266,17 @@ class HoldListPage extends StatelessWidget {
                           Positioned(
                             top: -90,
                             right: -90,
-                            child: hsvg(Svgs.s4, w: 240, h: 240),
+                            child: hsvg(
+                              dk(context, Svgs.s7, Svgs.s8),
+                              w: 240,
+                              h: 240,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFE9E9EB),
+                      bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                       radius: BorderRadius.circular(20),
                       pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                       child: hrow(
@@ -279,22 +288,37 @@ class HoldListPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFFFFFF),
+                                  Color(0xFF18181B),
+                                ),
                                 radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
+                                shadow: dk(
+                                  context,
+                                  [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                                      offset: Offset(0, 2),
+                                      blurRadius: 4,
+                                      spreadRadius: 0,
+                                    ),
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                                      offset: Offset(0, 1),
+                                      blurRadius: 2,
+                                      spreadRadius: 0,
+                                    ),
+                                  ],
+                                  [
+                                    BoxShadow(
+                                      color: Color(0xFF26262B),
+                                      offset: Offset(0, 0),
+                                      blurRadius: 0,
+                                      spreadRadius: 1,
+                                    ),
+                                  ],
+                                ),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
@@ -302,7 +326,11 @@ class HoldListPage extends StatelessWidget {
                                     '全部 4',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -311,7 +339,11 @@ class HoldListPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFFFFFF),
+                                  Color(0xFF18181B),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 child: Align(
                                   alignment: Alignment.center,
@@ -320,7 +352,11 @@ class HoldListPage extends StatelessWidget {
                                     '全部 4',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -337,7 +373,7 @@ class HoldListPage extends StatelessWidget {
                               on: hbox(
                                 h: 32,
                                 radius: BorderRadius.circular(16),
-                                shadow: [
+                                shadow: dk(context, [
                                   BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.04),
                                     offset: Offset(0, 2),
@@ -350,15 +386,19 @@ class HoldListPage extends StatelessWidget {
                                     blurRadius: 2,
                                     spreadRadius: 0,
                                   ),
-                                ],
+                                ], null),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
                                   child: Text(
-                                    '待施工',
+                                    '待施工 1',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -372,10 +412,14 @@ class HoldListPage extends StatelessWidget {
                                   alignment: Alignment.center,
                                   widthFactor: 1,
                                   child: Text(
-                                    '待施工',
+                                    '待施工 1',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -392,7 +436,7 @@ class HoldListPage extends StatelessWidget {
                               on: hbox(
                                 h: 32,
                                 radius: BorderRadius.circular(16),
-                                shadow: [
+                                shadow: dk(context, [
                                   BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.04),
                                     offset: Offset(0, 2),
@@ -405,15 +449,19 @@ class HoldListPage extends StatelessWidget {
                                     blurRadius: 2,
                                     spreadRadius: 0,
                                   ),
-                                ],
+                                ], null),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
                                   child: Text(
-                                    '施工中',
+                                    '施工中 2',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -427,10 +475,14 @@ class HoldListPage extends StatelessWidget {
                                   alignment: Alignment.center,
                                   widthFactor: 1,
                                   child: Text(
-                                    '施工中',
+                                    '施工中 2',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -447,7 +499,7 @@ class HoldListPage extends StatelessWidget {
                               on: hbox(
                                 h: 32,
                                 radius: BorderRadius.circular(16),
-                                shadow: [
+                                shadow: dk(context, [
                                   BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.04),
                                     offset: Offset(0, 2),
@@ -460,15 +512,19 @@ class HoldListPage extends StatelessWidget {
                                     blurRadius: 2,
                                     spreadRadius: 0,
                                   ),
-                                ],
+                                ], null),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
                                   child: Text(
-                                    '待结算',
+                                    '待结算 1',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -482,10 +538,14 @@ class HoldListPage extends StatelessWidget {
                                   alignment: Alignment.center,
                                   widthFactor: 1,
                                   child: Text(
-                                    '待结算',
+                                    '待结算 1',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -503,28 +563,39 @@ class HoldListPage extends StatelessWidget {
                     ),
                     ...d2.vis([
                       hbox(
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(24),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                         child: hcol(
                           [
@@ -533,7 +604,11 @@ class HoldListPage extends StatelessWidget {
                                 hbox(
                                   w: 40,
                                   h: 40,
-                                  bg: Color(0xFF18181B),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFF34343A),
+                                  ),
                                   radius: BorderRadius.circular(20),
                                   align: Alignment(0, 0),
                                   child: Text(
@@ -559,7 +634,11 @@ class HoldListPage extends StatelessWidget {
                                                 '王建国',
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -568,7 +647,11 @@ class HoldListPage extends StatelessWidget {
                                             Flexible(
                                               flex: 38,
                                               child: hbox(
-                                                bg: Color(0xFF18181B),
+                                                bg: dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFF34343A),
+                                                ),
                                                 radius: BorderRadius.circular(
                                                   9,
                                                 ),
@@ -594,21 +677,29 @@ class HoldListPage extends StatelessWidget {
                                           cross: CrossAxisAlignment.center,
                                           gap: 6,
                                         ),
-                                        hbox(
-                                          bg: Color(0xFF0B5FD6),
-                                          radius: BorderRadius.circular(4),
-                                          border: Border.all(
-                                            color: Color(0xFF5B9BF0),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                          child: Text(
-                                            '沪A·8K29M',
-                                            style: hts(
-                                              11,
-                                              Color(0xFFFFFFFF),
-                                              w: FontWeight.w600,
-                                              lh: 16,
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: hbox(
+                                            bg: Color(0xFF0B5FD6),
+                                            radius: BorderRadius.circular(4),
+                                            border: Border.all(
+                                              color: Color(0xFF5B9BF0),
+                                              width: 1.5,
+                                            ),
+                                            pad: EdgeInsets.fromLTRB(
+                                              5,
+                                              1,
+                                              5,
+                                              1,
+                                            ),
+                                            child: Text(
+                                              '沪A·8K29M',
+                                              style: hts(
+                                                11,
+                                                Color(0xFFFFFFFF),
+                                                w: FontWeight.w600,
+                                                lh: 16,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -620,14 +711,22 @@ class HoldListPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '施工中',
                                     style: hts(
                                       11,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -644,14 +743,26 @@ class HoldListPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '镀晶养护 · 内饰精洗',
-                                    style: hts(14, Color(0xFF3F3F46), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥1,422.00',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 26,
                                     tab: true,
@@ -664,12 +775,24 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s77, w: 14, h: 14),
+                                hsvg(
+                                  dk(context, Svgs.s142, Svgs.s143),
+                                  w: 14,
+                                  h: 14,
+                                ),
                                 Flexible(
                                   flex: 261,
                                   child: Text(
                                     '老周 · 3 号工位 · 14:02 挂单 · 预计 17:00 完工',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -678,12 +801,24 @@ class HoldListPage extends StatelessWidget {
                               gap: 6,
                             ),
                             hbox(
-                              bg: Color(0xFFFDF8EC),
+                              bg: dk(
+                                context,
+                                Color(0xFFFDF8EC),
+                                Color.fromRGBO(245, 165, 36, 0.1),
+                              ),
                               radius: BorderRadius.circular(12),
                               pad: EdgeInsets.fromLTRB(12, 8, 12, 8),
                               child: Text(
                                 '备注：客户去开会，17:00 取车',
-                                style: hts(12, Color(0xFF855F2E), lh: 18),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF855F2E),
+                                    Color(0xFFF0C46A),
+                                  ),
+                                  lh: 18,
+                                ),
                               ),
                             ),
                             hrow(
@@ -694,7 +829,11 @@ class HoldListPage extends StatelessWidget {
                                     context,
                                     hbox(
                                       h: 42,
-                                      bg: Color(0xFF18181B),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       radius: BorderRadius.circular(21),
                                       child: Align(
                                         alignment: Alignment(0, 0),
@@ -703,7 +842,11 @@ class HoldListPage extends StatelessWidget {
                                           '取单结算',
                                           style: hts(
                                             14,
-                                            Color(0xFFFFFFFF),
+                                            dk(
+                                              context,
+                                              Color(0xFFFFFFFF),
+                                              Color(0xFF18181B),
+                                            ),
                                             w: FontWeight.w600,
                                             lh: 20,
                                           ),
@@ -717,7 +860,11 @@ class HoldListPage extends StatelessWidget {
                                   context,
                                   hbox(
                                     h: 42,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
                                     child: Align(
@@ -727,7 +874,11 @@ class HoldListPage extends StatelessWidget {
                                         '加项',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -741,10 +892,20 @@ class HoldListPage extends StatelessWidget {
                                   hbox(
                                     w: 42,
                                     h: 42,
-                                    bg: Color(0xFFFFE1E2),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFE1E2),
+                                      Color.fromRGBO(255, 56, 60, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s78, w: 18, h: 18)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s144, Svgs.s145),
+                                          w: 18,
+                                          h: 18,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -765,28 +926,39 @@ class HoldListPage extends StatelessWidget {
                         ),
                       ),
                       hbox(
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(24),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                         child: hcol(
                           [
@@ -821,7 +993,11 @@ class HoldListPage extends StatelessWidget {
                                                 '赵先生',
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -844,7 +1020,11 @@ class HoldListPage extends StatelessWidget {
                                                   '金卡',
                                                   style: hts(
                                                     11,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w600,
                                                     lh: 18,
                                                   ),
@@ -856,21 +1036,29 @@ class HoldListPage extends StatelessWidget {
                                           cross: CrossAxisAlignment.center,
                                           gap: 6,
                                         ),
-                                        hbox(
-                                          bg: Color(0xFFD7F5E1),
-                                          radius: BorderRadius.circular(4),
-                                          border: Border.all(
-                                            color: Color(0xFF86D9A4),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                          child: Text(
-                                            '沪AD·61207',
-                                            style: hts(
-                                              11,
-                                              Color(0xFF14532D),
-                                              w: FontWeight.w600,
-                                              lh: 16,
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: hbox(
+                                            bg: Color(0xFFD7F5E1),
+                                            radius: BorderRadius.circular(4),
+                                            border: Border.all(
+                                              color: Color(0xFF86D9A4),
+                                              width: 1.5,
+                                            ),
+                                            pad: EdgeInsets.fromLTRB(
+                                              5,
+                                              1,
+                                              5,
+                                              1,
+                                            ),
+                                            child: Text(
+                                              '沪AD·61207',
+                                              style: hts(
+                                                11,
+                                                Color(0xFF14532D),
+                                                w: FontWeight.w600,
+                                                lh: 16,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -882,14 +1070,22 @@ class HoldListPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '施工中',
                                     style: hts(
                                       11,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -906,14 +1102,26 @@ class HoldListPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '全车隐形车衣',
-                                    style: hts(14, Color(0xFF3F3F46), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥18,800.00',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 26,
                                     tab: true,
@@ -926,12 +1134,24 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s77, w: 14, h: 14),
+                                hsvg(
+                                  dk(context, Svgs.s142, Svgs.s143),
+                                  w: 14,
+                                  h: 14,
+                                ),
                                 Flexible(
                                   flex: 290,
                                   child: Text(
                                     '张师傅 · 贴膜间 · 预计 明天 18:00 · 昨天 16:20 挂单',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -947,7 +1167,11 @@ class HoldListPage extends StatelessWidget {
                                     context,
                                     hbox(
                                       h: 42,
-                                      bg: Color(0xFF18181B),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       radius: BorderRadius.circular(21),
                                       child: Align(
                                         alignment: Alignment(0, 0),
@@ -956,7 +1180,11 @@ class HoldListPage extends StatelessWidget {
                                           '取单结算',
                                           style: hts(
                                             14,
-                                            Color(0xFFFFFFFF),
+                                            dk(
+                                              context,
+                                              Color(0xFFFFFFFF),
+                                              Color(0xFF18181B),
+                                            ),
                                             w: FontWeight.w600,
                                             lh: 20,
                                           ),
@@ -970,7 +1198,11 @@ class HoldListPage extends StatelessWidget {
                                   context,
                                   hbox(
                                     h: 42,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
                                     child: Align(
@@ -980,7 +1212,11 @@ class HoldListPage extends StatelessWidget {
                                         '加项',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -994,10 +1230,20 @@ class HoldListPage extends StatelessWidget {
                                   hbox(
                                     w: 42,
                                     h: 42,
-                                    bg: Color(0xFFFFE1E2),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFE1E2),
+                                      Color.fromRGBO(255, 56, 60, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s78, w: 18, h: 18)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s144, Svgs.s145),
+                                          w: 18,
+                                          h: 18,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1018,28 +1264,39 @@ class HoldListPage extends StatelessWidget {
                         ),
                       ),
                       hbox(
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(24),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                         child: hcol(
                           [
@@ -1048,14 +1305,22 @@ class HoldListPage extends StatelessWidget {
                                 hbox(
                                   w: 40,
                                   h: 40,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(20),
                                   align: Alignment(0, 0),
                                   child: Text(
                                     '李',
                                     style: hts(
                                       16,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w600,
                                     ),
                                   ),
@@ -1074,7 +1339,11 @@ class HoldListPage extends StatelessWidget {
                                                 '李女士',
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -1097,7 +1366,11 @@ class HoldListPage extends StatelessWidget {
                                                   '金卡',
                                                   style: hts(
                                                     11,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w600,
                                                     lh: 18,
                                                   ),
@@ -1109,21 +1382,29 @@ class HoldListPage extends StatelessWidget {
                                           cross: CrossAxisAlignment.center,
                                           gap: 6,
                                         ),
-                                        hbox(
-                                          bg: Color(0xFF0B5FD6),
-                                          radius: BorderRadius.circular(4),
-                                          border: Border.all(
-                                            color: Color(0xFF5B9BF0),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                          child: Text(
-                                            '沪B·2C519',
-                                            style: hts(
-                                              11,
-                                              Color(0xFFFFFFFF),
-                                              w: FontWeight.w600,
-                                              lh: 16,
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: hbox(
+                                            bg: Color(0xFF0B5FD6),
+                                            radius: BorderRadius.circular(4),
+                                            border: Border.all(
+                                              color: Color(0xFF5B9BF0),
+                                              width: 1.5,
+                                            ),
+                                            pad: EdgeInsets.fromLTRB(
+                                              5,
+                                              1,
+                                              5,
+                                              1,
+                                            ),
+                                            child: Text(
+                                              '沪B·2C519',
+                                              style: hts(
+                                                11,
+                                                Color(0xFFFFFFFF),
+                                                w: FontWeight.w600,
+                                                lh: 16,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1135,14 +1416,22 @@ class HoldListPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFFDEFD6),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFDEFD6),
+                                    Color.fromRGBO(245, 165, 36, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '待结算',
                                     style: hts(
                                       11,
-                                      Color(0xFF855F2E),
+                                      dk(
+                                        context,
+                                        Color(0xFF855F2E),
+                                        Color(0xFFF0C46A),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -1159,14 +1448,26 @@ class HoldListPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '全车精洗 · 打蜡',
-                                    style: hts(14, Color(0xFF3F3F46), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥880.00',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 26,
                                     tab: true,
@@ -1179,12 +1480,24 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s77, w: 14, h: 14),
+                                hsvg(
+                                  dk(context, Svgs.s142, Svgs.s143),
+                                  w: 14,
+                                  h: 14,
+                                ),
                                 Flexible(
                                   flex: 229,
                                   child: Text(
                                     '小陈 · 已完工，等待 25 分钟 · 14:16 挂单',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -1223,7 +1536,11 @@ class HoldListPage extends StatelessWidget {
                                   context,
                                   hbox(
                                     h: 42,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
                                     child: Align(
@@ -1233,7 +1550,11 @@ class HoldListPage extends StatelessWidget {
                                         '提醒取车',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -1247,10 +1568,20 @@ class HoldListPage extends StatelessWidget {
                                   hbox(
                                     w: 42,
                                     h: 42,
-                                    bg: Color(0xFFFFE1E2),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFE1E2),
+                                      Color.fromRGBO(255, 56, 60, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s78, w: 18, h: 18)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s144, Svgs.s145),
+                                          w: 18,
+                                          h: 18,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1271,28 +1602,39 @@ class HoldListPage extends StatelessWidget {
                         ),
                       ),
                       hbox(
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(24),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                         child: hcol(
                           [
@@ -1301,14 +1643,22 @@ class HoldListPage extends StatelessWidget {
                                 hbox(
                                   w: 40,
                                   h: 40,
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(20),
                                   align: Alignment(0, 0),
                                   child: Text(
                                     '客',
                                     style: hts(
                                       16,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w600,
                                     ),
                                   ),
@@ -1327,7 +1677,11 @@ class HoldListPage extends StatelessWidget {
                                                 '散客',
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -1336,7 +1690,11 @@ class HoldListPage extends StatelessWidget {
                                             Flexible(
                                               flex: 49,
                                               child: hbox(
-                                                bg: Color(0xFFEEEEF0),
+                                                bg: dk(
+                                                  context,
+                                                  Color(0xFFEEEEF0),
+                                                  Color(0xFF27272A),
+                                                ),
                                                 radius: BorderRadius.circular(
                                                   9,
                                                 ),
@@ -1350,7 +1708,11 @@ class HoldListPage extends StatelessWidget {
                                                   '非会员',
                                                   style: hts(
                                                     11,
-                                                    Color(0xFF52525B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF52525B),
+                                                      Color(0xFFA8A8B3),
+                                                    ),
                                                     w: FontWeight.w600,
                                                     lh: 18,
                                                   ),
@@ -1362,21 +1724,29 @@ class HoldListPage extends StatelessWidget {
                                           cross: CrossAxisAlignment.center,
                                           gap: 6,
                                         ),
-                                        hbox(
-                                          bg: Color(0xFF0B5FD6),
-                                          radius: BorderRadius.circular(4),
-                                          border: Border.all(
-                                            color: Color(0xFF5B9BF0),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                          child: Text(
-                                            '苏K·5F218',
-                                            style: hts(
-                                              11,
-                                              Color(0xFFFFFFFF),
-                                              w: FontWeight.w600,
-                                              lh: 16,
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: hbox(
+                                            bg: Color(0xFF0B5FD6),
+                                            radius: BorderRadius.circular(4),
+                                            border: Border.all(
+                                              color: Color(0xFF5B9BF0),
+                                              width: 1.5,
+                                            ),
+                                            pad: EdgeInsets.fromLTRB(
+                                              5,
+                                              1,
+                                              5,
+                                              1,
+                                            ),
+                                            child: Text(
+                                              '苏K·5F218',
+                                              style: hts(
+                                                11,
+                                                Color(0xFFFFFFFF),
+                                                w: FontWeight.w600,
+                                                lh: 16,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1388,14 +1758,22 @@ class HoldListPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(9),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '待施工',
                                     style: hts(
                                       11,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 18,
                                     ),
@@ -1412,14 +1790,26 @@ class HoldListPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '基础洗车 · 轮毂清洁',
-                                    style: hts(14, Color(0xFF3F3F46), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '¥98.00',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 26,
                                     tab: true,
@@ -1432,12 +1822,24 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s77, w: 14, h: 14),
+                                hsvg(
+                                  dk(context, Svgs.s142, Svgs.s143),
+                                  w: 14,
+                                  h: 14,
+                                ),
                                 Flexible(
                                   flex: 164,
                                   child: Text(
                                     '预约 15:30 到店 · 13:40 挂单',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -1453,7 +1855,11 @@ class HoldListPage extends StatelessWidget {
                                     context,
                                     hbox(
                                       h: 42,
-                                      bg: Color(0xFF18181B),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       radius: BorderRadius.circular(21),
                                       child: Align(
                                         alignment: Alignment(0, 0),
@@ -1462,7 +1868,11 @@ class HoldListPage extends StatelessWidget {
                                           '取单结算',
                                           style: hts(
                                             14,
-                                            Color(0xFFFFFFFF),
+                                            dk(
+                                              context,
+                                              Color(0xFFFFFFFF),
+                                              Color(0xFF18181B),
+                                            ),
                                             w: FontWeight.w600,
                                             lh: 20,
                                           ),
@@ -1476,7 +1886,11 @@ class HoldListPage extends StatelessWidget {
                                   context,
                                   hbox(
                                     h: 42,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
                                     child: Align(
@@ -1486,7 +1900,11 @@ class HoldListPage extends StatelessWidget {
                                         '加项',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -1500,10 +1918,20 @@ class HoldListPage extends StatelessWidget {
                                   hbox(
                                     w: 42,
                                     h: 42,
-                                    bg: Color(0xFFFFE1E2),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFE1E2),
+                                      Color.fromRGBO(255, 56, 60, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s78, w: 18, h: 18)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s144, Svgs.s145),
+                                          w: 18,
+                                          h: 18,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1526,7 +1954,11 @@ class HoldListPage extends StatelessWidget {
                     ]),
                     Text(
                       '挂单超过 24 小时未处理，将提醒店长',
-                      style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                      style: hts(
+                        12,
+                        dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                        lh: 18,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -1545,15 +1977,30 @@ class HoldListPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -1563,18 +2010,22 @@ class HoldListPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: hrow(
                         [
-                          hsvg(Svgs.s8, w: 18, h: 18),
+                          hsvg(dk(context, Svgs.s14, Svgs.s15), w: 18, h: 18),
                           Flexible(
                             flex: 60,
                             child: Text(
                               '新开一单',
                               style: hts(
                                 15,
-                                Color(0xFFFFFFFF),
+                                dk(
+                                  context,
+                                  Color(0xFFFFFFFF),
+                                  Color(0xFF18181B),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),

@@ -9,7 +9,7 @@ class SubscriptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 959,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class SubscriptionPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class SubscriptionPage extends StatelessWidget {
                         '套餐与订阅',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,10 +87,20 @@ class SubscriptionPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -102,7 +123,11 @@ class SubscriptionPage extends StatelessWidget {
                                 '年付',
                                 style: hts(
                                   11,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 18,
                                 ),
@@ -112,14 +137,22 @@ class SubscriptionPage extends StatelessWidget {
                             ),
                             Expanded(flex: 1, child: SizedBox.shrink()),
                             hbox(
-                              bg: Color(0xFFDDF6E7),
+                              bg: dk(
+                                context,
+                                Color(0xFFDDF6E7),
+                                Color.fromRGBO(23, 201, 100, 0.16),
+                              ),
                               radius: BorderRadius.circular(9),
                               pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: Text(
                                 '使用中',
                                 style: hts(
                                   11,
-                                  Color(0xFF2B7745),
+                                  dk(
+                                    context,
+                                    Color(0xFF2B7745),
+                                    Color(0xFF5FD48C),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 18,
                                 ),
@@ -151,7 +184,14 @@ class SubscriptionPage extends StatelessWidget {
                               flex: 150,
                               child: Text(
                                 '天后到期 · 2027.10.30',
-                                style: hts(14, Color(0xFFA1A1AA)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFFA1A1AA),
+                                    Color(0xFF80808A),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -194,7 +234,11 @@ class SubscriptionPage extends StatelessWidget {
                                       '续费',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                     ),
@@ -243,7 +287,11 @@ class SubscriptionPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
@@ -256,35 +304,46 @@ class SubscriptionPage extends StatelessWidget {
                         '用量 · 本订阅周期',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -296,14 +355,25 @@ class SubscriptionPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '员工账号',
-                                      style: hts(14, Color(0xFF52525B)),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Text.rich(
                                     TextSpan(
                                       style: hts(
                                         14,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                       children: [
@@ -311,13 +381,24 @@ class SubscriptionPage extends StatelessWidget {
                                           text: '5',
                                           style: hts(
                                             14,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w600,
                                           ),
                                         ),
                                         TextSpan(
                                           text: ' / 10',
-                                          style: hts(14, Color(0xFFA1A1AA)),
+                                          style: hts(
+                                            14,
+                                            dk(
+                                              context,
+                                              Color(0xFFA1A1AA),
+                                              Color(0xFF80808A),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -329,7 +410,11 @@ class SubscriptionPage extends StatelessWidget {
                               ),
                               hbox(
                                 h: 6,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(3),
                                 clip: true,
                                 child: hcol(
@@ -365,14 +450,25 @@ class SubscriptionPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '门店数量',
-                                      style: hts(14, Color(0xFF52525B)),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Text.rich(
                                     TextSpan(
                                       style: hts(
                                         14,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                       children: [
@@ -380,13 +476,24 @@ class SubscriptionPage extends StatelessWidget {
                                           text: '1',
                                           style: hts(
                                             14,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w600,
                                           ),
                                         ),
                                         TextSpan(
                                           text: ' / 3',
-                                          style: hts(14, Color(0xFFA1A1AA)),
+                                          style: hts(
+                                            14,
+                                            dk(
+                                              context,
+                                              Color(0xFFA1A1AA),
+                                              Color(0xFF80808A),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -398,7 +505,11 @@ class SubscriptionPage extends StatelessWidget {
                               ),
                               hbox(
                                 h: 6,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(3),
                                 clip: true,
                                 child: hcol(
@@ -434,14 +545,25 @@ class SubscriptionPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '本月套餐内短信',
-                                      style: hts(14, Color(0xFF52525B)),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Text.rich(
                                     TextSpan(
                                       style: hts(
                                         14,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                       children: [
@@ -449,13 +571,24 @@ class SubscriptionPage extends StatelessWidget {
                                           text: '86',
                                           style: hts(
                                             14,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             w: FontWeight.w600,
                                           ),
                                         ),
                                         TextSpan(
                                           text: ' / 1,000',
-                                          style: hts(14, Color(0xFFA1A1AA)),
+                                          style: hts(
+                                            14,
+                                            dk(
+                                              context,
+                                              Color(0xFFA1A1AA),
+                                              Color(0xFF80808A),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -467,7 +600,11 @@ class SubscriptionPage extends StatelessWidget {
                               ),
                               hbox(
                                 h: 6,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(3),
                                 clip: true,
                                 child: hcol(
@@ -514,35 +651,46 @@ class SubscriptionPage extends StatelessWidget {
                         '订阅管理',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -559,7 +707,11 @@ class SubscriptionPage extends StatelessWidget {
                                         '自动续费',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -567,7 +719,11 @@ class SubscriptionPage extends StatelessWidget {
                                         '到期前 3 天微信扣款 ¥3,990',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -586,7 +742,11 @@ class SubscriptionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -600,14 +760,34 @@ class SubscriptionPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '支付方式',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '微信支付',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -618,7 +798,11 @@ class SubscriptionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -632,14 +816,34 @@ class SubscriptionPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '账单与发票',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '1 笔订单',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -650,7 +854,11 @@ class SubscriptionPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -666,7 +874,11 @@ class SubscriptionPage extends StatelessWidget {
                                         '到期提醒',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -674,7 +886,11 @@ class SubscriptionPage extends StatelessWidget {
                                         '提前 30、7、3 天通知店长',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -708,7 +924,7 @@ class SubscriptionPage extends StatelessWidget {
                     '查看全部套餐与功能对比',
                     style: hts(
                       14,
-                      Color(0xFF1E63AE),
+                      dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                       w: FontWeight.w500,
                       lh: 20,
                     ),

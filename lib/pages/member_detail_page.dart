@@ -94,10 +94,10 @@ class MemberDetailPage extends StatelessWidget {
                 20,
                 bottom > 0 ? bottom : 16,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: C.card,
                 boxShadow: [
-                  BoxShadow(color: Color(0xFFE8E8EA), offset: Offset(0, -1)),
+                  BoxShadow(color: C.line, offset: const Offset(0, -1)),
                   BoxShadow(
                     color: Color(0x0A000000),
                     blurRadius: 24,
@@ -155,7 +155,8 @@ class MemberDetailPage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: C.ink,
+        color: C.heroCard,
+        border: C.heroBorder,
         borderRadius: BorderRadius.circular(28),
       ),
       child: Stack(
@@ -171,7 +172,7 @@ class MemberDetailPage extends StatelessWidget {
                     member.name.substring(0, 1),
                     size: 52,
                     bg: C.gold,
-                    fg: C.ink,
+                    fg: C.onGold,
                   ),
                   const SizedBox(width: 12),
                   Expanded(
@@ -193,7 +194,7 @@ class MemberDetailPage extends StatelessWidget {
                             Pill(
                               '${member.level}会员',
                               bg: C.gold,
-                              fg: C.ink,
+                              fg: C.onGold,
                               size: 11,
                             ),
                           ],

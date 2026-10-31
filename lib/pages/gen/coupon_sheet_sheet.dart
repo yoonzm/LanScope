@@ -8,7 +8,7 @@ class CouponSheetSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -23,20 +23,29 @@ class CouponSheetSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '选择优惠券',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           hcol(
             [
               HToggle(
                 initial: true,
                 on: hbox(
-                  bg: Color(0xFFE1F0FE),
+                  bg: dk(
+                    context,
+                    Color(0xFFE1F0FE),
+                    Color.fromRGBO(4, 133, 247, 0.18),
+                  ),
                   radius: BorderRadius.circular(18),
                   border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                   clip: true,
@@ -74,14 +83,26 @@ class CouponSheetSheet extends StatelessWidget {
                                 '新店首购券',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '订阅任意年付套餐可用 · 有效期至 11.30',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -99,7 +120,7 @@ class CouponSheetSheet extends StatelessWidget {
                 ),
                 off: hbox(
                   h: 34,
-                  bg: Color(0xFFF4F4F5),
+                  bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                   radius: BorderRadius.circular(17),
                   pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                   child: hcol(
@@ -138,7 +159,11 @@ class CouponSheetSheet extends StatelessWidget {
                                 '新店首购券',
                                 style: hts(
                                   15,
-                                  Color(0xFF3F3F46),
+                                  dk(
+                                    context,
+                                    Color(0xFF3F3F46),
+                                    Color(0xFFD4D4D8),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
@@ -147,7 +172,11 @@ class CouponSheetSheet extends StatelessWidget {
                                 '订阅任意年付套餐可用 · 有效期至 11.30',
                                 style: hts(
                                   12,
-                                  Color(0xFF71717A),
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
                                   w: FontWeight.w500,
                                   lh: 16,
                                 ),
@@ -170,7 +199,7 @@ class CouponSheetSheet extends StatelessWidget {
               hTap(
                 context,
                 hbox(
-                  bg: Color(0xFFF4F4F5),
+                  bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                   radius: BorderRadius.circular(18),
                   clip: true,
                   opacity: .5,
@@ -178,7 +207,7 @@ class CouponSheetSheet extends StatelessWidget {
                     [
                       hbox(
                         w: 88,
-                        bg: Color(0xFF18181B),
+                        bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                         pad: EdgeInsets.fromLTRB(0, 14, 0, 14),
                         child: hcol(
                           [
@@ -207,14 +236,26 @@ class CouponSheetSheet extends StatelessWidget {
                                 '续费满减券',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '续费满 ¥3,000 可用 · 本单不满足',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -243,14 +284,18 @@ class CouponSheetSheet extends StatelessWidget {
                 flex: 1,
                 child: hbox(
                   minH: 44,
-                  bg: Color(0xFFF4F4F5),
+                  bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                   radius: BorderRadius.circular(14),
                   pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                   child: hrow(
                     [
                       Expanded(
                         child: HInput(
-                          style: hts(15, Color(0xFF18181B), lh: 22),
+                          style: hts(
+                            15,
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                            lh: 22,
+                          ),
                           hint: '输入兑换码',
                         ),
                       ),
@@ -265,7 +310,7 @@ class CouponSheetSheet extends StatelessWidget {
                 context,
                 hbox(
                   h: 44,
-                  bg: Color(0xFFEEEEF0),
+                  bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                   radius: BorderRadius.circular(22),
                   pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
                   child: Align(
@@ -275,7 +320,7 @@ class CouponSheetSheet extends StatelessWidget {
                       '兑换',
                       style: hts(
                         14,
-                        Color(0xFF18181B),
+                        dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         w: FontWeight.w500,
                         lh: 20,
                       ),
@@ -298,7 +343,7 @@ class CouponSheetSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -307,7 +352,7 @@ class CouponSheetSheet extends StatelessWidget {
                         '不使用优惠券',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -323,7 +368,7 @@ class CouponSheetSheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -332,7 +377,7 @@ class CouponSheetSheet extends StatelessWidget {
                         '确定 · 减 ¥200',
                         style: hts(
                           15,
-                          Color(0xFFFFFFFF),
+                          dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),

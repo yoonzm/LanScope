@@ -9,7 +9,7 @@ class StoreInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 960,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class StoreInfoPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class StoreInfoPage extends StatelessWidget {
                         '门店信息',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -73,7 +84,7 @@ class StoreInfoPage extends StatelessWidget {
                       context,
                       hbox(
                         h: 44,
-                        bg: Color(0xFF18181B),
+                        bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         radius: BorderRadius.circular(22),
                         pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
                         child: Align(
@@ -83,7 +94,7 @@ class StoreInfoPage extends StatelessWidget {
                             '编辑',
                             style: hts(
                               14,
-                              Color(0xFFFFFFFF),
+                              dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                               w: FontWeight.w500,
                               lh: 20,
                             ),
@@ -98,41 +109,64 @@ class StoreInfoPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(28),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   clip: true,
                   child: hcol(
                     [
                       hbox(
                         h: 150,
-                        bg: Color(0xFFE4E4E7),
+                        bg: dk(context, Color(0xFFE4E4E7), Color(0xFF3A3A40)),
                         child: hstack(
                           hcol(
                             [
-                              hsvg(Svgs.s169, w: 28, h: 28),
+                              hsvg(
+                                dk(context, Svgs.s310, Svgs.s311),
+                                w: 28,
+                                h: 28,
+                              ),
                               Text(
                                 '[门店门头照片]',
-                                style: hts(12, Color(0xFF52525B), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.center,
@@ -170,7 +204,11 @@ class StoreInfoPage extends StatelessWidget {
                               '驰光汽车美容 · 徐汇店',
                               style: hts(
                                 19,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 26,
                                 ls: -0.38,
@@ -179,7 +217,11 @@ class StoreInfoPage extends StatelessWidget {
                             hwrap(
                               [
                                 hbox(
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(11),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: hrow(
@@ -196,7 +238,11 @@ class StoreInfoPage extends StatelessWidget {
                                           '营业中',
                                           style: hts(
                                             12,
-                                            Color(0xFF2B7745),
+                                            dk(
+                                              context,
+                                              Color(0xFF2B7745),
+                                              Color(0xFF5FD48C),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 22,
                                           ),
@@ -209,28 +255,44 @@ class StoreInfoPage extends StatelessWidget {
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(11),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '专业版',
                                     style: hts(
                                       12,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(11),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '门店编号 CG-0021',
                                     style: hts(
                                       12,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
@@ -254,28 +316,39 @@ class StoreInfoPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -285,7 +358,11 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s170, w: 20, h: 20),
+                              child: hsvg(
+                                dk(context, Svgs.s312, Svgs.s313),
+                                w: 20,
+                                h: 20,
+                              ),
                             ),
                             Expanded(
                               flex: 1,
@@ -293,11 +370,27 @@ class StoreInfoPage extends StatelessWidget {
                                 [
                                   Text(
                                     '门店地址',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '上海市徐汇区[详细地址]',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -311,7 +404,11 @@ class StoreInfoPage extends StatelessWidget {
                                 '导航',
                                 style: hts(
                                   13,
-                                  Color(0xFF1E63AE),
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
                                   w: FontWeight.w500,
                                   lh: 20,
                                 ),
@@ -326,7 +423,7 @@ class StoreInfoPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       ),
                       hbox(
@@ -335,7 +432,11 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s171, w: 20, h: 20),
+                              child: hsvg(
+                                dk(context, Svgs.s314, Svgs.s315),
+                                w: 20,
+                                h: 20,
+                              ),
                             ),
                             Expanded(
                               flex: 1,
@@ -343,11 +444,27 @@ class StoreInfoPage extends StatelessWidget {
                                 [
                                   Text(
                                     '联系电话',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '021-[门店电话]',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -363,7 +480,7 @@ class StoreInfoPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       ),
                       hbox(
@@ -372,7 +489,11 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s172, w: 20, h: 20),
+                              child: hsvg(
+                                dk(context, Svgs.s316, Svgs.s317),
+                                w: 20,
+                                h: 20,
+                              ),
                             ),
                             Expanded(
                               flex: 1,
@@ -380,11 +501,27 @@ class StoreInfoPage extends StatelessWidget {
                                 [
                                   Text(
                                     '营业时间',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '每天 09:00 – 20:00',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -400,7 +537,7 @@ class StoreInfoPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       ),
                       hbox(
@@ -409,7 +546,11 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s173, w: 20, h: 20),
+                              child: hsvg(
+                                dk(context, Svgs.s318, Svgs.s319),
+                                w: 20,
+                                h: 20,
+                              ),
                             ),
                             Expanded(
                               flex: 1,
@@ -417,21 +558,37 @@ class StoreInfoPage extends StatelessWidget {
                                 [
                                   Text(
                                     '工位配置 · 共 6 个',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   hrow(
                                     [
                                       Flexible(
                                         flex: 51,
                                         child: hbox(
-                                          bg: Color(0xFFE1F0FE),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFE1F0FE),
+                                            Color.fromRGBO(4, 133, 247, 0.18),
+                                          ),
                                           radius: BorderRadius.circular(11),
                                           pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                           child: Text(
                                             '洗车 2',
                                             style: hts(
                                               12,
-                                              Color(0xFF1E63AE),
+                                              dk(
+                                                context,
+                                                Color(0xFF1E63AE),
+                                                Color(0xFF6AB4FA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -441,14 +598,22 @@ class StoreInfoPage extends StatelessWidget {
                                       Flexible(
                                         flex: 51,
                                         child: hbox(
-                                          bg: Color(0xFFDDF6E7),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFDDF6E7),
+                                            Color.fromRGBO(23, 201, 100, 0.16),
+                                          ),
                                           radius: BorderRadius.circular(11),
                                           pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                           child: Text(
                                             '美容 2',
                                             style: hts(
                                               12,
-                                              Color(0xFF2B7745),
+                                              dk(
+                                                context,
+                                                Color(0xFF2B7745),
+                                                Color(0xFF5FD48C),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -458,14 +623,22 @@ class StoreInfoPage extends StatelessWidget {
                                       Flexible(
                                         flex: 63,
                                         child: hbox(
-                                          bg: Color(0xFFFDEFD6),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFFDEFD6),
+                                            Color.fromRGBO(245, 165, 36, 0.16),
+                                          ),
                                           radius: BorderRadius.circular(11),
                                           pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                           child: Text(
                                             '贴膜间 2',
                                             style: hts(
                                               12,
-                                              Color(0xFF855F2E),
+                                              dk(
+                                                context,
+                                                Color(0xFF855F2E),
+                                                Color(0xFFF0C46A),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -504,35 +677,46 @@ class StoreInfoPage extends StatelessWidget {
                         '资质证照',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -546,10 +730,20 @@ class StoreInfoPage extends StatelessWidget {
                                   hbox(
                                     w: 32,
                                     h: 32,
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s174, w: 18, h: 18)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s320, Svgs.s321),
+                                          w: 18,
+                                          h: 18,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -559,19 +753,35 @@ class StoreInfoPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '营业执照',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '已认证',
                                     style: hts(
                                       13,
-                                      Color(0xFF2B7745),
+                                      dk(
+                                        context,
+                                        Color(0xFF2B7745),
+                                        Color(0xFF5FD48C),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -582,7 +792,11 @@ class StoreInfoPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hTap(
@@ -595,10 +809,20 @@ class StoreInfoPage extends StatelessWidget {
                                   hbox(
                                     w: 32,
                                     h: 32,
-                                    bg: Color(0xFFFDEFD6),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFDEFD6),
+                                      Color.fromRGBO(245, 165, 36, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s175, w: 18, h: 18)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s322, Svgs.s323),
+                                          w: 18,
+                                          h: 18,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -608,19 +832,35 @@ class StoreInfoPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '排水许可 / 环保备案',
-                                      style: hts(15, Color(0xFF18181B), lh: 22),
+                                      style: hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '待上传',
                                     style: hts(
                                       13,
-                                      Color(0xFF855F2E),
+                                      dk(
+                                        context,
+                                        Color(0xFF855F2E),
+                                        Color(0xFFF0C46A),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -643,7 +883,7 @@ class StoreInfoPage extends StatelessWidget {
                 hTap(
                   context,
                   hbox(
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                     radius: BorderRadius.circular(22),
                     pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                     child: hrow(
@@ -651,10 +891,16 @@ class StoreInfoPage extends StatelessWidget {
                         hbox(
                           w: 40,
                           h: 40,
-                          bg: Color(0xFFFFFFFF),
+                          bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           radius: BorderRadius.circular(12),
                           child: hrow(
-                            [hsvg(Svgs.s176, w: 22, h: 22)],
+                            [
+                              hsvg(
+                                dk(context, Svgs.s324, Svgs.s325),
+                                w: 22,
+                                h: 22,
+                              ),
+                            ],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -675,7 +921,15 @@ class StoreInfoPage extends StatelessWidget {
                               ),
                               Text(
                                 '客户扫码即可入会、预约',
-                                style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFFA1A1AA),
+                                    Color(0xFF80808A),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -683,7 +937,7 @@ class StoreInfoPage extends StatelessWidget {
                             gap: 2,
                           ),
                         ),
-                        hsvg(Svgs.s2, w: 16, h: 16),
+                        hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                       ],
                       main: MainAxisAlignment.start,
                       cross: CrossAxisAlignment.center,

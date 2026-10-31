@@ -9,7 +9,7 @@ class RenewPaidPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class RenewPaidPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -88,7 +99,7 @@ class RenewPaidPage extends StatelessWidget {
                                   ),
                                 ],
                                 child: hrow(
-                                  [hsvg(Svgs.s17, w: 36, h: 36)],
+                                  [hsvg(Svgs.s29, w: 36, h: 36)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -104,7 +115,7 @@ class RenewPaidPage extends StatelessWidget {
                             Positioned(
                               left: -32,
                               top: -32,
-                              child: hsvg(Svgs.s16, w: 160, h: 160),
+                              child: hsvg(Svgs.s28, w: 160, h: 160),
                             ),
                           ],
                         ),
@@ -113,7 +124,7 @@ class RenewPaidPage extends StatelessWidget {
                         '续费成功',
                         style: hts(
                           17,
-                          Color(0xFF2B7745),
+                          dk(context, Color(0xFF2B7745), Color(0xFF5FD48C)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -122,7 +133,7 @@ class RenewPaidPage extends StatelessWidget {
                         '¥3,990.00',
                         style: hts(
                           40,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 48,
                           ls: -1,
@@ -135,28 +146,39 @@ class RenewPaidPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(18, 6, 18, 6),
                   child: hcol(
                     [
@@ -168,14 +190,25 @@ class RenewPaidPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '套餐',
-                                style: hts(14, Color(0xFF71717A)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                ),
                               ),
                             ),
                             Text(
                               '专业版 · 续费 12 个月',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -185,7 +218,10 @@ class RenewPaidPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 40,
                         child: hrow(
@@ -194,14 +230,25 @@ class RenewPaidPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '新到期日',
-                                style: hts(14, Color(0xFF71717A)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                ),
                               ),
                             ),
                             Text(
                               '2028.10.30',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -211,7 +258,10 @@ class RenewPaidPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 40,
                         child: hrow(
@@ -220,14 +270,25 @@ class RenewPaidPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '支付方式',
-                                style: hts(14, Color(0xFF71717A)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                ),
                               ),
                             ),
                             Text(
                               '微信支付',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -237,7 +298,10 @@ class RenewPaidPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 40,
                         child: hrow(
@@ -246,14 +310,25 @@ class RenewPaidPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '订单号',
-                                style: hts(14, Color(0xFF71717A)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                ),
                               ),
                             ),
                             Text(
                               'SUB202610310002',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -270,28 +345,39 @@ class RenewPaidPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -300,10 +386,20 @@ class RenewPaidPage extends StatelessWidget {
                           hbox(
                             w: 32,
                             h: 32,
-                            bg: Color(0xFFFDEFD6),
+                            bg: dk(
+                              context,
+                              Color(0xFFFDEFD6),
+                              Color.fromRGBO(245, 165, 36, 0.16),
+                            ),
                             radius: BorderRadius.circular(10),
                             child: hrow(
-                              [hsvg(Svgs.s136, w: 18, h: 18)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s250, Svgs.s251),
+                                  w: 18,
+                                  h: 18,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -317,14 +413,26 @@ class RenewPaidPage extends StatelessWidget {
                                   '需要发票？',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 20,
                                   ),
                                 ),
                                 Text(
                                   '可合并开具续费与订阅发票',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -338,7 +446,11 @@ class RenewPaidPage extends StatelessWidget {
                               '申请开票',
                               style: hts(
                                 13,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -369,15 +481,30 @@ class RenewPaidPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -387,7 +514,7 @@ class RenewPaidPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -396,7 +523,7 @@ class RenewPaidPage extends StatelessWidget {
                           '回到首页',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -412,7 +539,7 @@ class RenewPaidPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -421,7 +548,7 @@ class RenewPaidPage extends StatelessWidget {
                           '查看订阅',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

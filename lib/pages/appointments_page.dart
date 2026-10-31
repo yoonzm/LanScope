@@ -88,7 +88,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
           height: 50,
           padding: const EdgeInsets.symmetric(horizontal: 22),
           decoration: BoxDecoration(
-            color: C.ink,
+            color: C.btn,
             borderRadius: BorderRadius.circular(25),
             boxShadow: const [
               BoxShadow(
@@ -101,11 +101,11 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AppIcon('add', color: Colors.white, size: 20),
+              AppIcon('add', color: C.btnFg, size: 20),
               const SizedBox(width: 6),
               Text(
                 '新建预约',
-                style: ts(15, w: FontWeight.w600, color: Colors.white, h: 22),
+                style: ts(15, w: FontWeight.w600, color: C.btnFg, h: 22),
               ),
             ],
           ),
@@ -234,7 +234,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: BoxDecoration(
-                  color: day == i ? C.ink : Colors.transparent,
+                  color: day == i ? C.btn : Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -249,7 +249,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                       style: ts(
                         16,
                         w: FontWeight.w600,
-                        color: day == i ? Colors.white : C.ink,
+                        color: day == i ? C.btnFg : C.ink,
                         h: 22,
                       ),
                     ),
@@ -274,7 +274,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
-          color: filter == st ? Colors.white : Colors.transparent,
+          color: filter == st ? C.card : Colors.transparent,
           borderRadius: BorderRadius.circular(14),
           boxShadow: filter == st ? softShadow : null,
         ),
@@ -315,7 +315,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
             padding: const EdgeInsets.symmetric(horizontal: 14),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: primary ? C.ink : C.chip,
+              color: primary ? C.btn : C.chip,
               borderRadius: BorderRadius.circular(17),
             ),
             child: Text(
@@ -323,7 +323,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
               style: ts(
                 13,
                 w: FontWeight.w500,
-                color: primary ? Colors.white : C.ink,
+                color: primary ? C.btnFg : C.ink,
                 h: 18,
               ),
             ),

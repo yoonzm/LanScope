@@ -9,7 +9,7 @@ class StoreQRPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class StoreQRPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class StoreQRPage extends StatelessWidget {
                         '门店二维码',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,7 +87,7 @@ class StoreQRPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFE9E9EB),
+                  bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                   child: HSelHolder(
@@ -92,22 +103,37 @@ class StoreQRPage extends StatelessWidget {
                             index: 0,
                             on: hbox(
                               h: 32,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(16),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -115,7 +141,11 @@ class StoreQRPage extends StatelessWidget {
                                   '入会码',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -124,7 +154,11 @@ class StoreQRPage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 32,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(16),
                               child: Align(
                                 alignment: Alignment.center,
@@ -133,7 +167,11 @@ class StoreQRPage extends StatelessWidget {
                                   '入会码',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -150,7 +188,7 @@ class StoreQRPage extends StatelessWidget {
                             on: hbox(
                               h: 32,
                               radius: BorderRadius.circular(16),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -163,7 +201,7 @@ class StoreQRPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -171,7 +209,11 @@ class StoreQRPage extends StatelessWidget {
                                   '预约码',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -188,7 +230,11 @@ class StoreQRPage extends StatelessWidget {
                                   '预约码',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -205,7 +251,7 @@ class StoreQRPage extends StatelessWidget {
                             on: hbox(
                               h: 32,
                               radius: BorderRadius.circular(16),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -218,7 +264,7 @@ class StoreQRPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -226,7 +272,11 @@ class StoreQRPage extends StatelessWidget {
                                   '收款码',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -243,7 +293,11 @@ class StoreQRPage extends StatelessWidget {
                                   '收款码',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -261,10 +315,20 @@ class StoreQRPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 24, 20, 24),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -275,15 +339,20 @@ class StoreQRPage extends StatelessWidget {
                         hcol(
                           [
                             hbox(
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: Color(0xFFE4E4E7),
-                                width: 1,
+                              border: dk(
+                                context,
+                                Border.all(color: Color(0xFFE4E4E7), width: 1),
+                                Border.all(color: Color(0xFF3A3A40), width: 1),
                               ),
                               pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                               child: hrow(
-                                [hsvg(Svgs.s177, w: 190, h: 190)],
+                                [hsvg(Svgs.s326, w: 190, h: 190)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -296,7 +365,10 @@ class StoreQRPage extends StatelessWidget {
                         ),
                         Text(
                           '微信扫一扫，立即入会领取新客礼',
-                          style: hts(13, Color(0xFFA1A1AA)),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                          ),
                         ),
                       ],
                       main: MainAxisAlignment.start,
@@ -308,34 +380,49 @@ class StoreQRPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -350,11 +437,27 @@ class StoreQRPage extends StatelessWidget {
                                 [
                                   Text(
                                     '新会员入会赠送',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '首单立减 ¥20 · 洗车券 1 张',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -371,7 +474,7 @@ class StoreQRPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -385,11 +488,27 @@ class StoreQRPage extends StatelessWidget {
                                 [
                                   Text(
                                     '扫码后自动绑定微信',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '入会时同步绑定，用于接收通知',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -412,7 +531,10 @@ class StoreQRPage extends StatelessWidget {
                 ),
                 Text(
                   '此为二维码示意图，不可扫描',
-                  style: hts(12, Color(0xFFA1A1AA)),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -429,15 +551,30 @@ class StoreQRPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -447,7 +584,7 @@ class StoreQRPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -456,7 +593,7 @@ class StoreQRPage extends StatelessWidget {
                           '保存图片',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -472,7 +609,7 @@ class StoreQRPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -481,7 +618,7 @@ class StoreQRPage extends StatelessWidget {
                           '分享给客户',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

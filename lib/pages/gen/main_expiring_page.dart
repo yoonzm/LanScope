@@ -9,7 +9,7 @@ class MainExpiringPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -26,7 +26,11 @@ class MainExpiringPage extends StatelessWidget {
                         [
                           Text(
                             '周六 · 10月31日',
-                            style: hts(13, Color(0xFF52525B), lh: 18),
+                            style: hts(
+                              13,
+                              dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                              lh: 18,
+                            ),
                           ),
                           hTap(
                             context,
@@ -38,14 +42,22 @@ class MainExpiringPage extends StatelessWidget {
                                     '驰光汽车美容',
                                     style: hts(
                                       22,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 30,
                                       ls: -0.44,
                                     ),
                                   ),
                                 ),
-                                hsvg(Svgs.s82, w: 18, h: 18),
+                                hsvg(
+                                  dk(context, Svgs.s152, Svgs.s153),
+                                  w: 18,
+                                  h: 18,
+                                ),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -64,31 +76,48 @@ class MainExpiringPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hstack(
                           hrow(
-                            [hsvg(Svgs.s83, w: 20, h: 20)],
+                            [
+                              hsvg(
+                                dk(context, Svgs.s154, Svgs.s155),
+                                w: 20,
+                                h: 20,
+                              ),
+                            ],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -148,7 +177,11 @@ class MainExpiringPage extends StatelessWidget {
                   gap: 12,
                 ),
                 hbox(
-                  bg: Color(0xFFFDEFD6),
+                  bg: dk(
+                    context,
+                    Color(0xFFFDEFD6),
+                    Color.fromRGBO(245, 165, 36, 0.16),
+                  ),
                   radius: BorderRadius.circular(22),
                   pad: EdgeInsets.fromLTRB(14, 12, 12, 12),
                   child: hrow(
@@ -156,10 +189,20 @@ class MainExpiringPage extends StatelessWidget {
                       hbox(
                         w: 36,
                         h: 36,
-                        bg: Color.fromRGBO(255, 255, 255, 0.7),
+                        bg: dk(
+                          context,
+                          Color.fromRGBO(255, 255, 255, 0.7),
+                          Color.fromRGBO(9, 9, 11, 0.92),
+                        ),
                         radius: BorderRadius.circular(18),
                         child: hrow(
-                          [hsvg(Svgs.s84, w: 18, h: 18)],
+                          [
+                            hsvg(
+                              dk(context, Svgs.s156, Svgs.s25),
+                              w: 18,
+                              h: 18,
+                            ),
+                          ],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -175,7 +218,11 @@ class MainExpiringPage extends StatelessWidget {
                                 '专业版 7 天后到期',
                                 style: hts(
                                   14,
-                                  Color(0xFF6B4A1F),
+                                  dk(
+                                    context,
+                                    Color(0xFF6B4A1F),
+                                    Color(0xFFF0C46A),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 20,
                                 ),
@@ -184,7 +231,15 @@ class MainExpiringPage extends StatelessWidget {
                                 opacity: .8,
                                 child: Text(
                                   '2027.10.30 到期，建议提前续费',
-                                  style: hts(12, Color(0xFF6B4A1F), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF6B4A1F),
+                                      Color(0xFFF0C46A),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ),
                             ],
@@ -198,7 +253,7 @@ class MainExpiringPage extends StatelessWidget {
                         context,
                         hbox(
                           h: 34,
-                          bg: Color(0xFF18181B),
+                          bg: dk(context, Color(0xFF18181B), Color(0xFF34343A)),
                           radius: BorderRadius.circular(17),
                           pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                           child: Align(
@@ -223,10 +278,20 @@ class MainExpiringPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -238,7 +303,15 @@ class MainExpiringPage extends StatelessWidget {
                                 [
                                   Text(
                                     '今日营业额（元）',
-                                    style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
                                   Text(
                                     '12,860.00',
@@ -253,7 +326,7 @@ class MainExpiringPage extends StatelessWidget {
                                   ),
                                   hrow(
                                     [
-                                      hsvg(Svgs.s86, w: 14, h: 14),
+                                      hsvg(Svgs.s159, w: 14, h: 14),
                                       Flexible(
                                         flex: 90,
                                         child: Text(
@@ -350,7 +423,11 @@ class MainExpiringPage extends StatelessWidget {
                                         '订单数',
                                         style: hts(
                                           12,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -377,7 +454,11 @@ class MainExpiringPage extends StatelessWidget {
                                         '新增会员',
                                         style: hts(
                                           12,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -404,7 +485,11 @@ class MainExpiringPage extends StatelessWidget {
                                         '客单价',
                                         style: hts(
                                           12,
-                                          Color(0xFFA1A1AA),
+                                          dk(
+                                            context,
+                                            Color(0xFFA1A1AA),
+                                            Color(0xFF80808A),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -441,7 +526,11 @@ class MainExpiringPage extends StatelessWidget {
                       Positioned(
                         top: -80,
                         right: -70,
-                        child: hsvg(Svgs.s85, w: 220, h: 220),
+                        child: hsvg(
+                          dk(context, Svgs.s157, Svgs.s158),
+                          w: 220,
+                          h: 220,
+                        ),
                       ),
                     ],
                   ),
@@ -467,10 +556,14 @@ class MainExpiringPage extends StatelessWidget {
                                       child: hbox(
                                         w: 44,
                                         h: 44,
-                                        bg: Color.fromRGBO(255, 255, 255, 0.2),
+                                        bg: dk(
+                                          context,
+                                          Color.fromRGBO(255, 255, 255, 0.2),
+                                          Color.fromRGBO(9, 9, 11, 0.92),
+                                        ),
                                         radius: BorderRadius.circular(22),
                                         child: hrow(
-                                          [hsvg(Svgs.s92, w: 22, h: 22)],
+                                          [hsvg(Svgs.s169, w: 22, h: 22)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -514,7 +607,7 @@ class MainExpiringPage extends StatelessWidget {
                                   Positioned(
                                     right: -80,
                                     bottom: -80,
-                                    child: hsvg(Svgs.s91, w: 190, h: 190),
+                                    child: hsvg(Svgs.s168, w: 190, h: 190),
                                   ),
                                 ],
                               ),
@@ -530,7 +623,11 @@ class MainExpiringPage extends StatelessWidget {
                                 context,
                                 hbox(
                                   minH: 76,
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(24),
                                   pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                                   clip: true,
@@ -539,14 +636,22 @@ class MainExpiringPage extends StatelessWidget {
                                       [
                                         hrow(
                                           [
-                                            hsvg(Svgs.s88, w: 20, h: 20),
+                                            hsvg(
+                                              dk(context, Svgs.s162, Svgs.s163),
+                                              w: 20,
+                                              h: 20,
+                                            ),
                                             Flexible(
                                               flex: 60,
                                               child: Text(
                                                 '会员充值',
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF1F5E37),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF1F5E37),
+                                                    Color(0xFF5FD48C),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -563,7 +668,11 @@ class MainExpiringPage extends StatelessWidget {
                                             '今日 ¥12,600',
                                             style: hts(
                                               12,
-                                              Color(0xFF1F5E37),
+                                              dk(
+                                                context,
+                                                Color(0xFF1F5E37),
+                                                Color(0xFF5FD48C),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -578,7 +687,11 @@ class MainExpiringPage extends StatelessWidget {
                                       Positioned(
                                         right: -8,
                                         bottom: -10,
-                                        child: hsvg(Svgs.s87, w: 64, h: 64),
+                                        child: hsvg(
+                                          dk(context, Svgs.s160, Svgs.s161),
+                                          w: 64,
+                                          h: 64,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -592,7 +705,11 @@ class MainExpiringPage extends StatelessWidget {
                                 context,
                                 hbox(
                                   minH: 76,
-                                  bg: Color(0xFFFDEFD6),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFDEFD6),
+                                    Color.fromRGBO(245, 165, 36, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(24),
                                   pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                                   clip: true,
@@ -601,14 +718,22 @@ class MainExpiringPage extends StatelessWidget {
                                       [
                                         hrow(
                                           [
-                                            hsvg(Svgs.s90, w: 20, h: 20),
+                                            hsvg(
+                                              dk(context, Svgs.s166, Svgs.s167),
+                                              w: 20,
+                                              h: 20,
+                                            ),
                                             Flexible(
                                               flex: 60,
                                               child: Text(
                                                 '商品入库',
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF6B4A1F),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF6B4A1F),
+                                                    Color(0xFFF0C46A),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -625,7 +750,11 @@ class MainExpiringPage extends StatelessWidget {
                                             '3 件待补货',
                                             style: hts(
                                               12,
-                                              Color(0xFF6B4A1F),
+                                              dk(
+                                                context,
+                                                Color(0xFF6B4A1F),
+                                                Color(0xFFF0C46A),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -640,7 +769,11 @@ class MainExpiringPage extends StatelessWidget {
                                       Positioned(
                                         right: -8,
                                         bottom: -10,
-                                        child: hsvg(Svgs.s89, w: 64, h: 64),
+                                        child: hsvg(
+                                          dk(context, Svgs.s164, Svgs.s165),
+                                          w: 64,
+                                          h: 64,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -661,10 +794,29 @@ class MainExpiringPage extends StatelessWidget {
                     child: hTap(
                       context,
                       hbox(
-                        bg: Color(0xFF18181B),
+                        bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                         radius: BorderRadius.circular(24),
                         pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
                         clip: true,
+                        border: dk(
+                          context,
+                          null,
+                          Border(
+                            top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                            right: BorderSide(
+                              color: Color(0xFF2E2E33),
+                              width: 1,
+                            ),
+                            bottom: BorderSide(
+                              color: Color(0xFF2E2E33),
+                              width: 1,
+                            ),
+                            left: BorderSide(
+                              color: Color(0xFF2E2E33),
+                              width: 1,
+                            ),
+                          ),
+                        ),
                         child: hstack(
                           hrow(
                             [
@@ -674,7 +826,13 @@ class MainExpiringPage extends StatelessWidget {
                                 bg: Color(0xFFF5D78E),
                                 radius: BorderRadius.circular(18),
                                 child: hrow(
-                                  [hsvg(Svgs.s94, w: 18, h: 18)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s172, Svgs.s173),
+                                      w: 18,
+                                      h: 18,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -695,7 +853,15 @@ class MainExpiringPage extends StatelessWidget {
                                     ),
                                     Text(
                                       '待到店 2 · 下一位 17:30 刘先生',
-                                      style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -704,7 +870,13 @@ class MainExpiringPage extends StatelessWidget {
                                 ),
                               ),
                               hrow(
-                                [hsvg(Svgs.s95, w: 18, h: 18)],
+                                [
+                                  hsvg(
+                                    dk(context, Svgs.s174, Svgs.s175),
+                                    w: 18,
+                                    h: 18,
+                                  ),
+                                ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.start,
                                 gap: 0,
@@ -719,7 +891,11 @@ class MainExpiringPage extends StatelessWidget {
                             Positioned(
                               top: -70,
                               right: -50,
-                              child: hsvg(Svgs.s93, w: 190, h: 190),
+                              child: hsvg(
+                                dk(context, Svgs.s170, Svgs.s171),
+                                w: 190,
+                                h: 190,
+                              ),
                             ),
                           ],
                         ),
@@ -738,7 +914,11 @@ class MainExpiringPage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 17,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 24,
                               ),
@@ -747,7 +927,11 @@ class MainExpiringPage extends StatelessWidget {
                                   text: '施工中 ',
                                   style: hts(
                                     17,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 24,
                                   ),
@@ -756,7 +940,11 @@ class MainExpiringPage extends StatelessWidget {
                                   text: '· 2 个工位',
                                   style: hts(
                                     17,
-                                    Color(0xFF71717A),
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 24,
                                   ),
@@ -771,7 +959,7 @@ class MainExpiringPage extends StatelessWidget {
                             '全部',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -786,28 +974,39 @@ class MainExpiringPage extends StatelessWidget {
                     hTap(
                       context,
                       hbox(
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                         child: hcol(
                           [
@@ -836,18 +1035,34 @@ class MainExpiringPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '宝马 5系 · 黑',
-                                    style: hts(13, Color(0xFF71717A), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '3 号工位',
                                     style: hts(
                                       12,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 20,
                                     ),
@@ -866,7 +1081,11 @@ class MainExpiringPage extends StatelessWidget {
                                     '镀晶养护 · 内饰精洗',
                                     style: hts(
                                       15,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
@@ -874,7 +1093,15 @@ class MainExpiringPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '预计 17:00',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -887,7 +1114,11 @@ class MainExpiringPage extends StatelessWidget {
                                   flex: 1,
                                   child: hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     clip: true,
                                     child: hcol(
@@ -915,7 +1146,11 @@ class MainExpiringPage extends StatelessWidget {
                                   '65%',
                                   style: hts(
                                     12,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 16,
                                     tab: true,
@@ -924,14 +1159,22 @@ class MainExpiringPage extends StatelessWidget {
                                 hbox(
                                   w: 24,
                                   h: 24,
-                                  bg: Color(0xFFE4E4E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE4E4E7),
+                                    Color(0xFF3A3A40),
+                                  ),
                                   radius: BorderRadius.circular(12),
                                   align: Alignment(0, 0),
                                   child: Text(
                                     '周',
                                     style: hts(
                                       11,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                     ),
                                   ),
@@ -952,28 +1195,39 @@ class MainExpiringPage extends StatelessWidget {
                     hTap(
                       context,
                       hbox(
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                         child: hcol(
                           [
@@ -1002,18 +1256,34 @@ class MainExpiringPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '特斯拉 Model Y · 白',
-                                    style: hts(13, Color(0xFF71717A), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFFDEFD6),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFFDEFD6),
+                                    Color.fromRGBO(245, 165, 36, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                   child: Text(
                                     '贴膜间',
                                     style: hts(
                                       12,
-                                      Color(0xFF855F2E),
+                                      dk(
+                                        context,
+                                        Color(0xFF855F2E),
+                                        Color(0xFFF0C46A),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 20,
                                     ),
@@ -1032,7 +1302,11 @@ class MainExpiringPage extends StatelessWidget {
                                     '全车隐形车衣',
                                     style: hts(
                                       15,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 22,
                                     ),
@@ -1040,7 +1314,15 @@ class MainExpiringPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '预计 明天 18:00',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -1053,7 +1335,11 @@ class MainExpiringPage extends StatelessWidget {
                                   flex: 1,
                                   child: hbox(
                                     h: 6,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(3),
                                     clip: true,
                                     child: hcol(
@@ -1081,7 +1367,11 @@ class MainExpiringPage extends StatelessWidget {
                                   '30%',
                                   style: hts(
                                     12,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 16,
                                     tab: true,
@@ -1090,14 +1380,22 @@ class MainExpiringPage extends StatelessWidget {
                                 hbox(
                                   w: 24,
                                   h: 24,
-                                  bg: Color(0xFFE4E4E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE4E4E7),
+                                    Color(0xFF3A3A40),
+                                  ),
                                   radius: BorderRadius.circular(12),
                                   align: Alignment(0, 0),
                                   child: Text(
                                     '张',
                                     style: hts(
                                       11,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                     ),
                                   ),
@@ -1135,21 +1433,32 @@ class MainExpiringPage extends StatelessWidget {
         HBottomDock(
           child: hbox(
             h: 84,
-            bg: Color(0xFFFFFFFF),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE8E8EA),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-              BoxShadow(
-                color: Color.fromRGBO(0, 0, 0, 0.04),
-                offset: Offset(0, -8),
-                blurRadius: 24,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE8E8EA),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+                BoxShadow(
+                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                  offset: Offset(0, -8),
+                  blurRadius: 24,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF26262B),
+                  offset: Offset(0, 0),
+                  blurRadius: 0,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(8, 8, 8, 0),
             child: hcol([
               hrow(
@@ -1162,12 +1471,16 @@ class MainExpiringPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            hsvg(Svgs.s96, w: 24, h: 24),
+                            hsvg(Svgs.s176, w: 24, h: 24),
                             Text(
                               '首页',
                               style: hts(
                                 11,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 14,
                               ),
@@ -1189,12 +1502,20 @@ class MainExpiringPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            hsvg(Svgs.s97, w: 24, h: 24),
+                            hsvg(
+                              dk(context, Svgs.s177, Svgs.s178),
+                              w: 24,
+                              h: 24,
+                            ),
                             Text(
                               '会员',
                               style: hts(
                                 11,
-                                Color(0xFF71717A),
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 14,
                               ),
@@ -1220,7 +1541,11 @@ class MainExpiringPage extends StatelessWidget {
                             hbox(
                               w: 54,
                               h: 54,
-                              bg: Color(0xFF18181B),
+                              bg: dk(
+                                context,
+                                Color(0xFF18181B),
+                                Color(0xFFFAFAFA),
+                              ),
                               radius: BorderRadius.circular(27),
                               shadow: [
                                 BoxShadow(
@@ -1237,7 +1562,13 @@ class MainExpiringPage extends StatelessWidget {
                                 ),
                               ],
                               child: hrow(
-                                [hsvg(Svgs.s98, w: 24, h: 24)],
+                                [
+                                  hsvg(
+                                    dk(context, Svgs.s179, Svgs.s180),
+                                    w: 24,
+                                    h: 24,
+                                  ),
+                                ],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -1247,7 +1578,11 @@ class MainExpiringPage extends StatelessWidget {
                               '开单',
                               style: hts(
                                 11,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 14,
                               ),
@@ -1269,12 +1604,20 @@ class MainExpiringPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            hsvg(Svgs.s99, w: 24, h: 24),
+                            hsvg(
+                              dk(context, Svgs.s181, Svgs.s182),
+                              w: 24,
+                              h: 24,
+                            ),
                             Text(
                               '库存',
                               style: hts(
                                 11,
-                                Color(0xFF71717A),
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 14,
                               ),
@@ -1296,12 +1639,20 @@ class MainExpiringPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            hsvg(Svgs.s100, w: 24, h: 24),
+                            hsvg(
+                              dk(context, Svgs.s183, Svgs.s184),
+                              w: 24,
+                              h: 24,
+                            ),
                             Text(
                               '统计',
                               style: hts(
                                 11,
-                                Color(0xFF71717A),
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 14,
                               ),

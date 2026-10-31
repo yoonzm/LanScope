@@ -9,7 +9,7 @@ class RechargePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 960,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class RechargePage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class RechargePage extends StatelessWidget {
                         '会员充值',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,10 +87,20 @@ class RechargePage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 18, 20, 18),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -95,7 +116,11 @@ class RechargePage extends StatelessWidget {
                                 '王',
                                 style: hts(
                                   14,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                 ),
                               ),
@@ -122,7 +147,15 @@ class RechargePage extends StatelessWidget {
                                     ),
                                     TextSpan(
                                       text: '· 138 **** 6021',
-                                      style: hts(12, Color(0xFFA1A1AA), lh: 22),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFFA1A1AA),
+                                          Color(0xFF80808A),
+                                        ),
+                                        lh: 22,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -136,7 +169,11 @@ class RechargePage extends StatelessWidget {
                                 '黑金会员',
                                 style: hts(
                                   11,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 20,
                                 ),
@@ -155,7 +192,15 @@ class RechargePage extends StatelessWidget {
                                 [
                                   Text(
                                     '当前余额',
-                                    style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '¥3,680.00',
@@ -175,13 +220,25 @@ class RechargePage extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 6),
-                              child: hsvg(Svgs.s147, w: 20, h: 20),
+                              child: hsvg(
+                                dk(context, Svgs.s268, Svgs.s269),
+                                w: 20,
+                                h: 20,
+                              ),
                             ),
                             hcol(
                               [
                                 Text(
                                   '充值后',
-                                  style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFFA1A1AA),
+                                      Color(0xFF80808A),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                                 Text(
                                   '¥5,980.00',
@@ -213,13 +270,17 @@ class RechargePage extends StatelessWidget {
                       Positioned(
                         right: -80,
                         bottom: -110,
-                        child: hsvg(Svgs.s146, w: 220, h: 220),
+                        child: hsvg(
+                          dk(context, Svgs.s266, Svgs.s267),
+                          w: 220,
+                          h: 220,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFE9E9EB),
+                  bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                   child: HSelHolder(
@@ -235,22 +296,37 @@ class RechargePage extends StatelessWidget {
                             index: 0,
                             on: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(17),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -258,7 +334,11 @@ class RechargePage extends StatelessWidget {
                                   '储值充值',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -267,7 +347,11 @@ class RechargePage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(17),
                               child: Align(
                                 alignment: Alignment.center,
@@ -276,7 +360,11 @@ class RechargePage extends StatelessWidget {
                                   '储值充值',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -293,7 +381,7 @@ class RechargePage extends StatelessWidget {
                             on: hbox(
                               h: 34,
                               radius: BorderRadius.circular(17),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -306,7 +394,7 @@ class RechargePage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -314,7 +402,11 @@ class RechargePage extends StatelessWidget {
                                   '购买次卡',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -331,7 +423,11 @@ class RechargePage extends StatelessWidget {
                                   '购买次卡',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -356,28 +452,43 @@ class RechargePage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(20),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                             child: hcol(
                               [
@@ -385,7 +496,11 @@ class RechargePage extends StatelessWidget {
                                   '¥1,000',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 28,
                                   ),
@@ -394,7 +509,11 @@ class RechargePage extends StatelessWidget {
                                   '送 ¥100',
                                   style: hts(
                                     12,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 16,
                                   ),
@@ -413,7 +532,11 @@ class RechargePage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFF3F9FF),
+                            bg: dk(
+                              context,
+                              Color(0xFFF3F9FF),
+                              Color.fromRGBO(4, 133, 247, 0.1),
+                            ),
                             radius: BorderRadius.circular(20),
                             border: Border.all(
                               color: Color(0xFF0485F7),
@@ -427,7 +550,11 @@ class RechargePage extends StatelessWidget {
                                     '¥2,000',
                                     style: hts(
                                       20,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 28,
                                     ),
@@ -436,7 +563,11 @@ class RechargePage extends StatelessWidget {
                                     '送 ¥300 + 洗车 2 次',
                                     style: hts(
                                       12,
-                                      Color(0xFF2B7745),
+                                      dk(
+                                        context,
+                                        Color(0xFF2B7745),
+                                        Color(0xFF5FD48C),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 16,
                                     ),
@@ -451,7 +582,11 @@ class RechargePage extends StatelessWidget {
                                   top: -8,
                                   right: 12,
                                   child: hbox(
-                                    bg: Color(0xFF18181B),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFF1F1F23),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(7, 0, 7, 0),
                                     child: Text(
@@ -484,28 +619,43 @@ class RechargePage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(20),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                             child: hcol(
                               [
@@ -513,7 +663,11 @@ class RechargePage extends StatelessWidget {
                                   '¥5,000',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 28,
                                   ),
@@ -522,7 +676,11 @@ class RechargePage extends StatelessWidget {
                                   '送 ¥1,000',
                                   style: hts(
                                     12,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 16,
                                   ),
@@ -541,28 +699,43 @@ class RechargePage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(20),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                             child: hcol(
                               [
@@ -570,7 +743,11 @@ class RechargePage extends StatelessWidget {
                                   '¥10,000',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 28,
                                   ),
@@ -579,7 +756,11 @@ class RechargePage extends StatelessWidget {
                                   '送 ¥2,500 + 镀晶 1 次',
                                   style: hts(
                                     12,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 16,
                                   ),
@@ -605,28 +786,39 @@ class RechargePage extends StatelessWidget {
                         flex: 2,
                         child: hbox(
                           h: 52,
-                          bg: Color(0xFFFFFFFF),
+                          bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           radius: BorderRadius.circular(20),
-                          shadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.04),
-                              offset: Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 1),
-                              blurRadius: 2,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 0),
-                              blurRadius: 1,
-                              spreadRadius: 0,
-                            ),
-                          ],
+                          shadow: dk(
+                            context,
+                            [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            [
+                              BoxShadow(
+                                color: Color(0xFF26262B),
+                                offset: Offset(0, 0),
+                                blurRadius: 0,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
                           pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
                           child: hrow(
                             [
@@ -634,14 +826,26 @@ class RechargePage extends StatelessWidget {
                                 '自定义金额',
                                 style: hts(
                                   14,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w500,
                                   lh: 20,
                                 ),
                               ),
                               Expanded(
                                 child: HInput(
-                                  style: hts(14, Color(0xFF18181B), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 20,
+                                  ),
                                   hint: '输入金额，不享赠送',
                                   keyboard: TextInputType.numberWithOptions(
                                     decimal: true,
@@ -664,28 +868,39 @@ class RechargePage extends StatelessWidget {
                   ),
                 ], gap: 10),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -693,7 +908,7 @@ class RechargePage extends StatelessWidget {
                         '收款方式',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
@@ -707,11 +922,15 @@ class RechargePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 64,
-                                  bg: Color(0xFF18181B),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFF1F1F23),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s148, w: 20, h: 20),
+                                      hsvg(Svgs.s270, w: 20, h: 20),
                                       Text(
                                         '扫码收款',
                                         style: hts(
@@ -737,16 +956,28 @@ class RechargePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 64,
-                                  bg: Color(0xFFF4F4F5),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFF4F4F5),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s149, w: 20, h: 20),
+                                      hsvg(
+                                        dk(context, Svgs.s271, Svgs.s272),
+                                        w: 20,
+                                        h: 20,
+                                      ),
                                       Text(
                                         '现金',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -767,16 +998,28 @@ class RechargePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 64,
-                                  bg: Color(0xFFF4F4F5),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFF4F4F5),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s150, w: 20, h: 20),
+                                      hsvg(
+                                        dk(context, Svgs.s273, Svgs.s274),
+                                        w: 20,
+                                        h: 20,
+                                      ),
                                       Text(
                                         'POS 刷卡',
                                         style: hts(
                                           13,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -804,14 +1047,22 @@ class RechargePage extends StatelessWidget {
                             flex: 1,
                             child: Text(
                               '经办人',
-                              style: hts(13, Color(0xFF52525B), lh: 18),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFF52525B),
+                                  Color(0xFFA8A8B3),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                           ),
                           Text(
                             '陈明（店长）',
                             style: hts(
                               13,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -841,21 +1092,32 @@ class RechargePage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color(0xFFFFFFFF),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE8E8EA),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-              BoxShadow(
-                color: Color.fromRGBO(0, 0, 0, 0.04),
-                offset: Offset(0, -8),
-                blurRadius: 24,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE8E8EA),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+                BoxShadow(
+                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                  offset: Offset(0, -8),
+                  blurRadius: 24,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF26262B),
+                  offset: Offset(0, 0),
+                  blurRadius: 0,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -865,13 +1127,17 @@ class RechargePage extends StatelessWidget {
                     [
                       Text(
                         '实收 · 到账 ¥2,300 + 洗车 2 次',
-                        style: hts(12, Color(0xFF71717A), lh: 16),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 16,
+                        ),
                       ),
                       Text(
                         '¥2,000.00',
                         style: hts(
                           24,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 30,
                           ls: -0.48,

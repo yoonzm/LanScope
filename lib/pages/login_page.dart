@@ -100,9 +100,10 @@ class _LoginPageState extends State<LoginPage> {
       28,
       0,
     ),
-    decoration: const BoxDecoration(
-      color: C.ink,
-      borderRadius: BorderRadius.vertical(bottom: Radius.circular(36)),
+    decoration: BoxDecoration(
+      color: C.heroCard,
+      border: C.heroBorder,
+      borderRadius: const BorderRadius.vertical(bottom: Radius.circular(36)),
     ),
     child: Stack(
       clipBehavior: Clip.none,
@@ -148,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.only(left: 14, right: 6),
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: C.bg,
+          color: C.inset,
           borderRadius: BorderRadius.circular(14),
         ),
         child: child,
@@ -167,9 +168,9 @@ class _LoginPageState extends State<LoginPage> {
     margin: const EdgeInsets.symmetric(horizontal: 20),
     padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: C.card,
       borderRadius: BorderRadius.circular(28),
-      boxShadow: const [
+      boxShadow: C.dark ? softShadow : const [
         BoxShadow(
           color: Color(0x0F000000),
           blurRadius: 8,
@@ -225,7 +226,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: 1,
                 height: 18,
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                color: const Color(0xFFD4D4D8),
+                color: C.stroke,
               ),
               Expanded(
                 child: TextField(
@@ -261,7 +262,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 14),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: C.card,
                       borderRadius: BorderRadius.circular(18),
                       boxShadow: softShadow,
                     ),
@@ -306,7 +307,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 16,
                 margin: const EdgeInsets.only(top: 1),
                 decoration: BoxDecoration(
-                  color: agree ? C.primary : Colors.white,
+                  color: agree ? C.primary : C.card,
                   borderRadius: BorderRadius.circular(4),
                   border: Border.all(
                     color: agree ? C.primary : C.faint,
@@ -404,8 +405,8 @@ class _LoginPageState extends State<LoginPage> {
       child: Container(
         width: 52,
         height: 52,
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: C.card,
           shape: BoxShape.circle,
           boxShadow: softShadow,
         ),

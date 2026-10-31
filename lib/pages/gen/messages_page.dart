@@ -9,7 +9,7 @@ class MessagesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 845,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class MessagesPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class MessagesPage extends StatelessWidget {
                         '消息中心',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -95,7 +106,7 @@ class MessagesPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFE9E9EB),
+                  bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                   child: HSelHolder(
@@ -111,22 +122,37 @@ class MessagesPage extends StatelessWidget {
                             index: 0,
                             on: hbox(
                               h: 32,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(16),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -134,7 +160,11 @@ class MessagesPage extends StatelessWidget {
                                   '全部',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -143,7 +173,11 @@ class MessagesPage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 32,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(16),
                               child: Align(
                                 alignment: Alignment.center,
@@ -152,7 +186,11 @@ class MessagesPage extends StatelessWidget {
                                   '全部',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -169,7 +207,7 @@ class MessagesPage extends StatelessWidget {
                             on: hbox(
                               h: 32,
                               radius: BorderRadius.circular(16),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -182,7 +220,7 @@ class MessagesPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -190,7 +228,11 @@ class MessagesPage extends StatelessWidget {
                                   '经营',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -207,7 +249,11 @@ class MessagesPage extends StatelessWidget {
                                   '经营',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -224,7 +270,7 @@ class MessagesPage extends StatelessWidget {
                             on: hbox(
                               h: 32,
                               radius: BorderRadius.circular(16),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -237,7 +283,7 @@ class MessagesPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -245,7 +291,11 @@ class MessagesPage extends StatelessWidget {
                                   '预约',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -262,7 +312,11 @@ class MessagesPage extends StatelessWidget {
                                   '预约',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -279,7 +333,7 @@ class MessagesPage extends StatelessWidget {
                             on: hbox(
                               h: 32,
                               radius: BorderRadius.circular(16),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -292,7 +346,7 @@ class MessagesPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -300,7 +354,11 @@ class MessagesPage extends StatelessWidget {
                                   '系统',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -317,7 +375,11 @@ class MessagesPage extends StatelessWidget {
                                   '系统',
                                   style: hts(
                                     13,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -335,28 +397,39 @@ class MessagesPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -369,10 +442,20 @@ class MessagesPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFFFE1E2),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFFE1E2),
+                                  Color.fromRGBO(255, 56, 60, 0.18),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 child: hrow(
-                                  [hsvg(Svgs.s112, w: 20, h: 20)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s204, Svgs.s205),
+                                      w: 20,
+                                      h: 20,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -390,7 +473,11 @@ class MessagesPage extends StatelessWidget {
                                             '预约超时未到',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -407,7 +494,14 @@ class MessagesPage extends StatelessWidget {
                                           ),
                                           Text(
                                             '16:47',
-                                            style: hts(12, Color(0xFFA1A1AA)),
+                                            style: hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFFA1A1AA),
+                                                Color(0xFF80808A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -418,7 +512,11 @@ class MessagesPage extends StatelessWidget {
                                         '孙先生（沪A·2M118）16:30 的预约已超时 17 分钟，建议联系客户。',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 19,
                                         ),
                                       ),
@@ -439,7 +537,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -451,10 +549,20 @@ class MessagesPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFFDEFD6),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFDEFD6),
+                                  Color.fromRGBO(245, 165, 36, 0.16),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 child: hrow(
-                                  [hsvg(Svgs.s113, w: 20, h: 20)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s206, Svgs.s207),
+                                      w: 20,
+                                      h: 20,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -472,7 +580,11 @@ class MessagesPage extends StatelessWidget {
                                             '库存预警',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -489,7 +601,14 @@ class MessagesPage extends StatelessWidget {
                                           ),
                                           Text(
                                             '15:20',
-                                            style: hts(12, Color(0xFFA1A1AA)),
+                                            style: hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFFA1A1AA),
+                                                Color(0xFF80808A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -500,7 +619,11 @@ class MessagesPage extends StatelessWidget {
                                         '车蜡、玻璃水等 3 件商品低于安全库存，建议补货。',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 19,
                                         ),
                                       ),
@@ -521,7 +644,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -533,10 +656,20 @@ class MessagesPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 child: hrow(
-                                  [hsvg(Svgs.s114, w: 20, h: 20)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s208, Svgs.s209),
+                                      w: 20,
+                                      h: 20,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -554,7 +687,11 @@ class MessagesPage extends StatelessWidget {
                                             '微信通知发送失败',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -571,7 +708,14 @@ class MessagesPage extends StatelessWidget {
                                           ),
                                           Text(
                                             '13:05',
-                                            style: hts(12, Color(0xFFA1A1AA)),
+                                            style: hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFFA1A1AA),
+                                                Color(0xFF80808A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -582,7 +726,11 @@ class MessagesPage extends StatelessWidget {
                                         '1 位会员未关注公众号，已自动改用短信发送。',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 19,
                                         ),
                                       ),
@@ -603,7 +751,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -615,10 +763,20 @@ class MessagesPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 child: hrow(
-                                  [hsvg(Svgs.s115, w: 20, h: 20)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s210, Svgs.s211),
+                                      w: 20,
+                                      h: 20,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -636,7 +794,11 @@ class MessagesPage extends StatelessWidget {
                                             '今日营业日报',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -647,7 +809,14 @@ class MessagesPage extends StatelessWidget {
                                           ),
                                           Text(
                                             '09:00',
-                                            style: hts(12, Color(0xFFA1A1AA)),
+                                            style: hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFFA1A1AA),
+                                                Color(0xFF80808A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -658,7 +827,11 @@ class MessagesPage extends StatelessWidget {
                                         '今日营业额 ¥12,860，同比昨日 +12%，新增会员 5 位。',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 19,
                                         ),
                                       ),
@@ -679,7 +852,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -691,10 +864,20 @@ class MessagesPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 child: hrow(
-                                  [hsvg(Svgs.s116, w: 20, h: 20)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s212, Svgs.s213),
+                                      w: 20,
+                                      h: 20,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -712,7 +895,11 @@ class MessagesPage extends StatelessWidget {
                                             '套餐即将到期提醒',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -723,7 +910,14 @@ class MessagesPage extends StatelessWidget {
                                           ),
                                           Text(
                                             '昨天',
-                                            style: hts(12, Color(0xFFA1A1AA)),
+                                            style: hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFFA1A1AA),
+                                                Color(0xFF80808A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -734,7 +928,11 @@ class MessagesPage extends StatelessWidget {
                                         '专业版将在 7 天后到期，续费可保持预约与微信通知不中断。',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 19,
                                         ),
                                       ),
@@ -755,7 +953,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -767,10 +965,20 @@ class MessagesPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(14),
                                 child: hrow(
-                                  [hsvg(Svgs.s117, w: 20, h: 20)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s214, Svgs.s215),
+                                      w: 20,
+                                      h: 20,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -788,7 +996,11 @@ class MessagesPage extends StatelessWidget {
                                             '会员绑定微信',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -799,7 +1011,14 @@ class MessagesPage extends StatelessWidget {
                                           ),
                                           Text(
                                             '昨天',
-                                            style: hts(12, Color(0xFFA1A1AA)),
+                                            style: hts(
+                                              12,
+                                              dk(
+                                                context,
+                                                Color(0xFFA1A1AA),
+                                                Color(0xFF80808A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                         main: MainAxisAlignment.start,
@@ -810,7 +1029,11 @@ class MessagesPage extends StatelessWidget {
                                         '王建国已成功绑定微信，可接收消费与充值通知。',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 19,
                                         ),
                                       ),

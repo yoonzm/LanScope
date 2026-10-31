@@ -9,7 +9,7 @@ class PayUnboundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1220,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class PayUnboundPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -86,7 +97,7 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                 ],
                                 child: hrow(
-                                  [hsvg(Svgs.s17, w: 36, h: 36)],
+                                  [hsvg(Svgs.s29, w: 36, h: 36)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -102,7 +113,7 @@ class PayUnboundPage extends StatelessWidget {
                             Positioned(
                               left: -32,
                               top: -32,
-                              child: hsvg(Svgs.s16, w: 160, h: 160),
+                              child: hsvg(Svgs.s28, w: 160, h: 160),
                             ),
                           ],
                         ),
@@ -111,7 +122,7 @@ class PayUnboundPage extends StatelessWidget {
                         '收款成功',
                         style: hts(
                           17,
-                          Color(0xFF2B7745),
+                          dk(context, Color(0xFF2B7745), Color(0xFF5FD48C)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -120,7 +131,7 @@ class PayUnboundPage extends StatelessWidget {
                         '¥880.00',
                         style: hts(
                           40,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 48,
                           ls: -1,
@@ -128,7 +139,11 @@ class PayUnboundPage extends StatelessWidget {
                       ),
                       Text(
                         '沪B·2C519 · 李女士 · 微信支付 · 14:41',
-                        style: hts(13, Color(0xFF71717A), lh: 18),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 18,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -137,28 +152,39 @@ class PayUnboundPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(18, 6, 18, 6),
                   child: hcol(
                     [
@@ -170,14 +196,26 @@ class PayUnboundPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '消费项目',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '全车精洗 · 打蜡',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -188,7 +226,10 @@ class PayUnboundPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 36,
                         child: hrow(
@@ -197,14 +238,26 @@ class PayUnboundPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '实收金额',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '¥880.00',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 20,
                               ),
@@ -215,7 +268,10 @@ class PayUnboundPage extends StatelessWidget {
                           gap: 12,
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hbox(
                         minH: 36,
                         child: hrow(
@@ -224,14 +280,26 @@ class PayUnboundPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '获得积分',
-                                style: hts(14, Color(0xFF71717A), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '+880',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 20,
                               ),
@@ -249,28 +317,39 @@ class PayUnboundPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(18, 18, 18, 18),
                   child: hcol(
                     [
@@ -279,10 +358,20 @@ class PayUnboundPage extends StatelessWidget {
                           hbox(
                             w: 32,
                             h: 32,
-                            bg: Color(0xFFFDEFD6),
+                            bg: dk(
+                              context,
+                              Color(0xFFFDEFD6),
+                              Color.fromRGBO(245, 165, 36, 0.16),
+                            ),
                             radius: BorderRadius.circular(10),
                             child: hrow(
-                              [hsvg(Svgs.s133, w: 18, h: 18)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s244, Svgs.s245),
+                                  w: 18,
+                                  h: 18,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -294,21 +383,33 @@ class PayUnboundPage extends StatelessWidget {
                               '绑定微信，收消费通知',
                               style: hts(
                                 16,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
                             ),
                           ),
                           hbox(
-                            bg: Color(0xFFFDEFD6),
+                            bg: dk(
+                              context,
+                              Color(0xFFFDEFD6),
+                              Color.fromRGBO(245, 165, 36, 0.16),
+                            ),
                             radius: BorderRadius.circular(9),
                             pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                             child: Text(
                               '未绑定',
                               style: hts(
                                 11,
-                                Color(0xFF855F2E),
+                                dk(
+                                  context,
+                                  Color(0xFF855F2E),
+                                  Color(0xFFF0C46A),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 18,
                               ),
@@ -321,20 +422,29 @@ class PayUnboundPage extends StatelessWidget {
                       ),
                       Text(
                         '李女士 · 139 **** 5530 还没有绑定微信，本次通知只能走短信。让 TA 现在扫码绑定，之后全部免费微信通知。',
-                        style: hts(13, Color(0xFF52525B), lh: 20),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                          lh: 20,
+                        ),
                       ),
                       hrow(
                         [
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: Color(0xFFE4E4E7),
-                              width: 1,
+                            border: dk(
+                              context,
+                              Border.all(color: Color(0xFFE4E4E7), width: 1),
+                              Border.all(color: Color(0xFF3A3A40), width: 1),
                             ),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hrow(
-                              [hsvg(Svgs.s105, w: 132, h: 132)],
+                              [hsvg(Svgs.s191, w: 132, h: 132)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -357,7 +467,11 @@ class PayUnboundPage extends StatelessWidget {
                                   hbox(
                                     w: 24,
                                     h: 24,
-                                    bg: Color(0xFF18181B),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFF34343A),
+                                    ),
                                     radius: BorderRadius.circular(12),
                                     align: Alignment(0, 0),
                                     child: Text(
@@ -372,7 +486,15 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '扫码关注公众号',
-                                    style: hts(12, Color(0xFF52525B), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -388,7 +510,11 @@ class PayUnboundPage extends StatelessWidget {
                                   hbox(
                                     w: 24,
                                     h: 24,
-                                    bg: Color(0xFF18181B),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFF34343A),
+                                    ),
                                     radius: BorderRadius.circular(12),
                                     align: Alignment(0, 0),
                                     child: Text(
@@ -403,7 +529,15 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '授权手机号',
-                                    style: hts(12, Color(0xFF52525B), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -419,7 +553,11 @@ class PayUnboundPage extends StatelessWidget {
                                   hbox(
                                     w: 24,
                                     h: 24,
-                                    bg: Color(0xFF18181B),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFF34343A),
+                                    ),
                                     radius: BorderRadius.circular(12),
                                     align: Alignment(0, 0),
                                     child: Text(
@@ -434,7 +572,15 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                   Text(
                                     '自动绑定并补发通知',
-                                    style: hts(12, Color(0xFF52525B), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -479,7 +625,11 @@ class PayUnboundPage extends StatelessWidget {
                               context,
                               hbox(
                                 h: 46,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(23),
                                 child: Align(
                                   alignment: Alignment.center,
@@ -488,7 +638,11 @@ class PayUnboundPage extends StatelessWidget {
                                     '本次改发短信通知',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -516,7 +670,11 @@ class PayUnboundPage extends StatelessWidget {
                                     '会员已扫码（演示）',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -553,15 +711,30 @@ class PayUnboundPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.92),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.92),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -571,7 +744,7 @@ class PayUnboundPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -580,7 +753,7 @@ class PayUnboundPage extends StatelessWidget {
                           '继续开单',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -596,7 +769,7 @@ class PayUnboundPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -605,7 +778,7 @@ class PayUnboundPage extends StatelessWidget {
                           '完成',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

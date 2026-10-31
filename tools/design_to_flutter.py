@@ -20,8 +20,108 @@ from html.parser import HTMLParser
 HANDWRITTEN = {
     'Main', 'Members', 'MemberDetail', 'Inventory', 'Stats', 'Login',
     'Settings', 'Order', 'Appointments', 'AppointmentAdd', 'Services',
+    'ThemeSheet',  # 外观选择：手写，直接作用于全局主题
 }
-SKIP = {'AppIcon'}
+SKIP = {'AppIcon', 'DarkTokens'}
+# 设计稿里的深色版本只是参考，深色效果由同一套页面自动适配
+SKIP_SUFFIX = ('Dark',)
+
+
+# ───────────────────────── 深色模式 ─────────────────────────
+# 设计稿 DarkTokens 的颜色对照；其余页面按这些规则自动适配。
+BG_DARK = {
+    '#FFFFFF': '#18181B', '#EEEEF0': '#27272A', '#E9E9EB': '#1F1F23', '#EFEFF1': '#2A2A2E',
+    '#E4E4E7': '#3A3A40', '#D4D4D8': '#3F3F46', '#F1F1F3': '#27272A', '#E8E8EA': '#26262B',
+    '#E1F0FE': 'rgba(4,133,247,.18)', '#DDF6E7': 'rgba(23,201,100,.16)',
+    '#FDEFD6': 'rgba(245,165,36,.16)', '#FFE1E2': 'rgba(255,56,60,.18)',
+    '#F3F9FF': 'rgba(4,133,247,.10)', '#FDF8EC': 'rgba(245,165,36,.10)',
+}
+FG_DARK = {
+    '#18181B': '#FAFAFA', '#27272A': '#D4D4D8', '#3F3F46': '#D4D4D8', '#52525B': '#A8A8B3',
+    '#71717A': '#9A9AA3', '#A1A1AA': '#80808A', '#1E63AE': '#6AB4FA', '#2B7745': '#5FD48C',
+    '#855F2E': '#F0C46A', '#A43433': '#FF7B7E', '#1F5E37': '#5FD48C', '#6B4A1F': '#F0C46A',
+    '#8A2A29': '#FF7B7E',
+}
+LINE_DARK = {'#E4E4E7': '#3A3A40', '#D4D4D8': '#3F3F46', '#EFEFF1': '#2A2A2E', '#E8E8EA': '#26262B'}
+
+
+def _px(v):
+    m = re.fullmatch(r'(-?[\d.]+)(px)?', (v or '').strip())
+    return float(m.group(1)) if m else None
+
+
+def dark_of(n):
+    """返回该节点在深色模式下需要覆盖的样式（只含与浅色不同的属性）。"""
+    st, out, tag = n.style, {}, n.tag
+    is_root = n.attrs.get('_root') == '1'
+    bg = (st.get('background') or '').upper()
+    col = (st.get('color') or '').upper()
+    inv = False  # 背景反白（深色按钮 -> 白底），此时白字改深色
+    if bg:
+        if bg == '#F4F4F5':
+            out['background'] = '#09090B' if is_root else '#27272A'
+        elif bg in BG_DARK:
+            out['background'] = BG_DARK[bg]
+        elif bg.startswith('RGBA(255,255,255') or bg.startswith('RGBA(255, 255, 255'):
+            out['background'] = 'rgba(9,9,11,.92)'
+        elif bg == '#18181B':
+            w, h, r = _px(st.get('width')), _px(st.get('height')), _px((st.get('border-radius') or '').split()[0] if st.get('border-radius') else '')
+            if col == '#F5D78E':
+                out['background'] = '#34343A'
+            elif w and h and w == h and w >= 48:
+                out['background'] = '#FAFAFA'; inv = True
+            elif col == '#FAFAFA':
+                out['background'] = '#1F1F23'
+                if r and r >= 24 and not (h and h <= 64):
+                    out['border'] = '1px solid #2E2E33'
+            elif h and h <= 36:
+                out['background'] = '#34343A'
+            elif h and h >= 40 and (tag in ('a', 'button') or (r and r >= h / 2 - 2)):
+                out['background'] = '#FAFAFA'; inv = True
+            elif w and h and w == h and w <= 44:
+                out['background'] = '#34343A'
+            else:
+                out['background'] = '#1F1F23'
+    if col:
+        if col == '#FFFFFF' and inv:
+            out['color'] = '#18181B'
+        elif col in FG_DARK:
+            out['color'] = FG_DARK[col]
+    elif inv:
+        out['color'] = '#18181B'
+    sh = st.get('box-shadow')
+    if sh and sh != 'none':
+        has_bg = bool(bg) and bg != 'TRANSPARENT'
+        if 'inset' not in sh and re.search(r'rgba\(0,\s*0,\s*0,\s*\.0[468]\)', sh) and ('2px 4px' in sh or '1px 2px' in sh or '8px 24px' in sh):
+            out['box-shadow'] = '0 0 0 1px #26262B' if has_bg else 'none'
+        else:
+            new = sh
+            for k, v in LINE_DARK.items():
+                new = re.sub(k, v, new, flags=re.I)
+            if new != sh:
+                out['box-shadow'] = new
+    for k in ('border', 'border-top', 'border-bottom', 'border-left', 'border-right'):
+        v = st.get(k)
+        if v and v != '0':
+            new = v
+            for a, b in LINE_DARK.items():
+                new = re.sub(a, b, new, flags=re.I)
+            if new != v:
+                out[k] = new
+    return out
+
+
+def dark_color_of(c):
+    """文字/图标颜色 (r,g,b,a) 的深色对应色。"""
+    if c is None:
+        return None
+    hexs = '#%02X%02X%02X' % c[:3]
+    if hexs in FG_DARK:
+        m = FG_DARK[hexs]
+        return (int(m[1:3], 16), int(m[3:5], 16), int(m[5:7], 16), c[3])
+    return c
+
+
 
 # ───────────────────────── 解析 ─────────────────────────
 
@@ -34,6 +134,13 @@ class Node:
         self.children = []
         self.parent = None
         self.raw = None  # svg 原始标记
+        self._dark = None
+
+    @property
+    def dark(self):
+        if self._dark is None:
+            self._dark = dark_of(self)
+        return self._dark
 
     def copy_with_style(self, style):
         n = Node(self.tag, self.attrs.items())
@@ -348,12 +455,18 @@ class Gen:
         return has
 
     # ── 文本样式继承 ──
-    def inherit(self, inh, st):
+    def inherit(self, inh, st, dn=None):
         o = dict(inh)
         if 'color' in st:
             c = parse_color(st['color'], inh.get('color'))
             if c:
                 o['color'] = c
+        # 深色模式下的文字色：优先用深色覆盖，其次沿用（未映射的颜色深浅一致）
+        dsrc = (dn or {}).get('color') or st.get('color')
+        if dsrc:
+            dc = parse_color(dsrc, inh.get('dcolor') or inh.get('color'))
+            if dc:
+                o['dcolor'] = dc
         if 'font-size' in st:
             o['size'] = px(st['font-size'], o['size'])
         if 'font-weight' in st:
@@ -386,7 +499,10 @@ class Gen:
         return o
 
     def ts(self, inh):
-        args = [num(inh['size']), dcolor(inh['color'])]
+        lc = dcolor(inh['color'])
+        dcc = inh.get('dcolor') or inh['color']
+        col = lc if dcc == inh['color'] else 'dk(context, %s, %s)' % (lc, dcolor(dcc))
+        args = [num(inh['size']), col]
         if inh['w'] != 400:
             args.append('w: FontWeight.w%d' % inh['w'])
         if inh.get('lh'):
@@ -410,7 +526,7 @@ class Gen:
             elif c.tag == 'br':
                 out.append(('\n', inh))
             else:
-                self.collect(c, self.inherit(inh, c.style), out)
+                self.collect(c, self.inherit(inh, c.style, c.dark), out)
 
     def emit_text(self, n, inh):
         segs = []
@@ -442,8 +558,25 @@ class Gen:
 
     # ── 装饰 ──
     def box_args(self, n, inh, parent, has_children_stack=False):
-        """返回 hbox 参数列表（字符串）与 flags。"""
-        st = n.style
+        """返回 hbox 参数列表（字符串）：浅色与深色不同的参数合并为 dk(context, 浅, 深)。"""
+        la, neg = self._box_args(n, inh, parent, n.style, inh.get('color'))
+        if not n.dark:
+            return la, neg
+        dst = dict(n.style)
+        dst.update(n.dark)
+        da, _ = self._box_args(n, inh, parent, dst, inh.get('dcolor') or inh.get('color'))
+        ld = collections.OrderedDict(a.split(': ', 1) for a in la)
+        dd = collections.OrderedDict(a.split(': ', 1) for a in da)
+        out = []
+        for k in list(ld) + [k for k in dd if k not in ld]:
+            lv, dv = ld.get(k), dd.get(k)
+            if lv == dv:
+                out.append('%s: %s' % (k, lv))
+            else:
+                out.append('%s: dk(context, %s, %s)' % (k, lv if lv is not None else 'null', dv if dv is not None else 'null'))
+        return out, neg
+
+    def _box_args(self, n, inh, parent, st, cur):
         a = []
         w = st.get('width'); h = st.get('height')
         wpx = px(w) if w and not w.endswith('%') else None
@@ -459,7 +592,6 @@ class Gen:
         if 'max-width' in st and px(st['max-width']) is not None:
             a.append('maxW: %s' % num(px(st['max-width'])))
         # 背景
-        cur = inh.get('color')
         bgv = st.get('background') or st.get('background-color')
         if bgv:
             g = parse_gradient(bgv, cur)
@@ -613,7 +745,7 @@ class Gen:
         wv = st.get('width')
         if wv and not wv.endswith('%') and px(wv) is not None:
             return px(wv)
-        inh2 = self.inherit(inh, st)
+        inh2 = self.inherit(inh, st, n.dark)
         kids = [c for c in n.children if not (isinstance(c, Node) and self.is_abs(c))]
         pad = (px(st.get('padding-left'), 0) or 0) + (px(st.get('padding-right'), 0) or 0)
         if self.text_only(n):
@@ -645,7 +777,7 @@ class Gen:
         if n.attrs.get('aria-label', '').startswith('车牌号') and n.tag == 'div':
             return self.emit_plate(n)
         pick_vars = self.setup_picker(n)
-        inh2 = self.inherit(inh, n.style)
+        inh2 = self.inherit(inh, n.style, n.dark)
         st = n.style
         disp = self.disp(n)
         kids = self.kids(n)
@@ -748,9 +880,14 @@ class Gen:
 
     # ── svg ──
     def emit_svg(self, n, inh, parent):
-        raw = n.raw
+        raw0 = n.raw
         cur = inh.get('color') or (0, 0, 0, 1)
-        raw = re.sub(r'currentColor', scolor(cur), raw)
+        dcur = inh.get('dcolor') or cur
+        raw = re.sub(r'currentColor', scolor(cur), raw0)
+        # 深色模式：currentColor 取深色文字色，描边里的灰色按文字色表映射（装饰性填充保持不变）
+        draw = re.sub(r'currentColor', scolor(dcur), raw0)
+        draw = re.sub(r'(stroke=")(#[0-9A-Fa-f]{6})(")',
+                      lambda m: m.group(1) + FG_DARK.get(m.group(2).upper(), m.group(2)) + m.group(3), draw)
         if 'id="abg"' in raw:
             # 设计稿里这个图标的子元素被误写入了外层的 width/height/style，这里还原为 1024 画布
             head_end = raw.index('>') + 1
@@ -762,6 +899,9 @@ class Gen:
         raw = re.sub(r'^(<svg\b[^>]*?)\sstyle="[^"]*"', r'\1', raw, count=1, flags=re.S)
         if 'xmlns=' not in raw[:200]:
             raw = raw.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"', 1)
+        draw = re.sub(r'^(<svg\b[^>]*?)\sstyle="[^"]*"', r'\1', draw, count=1, flags=re.S)
+        if 'xmlns=' not in draw[:200]:
+            draw = draw.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"', 1)
         w = n.attrs.get('width'); h = n.attrs.get('height')
         w = px(w) if w else None
         h = px(h) if h else None
@@ -770,7 +910,13 @@ class Gen:
             args.append('w: %s' % num(w))
         if h:
             args.append('h: %s' % num(h))
-        code = 'hsvg(%s%s)' % (self.svg_const(raw), ''.join(', ' + a for a in args))
+        if 'id="abg"' in draw:
+            draw = raw
+        if draw != raw:
+            src = 'dk(context, %s, %s)' % (self.svg_const(raw), self.svg_const(draw))
+        else:
+            src = self.svg_const(raw)
+        code = 'hsvg(%s%s)' % (src, ''.join(', ' + a for a in args))
         st = n.style
         marg = [px(st.get('margin-' + s), 0.0) for s in ('top', 'right', 'bottom', 'left')]
         if any(marg):
@@ -781,7 +927,7 @@ class Gen:
     # ── 表单 ──
     def emit_input(self, n, inh, parent):
         t = n.attrs.get('type', 'text')
-        inh2 = self.inherit(inh, n.style)
+        inh2 = self.inherit(inh, n.style, n.dark)
         if t == 'checkbox':
             size = px(n.style.get('width'), 16)
             ac = parse_color(n.style.get('accent-color', ''), None)
@@ -823,7 +969,7 @@ class Gen:
         return code
 
     def emit_textarea(self, n, inh):
-        inh2 = self.inherit(inh, n.style)
+        inh2 = self.inherit(inh, n.style, n.dark)
         args = ['style: %s' % self.ts(inh2), 'maxLines: 4']
         if n.attrs.get('placeholder'):
             args.append('hint: %s' % dstr(n.attrs['placeholder']))
@@ -1356,7 +1502,7 @@ class Gen:
                 return 'Expanded(flex: %d, child: %s)' % (max(1, round(float(w[:-1]) * 10)), code)
             if (not any_grow and w is None and st.get('flex-shrink') != '0' and c.tag not in ('svg', 'input')
                     and self.has_text(c)):
-                e = self.est(c, self.inherit(inh, st))
+                e = self.est(c, self.inherit(inh, st, c.dark))
                 if e > 0:
                     return 'Flexible(flex: %d, child: %s)' % (max(1, round(e)), code)
             return code
@@ -1462,7 +1608,8 @@ class Gen:
         """取 main 里“分段控件之后”的内容，生成可嵌入其他页面的片段（同一界面的不同视图）。"""
         st = root.style
         inh = {'color': parse_color(st.get('color', '#18181B')), 'size': 16.0, 'w': 400, 'lh': None}
-        inh = self.inherit(inh, st)
+        inh['dcolor'] = dark_color_of(inh['color'])
+        inh = self.inherit(inh, st, root.dark)
         main = [c for c in self.kids(root) if isinstance(c, Node) and c.tag == 'main'][0]
         kids = [k for k in self.kids(main) if isinstance(k, Node) and not self.is_abs(k)]
         idx = [i for i, k in enumerate(kids) if k.tag == 'nav' and '视图切换' in k.attrs.get('aria-label', '')][0]
@@ -1487,6 +1634,8 @@ class %s extends StatelessWidget {
 """ % (imp, name, cls, cls, code)
 
     def emit_page(self, root, name):
+        root.attrs['_root'] = '1'
+        root._dark = None
         self.page_name = name
         self.refs, self.shared, self.dyn_filter = {}, {}, {}
         self.prescan(root)
@@ -1496,7 +1645,8 @@ class %s extends StatelessWidget {
             self.refs[k] = {a: b for a, b in self.refs[k].items() if b is not None}
         st = root.style
         inh = {'color': parse_color(st.get('color', '#18181B')), 'size': 16.0, 'w': 400, 'lh': None}
-        inh = self.inherit(inh, st)
+        inh['dcolor'] = dark_color_of(inh['color'])
+        inh = self.inherit(inh, st, root.dark)
         # 弹层页：设计稿把“底部弹层 + 它所覆盖的页面”画在一张图里，这里只生成弹层本体
         self.is_sheet = False
         for c in self.kids(root):
@@ -1526,6 +1676,8 @@ class %s extends StatelessWidget {
 }
 """ % (imp, cls, cls, code)
         bg = parse_color(st.get('background', '#F4F4F5'))
+        dbg = parse_color(root.dark.get('background', st.get('background', '#F4F4F5')))
+        bgcode = dcolor(bg) if dbg == bg else 'dk(context, %s, %s)' % (dcolor(bg), dcolor(dbg))
         height = px(st.get('height'), 844.0)
         kids = self.kids(root)
         disp = st.get('display')
@@ -1570,7 +1722,7 @@ class %s extends StatelessWidget {
     );
   }
 }
-""" % ("import 'svgs.dart';\n" if 'Svgs.' in (flow + ''.join(overlays)) else '', cls, cls, dcolor(bg), num(height), 'true' if grows else 'false', flow, ', '.join(overlays))
+""" % ("import 'svgs.dart';\n" if 'Svgs.' in (flow + ''.join(overlays)) else '', cls, cls, bgcode, num(height), 'true' if grows else 'false', flow, ', '.join(overlays))
 
 
 def snake(name):
@@ -1586,13 +1738,13 @@ def main():
     done = []
     sheets = []
     for name in names:
-        if name in SKIP:
+        if name in SKIP or name.endswith(SKIP_SUFFIX):
             continue
         tmp = Gen({})
         tmp.refs = gen.global_refs
         tmp.prescan(extract_page(open(os.path.join(src_dir, name + '.dc.html'), encoding='utf-8').read()))
     for name in names:
-        if name in HANDWRITTEN or name in SKIP:
+        if name in HANDWRITTEN or name in SKIP or name.endswith(SKIP_SUFFIX):
             continue
         if only and name not in only:
             continue

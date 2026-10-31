@@ -18,9 +18,12 @@ import 'package:qimei_guanjia/pages/appointments_page.dart';
 import 'package:qimei_guanjia/pages/login_page.dart';
 import 'package:qimei_guanjia/pages/member_detail_page.dart';
 import 'package:qimei_guanjia/mock/mock_data.dart';
+import 'package:qimei_guanjia/theme.dart';
+import 'package:qimei_guanjia/pages/theme_sheet.dart';
 
 void main() {
   const out = String.fromEnvironment('OUT', defaultValue: '/tmp/out');
+  const dark = bool.fromEnvironment('DARK');
   const only = String.fromEnvironment('ONLY', defaultValue: '');
   final canvas = jsonDecode(
     File('/tmp/claude-0/ref/canvas.json').readAsStringSync(),
@@ -68,6 +71,7 @@ void main() {
   for (final e in <String, WidgetBuilder>{
     ...genRoutes,
     for (final s in genSheets.entries) '${s.key}__sheet': s.value,
+    'ThemeSheet__sheet': (_) => const ThemeSheet(),
     for (final h in hand.entries) '${h.key}__hand': (_) => h.value(),
   }.entries) {
     if (only.isNotEmpty && !only.split(',').contains(e.key)) continue;
@@ -77,6 +81,8 @@ void main() {
       tester.view.physicalSize = Size(390 * 2, h * 2);
       tester.view.devicePixelRatio = 2;
       addTearDown(tester.view.reset);
+      C.dark = dark;
+      addTearDown(() => C.dark = false);
       final errs = <String>{};
       final old = FlutterError.onError;
       FlutterError.onError = (d) =>
@@ -88,7 +94,11 @@ void main() {
           key: key,
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(fontFamily: 'Wqy', useMaterial3: true),
+            theme: ThemeData(
+              brightness: dark ? Brightness.dark : Brightness.light,
+              fontFamily: 'Wqy',
+              useMaterial3: true,
+            ),
             builder: (c, w) => e.key.endsWith('__hand')
                 ? MediaQuery(
                     data: MediaQuery.of(c).copyWith(
@@ -118,7 +128,7 @@ void main() {
             key.currentContext!.findRenderObject() as RenderRepaintBoundary;
         final img = await b.toImage(pixelRatio: 1);
         final data = await img.toByteData(format: ui.ImageByteFormat.png);
-        File('$out/${e.key}.png').writeAsBytesSync(data!.buffer.asUint8List());
+        File('$out/${e.key}${dark ? '_dark' : ''}.png').writeAsBytesSync(data!.buffer.asUint8List());
       });
       if (errs.isNotEmpty) print('ERR ${e.key}: ${errs.take(3).join(' | ')}');
     });

@@ -9,7 +9,7 @@ class MemberRecordsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 960,
       fixedHeight: false,
       flow: hcol(
@@ -36,30 +36,51 @@ class MemberRecordsPage extends StatelessWidget {
                           hbox(
                             w: 44,
                             h: 44,
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(22),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             child: hrow(
-                              [hsvg(Svgs.s0, w: 20, h: 20)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s0, Svgs.s1),
+                                  w: 20,
+                                  h: 20,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -75,7 +96,11 @@ class MemberRecordsPage extends StatelessWidget {
                                 '消费记录',
                                 style: hts(
                                   17,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 24,
                                 ),
@@ -83,7 +108,15 @@ class MemberRecordsPage extends StatelessWidget {
                               ),
                               Text(
                                 '王建国 · 黑金会员',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -97,30 +130,51 @@ class MemberRecordsPage extends StatelessWidget {
                           hbox(
                             w: 44,
                             h: 44,
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(22),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             child: hrow(
-                              [hsvg(Svgs.s108, w: 20, h: 20)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s196, Svgs.s197),
+                                  w: 20,
+                                  h: 20,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -139,40 +193,67 @@ class MemberRecordsPage extends StatelessWidget {
                           Expanded(
                             flex: 1,
                             child: hbox(
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(18),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 0),
-                                  blurRadius: 1,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 1,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                               child: hcol(
                                 [
                                   Text(
                                     '累计消费',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '¥28,450',
                                     style: hts(
                                       17,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 24,
                                     ),
@@ -187,40 +268,67 @@ class MemberRecordsPage extends StatelessWidget {
                           Expanded(
                             flex: 1,
                             child: hbox(
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(18),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 0),
-                                  blurRadius: 1,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 1,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                               child: hcol(
                                 [
                                   Text(
                                     '累计充值',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '¥32,000',
                                     style: hts(
                                       17,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 24,
                                     ),
@@ -235,40 +343,67 @@ class MemberRecordsPage extends StatelessWidget {
                           Expanded(
                             flex: 1,
                             child: hbox(
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(18),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 0),
-                                  blurRadius: 1,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 1,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                               child: hcol(
                                 [
                                   Text(
                                     '到店',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                   Text(
                                     '46 次',
                                     style: hts(
                                       17,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 24,
                                     ),
@@ -288,7 +423,7 @@ class MemberRecordsPage extends StatelessWidget {
                       ),
                     ], gap: 8),
                     hbox(
-                      bg: Color(0xFFE9E9EB),
+                      bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                       radius: BorderRadius.circular(20),
                       pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                       child: hrow(
@@ -300,22 +435,37 @@ class MemberRecordsPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFFFFFF),
+                                  Color(0xFF18181B),
+                                ),
                                 radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
+                                shadow: dk(
+                                  context,
+                                  [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                                      offset: Offset(0, 2),
+                                      blurRadius: 4,
+                                      spreadRadius: 0,
+                                    ),
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                                      offset: Offset(0, 1),
+                                      blurRadius: 2,
+                                      spreadRadius: 0,
+                                    ),
+                                  ],
+                                  [
+                                    BoxShadow(
+                                      color: Color(0xFF26262B),
+                                      offset: Offset(0, 0),
+                                      blurRadius: 0,
+                                      spreadRadius: 1,
+                                    ),
+                                  ],
+                                ),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
@@ -323,7 +473,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '全部',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -332,7 +486,11 @@ class MemberRecordsPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFFFFFF),
+                                  Color(0xFF18181B),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 child: Align(
                                   alignment: Alignment.center,
@@ -341,7 +499,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '全部',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -358,7 +520,7 @@ class MemberRecordsPage extends StatelessWidget {
                               on: hbox(
                                 h: 32,
                                 radius: BorderRadius.circular(16),
-                                shadow: [
+                                shadow: dk(context, [
                                   BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.04),
                                     offset: Offset(0, 2),
@@ -371,7 +533,7 @@ class MemberRecordsPage extends StatelessWidget {
                                     blurRadius: 2,
                                     spreadRadius: 0,
                                   ),
-                                ],
+                                ], null),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
@@ -379,7 +541,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '消费',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -396,7 +562,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '消费',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -413,7 +583,7 @@ class MemberRecordsPage extends StatelessWidget {
                               on: hbox(
                                 h: 32,
                                 radius: BorderRadius.circular(16),
-                                shadow: [
+                                shadow: dk(context, [
                                   BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.04),
                                     offset: Offset(0, 2),
@@ -426,7 +596,7 @@ class MemberRecordsPage extends StatelessWidget {
                                     blurRadius: 2,
                                     spreadRadius: 0,
                                   ),
-                                ],
+                                ], null),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
@@ -434,7 +604,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '充值',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -451,7 +625,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '充值',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -468,7 +646,7 @@ class MemberRecordsPage extends StatelessWidget {
                               on: hbox(
                                 h: 32,
                                 radius: BorderRadius.circular(16),
-                                shadow: [
+                                shadow: dk(context, [
                                   BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.04),
                                     offset: Offset(0, 2),
@@ -481,7 +659,7 @@ class MemberRecordsPage extends StatelessWidget {
                                     blurRadius: 2,
                                     spreadRadius: 0,
                                   ),
-                                ],
+                                ], null),
                                 child: Align(
                                   alignment: Alignment.center,
                                   widthFactor: 1,
@@ -489,7 +667,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '次卡',
                                     style: hts(
                                       13,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -506,7 +688,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '次卡',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -535,7 +721,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '2026 年 10 月',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -543,7 +733,15 @@ class MemberRecordsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '消费 ¥2,034 · 充值 ¥2,000',
-                                  style: hts(13, Color(0xFF52525B), lh: 18),
+                                  style: hts(
+                                    13,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 18,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -552,28 +750,43 @@ class MemberRecordsPage extends StatelessWidget {
                             ),
                           ),
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(24),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                             child: hcol(
                               [
@@ -584,10 +797,20 @@ class MemberRecordsPage extends StatelessWidget {
                                       hbox(
                                         w: 40,
                                         h: 40,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s80, w: 18, h: 18)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s148, Svgs.s149),
+                                              w: 18,
+                                              h: 18,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -601,7 +824,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '全车镀晶 · 9H',
                                               style: hts(
                                                 14,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 20,
                                               ),
@@ -610,7 +837,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '今天 12:05 · 余额支付 · 沪A·8K29M',
                                               style: hts(
                                                 12,
-                                                Color(0xFF71717A),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -624,7 +855,11 @@ class MemberRecordsPage extends StatelessWidget {
                                         '-¥1,422',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                           tab: true,
@@ -638,7 +873,11 @@ class MemberRecordsPage extends StatelessWidget {
                                 ),
                                 hbox(
                                   h: 1,
-                                  bg: Color(0xFFEFEFF1),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEFEFF1),
+                                    Color(0xFF2A2A2E),
+                                  ),
                                   margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                                 ),
                                 hbox(
@@ -648,10 +887,20 @@ class MemberRecordsPage extends StatelessWidget {
                                       hbox(
                                         w: 40,
                                         h: 40,
-                                        bg: Color(0xFFDDF6E7),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFDDF6E7),
+                                          Color.fromRGBO(23, 201, 100, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s109, w: 18, h: 18)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s198, Svgs.s199),
+                                              w: 18,
+                                              h: 18,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -665,7 +914,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '精致洗车',
                                               style: hts(
                                                 14,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 20,
                                               ),
@@ -674,7 +927,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '今天 12:05 · 次卡抵扣 · 剩 8 次',
                                               style: hts(
                                                 12,
-                                                Color(0xFF71717A),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -688,7 +945,11 @@ class MemberRecordsPage extends StatelessWidget {
                                         '-1 次',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                         ),
@@ -701,7 +962,11 @@ class MemberRecordsPage extends StatelessWidget {
                                 ),
                                 hbox(
                                   h: 1,
-                                  bg: Color(0xFFEFEFF1),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEFEFF1),
+                                    Color(0xFF2A2A2E),
+                                  ),
                                   margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                                 ),
                                 hbox(
@@ -711,10 +976,20 @@ class MemberRecordsPage extends StatelessWidget {
                                       hbox(
                                         w: 40,
                                         h: 40,
-                                        bg: Color(0xFFFDEFD6),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFFDEFD6),
+                                          Color.fromRGBO(245, 165, 36, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s110, w: 18, h: 18)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s200, Svgs.s201),
+                                              w: 18,
+                                              h: 18,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -728,7 +1003,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '储值充值 · 送 ¥300',
                                               style: hts(
                                                 14,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 20,
                                               ),
@@ -737,7 +1016,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '10.20 15:42 · 扫码 · 经办 陈明',
                                               style: hts(
                                                 12,
-                                                Color(0xFF71717A),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -751,7 +1034,11 @@ class MemberRecordsPage extends StatelessWidget {
                                         '+¥2,300',
                                         style: hts(
                                           15,
-                                          Color(0xFF2B7745),
+                                          dk(
+                                            context,
+                                            Color(0xFF2B7745),
+                                            Color(0xFF5FD48C),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                           tab: true,
@@ -765,7 +1052,11 @@ class MemberRecordsPage extends StatelessWidget {
                                 ),
                                 hbox(
                                   h: 1,
-                                  bg: Color(0xFFEFEFF1),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEFEFF1),
+                                    Color(0xFF2A2A2E),
+                                  ),
                                   margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                                 ),
                                 hbox(
@@ -775,10 +1066,20 @@ class MemberRecordsPage extends StatelessWidget {
                                       hbox(
                                         w: 40,
                                         h: 40,
-                                        bg: Color(0xFFDDF6E7),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFDDF6E7),
+                                          Color.fromRGBO(23, 201, 100, 0.16),
+                                        ),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s111, w: 18, h: 18)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s202, Svgs.s203),
+                                              w: 18,
+                                              h: 18,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -792,7 +1093,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '内饰深度清洁',
                                               style: hts(
                                                 14,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 20,
                                               ),
@@ -801,7 +1106,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '10.12 10:30 · 次卡抵扣 · 沪AF·09316',
                                               style: hts(
                                                 12,
-                                                Color(0xFF71717A),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -815,7 +1124,11 @@ class MemberRecordsPage extends StatelessWidget {
                                         '-1 次',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                         ),
@@ -828,7 +1141,11 @@ class MemberRecordsPage extends StatelessWidget {
                                 ),
                                 hbox(
                                   h: 1,
-                                  bg: Color(0xFFEFEFF1),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEFEFF1),
+                                    Color(0xFF2A2A2E),
+                                  ),
                                   margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                                 ),
                                 hbox(
@@ -838,10 +1155,20 @@ class MemberRecordsPage extends StatelessWidget {
                                       hbox(
                                         w: 40,
                                         h: 40,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s80, w: 18, h: 18)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s148, Svgs.s149),
+                                              w: 18,
+                                              h: 18,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -855,7 +1182,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '漆面抛光',
                                               style: hts(
                                                 14,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 20,
                                               ),
@@ -864,7 +1195,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '10.03 16:18 · 微信 · 沪AF·09316',
                                               style: hts(
                                                 12,
-                                                Color(0xFF71717A),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -878,7 +1213,11 @@ class MemberRecordsPage extends StatelessWidget {
                                         '-¥612',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                           tab: true,
@@ -913,7 +1252,11 @@ class MemberRecordsPage extends StatelessWidget {
                                     '2026 年 9 月',
                                     style: hts(
                                       13,
-                                      Color(0xFF52525B),
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -921,7 +1264,15 @@ class MemberRecordsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '消费 ¥540',
-                                  style: hts(13, Color(0xFF52525B), lh: 18),
+                                  style: hts(
+                                    13,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 18,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -930,28 +1281,43 @@ class MemberRecordsPage extends StatelessWidget {
                             ),
                           ),
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(24),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                             child: hcol(
                               [
@@ -962,10 +1328,20 @@ class MemberRecordsPage extends StatelessWidget {
                                       hbox(
                                         w: 40,
                                         h: 40,
-                                        bg: Color(0xFFE1F0FE),
+                                        bg: dk(
+                                          context,
+                                          Color(0xFFE1F0FE),
+                                          Color.fromRGBO(4, 133, 247, 0.18),
+                                        ),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s80, w: 18, h: 18)],
+                                          [
+                                            hsvg(
+                                              dk(context, Svgs.s148, Svgs.s149),
+                                              w: 18,
+                                              h: 18,
+                                            ),
+                                          ],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -979,7 +1355,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '轮毂翻新（4 只）',
                                               style: hts(
                                                 14,
-                                                Color(0xFF18181B),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF18181B),
+                                                  Color(0xFFFAFAFA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 20,
                                               ),
@@ -988,7 +1368,11 @@ class MemberRecordsPage extends StatelessWidget {
                                               '09.21 14:00 · 余额支付',
                                               style: hts(
                                                 12,
-                                                Color(0xFF71717A),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
                                                 lh: 16,
                                               ),
                                             ),
@@ -1002,7 +1386,11 @@ class MemberRecordsPage extends StatelessWidget {
                                         '-¥540',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 22,
                                           tab: true,

@@ -9,7 +9,7 @@ class RegPhonePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class RegPhonePage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class RegPhonePage extends StatelessWidget {
                         '免费开通',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -89,7 +100,7 @@ class RegPhonePage extends StatelessWidget {
                       flex: 1,
                       child: hbox(
                         h: 4,
-                        bg: Color(0xFFD4D4D8),
+                        bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
                         radius: BorderRadius.circular(2),
                       ),
                     ),
@@ -97,7 +108,7 @@ class RegPhonePage extends StatelessWidget {
                       flex: 1,
                       child: hbox(
                         h: 4,
-                        bg: Color(0xFFD4D4D8),
+                        bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
                         radius: BorderRadius.circular(2),
                       ),
                     ),
@@ -113,7 +124,7 @@ class RegPhonePage extends StatelessWidget {
                       '开通你的门店系统',
                       style: hts(
                         24,
-                        Color(0xFF18181B),
+                        dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         w: FontWeight.w600,
                         lh: 32,
                         ls: -0.48,
@@ -121,7 +132,11 @@ class RegPhonePage extends StatelessWidget {
                     ),
                     Text(
                       '手机号注册，3 分钟完成开通',
-                      style: hts(14, Color(0xFF71717A), lh: 20),
+                      style: hts(
+                        14,
+                        dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        lh: 20,
+                      ),
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -138,7 +153,7 @@ class RegPhonePage extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -148,7 +163,11 @@ class RegPhonePage extends StatelessWidget {
                           flex: 123,
                           child: Text(
                             '14 天免费试用专业版',
-                            style: hts(13, Color(0xFF3F3F46), lh: 18),
+                            style: hts(
+                              13,
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
+                              lh: 18,
+                            ),
                           ),
                         ),
                       ],
@@ -164,7 +183,7 @@ class RegPhonePage extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -174,7 +193,11 @@ class RegPhonePage extends StatelessWidget {
                           flex: 104,
                           child: Text(
                             '无需绑定支付方式',
-                            style: hts(13, Color(0xFF3F3F46), lh: 18),
+                            style: hts(
+                              13,
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
+                              lh: 18,
+                            ),
                           ),
                         ),
                       ],
@@ -190,7 +213,7 @@ class RegPhonePage extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -200,7 +223,11 @@ class RegPhonePage extends StatelessWidget {
                           flex: 117,
                           child: Text(
                             '试用到期前不会扣费',
-                            style: hts(13, Color(0xFF3F3F46), lh: 18),
+                            style: hts(
+                              13,
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
+                              lh: 18,
+                            ),
                           ),
                         ),
                       ],
@@ -214,28 +241,39 @@ class RegPhonePage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -245,7 +283,11 @@ class RegPhonePage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -254,7 +296,11 @@ class RegPhonePage extends StatelessWidget {
                                   text: '手机号 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -263,7 +309,11 @@ class RegPhonePage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -273,7 +323,11 @@ class RegPhonePage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: hrow(
@@ -282,14 +336,34 @@ class RegPhonePage extends StatelessWidget {
                                   '+86',
                                   style: hts(
                                     15,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                   ),
                                 ),
-                                hbox(w: 1, h: 18, bg: Color(0xFFD4D4D8)),
+                                hbox(
+                                  w: 1,
+                                  h: 18,
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFD4D4D8),
+                                    Color(0xFF3F3F46),
+                                  ),
+                                ),
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '请输入手机号',
                                     keyboard: TextInputType.phone,
                                   ),
@@ -311,7 +385,11 @@ class RegPhonePage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -320,7 +398,11 @@ class RegPhonePage extends StatelessWidget {
                                   text: '验证码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -329,7 +411,11 @@ class RegPhonePage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -339,14 +425,26 @@ class RegPhonePage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 6, 0),
                             child: hrow(
                               [
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '6 位数字',
                                   ),
                                 ),
@@ -355,16 +453,36 @@ class RegPhonePage extends StatelessWidget {
                                     context,
                                     hbox(
                                       h: 36,
-                                      bg: Color(0xFFFFFFFF),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFFFFFFF),
+                                        Color(0xFF18181B),
+                                      ),
                                       radius: BorderRadius.circular(18),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
+                                      shadow: dk(
+                                        context,
+                                        [
+                                          BoxShadow(
+                                            color: Color.fromRGBO(
+                                              0,
+                                              0,
+                                              0,
+                                              0.06,
+                                            ),
+                                            offset: Offset(0, 1),
+                                            blurRadius: 2,
+                                            spreadRadius: 0,
+                                          ),
+                                        ],
+                                        [
+                                          BoxShadow(
+                                            color: Color(0xFF26262B),
+                                            offset: Offset(0, 0),
+                                            blurRadius: 0,
+                                            spreadRadius: 1,
+                                          ),
+                                        ],
+                                      ),
                                       pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                       child: Align(
                                         alignment: Alignment.center,
@@ -373,7 +491,11 @@ class RegPhonePage extends StatelessWidget {
                                           k1,
                                           hts(
                                             13,
-                                            Color(0xFF1E63AE),
+                                            dk(
+                                              context,
+                                              Color(0xFF1E63AE),
+                                              Color(0xFF6AB4FA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 18,
                                           ),
@@ -400,7 +522,11 @@ class RegPhonePage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -409,7 +535,11 @@ class RegPhonePage extends StatelessWidget {
                                   text: '设置登录密码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -418,7 +548,11 @@ class RegPhonePage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -428,7 +562,11 @@ class RegPhonePage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: HHolder(
@@ -443,7 +581,11 @@ class RegPhonePage extends StatelessWidget {
                                         builder: (context, _) => HInput(
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                           hint: '8-20 位，含字母和数字',
@@ -453,7 +595,17 @@ class RegPhonePage extends StatelessWidget {
                                     ),
                                     hTap(
                                       context,
-                                      hPwdLabel(p2, hts(13, Color(0xFF71717A))),
+                                      hPwdLabel(
+                                        p2,
+                                        hts(
+                                          13,
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
+                                        ),
+                                      ),
                                       onTap: () => p2.flip(),
                                     ),
                                   ],
@@ -483,7 +635,15 @@ class RegPhonePage extends StatelessWidget {
                             flex: 84,
                             child: Text(
                               '我已阅读并同意',
-                              style: hts(12, Color(0xFF52525B), lh: 18),
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFF52525B),
+                                  Color(0xFFA8A8B3),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                           ),
                           Flexible(
@@ -492,7 +652,15 @@ class RegPhonePage extends StatelessWidget {
                               context,
                               Text(
                                 '《用户服务协议》',
-                                style: hts(12, Color(0xFF1E63AE), lh: 18),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
+                                  lh: 18,
+                                ),
                               ),
                               to: 'Terms',
                             ),
@@ -501,7 +669,15 @@ class RegPhonePage extends StatelessWidget {
                             flex: 12,
                             child: Text(
                               '和',
-                              style: hts(12, Color(0xFF52525B), lh: 18),
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFF52525B),
+                                  Color(0xFFA8A8B3),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                           ),
                           Flexible(
@@ -510,7 +686,15 @@ class RegPhonePage extends StatelessWidget {
                               context,
                               Text(
                                 '《隐私政策》',
-                                style: hts(12, Color(0xFF1E63AE), lh: 18),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
+                                  lh: 18,
+                                ),
                               ),
                               to: 'Privacy',
                             ),
@@ -528,15 +712,25 @@ class RegPhonePage extends StatelessWidget {
                 ),
                 Text.rich(
                   TextSpan(
-                    style: hts(13, Color(0xFF71717A)),
+                    style: hts(
+                      13,
+                      dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                    ),
                     children: [
                       TextSpan(
                         text: '已有账号？',
-                        style: hts(13, Color(0xFF71717A)),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        ),
                       ),
                       TextSpan(
                         text: '去登录',
-                        style: hts(13, Color(0xFF1E63AE), w: FontWeight.w500),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
+                          w: FontWeight.w500,
+                        ),
                       ),
                     ],
                   ),
@@ -556,15 +750,30 @@ class RegPhonePage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [

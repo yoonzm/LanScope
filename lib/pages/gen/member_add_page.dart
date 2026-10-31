@@ -9,7 +9,7 @@ class MemberAddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1200,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class MemberAddPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s32, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s58, Svgs.s59), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class MemberAddPage extends StatelessWidget {
                         '新增会员',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -100,7 +111,7 @@ class MemberAddPage extends StatelessWidget {
                 hTap(
                   context,
                   hbox(
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                     radius: BorderRadius.circular(22),
                     pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                     child: hrow(
@@ -111,7 +122,7 @@ class MemberAddPage extends StatelessWidget {
                           bg: Color(0xFF0485F7),
                           radius: BorderRadius.circular(12),
                           child: hrow(
-                            [hsvg(Svgs.s102, w: 22, h: 22)],
+                            [hsvg(Svgs.s186, w: 22, h: 22)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -132,7 +143,15 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               Text(
                                 '自动识别车牌、车型、车架号',
-                                style: hts(12, Color(0xFFA1A1AA), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFFA1A1AA),
+                                    Color(0xFF80808A),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -140,7 +159,7 @@ class MemberAddPage extends StatelessWidget {
                             gap: 2,
                           ),
                         ),
-                        hsvg(Svgs.s2, w: 16, h: 16),
+                        hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                       ],
                       main: MainAxisAlignment.start,
                       cross: CrossAxisAlignment.center,
@@ -157,35 +176,46 @@ class MemberAddPage extends StatelessWidget {
                         '客户信息',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -198,13 +228,25 @@ class MemberAddPage extends StatelessWidget {
                                   w: 64,
                                   child: Text.rich(
                                     TextSpan(
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                       children: [
                                         TextSpan(
                                           text: '手机号 ',
                                           style: hts(
                                             14,
-                                            Color(0xFF52525B),
+                                            dk(
+                                              context,
+                                              Color(0xFF52525B),
+                                              Color(0xFFA8A8B3),
+                                            ),
                                             lh: 20,
                                           ),
                                         ),
@@ -212,7 +254,11 @@ class MemberAddPage extends StatelessWidget {
                                           text: '*',
                                           style: hts(
                                             14,
-                                            Color(0xFFA43433),
+                                            dk(
+                                              context,
+                                              Color(0xFFA43433),
+                                              Color(0xFFFF7B7E),
+                                            ),
                                             lh: 20,
                                           ),
                                         ),
@@ -222,7 +268,15 @@ class MemberAddPage extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     value: '139 1688 5530',
                                     keyboard: TextInputType.phone,
                                     align: TextAlign.right,
@@ -236,7 +290,11 @@ class MemberAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -248,13 +306,25 @@ class MemberAddPage extends StatelessWidget {
                                   w: 64,
                                   child: Text.rich(
                                     TextSpan(
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                       children: [
                                         TextSpan(
                                           text: '姓名 ',
                                           style: hts(
                                             14,
-                                            Color(0xFF52525B),
+                                            dk(
+                                              context,
+                                              Color(0xFF52525B),
+                                              Color(0xFFA8A8B3),
+                                            ),
                                             lh: 20,
                                           ),
                                         ),
@@ -262,7 +332,11 @@ class MemberAddPage extends StatelessWidget {
                                           text: '*',
                                           style: hts(
                                             14,
-                                            Color(0xFFA43433),
+                                            dk(
+                                              context,
+                                              Color(0xFFA43433),
+                                              Color(0xFFFF7B7E),
+                                            ),
                                             lh: 20,
                                           ),
                                         ),
@@ -272,7 +346,15 @@ class MemberAddPage extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '请输入客户姓名',
                                     align: TextAlign.right,
                                   ),
@@ -285,7 +367,11 @@ class MemberAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -297,11 +383,23 @@ class MemberAddPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '称呼',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 hbox(
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(3, 3, 3, 3),
                                   child: HSelHolder(
@@ -317,21 +415,36 @@ class MemberAddPage extends StatelessWidget {
                                             index: 0,
                                             on: hbox(
                                               h: 28,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: dk(
+                                                context,
+                                                Color(0xFFFFFFFF),
+                                                Color(0xFF18181B),
+                                              ),
                                               radius: BorderRadius.circular(14),
-                                              shadow: [
-                                                BoxShadow(
-                                                  color: Color.fromRGBO(
-                                                    0,
-                                                    0,
-                                                    0,
-                                                    0.08,
+                                              shadow: dk(
+                                                context,
+                                                [
+                                                  BoxShadow(
+                                                    color: Color.fromRGBO(
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      0.08,
+                                                    ),
+                                                    offset: Offset(0, 1),
+                                                    blurRadius: 2,
+                                                    spreadRadius: 0,
                                                   ),
-                                                  offset: Offset(0, 1),
-                                                  blurRadius: 2,
-                                                  spreadRadius: 0,
-                                                ),
-                                              ],
+                                                ],
+                                                [
+                                                  BoxShadow(
+                                                    color: Color(0xFF26262B),
+                                                    offset: Offset(0, 0),
+                                                    blurRadius: 0,
+                                                    spreadRadius: 1,
+                                                  ),
+                                                ],
+                                              ),
                                               pad: EdgeInsets.fromLTRB(
                                                 14,
                                                 0,
@@ -345,7 +458,11 @@ class MemberAddPage extends StatelessWidget {
                                                   '先生',
                                                   style: hts(
                                                     13,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 18,
                                                   ),
@@ -354,7 +471,11 @@ class MemberAddPage extends StatelessWidget {
                                             ),
                                             off: hbox(
                                               h: 28,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: dk(
+                                                context,
+                                                Color(0xFFFFFFFF),
+                                                Color(0xFF18181B),
+                                              ),
                                               radius: BorderRadius.circular(14),
                                               pad: EdgeInsets.fromLTRB(
                                                 14,
@@ -369,7 +490,11 @@ class MemberAddPage extends StatelessWidget {
                                                   '先生',
                                                   style: hts(
                                                     13,
-                                                    Color(0xFF52525B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF52525B),
+                                                      Color(0xFFA8A8B3),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 18,
                                                   ),
@@ -386,7 +511,7 @@ class MemberAddPage extends StatelessWidget {
                                             on: hbox(
                                               h: 28,
                                               radius: BorderRadius.circular(14),
-                                              shadow: [
+                                              shadow: dk(context, [
                                                 BoxShadow(
                                                   color: Color.fromRGBO(
                                                     0,
@@ -398,7 +523,7 @@ class MemberAddPage extends StatelessWidget {
                                                   blurRadius: 2,
                                                   spreadRadius: 0,
                                                 ),
-                                              ],
+                                              ], null),
                                               pad: EdgeInsets.fromLTRB(
                                                 14,
                                                 0,
@@ -412,7 +537,11 @@ class MemberAddPage extends StatelessWidget {
                                                   '女士',
                                                   style: hts(
                                                     13,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 18,
                                                   ),
@@ -435,7 +564,11 @@ class MemberAddPage extends StatelessWidget {
                                                   '女士',
                                                   style: hts(
                                                     13,
-                                                    Color(0xFF52525B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF52525B),
+                                                      Color(0xFFA8A8B3),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 18,
                                                   ),
@@ -460,7 +593,11 @@ class MemberAddPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           HStrHolder(
@@ -478,17 +615,33 @@ class MemberAddPage extends StatelessWidget {
                                         '生日',
                                         style: hts(
                                           14,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
                                     ),
                                     hStr(
                                       s2,
-                                      hts(15, Color(0xFF71717A), lh: 22),
+                                      hts(
+                                        15,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 22,
+                                      ),
                                       placeholder: '选填，用于生日礼',
                                     ),
-                                    hsvg(Svgs.s2, w: 16, h: 16),
+                                    hsvg(
+                                      dk(context, Svgs.s3, Svgs.s4),
+                                      w: 16,
+                                      h: 16,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -517,35 +670,46 @@ class MemberAddPage extends StatelessWidget {
                         '车辆信息',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 16, 0, 4),
                       child: hcol(
                         [
@@ -571,16 +735,32 @@ class MemberAddPage extends StatelessWidget {
                                             '品牌车型',
                                             style: hts(
                                               14,
-                                              Color(0xFF52525B),
+                                              dk(
+                                                context,
+                                                Color(0xFF52525B),
+                                                Color(0xFFA8A8B3),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
                                         ),
                                         hStr(
                                           s3,
-                                          hts(15, Color(0xFF18181B), lh: 22),
+                                          hts(
+                                            15,
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
+                                            lh: 22,
+                                          ),
                                         ),
-                                        hsvg(Svgs.s2, w: 16, h: 16),
+                                        hsvg(
+                                          dk(context, Svgs.s3, Svgs.s4),
+                                          w: 16,
+                                          h: 16,
+                                        ),
                                       ],
                                       main: MainAxisAlignment.start,
                                       cross: CrossAxisAlignment.center,
@@ -593,7 +773,11 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               hbox(
                                 h: 1,
-                                bg: Color(0xFFEFEFF1),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEFEFF1),
+                                  Color(0xFF2A2A2E),
+                                ),
                                 margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                               ),
                               hbox(
@@ -607,7 +791,11 @@ class MemberAddPage extends StatelessWidget {
                                         '车身颜色',
                                         style: hts(
                                           14,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -624,7 +812,11 @@ class MemberAddPage extends StatelessWidget {
                                             on: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFF18181B),
+                                              bg: dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFF34343A),
+                                              ),
                                               radius: BorderRadius.circular(13),
                                               shadow: [
                                                 BoxShadow(
@@ -644,11 +836,22 @@ class MemberAddPage extends StatelessWidget {
                                             off: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFF18181B),
+                                              bg: dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFF34343A),
+                                              ),
                                               radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
+                                              border: dk(
+                                                context,
+                                                Border.all(
+                                                  color: Color(0xFFD4D4D8),
+                                                  width: 1.5,
+                                                ),
+                                                Border.all(
+                                                  color: Color(0xFF3F3F46),
+                                                  width: 1.5,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -658,7 +861,11 @@ class MemberAddPage extends StatelessWidget {
                                             on: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: dk(
+                                                context,
+                                                Color(0xFFFFFFFF),
+                                                Color(0xFF18181B),
+                                              ),
                                               radius: BorderRadius.circular(13),
                                               shadow: [
                                                 BoxShadow(
@@ -678,11 +885,22 @@ class MemberAddPage extends StatelessWidget {
                                             off: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: dk(
+                                                context,
+                                                Color(0xFFFFFFFF),
+                                                Color(0xFF18181B),
+                                              ),
                                               radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
+                                              border: dk(
+                                                context,
+                                                Border.all(
+                                                  color: Color(0xFFD4D4D8),
+                                                  width: 1.5,
+                                                ),
+                                                Border.all(
+                                                  color: Color(0xFF3F3F46),
+                                                  width: 1.5,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -806,28 +1024,39 @@ class MemberAddPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -839,7 +1068,11 @@ class MemberAddPage extends StatelessWidget {
                               '开卡',
                               style: hts(
                                 15,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
@@ -851,7 +1084,11 @@ class MemberAddPage extends StatelessWidget {
                               '保存后去充值',
                               style: hts(
                                 13,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -872,7 +1109,11 @@ class MemberAddPage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 52,
-                                  bg: Color(0xFFF4F4F5),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFF4F4F5),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(14),
                                   child: Align(
                                     alignment: Alignment.center,
@@ -881,7 +1122,11 @@ class MemberAddPage extends StatelessWidget {
                                       '普通',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -897,7 +1142,11 @@ class MemberAddPage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 52,
-                                  bg: Color(0xFFE4E4E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE4E4E7),
+                                    Color(0xFF3A3A40),
+                                  ),
                                   radius: BorderRadius.circular(14),
                                   child: Align(
                                     alignment: Alignment.center,
@@ -906,7 +1155,11 @@ class MemberAddPage extends StatelessWidget {
                                       '银卡',
                                       style: hts(
                                         13,
-                                        Color(0xFF27272A),
+                                        dk(
+                                          context,
+                                          Color(0xFF27272A),
+                                          Color(0xFFD4D4D8),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -951,7 +1204,11 @@ class MemberAddPage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 52,
-                                  bg: Color(0xFF18181B),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFF34343A),
+                                  ),
                                   radius: BorderRadius.circular(14),
                                   child: Align(
                                     alignment: Alignment.center,
@@ -979,7 +1236,11 @@ class MemberAddPage extends StatelessWidget {
                       ], gap: 8),
                       Text(
                         '银卡及以上需充值达到开卡门槛后生效',
-                        style: hts(12, Color(0xFF71717A), lh: 16),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 16,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -988,28 +1249,39 @@ class MemberAddPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -1017,7 +1289,7 @@ class MemberAddPage extends StatelessWidget {
                         '客户来源',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
@@ -1033,7 +1305,11 @@ class MemberAddPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1052,7 +1328,11 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1062,7 +1342,11 @@ class MemberAddPage extends StatelessWidget {
                                     '到店自然客',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1075,7 +1359,11 @@ class MemberAddPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFF18181B),
+                                bg: dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFF34343A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1094,7 +1382,11 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFF18181B),
+                                bg: dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFF34343A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1104,7 +1396,11 @@ class MemberAddPage extends StatelessWidget {
                                     '老客推荐',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1117,7 +1413,11 @@ class MemberAddPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1136,7 +1436,11 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1146,7 +1450,11 @@ class MemberAddPage extends StatelessWidget {
                                     '团购平台',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1159,7 +1467,11 @@ class MemberAddPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1178,7 +1490,11 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1188,7 +1504,11 @@ class MemberAddPage extends StatelessWidget {
                                     '短视频',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1207,7 +1527,11 @@ class MemberAddPage extends StatelessWidget {
                         builder: (context, s6) => hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                             child: hrow(
@@ -1216,19 +1540,35 @@ class MemberAddPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '推荐人',
-                                    style: hts(13, Color(0xFF52525B), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
                                 ),
                                 hStr(
                                   s6,
                                   hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
                                 ),
-                                hsvg(Svgs.s103, w: 14, h: 14),
+                                hsvg(
+                                  dk(context, Svgs.s187, Svgs.s188),
+                                  w: 14,
+                                  h: 14,
+                                ),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -1242,18 +1582,22 @@ class MemberAddPage extends StatelessWidget {
                         '备注',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                       hbox(
                         minH: 64,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(14),
                         pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                         child: HInput(
-                          style: hts(14, Color(0xFF18181B), lh: 20),
+                          style: hts(
+                            14,
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                            lh: 20,
+                          ),
                           maxLines: 4,
                           hint: '如：车主偏好、车辆旧伤位置',
                         ),

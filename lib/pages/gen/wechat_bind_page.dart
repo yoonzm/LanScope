@@ -9,7 +9,7 @@ class WechatBindPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class WechatBindPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class WechatBindPage extends StatelessWidget {
                         '微信绑定',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,10 +87,20 @@ class WechatBindPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hrow(
                       [
@@ -112,7 +133,14 @@ class WechatBindPage extends StatelessWidget {
                               ),
                               Text(
                                 '微信昵称 · 2026.10.31 绑定',
-                                style: hts(12, Color(0xFFA1A1AA)),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFFA1A1AA),
+                                    Color(0xFF80808A),
+                                  ),
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -124,14 +152,22 @@ class WechatBindPage extends StatelessWidget {
                           child: hcol(
                             [
                               hbox(
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(9),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Text(
                                   '已绑定',
                                   style: hts(
                                     11,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 18,
                                   ),
@@ -155,7 +191,11 @@ class WechatBindPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
@@ -168,35 +208,46 @@ class WechatBindPage extends StatelessWidget {
                         '绑定后可以',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -208,10 +259,20 @@ class WechatBindPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFDDF6E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFDDF6E7),
+                                    Color.fromRGBO(23, 201, 100, 0.16),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s180, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s331, Svgs.s332),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -225,7 +286,11 @@ class WechatBindPage extends StatelessWidget {
                                         '微信扫码登录',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -233,7 +298,11 @@ class WechatBindPage extends StatelessWidget {
                                         '免输手机号和验证码',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -251,7 +320,11 @@ class WechatBindPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -262,10 +335,20 @@ class WechatBindPage extends StatelessWidget {
                                 hbox(
                                   w: 32,
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s181, w: 18, h: 18)],
+                                    [
+                                      hsvg(
+                                        dk(context, Svgs.s333, Svgs.s334),
+                                        w: 18,
+                                        h: 18,
+                                      ),
+                                    ],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -279,7 +362,11 @@ class WechatBindPage extends StatelessWidget {
                                         '接收经营通知',
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 22,
                                         ),
                                       ),
@@ -287,7 +374,11 @@ class WechatBindPage extends StatelessWidget {
                                         '预约、库存、到期提醒推送到微信',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -318,34 +409,49 @@ class WechatBindPage extends StatelessWidget {
                   context,
                   hbox(
                     h: 52,
-                    bg: Color(0xFFFFFFFF),
+                    bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                     radius: BorderRadius.circular(26),
-                    shadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.04),
-                        offset: Offset(0, 2),
-                        blurRadius: 4,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 1),
-                        blurRadius: 2,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 0),
-                        blurRadius: 1,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                    shadow: dk(
+                      context,
+                      [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.04),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 1),
+                          blurRadius: 2,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 0),
+                          blurRadius: 1,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                      [
+                        BoxShadow(
+                          color: Color(0xFF26262B),
+                          offset: Offset(0, 0),
+                          blurRadius: 0,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
                     child: Align(
                       alignment: Alignment(0, 0),
                       widthFactor: 1,
                       child: Text(
                         '解除绑定',
-                        style: hts(15, Color(0xFFA43433), w: FontWeight.w500),
+                        style: hts(
+                          15,
+                          dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
+                          w: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
@@ -353,7 +459,10 @@ class WechatBindPage extends StatelessWidget {
                 ),
                 Text(
                   '解除后仍可使用手机号登录',
-                  style: hts(12, Color(0xFFA1A1AA)),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],

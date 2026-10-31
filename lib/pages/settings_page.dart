@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 import '../mock/app_state.dart';
+import '../mock/theme_state.dart';
 import '../routes.dart';
 import '../widgets/app_icon.dart';
 import '../widgets/common.dart';
@@ -103,7 +104,7 @@ class SettingsPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   _group(context, '通用', [
                     _Item('shield', '账号与安全', '密码 · 登录设备', route: 'Security'),
-                    _Item('moon', '外观', '跟随系统', route: 'ThemeSheet'),
+                    _Item('moon', '外观', themeModeLabel(appThemeMode.value), route: 'ThemeSheet'),
                     _Item('mail', '数据备份', '已开启', route: 'DataBackup'),
                     _Item('trash', '清除缓存', '128 MB', route: 'ClearCache'),
                     _Item('info', '关于汽美管家', 'v1.0.0', route: 'AboutApp'),
@@ -115,7 +116,7 @@ class SettingsPage extends StatelessWidget {
                       height: 50,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: C.card,
                         borderRadius: BorderRadius.circular(25),
                         boxShadow: softShadow,
                       ),
@@ -143,7 +144,7 @@ class SettingsPage extends StatelessWidget {
   void _demoSheet(BuildContext context) {
     showModalBottomSheet<void>(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: C.card,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
@@ -214,7 +215,8 @@ class SettingsPage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: C.ink,
+        color: C.heroCard,
+        border: C.heroBorder,
         borderRadius: BorderRadius.circular(28),
       ),
       child: Stack(
@@ -257,7 +259,7 @@ class SettingsPage extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 8),
-                            Pill('店长', bg: C.gold, fg: C.ink, size: 11),
+                            Pill('店长', bg: C.gold, fg: C.onGold, size: 11),
                           ],
                         ),
                         const SizedBox(height: 4),
@@ -337,7 +339,7 @@ class SettingsPage extends StatelessWidget {
                         ),
                         child: Text(
                           '切换门店',
-                          style: ts(13, w: FontWeight.w500, h: 18),
+                          style: ts(13, w: FontWeight.w500, color: C.onGold, h: 18),
                         ),
                       ),
                     ),
@@ -382,14 +384,14 @@ class SettingsPage extends StatelessWidget {
                             width: 32,
                             height: 32,
                             decoration: BoxDecoration(
-                              color: items[i].bg,
+                              color: _darkPair(items[i].bg, true),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
                               child: AppIcon(
                                 items[i].icon,
                                 size: 18,
-                                color: items[i].fg,
+                                color: _darkPair(items[i].fg, false),
                               ),
                             ),
                           ),
@@ -428,7 +430,7 @@ class SettingsPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 4),
-                          const AppIcon(
+                          AppIcon(
                             'chevronRight',
                             size: 16,
                             color: C.faint,
@@ -462,4 +464,24 @@ class _Item {
     this.fg = const Color(0xFF3F3F46),
     this.dot = false,
   });
+}
+
+/// 设置项图标的底色 / 前景色在深色模式下的对应关系。
+Color _darkPair(Color c, bool bg) {
+  if (!C.dark) return c;
+  const m = {
+    0xFFE1F0FE: 0x2E0485F7,
+    0xFFDDF6E7: 0x2917C964,
+    0xFFFDEFD6: 0x29F5A524,
+    0xFFFFE1E2: 0x2EFF383C,
+    0xFFEEEEF0: 0xFF34343A,
+    0xFF18181B: 0xFF34343A,
+    0xFF1E63AE: 0xFF6AB4FA,
+    0xFF2B7745: 0xFF5FD48C,
+    0xFF855F2E: 0xFFF0C46A,
+    0xFFA43433: 0xFFFF7B7E,
+    0xFF3F3F46: 0xFFA8A8B3,
+  };
+  final v = m[c.toARGB32()];
+  return v == null ? c : Color(v);
 }

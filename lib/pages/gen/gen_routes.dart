@@ -90,7 +90,6 @@ import 'hold_sheet_sheet.dart';
 import 'member_filter_sheet.dart';
 import 'renew_sheet.dart';
 import 'store_switch_sheet.dart';
-import 'theme_sheet_sheet.dart';
 
 final Map<String, WidgetBuilder> genRoutes = {
   'AboutApp': (_) => const AboutAppPage(),
@@ -186,7 +185,6 @@ final Map<String, WidgetBuilder> genSheets = {
   'MemberFilter': (_) => const MemberFilterSheet(),
   'Renew': (_) => const RenewSheet(),
   'StoreSwitch': (_) => const StoreSwitchSheet(),
-  'ThemeSheet': (_) => const ThemeSheetSheet(),
 };
 
 /// 弹层所属的页面（设计稿里的遮罩点击目标）。
@@ -204,5 +202,4 @@ const Map<String, String> sheetParents = {
   'MemberFilter': 'Members',
   'Renew': 'Subscription',
   'StoreSwitch': 'Main',
-  'ThemeSheet': 'Settings',
 };

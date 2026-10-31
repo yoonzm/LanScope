@@ -81,10 +81,10 @@ class _BottomBar extends StatelessWidget {
     final bottom = MediaQuery.of(context).padding.bottom;
     return Container(
       padding: EdgeInsets.only(top: 8, bottom: bottom > 0 ? bottom : 12),
-      decoration: const BoxDecoration(
-        color: Colors.white,
+      decoration: BoxDecoration(
+        color: C.card,
         boxShadow: [
-          BoxShadow(color: Color(0xFFE8E8EA), offset: Offset(0, -1)),
+          BoxShadow(color: C.line, offset: const Offset(0, -1)),
           BoxShadow(
             color: Color(0x0A000000),
             blurRadius: 24,
@@ -109,11 +109,11 @@ class _BottomBar extends StatelessWidget {
                     Container(
                       width: 54,
                       height: 54,
-                      decoration: const BoxDecoration(
-                        color: C.ink,
+                      decoration: BoxDecoration(
+                        color: C.btn,
                         shape: BoxShape.circle,
                         boxShadow: [
-                          BoxShadow(color: Colors.white, spreadRadius: 5),
+                          BoxShadow(color: C.card, spreadRadius: 5),
                           BoxShadow(
                             color: Color(0x4018181B),
                             blurRadius: 20,
@@ -121,7 +121,7 @@ class _BottomBar extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: AppIcon('add', color: Colors.white, size: 26),
+                      child: AppIcon('add', color: C.btnFg, size: 26),
                     ),
                     const SizedBox(height: 4),
                     Text('开单', style: ts(11, w: FontWeight.w500, h: 14)),

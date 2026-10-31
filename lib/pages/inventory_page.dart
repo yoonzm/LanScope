@@ -51,19 +51,19 @@ class _InventoryPageState extends State<InventoryPage> {
                   height: 44,
                   padding: const EdgeInsets.fromLTRB(12, 0, 16, 0),
                   decoration: BoxDecoration(
-                    color: C.ink,
+                    color: C.btn,
                     borderRadius: BorderRadius.circular(22),
                   ),
                   child: Row(
                     children: [
-                      AppIcon('add', size: 18, color: Colors.white),
+                      AppIcon('add', size: 18, color: C.btnFg),
                       const SizedBox(width: 6),
                       Text(
                         '入库',
                         style: ts(
                           14,
                           w: FontWeight.w500,
-                          color: Colors.white,
+                          color: C.btnFg,
                           h: 20,
                         ),
                       ),
@@ -159,7 +159,7 @@ class _InventoryPageState extends State<InventoryPage> {
   }
 
   Widget _overview() {
-    const segs = [
+    final segs = [
       ('贴膜', 46, C.ink),
       ('镀晶镀膜', 24, C.primary),
       ('洗护用品', 18, Color(0xFF7CC4FB)),
@@ -293,13 +293,13 @@ class _InventoryPageState extends State<InventoryPage> {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: crit ? C.ink : (low ? C.primarySoft : C.greenSoft),
+                color: crit ? C.btn : (low ? C.primarySoft : C.greenSoft),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: AppIcon(
                 'box',
                 size: 20,
-                color: crit ? Colors.white : (low ? C.primaryInk : C.greenInk),
+                color: crit ? C.btnFg : (low ? C.primaryInk : C.greenInk),
               ),
             ),
             const SizedBox(width: 12),

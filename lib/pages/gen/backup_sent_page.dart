@@ -9,7 +9,7 @@ class BackupSentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class BackupSentPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class BackupSentPage extends StatelessWidget {
                         '已发送',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -82,10 +93,14 @@ class BackupSentPage extends StatelessWidget {
                       hbox(
                         w: 72,
                         h: 72,
-                        bg: Color(0xFFDDF6E7),
+                        bg: dk(
+                          context,
+                          Color(0xFFDDF6E7),
+                          Color.fromRGBO(23, 201, 100, 0.16),
+                        ),
                         radius: BorderRadius.circular(36),
                         child: hrow(
-                          [hsvg(Svgs.s12, w: 38, h: 38)],
+                          [hsvg(Svgs.s21, w: 38, h: 38)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -95,14 +110,17 @@ class BackupSentPage extends StatelessWidget {
                         '已发送',
                         style: hts(
                           20,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 28,
                         ),
                       ),
                       Text(
                         '一般 1–3 分钟送达，请查收邮件',
-                        style: hts(13, Color(0xFF71717A)),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -111,28 +129,39 @@ class BackupSentPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -145,12 +174,28 @@ class BackupSentPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '发送时间',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '今天 23:12',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -160,7 +205,7 @@ class BackupSentPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -172,12 +217,28 @@ class BackupSentPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '接收邮箱',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               'c***@chiguang.example',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -187,7 +248,7 @@ class BackupSentPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -199,12 +260,28 @@ class BackupSentPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '文件',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '汽美管家-数据-20261031.zip',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -214,7 +291,7 @@ class BackupSentPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
                       hbox(
@@ -226,12 +303,28 @@ class BackupSentPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '大小',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 20,
+                                ),
                               ),
                             ),
                             Text(
                               '3.1 MB',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -247,7 +340,11 @@ class BackupSentPage extends StatelessWidget {
                 ),
                 Text(
                   '没收到？请先查看垃圾邮件文件夹',
-                  style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                    lh: 18,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -264,15 +361,30 @@ class BackupSentPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -282,7 +394,7 @@ class BackupSentPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -291,7 +403,7 @@ class BackupSentPage extends StatelessWidget {
                           '完成',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

@@ -9,7 +9,7 @@ class FeedbackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class FeedbackPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class FeedbackPage extends StatelessWidget {
                         '意见反馈',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,28 +87,39 @@ class FeedbackPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -107,7 +129,7 @@ class FeedbackPage extends StatelessWidget {
                             '反馈类型',
                             style: hts(
                               14,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -123,7 +145,11 @@ class FeedbackPage extends StatelessWidget {
                                   index: 0,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -137,7 +163,11 @@ class FeedbackPage extends StatelessWidget {
                                         '功能建议',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -146,7 +176,11 @@ class FeedbackPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -156,7 +190,11 @@ class FeedbackPage extends StatelessWidget {
                                         '功能建议',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -169,7 +207,11 @@ class FeedbackPage extends StatelessWidget {
                                   index: 1,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -183,7 +225,11 @@ class FeedbackPage extends StatelessWidget {
                                         '问题报告',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -192,7 +238,11 @@ class FeedbackPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -202,7 +252,11 @@ class FeedbackPage extends StatelessWidget {
                                         '问题报告',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -215,7 +269,11 @@ class FeedbackPage extends StatelessWidget {
                                   index: 2,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -229,7 +287,11 @@ class FeedbackPage extends StatelessWidget {
                                         '账号与付费',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -238,7 +300,11 @@ class FeedbackPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -248,7 +314,11 @@ class FeedbackPage extends StatelessWidget {
                                         '账号与付费',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -261,7 +331,11 @@ class FeedbackPage extends StatelessWidget {
                                   index: 3,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -275,7 +349,11 @@ class FeedbackPage extends StatelessWidget {
                                         '其他',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -284,7 +362,11 @@ class FeedbackPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -294,7 +376,11 @@ class FeedbackPage extends StatelessWidget {
                                         '其他',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -319,18 +405,30 @@ class FeedbackPage extends StatelessWidget {
                             '详细描述',
                             style: hts(
                               14,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
                           ),
                           hbox(
                             minH: 130,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                             child: HInput(
-                              style: hts(14, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                14,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                               maxLines: 4,
                               hint: '请描述您遇到的问题或建议，越具体越好',
                             ),
@@ -346,7 +444,11 @@ class FeedbackPage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 20,
                               ),
@@ -355,14 +457,26 @@ class FeedbackPage extends StatelessWidget {
                                   text: '截图 ',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 20,
                                   ),
                                 ),
                                 TextSpan(
                                   text: '· 选填，最多 3 张',
-                                  style: hts(14, Color(0xFF71717A), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 20,
+                                  ),
                                 ),
                               ],
                             ),
@@ -375,10 +489,20 @@ class FeedbackPage extends StatelessWidget {
                                 bg: Color(0xFFFAFAFA),
                                 radius: BorderRadius.circular(16),
                                 dashed: true,
-                                dashColor: Color(0xFFD4D4D8),
+                                dashColor: dk(
+                                  context,
+                                  Color(0xFFD4D4D8),
+                                  Color(0xFF3F3F46),
+                                ),
                                 dashWidth: 2,
                                 child: hrow(
-                                  [hsvg(Svgs.s76, w: 22, h: 22)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s139, Svgs.s140),
+                                      w: 22,
+                                      h: 22,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -390,10 +514,20 @@ class FeedbackPage extends StatelessWidget {
                                 bg: Color(0xFFFAFAFA),
                                 radius: BorderRadius.circular(16),
                                 dashed: true,
-                                dashColor: Color(0xFFD4D4D8),
+                                dashColor: dk(
+                                  context,
+                                  Color(0xFFD4D4D8),
+                                  Color(0xFF3F3F46),
+                                ),
                                 dashWidth: 2,
                                 child: hrow(
-                                  [hsvg(Svgs.s76, w: 22, h: 22)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s139, Svgs.s140),
+                                      w: 22,
+                                      h: 22,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -405,10 +539,20 @@ class FeedbackPage extends StatelessWidget {
                                 bg: Color(0xFFFAFAFA),
                                 radius: BorderRadius.circular(16),
                                 dashed: true,
-                                dashColor: Color(0xFFD4D4D8),
+                                dashColor: dk(
+                                  context,
+                                  Color(0xFFD4D4D8),
+                                  Color(0xFF3F3F46),
+                                ),
                                 dashWidth: 2,
                                 child: hrow(
-                                  [hsvg(Svgs.s76, w: 22, h: 22)],
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s139, Svgs.s140),
+                                      w: 22,
+                                      h: 22,
+                                    ),
+                                  ],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -431,21 +575,33 @@ class FeedbackPage extends StatelessWidget {
                             '联系方式',
                             style: hts(
                               13,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: hrow(
                               [
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '手机号或邮箱（选填）',
                                     value: '139 **** 8812',
                                   ),
@@ -469,7 +625,10 @@ class FeedbackPage extends StatelessWidget {
                 ),
                 Text(
                   '我们会在 1–3 个工作日内通过站内消息回复',
-                  style: hts(12, Color(0xFFA1A1AA)),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -486,15 +645,30 @@ class FeedbackPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -504,7 +678,7 @@ class FeedbackPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -513,7 +687,7 @@ class FeedbackPage extends StatelessWidget {
                           '提交反馈',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

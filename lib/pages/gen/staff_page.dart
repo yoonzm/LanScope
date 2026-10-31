@@ -9,7 +9,7 @@ class StaffPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class StaffPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class StaffPage extends StatelessWidget {
                         '员工与权限',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -74,10 +85,10 @@ class StaffPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFF18181B),
+                        bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         radius: BorderRadius.circular(22),
                         child: hrow(
-                          [hsvg(Svgs.s37, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s68, Svgs.s69), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -98,28 +109,43 @@ class StaffPage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(18),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                             child: hcol(
                               [
@@ -134,13 +160,25 @@ class StaffPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '店长',
-                                  style: hts(13, Color(0xFF52525B), lh: 18),
+                                  style: hts(
+                                    13,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 18,
+                                  ),
                                 ),
                                 Text(
                                   '1',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 26,
                                   ),
@@ -159,28 +197,43 @@ class StaffPage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(18),
-                            shadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.04),
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 1),
-                                blurRadius: 2,
-                                spreadRadius: 0,
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.06),
-                                offset: Offset(0, 0),
-                                blurRadius: 1,
-                                spreadRadius: 0,
-                              ),
-                            ],
+                            shadow: dk(
+                              context,
+                              [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 1,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              [
+                                BoxShadow(
+                                  color: Color(0xFF26262B),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                             child: hcol(
                               [
@@ -195,13 +248,25 @@ class StaffPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '前台收银',
-                                  style: hts(13, Color(0xFF52525B), lh: 18),
+                                  style: hts(
+                                    13,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 18,
+                                  ),
                                 ),
                                 Text(
                                   '2',
                                   style: hts(
                                     20,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 26,
                                   ),
@@ -220,7 +285,11 @@ class StaffPage extends StatelessWidget {
                         child: hTap(
                           context,
                           hbox(
-                            bg: Color(0xFF18181B),
+                            bg: dk(
+                              context,
+                              Color(0xFF18181B),
+                              Color(0xFF1F1F23),
+                            ),
                             radius: BorderRadius.circular(18),
                             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                             child: hcol(
@@ -236,7 +305,15 @@ class StaffPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '施工技师',
-                                  style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                                  style: hts(
+                                    13,
+                                    dk(
+                                      context,
+                                      Color(0xFFA1A1AA),
+                                      Color(0xFF80808A),
+                                    ),
+                                    lh: 18,
+                                  ),
                                 ),
                                 Text(
                                   '5',
@@ -264,28 +341,39 @@ class StaffPage extends StatelessWidget {
                   ),
                 ], gap: 8),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -298,14 +386,22 @@ class StaffPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(20),
                                 align: Alignment(0, 0),
                                 child: Text(
                                   '李',
                                   style: hts(
                                     15,
-                                    Color(0xFF1E63AE),
+                                    dk(
+                                      context,
+                                      Color(0xFF1E63AE),
+                                      Color(0xFF6AB4FA),
+                                    ),
                                     w: FontWeight.w600,
                                   ),
                                 ),
@@ -318,7 +414,11 @@ class StaffPage extends StatelessWidget {
                                       TextSpan(
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 22,
                                         ),
@@ -327,7 +427,11 @@ class StaffPage extends StatelessWidget {
                                             text: '李国强 ',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -336,7 +440,11 @@ class StaffPage extends StatelessWidget {
                                             text: '· 镀晶 / 抛光',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 22,
                                             ),
                                           ),
@@ -345,7 +453,15 @@ class StaffPage extends StatelessWidget {
                                     ),
                                     Text(
                                       '本月 118 台次',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -354,7 +470,11 @@ class StaffPage extends StatelessWidget {
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(10),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: hrow(
@@ -371,7 +491,11 @@ class StaffPage extends StatelessWidget {
                                         '施工中',
                                         style: hts(
                                           12,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -393,7 +517,7 @@ class StaffPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -405,14 +529,22 @@ class StaffPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFFDEFD6),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFDEFD6),
+                                  Color.fromRGBO(245, 165, 36, 0.16),
+                                ),
                                 radius: BorderRadius.circular(20),
                                 align: Alignment(0, 0),
                                 child: Text(
                                   '张',
                                   style: hts(
                                     15,
-                                    Color(0xFF855F2E),
+                                    dk(
+                                      context,
+                                      Color(0xFF855F2E),
+                                      Color(0xFFF0C46A),
+                                    ),
                                     w: FontWeight.w600,
                                   ),
                                 ),
@@ -425,7 +557,11 @@ class StaffPage extends StatelessWidget {
                                       TextSpan(
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 22,
                                         ),
@@ -434,7 +570,11 @@ class StaffPage extends StatelessWidget {
                                             text: '张伟 ',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -443,7 +583,11 @@ class StaffPage extends StatelessWidget {
                                             text: '· 贴膜',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 22,
                                             ),
                                           ),
@@ -452,7 +596,15 @@ class StaffPage extends StatelessWidget {
                                     ),
                                     Text(
                                       '本月 46 台次',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -461,7 +613,11 @@ class StaffPage extends StatelessWidget {
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(10),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: hrow(
@@ -478,7 +634,11 @@ class StaffPage extends StatelessWidget {
                                         '施工中',
                                         style: hts(
                                           12,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -500,7 +660,7 @@ class StaffPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -512,14 +672,22 @@ class StaffPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(20),
                                 align: Alignment(0, 0),
                                 child: Text(
                                   '王',
                                   style: hts(
                                     15,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w600,
                                   ),
                                 ),
@@ -532,7 +700,11 @@ class StaffPage extends StatelessWidget {
                                       TextSpan(
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 22,
                                         ),
@@ -541,7 +713,11 @@ class StaffPage extends StatelessWidget {
                                             text: '王磊 ',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -550,7 +726,11 @@ class StaffPage extends StatelessWidget {
                                             text: '· 洗车 / 内饰',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 22,
                                             ),
                                           ),
@@ -559,7 +739,15 @@ class StaffPage extends StatelessWidget {
                                     ),
                                     Text(
                                       '本月 203 台次',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -568,7 +756,11 @@ class StaffPage extends StatelessWidget {
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(10),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: hrow(
@@ -585,7 +777,11 @@ class StaffPage extends StatelessWidget {
                                         '空闲',
                                         style: hts(
                                           12,
-                                          Color(0xFF2B7745),
+                                          dk(
+                                            context,
+                                            Color(0xFF2B7745),
+                                            Color(0xFF5FD48C),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 20,
                                         ),
@@ -607,7 +803,7 @@ class StaffPage extends StatelessWidget {
                       ),
                       hbox(
                         h: 1,
-                        bg: Color(0xFFEFEFF1),
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
                         margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                       ),
                       hTap(
@@ -619,14 +815,22 @@ class StaffPage extends StatelessWidget {
                               hbox(
                                 w: 40,
                                 h: 40,
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(20),
                                 align: Alignment(0, 0),
                                 child: Text(
                                   '刘',
                                   style: hts(
                                     15,
-                                    Color(0xFF3F3F46),
+                                    dk(
+                                      context,
+                                      Color(0xFF3F3F46),
+                                      Color(0xFFD4D4D8),
+                                    ),
                                     w: FontWeight.w600,
                                   ),
                                 ),
@@ -639,7 +843,11 @@ class StaffPage extends StatelessWidget {
                                       TextSpan(
                                         style: hts(
                                           15,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 22,
                                         ),
@@ -648,7 +856,11 @@ class StaffPage extends StatelessWidget {
                                             text: '刘洋 ',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -657,7 +869,11 @@ class StaffPage extends StatelessWidget {
                                             text: '· 洗车',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 22,
                                             ),
                                           ),
@@ -666,7 +882,15 @@ class StaffPage extends StatelessWidget {
                                     ),
                                     Text(
                                       '本月 176 台次',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -675,14 +899,22 @@ class StaffPage extends StatelessWidget {
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFEEEEF0),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFEEEEF0),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(10),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Text(
                                   '今日休息',
                                   style: hts(
                                     12,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -703,28 +935,39 @@ class StaffPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -736,7 +979,11 @@ class StaffPage extends StatelessWidget {
                               '技师可以',
                               style: hts(
                                 15,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
@@ -748,7 +995,11 @@ class StaffPage extends StatelessWidget {
                               '编辑权限',
                               style: hts(
                                 13,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -770,10 +1021,20 @@ class StaffPage extends StatelessWidget {
                                   hbox(
                                     w: 20,
                                     h: 20,
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s158, w: 12, h: 12)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s288, Svgs.s289),
+                                          w: 12,
+                                          h: 12,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -783,7 +1044,15 @@ class StaffPage extends StatelessWidget {
                                     flex: 104,
                                     child: Text(
                                       '查看派给我的工单',
-                                      style: hts(13, Color(0xFF18181B), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -799,10 +1068,20 @@ class StaffPage extends StatelessWidget {
                                   hbox(
                                     w: 20,
                                     h: 20,
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s158, w: 12, h: 12)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s288, Svgs.s289),
+                                          w: 12,
+                                          h: 12,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -812,7 +1091,15 @@ class StaffPage extends StatelessWidget {
                                     flex: 78,
                                     child: Text(
                                       '更新施工进度',
-                                      style: hts(13, Color(0xFF18181B), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -836,10 +1123,20 @@ class StaffPage extends StatelessWidget {
                                   hbox(
                                     w: 20,
                                     h: 20,
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s158, w: 12, h: 12)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s288, Svgs.s289),
+                                          w: 12,
+                                          h: 12,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -849,7 +1146,15 @@ class StaffPage extends StatelessWidget {
                                     flex: 52,
                                     child: Text(
                                       '领用耗材',
-                                      style: hts(13, Color(0xFF18181B), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -865,10 +1170,20 @@ class StaffPage extends StatelessWidget {
                                   hbox(
                                     w: 20,
                                     h: 20,
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s158, w: 12, h: 12)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s288, Svgs.s289),
+                                          w: 12,
+                                          h: 12,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -878,7 +1193,15 @@ class StaffPage extends StatelessWidget {
                                     flex: 78,
                                     child: Text(
                                       '查看个人业绩',
-                                      style: hts(13, Color(0xFF18181B), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -902,10 +1225,20 @@ class StaffPage extends StatelessWidget {
                                   hbox(
                                     w: 20,
                                     h: 20,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s159, w: 12, h: 12)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s290, Svgs.s291),
+                                          w: 12,
+                                          h: 12,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -915,7 +1248,15 @@ class StaffPage extends StatelessWidget {
                                     flex: 91,
                                     child: Text(
                                       '查看门店营业额',
-                                      style: hts(13, Color(0xFF71717A), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -931,10 +1272,20 @@ class StaffPage extends StatelessWidget {
                                   hbox(
                                     w: 20,
                                     h: 20,
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s159, w: 12, h: 12)],
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s290, Svgs.s291),
+                                          w: 12,
+                                          h: 12,
+                                        ),
+                                      ],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -944,7 +1295,15 @@ class StaffPage extends StatelessWidget {
                                     flex: 91,
                                     child: Text(
                                       '会员充值与退款',
-                                      style: hts(13, Color(0xFF71717A), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                   ),
                                 ],

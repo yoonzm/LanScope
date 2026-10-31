@@ -280,7 +280,7 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
                       vertical: 10,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: C.card,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: softShadow,
                     ),
@@ -335,10 +335,10 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
                 20,
                 bottom > 0 ? bottom : 16,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: C.card,
                 boxShadow: [
-                  BoxShadow(color: Color(0xFFE8E8EA), offset: Offset(0, -1)),
+                  BoxShadow(color: C.line, offset: const Offset(0, -1)),
                   BoxShadow(
                     color: Color(0x0A000000),
                     blurRadius: 24,
@@ -408,7 +408,7 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
               ? null
               : const EdgeInsets.symmetric(horizontal: 14),
           decoration: BoxDecoration(
-            color: tap == null ? C.chip : (on ? C.primarySoft : Colors.white),
+            color: tap == null ? C.chip : (on ? C.primarySoft : C.card),
             borderRadius: BorderRadius.circular(18),
             boxShadow: on || tap == null ? null : softShadow,
             border: on ? Border.all(color: C.primary, width: 1.5) : null,

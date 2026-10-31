@@ -9,7 +9,7 @@ class ChannelConfigPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1260,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class ChannelConfigPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class ChannelConfigPage extends StatelessWidget {
                         '渠道配置',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -102,35 +113,46 @@ class ChannelConfigPage extends StatelessWidget {
                         '微信模板消息',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -139,14 +161,22 @@ class ChannelConfigPage extends StatelessWidget {
                               hbox(
                                 w: 44,
                                 h: 44,
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(22),
                                 align: Alignment(0, 0),
                                 child: Text(
                                   '驰',
                                   style: hts(
                                     17,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w600,
                                   ),
                                 ),
@@ -159,7 +189,11 @@ class ChannelConfigPage extends StatelessWidget {
                                       '驰光汽车美容服务号',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 22,
                                       ),
@@ -178,7 +212,11 @@ class ChannelConfigPage extends StatelessWidget {
                                             '已授权 · 2027.03.18 到期',
                                             style: hts(
                                               12,
-                                              Color(0xFF2B7745),
+                                              dk(
+                                                context,
+                                                Color(0xFF2B7745),
+                                                Color(0xFF5FD48C),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -198,7 +236,11 @@ class ChannelConfigPage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFEEEEF0),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEEEEF0),
+                                    Color(0xFF27272A),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -208,7 +250,11 @@ class ChannelConfigPage extends StatelessWidget {
                                       '重新授权',
                                       style: hts(
                                         13,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -223,7 +269,11 @@ class ChannelConfigPage extends StatelessWidget {
                             gap: 12,
                           ),
                           hbox(
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(18),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hcol(
@@ -236,7 +286,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         '会员已关注公众号',
                                         style: hts(
                                           13,
-                                          Color(0xFF52525B),
+                                          dk(
+                                            context,
+                                            Color(0xFF52525B),
+                                            Color(0xFFA8A8B3),
+                                          ),
                                           lh: 18,
                                         ),
                                       ),
@@ -245,7 +299,11 @@ class ChannelConfigPage extends StatelessWidget {
                                       TextSpan(
                                         style: hts(
                                           20,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 28,
                                         ),
@@ -254,7 +312,11 @@ class ChannelConfigPage extends StatelessWidget {
                                             text: '412',
                                             style: hts(
                                               20,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 28,
                                             ),
@@ -263,7 +325,11 @@ class ChannelConfigPage extends StatelessWidget {
                                             text: ' / 1,086 人',
                                             style: hts(
                                               13,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 28,
                                             ),
                                           ),
@@ -277,7 +343,11 @@ class ChannelConfigPage extends StatelessWidget {
                                 ),
                                 hbox(
                                   h: 8,
-                                  bg: Color(0xFFE4E4E7),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE4E4E7),
+                                    Color(0xFF3A3A40),
+                                  ),
                                   radius: BorderRadius.circular(4),
                                   clip: true,
                                   child: hcol(
@@ -301,7 +371,15 @@ class ChannelConfigPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '未关注的 674 位会员将按发送策略转为短信，或收不到通知',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -314,14 +392,25 @@ class ChannelConfigPage extends StatelessWidget {
                               hbox(
                                 w: 96,
                                 h: 96,
-                                bg: Color(0xFFFFFFFF),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFFFFFF),
+                                  Color(0xFF18181B),
+                                ),
                                 radius: BorderRadius.circular(16),
-                                border: Border.all(
-                                  color: Color(0xFFE4E4E7),
-                                  width: 1,
+                                border: dk(
+                                  context,
+                                  Border.all(
+                                    color: Color(0xFFE4E4E7),
+                                    width: 1,
+                                  ),
+                                  Border.all(
+                                    color: Color(0xFF3A3A40),
+                                    width: 1,
+                                  ),
                                 ),
                                 child: hrow(
-                                  [hsvg(Svgs.s41, w: 76, h: 76)],
+                                  [hsvg(Svgs.s74, w: 76, h: 76)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -335,14 +424,26 @@ class ChannelConfigPage extends StatelessWidget {
                                       '引导会员关注',
                                       style: hts(
                                         14,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 20,
                                       ),
                                     ),
                                     Text(
                                       '收款成功页会展示此二维码，会员扫码关注后，之后的消费、充值就能收到微信通知',
-                                      style: hts(12, Color(0xFF71717A), lh: 18),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                     Align(
                                       alignment: Alignment.topLeft,
@@ -350,7 +451,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         context,
                                         hbox(
                                           h: 32,
-                                          bg: Color(0xFFE1F0FE),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFE1F0FE),
+                                            Color.fromRGBO(4, 133, 247, 0.18),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           pad: EdgeInsets.fromLTRB(
                                             12,
@@ -365,7 +470,11 @@ class ChannelConfigPage extends StatelessWidget {
                                               '保存到相册',
                                               style: hts(
                                                 13,
-                                                Color(0xFF1E63AE),
+                                                dk(
+                                                  context,
+                                                  Color(0xFF1E63AE),
+                                                  Color(0xFF6AB4FA),
+                                                ),
                                                 w: FontWeight.w500,
                                                 lh: 18,
                                               ),
@@ -386,7 +495,14 @@ class ChannelConfigPage extends StatelessWidget {
                             cross: CrossAxisAlignment.center,
                             gap: 14,
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hTap(
                             context,
                             hbox(
@@ -397,14 +513,34 @@ class ChannelConfigPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '模板消息',
-                                      style: hts(14, Color(0xFF18181B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '已启用 5 个模板',
-                                    style: hts(13, Color(0xFF71717A), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -432,17 +568,30 @@ class ChannelConfigPage extends StatelessWidget {
                         '短信',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                       radius: BorderRadius.circular(24),
                       pad: EdgeInsets.fromLTRB(20, 18, 20, 18),
                       clip: true,
+                      border: dk(
+                        context,
+                        null,
+                        Border(
+                          top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                          right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                          bottom: BorderSide(
+                            color: Color(0xFF2E2E33),
+                            width: 1,
+                          ),
+                          left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                        ),
+                      ),
                       child: hstack(
                         hrow(
                           [
@@ -452,7 +601,15 @@ class ChannelConfigPage extends StatelessWidget {
                                 [
                                   Text(
                                     '短信余量',
-                                    style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                                    style: hts(
+                                      13,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                      lh: 18,
+                                    ),
                                   ),
                                   hrow(
                                     [
@@ -472,7 +629,14 @@ class ChannelConfigPage extends StatelessWidget {
                                         flex: 82,
                                         child: Text(
                                           '条 · 约够 3 周',
-                                          style: hts(13, Color(0xFFA1A1AA)),
+                                          style: hts(
+                                            13,
+                                            dk(
+                                              context,
+                                              Color(0xFFA1A1AA),
+                                              Color(0xFF80808A),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -496,34 +660,49 @@ class ChannelConfigPage extends StatelessWidget {
                           Positioned(
                             top: -80,
                             right: -70,
-                            child: hsvg(Svgs.s42, w: 200, h: 200),
+                            child: hsvg(
+                              dk(context, Svgs.s75, Svgs.s76),
+                              w: 200,
+                              h: 200,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -535,7 +714,11 @@ class ChannelConfigPage extends StatelessWidget {
                                   TextSpan(
                                     style: hts(
                                       14,
-                                      Color(0xFF18181B),
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 20,
                                     ),
@@ -544,7 +727,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         text: '充值短信包 ',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                           lh: 20,
                                         ),
@@ -553,7 +740,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         text: '· 约 ¥0.05–0.06 / 条',
                                         style: hts(
                                           14,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -573,7 +764,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         ctrl: g1[0],
                                         index: 0,
                                         on: hbox(
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFF4F4F5),
+                                            Color(0xFF27272A),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           border: Border.all(
                                             color: Color(0xFF0485F7),
@@ -591,7 +786,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '1,000 条',
                                                 style: hts(
                                                   16,
-                                                  Color(0xFF1E63AE),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF1E63AE),
+                                                    Color(0xFF6AB4FA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -600,7 +799,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '¥60',
                                                 style: hts(
                                                   12,
-                                                  Color(0xFF71717A),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF71717A),
+                                                    Color(0xFF9A9AA3),
+                                                  ),
                                                   lh: 16,
                                                 ),
                                               ),
@@ -611,7 +814,11 @@ class ChannelConfigPage extends StatelessWidget {
                                           ),
                                         ),
                                         off: hbox(
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFF4F4F5),
+                                            Color(0xFF27272A),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           pad: EdgeInsets.fromLTRB(
                                             0,
@@ -625,7 +832,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '1,000 条',
                                                 style: hts(
                                                   16,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -634,7 +845,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '¥60',
                                                 style: hts(
                                                   12,
-                                                  Color(0xFF71717A),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF71717A),
+                                                    Color(0xFF9A9AA3),
+                                                  ),
                                                   lh: 16,
                                                 ),
                                               ),
@@ -652,7 +867,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         ctrl: g1[0],
                                         index: 1,
                                         on: hbox(
-                                          bg: Color(0xFFE1F0FE),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFE1F0FE),
+                                            Color.fromRGBO(4, 133, 247, 0.18),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           border: Border.all(
                                             color: Color(0xFF0485F7),
@@ -670,7 +889,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '5,000 条',
                                                 style: hts(
                                                   16,
-                                                  Color(0xFF1E63AE),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF1E63AE),
+                                                    Color(0xFF6AB4FA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -679,7 +902,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '¥270',
                                                 style: hts(
                                                   12,
-                                                  Color(0xFF1E63AE),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF1E63AE),
+                                                    Color(0xFF6AB4FA),
+                                                  ),
                                                   lh: 16,
                                                 ),
                                               ),
@@ -690,7 +917,11 @@ class ChannelConfigPage extends StatelessWidget {
                                           ),
                                         ),
                                         off: hbox(
-                                          bg: Color(0xFFE1F0FE),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFE1F0FE),
+                                            Color.fromRGBO(4, 133, 247, 0.18),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           pad: EdgeInsets.fromLTRB(
                                             0,
@@ -704,7 +935,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '5,000 条',
                                                 style: hts(
                                                   16,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -713,7 +948,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '¥270',
                                                 style: hts(
                                                   12,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   lh: 16,
                                                 ),
                                               ),
@@ -731,7 +970,11 @@ class ChannelConfigPage extends StatelessWidget {
                                         ctrl: g1[0],
                                         index: 2,
                                         on: hbox(
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFF4F4F5),
+                                            Color(0xFF27272A),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           border: Border.all(
                                             color: Color(0xFF0485F7),
@@ -749,7 +992,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '2 万条',
                                                 style: hts(
                                                   16,
-                                                  Color(0xFF1E63AE),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF1E63AE),
+                                                    Color(0xFF6AB4FA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -758,7 +1005,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '¥1,000',
                                                 style: hts(
                                                   12,
-                                                  Color(0xFF71717A),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF71717A),
+                                                    Color(0xFF9A9AA3),
+                                                  ),
                                                   lh: 16,
                                                 ),
                                               ),
@@ -769,7 +1020,11 @@ class ChannelConfigPage extends StatelessWidget {
                                           ),
                                         ),
                                         off: hbox(
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: dk(
+                                            context,
+                                            Color(0xFFF4F4F5),
+                                            Color(0xFF27272A),
+                                          ),
                                           radius: BorderRadius.circular(16),
                                           pad: EdgeInsets.fromLTRB(
                                             0,
@@ -783,7 +1038,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '2 万条',
                                                 style: hts(
                                                   16,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                 ),
@@ -792,7 +1051,11 @@ class ChannelConfigPage extends StatelessWidget {
                                                 '¥1,000',
                                                 style: hts(
                                                   12,
-                                                  Color(0xFF71717A),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF71717A),
+                                                    Color(0xFF9A9AA3),
+                                                  ),
                                                   lh: 16,
                                                 ),
                                               ),
@@ -820,7 +1083,11 @@ class ChannelConfigPage extends StatelessWidget {
                             context,
                             hbox(
                               h: 46,
-                              bg: Color(0xFF18181B),
+                              bg: dk(
+                                context,
+                                Color(0xFF18181B),
+                                Color(0xFFFAFAFA),
+                              ),
                               radius: BorderRadius.circular(23),
                               child: Align(
                                 alignment: Alignment.center,
@@ -829,7 +1096,11 @@ class ChannelConfigPage extends StatelessWidget {
                                   '充值 ¥270',
                                   style: hts(
                                     15,
-                                    Color(0xFFFFFFFF),
+                                    dk(
+                                      context,
+                                      Color(0xFFFFFFFF),
+                                      Color(0xFF18181B),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 22,
                                   ),
@@ -838,7 +1109,14 @@ class ChannelConfigPage extends StatelessWidget {
                             ),
                             label: '充值 ¥270',
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hrow(
                             [
                               Expanded(
@@ -847,11 +1125,27 @@ class ChannelConfigPage extends StatelessWidget {
                                   [
                                     Text(
                                       '短信签名',
-                                      style: hts(14, Color(0xFF18181B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                     Text(
                                       '显示在短信开头，需运营商审核',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -863,20 +1157,32 @@ class ChannelConfigPage extends StatelessWidget {
                                 '【驰光汽车】',
                                 style: hts(
                                   14,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 20,
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFDDF6E7),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFDDF6E7),
+                                  Color.fromRGBO(23, 201, 100, 0.16),
+                                ),
                                 radius: BorderRadius.circular(9),
                                 pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Text(
                                   '已通过',
                                   style: hts(
                                     11,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 18,
                                   ),
@@ -887,7 +1193,14 @@ class ChannelConfigPage extends StatelessWidget {
                             cross: CrossAxisAlignment.center,
                             gap: 12,
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hrow(
                             [
                               Expanded(
@@ -896,11 +1209,27 @@ class ChannelConfigPage extends StatelessWidget {
                                   [
                                     Text(
                                       '余量不足提醒',
-                                      style: hts(14, Color(0xFF18181B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                     Text(
                                       '低于 200 条时通知店长',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -922,11 +1251,27 @@ class ChannelConfigPage extends StatelessWidget {
                                   [
                                     Text(
                                       '夜间免打扰',
-                                      style: hts(14, Color(0xFF18181B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                     Text(
                                       '22:00–08:00 不发送短信，次日早晨补发',
-                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                      style: hts(
+                                        12,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 16,
+                                      ),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,

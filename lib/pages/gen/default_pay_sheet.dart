@@ -9,7 +9,7 @@ class DefaultPaySheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -24,13 +24,18 @@ class DefaultPaySheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '默认收款方式',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           HSelHolder(
             groups: [
@@ -42,7 +47,11 @@ class DefaultPaySheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 0,
                   on: hbox(
-                    bg: Color(0xFFE1F0FE),
+                    bg: dk(
+                      context,
+                      Color(0xFFE1F0FE),
+                      Color.fromRGBO(4, 133, 247, 0.18),
+                    ),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -56,14 +65,26 @@ class DefaultPaySheet extends StatelessWidget {
                                 '微信支付',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '结账时默认选中',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -77,7 +98,7 @@ class DefaultPaySheet extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -90,7 +111,11 @@ class DefaultPaySheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFE1F0FE),
+                    bg: dk(
+                      context,
+                      Color(0xFFE1F0FE),
+                      Color.fromRGBO(4, 133, 247, 0.18),
+                    ),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -103,14 +128,26 @@ class DefaultPaySheet extends StatelessWidget {
                                 '微信支付',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '结账时默认选中',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -124,7 +161,7 @@ class DefaultPaySheet extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s11, w: 12, h: 12)],
+                            [hsvg(Svgs.s20, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -141,7 +178,7 @@ class DefaultPaySheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 1,
                   on: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -155,7 +192,11 @@ class DefaultPaySheet extends StatelessWidget {
                                 '支付宝',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
@@ -174,7 +215,7 @@ class DefaultPaySheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -187,7 +228,11 @@ class DefaultPaySheet extends StatelessWidget {
                                 '支付宝',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
@@ -210,7 +255,7 @@ class DefaultPaySheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 2,
                   on: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -224,14 +269,26 @@ class DefaultPaySheet extends StatelessWidget {
                                 '会员储值',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '有余额的会员优先使用',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -246,7 +303,7 @@ class DefaultPaySheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -259,14 +316,26 @@ class DefaultPaySheet extends StatelessWidget {
                                 '会员储值',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
                               ),
                               Text(
                                 '有余额的会员优先使用',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -285,7 +354,7 @@ class DefaultPaySheet extends StatelessWidget {
                   ctrl: g1[0],
                   index: 3,
                   on: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     border: Border.all(color: Color(0xFF0485F7), width: 1.5),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -299,7 +368,11 @@ class DefaultPaySheet extends StatelessWidget {
                                 '现金',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
@@ -318,7 +391,7 @@ class DefaultPaySheet extends StatelessWidget {
                     ),
                   ),
                   off: hbox(
-                    bg: Color(0xFFF4F4F5),
+                    bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                     radius: BorderRadius.circular(18),
                     pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                     child: hrow(
@@ -331,7 +404,11 @@ class DefaultPaySheet extends StatelessWidget {
                                 '现金',
                                 style: hts(
                                   15,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 22,
                                 ),
@@ -364,7 +441,7 @@ class DefaultPaySheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFFEEEEF0),
+                    bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -373,7 +450,7 @@ class DefaultPaySheet extends StatelessWidget {
                         '取消',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w500,
                           lh: 22,
                         ),
@@ -389,7 +466,7 @@ class DefaultPaySheet extends StatelessWidget {
                   context,
                   hbox(
                     h: 50,
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                     radius: BorderRadius.circular(25),
                     child: Align(
                       alignment: Alignment(0, 0),
@@ -398,7 +475,7 @@ class DefaultPaySheet extends StatelessWidget {
                         '确定',
                         style: hts(
                           15,
-                          Color(0xFFFFFFFF),
+                          dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),

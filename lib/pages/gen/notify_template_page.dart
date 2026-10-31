@@ -9,7 +9,7 @@ class NotifyTemplatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1340,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class NotifyTemplatePage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class NotifyTemplatePage extends StatelessWidget {
                         '编辑通知内容',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,38 +87,59 @@ class NotifyTemplatePage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                   child: hrow(
                     [
                       hbox(
                         w: 40,
                         h: 40,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(13),
                         child: hrow(
-                          [hsvg(Svgs.s126, w: 22, h: 22)],
+                          [
+                            hsvg(
+                              dk(context, Svgs.s232, Svgs.s233),
+                              w: 22,
+                              h: 22,
+                            ),
+                          ],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -121,14 +153,26 @@ class NotifyTemplatePage extends StatelessWidget {
                               '消费扣款',
                               style: hts(
                                 16,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 22,
                               ),
                             ),
                             Text(
                               '开单收款成功后立即发送',
-                              style: hts(12, Color(0xFF71717A), lh: 16),
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
+                                lh: 16,
+                              ),
                             ),
                           ],
                           main: MainAxisAlignment.start,
@@ -141,14 +185,22 @@ class NotifyTemplatePage extends StatelessWidget {
                           Flexible(
                             flex: 38,
                             child: hbox(
-                              bg: Color(0xFFDDF6E7),
+                              bg: dk(
+                                context,
+                                Color(0xFFDDF6E7),
+                                Color.fromRGBO(23, 201, 100, 0.16),
+                              ),
                               radius: BorderRadius.circular(9),
                               pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: Text(
                                 '微信',
                                 style: hts(
                                   11,
-                                  Color(0xFF2B7745),
+                                  dk(
+                                    context,
+                                    Color(0xFF2B7745),
+                                    Color(0xFF5FD48C),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 18,
                                 ),
@@ -158,14 +210,22 @@ class NotifyTemplatePage extends StatelessWidget {
                           Flexible(
                             flex: 38,
                             child: hbox(
-                              bg: Color(0xFFE1F0FE),
+                              bg: dk(
+                                context,
+                                Color(0xFFE1F0FE),
+                                Color.fromRGBO(4, 133, 247, 0.18),
+                              ),
                               radius: BorderRadius.circular(9),
                               pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: Text(
                                 '短信',
                                 style: hts(
                                   11,
-                                  Color(0xFF1E63AE),
+                                  dk(
+                                    context,
+                                    Color(0xFF1E63AE),
+                                    Color(0xFF6AB4FA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 18,
                                 ),
@@ -192,7 +252,7 @@ class NotifyTemplatePage extends StatelessWidget {
                         '微信消息 · 预览',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
@@ -209,7 +269,11 @@ class NotifyTemplatePage extends StatelessWidget {
                             style: hts(11, Color(0xFF8A8A8E), lh: 16),
                           ),
                           hbox(
-                            bg: Color(0xFFFFFFFF),
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
                             radius: BorderRadius.circular(12),
                             pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                             child: hcol(
@@ -218,13 +282,25 @@ class NotifyTemplatePage extends StatelessWidget {
                                   [
                                     Text(
                                       '驰光汽车美容 · 消费通知',
-                                      style: hts(13, Color(0xFF71717A), lh: 18),
+                                      style: hts(
+                                        13,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        lh: 18,
+                                      ),
                                     ),
                                     Text(
                                       '¥1,422.00',
                                       style: hts(
                                         30,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 38,
                                         ls: -0.5,
@@ -245,7 +321,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '消费项目',
                                             style: hts(
                                               14,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -256,7 +336,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '镀晶养护 · 内饰精洗',
                                             style: hts(
                                               14,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -274,7 +358,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '车辆',
                                             style: hts(
                                               14,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -285,7 +373,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '沪A·8K826',
                                             style: hts(
                                               14,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -303,7 +395,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '储值余额',
                                             style: hts(
                                               14,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -314,7 +410,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '¥2,258.00',
                                             style: hts(
                                               14,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -332,7 +432,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '本次积分',
                                             style: hts(
                                               14,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -343,7 +447,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                             '+1,422',
                                             style: hts(
                                               14,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               lh: 20,
                                             ),
                                           ),
@@ -358,7 +466,14 @@ class NotifyTemplatePage extends StatelessWidget {
                                   cross: CrossAxisAlignment.stretch,
                                   gap: 6,
                                 ),
-                                hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                                hbox(
+                                  h: 1,
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFEFEFF1),
+                                    Color(0xFF2A2A2E),
+                                  ),
+                                ),
                                 hrow(
                                   [
                                     Expanded(
@@ -367,12 +482,20 @@ class NotifyTemplatePage extends StatelessWidget {
                                         '查看消费详情',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
                                     ),
-                                    hsvg(Svgs.s103, w: 14, h: 14),
+                                    hsvg(
+                                      dk(context, Svgs.s187, Svgs.s188),
+                                      w: 14,
+                                      h: 14,
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -391,28 +514,39 @@ class NotifyTemplatePage extends StatelessWidget {
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 6, 16, 6),
                       child: hcol(
                         [
@@ -420,7 +554,15 @@ class NotifyTemplatePage extends StatelessWidget {
                             pad: EdgeInsets.fromLTRB(0, 10, 0, 4),
                             child: Text(
                               '微信模板的版式由平台固定，可选择要展示的字段',
-                              style: hts(12, Color(0xFF71717A), lh: 16),
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFF71717A),
+                                  Color(0xFF9A9AA3),
+                                ),
+                                lh: 16,
+                              ),
                             ),
                           ),
                           hbox(
@@ -431,7 +573,15 @@ class NotifyTemplatePage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '消费项目',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -441,7 +591,14 @@ class NotifyTemplatePage extends StatelessWidget {
                               gap: 12,
                             ),
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hbox(
                             minH: 48,
                             child: hrow(
@@ -450,7 +607,15 @@ class NotifyTemplatePage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '车牌号',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -460,7 +625,14 @@ class NotifyTemplatePage extends StatelessWidget {
                               gap: 12,
                             ),
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hbox(
                             minH: 48,
                             child: hrow(
@@ -469,7 +641,15 @@ class NotifyTemplatePage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '储值余额',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -479,7 +659,14 @@ class NotifyTemplatePage extends StatelessWidget {
                               gap: 12,
                             ),
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hbox(
                             minH: 48,
                             child: hrow(
@@ -488,7 +675,15 @@ class NotifyTemplatePage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '本次积分',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: true),
@@ -498,7 +693,14 @@ class NotifyTemplatePage extends StatelessWidget {
                               gap: 12,
                             ),
                           ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                          hbox(
+                            h: 1,
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
+                          ),
                           hbox(
                             minH: 48,
                             child: hrow(
@@ -507,7 +709,15 @@ class NotifyTemplatePage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '服务技师',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 HSwitch(initial: false),
@@ -536,35 +746,46 @@ class NotifyTemplatePage extends StatelessWidget {
                         '短信内容 · 可自由编写',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -572,17 +793,29 @@ class NotifyTemplatePage extends StatelessWidget {
                             '短信正文',
                             style: hts(
                               14,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
                           ),
                           hbox(
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(16),
                             pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                             child: HInput(
-                              style: hts(14, Color(0xFF18181B), lh: 22),
+                              style: hts(
+                                14,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                lh: 22,
+                              ),
                               maxLines: 4,
                               value: '【驰光汽车】{会员姓名}您好，您的爱车{车牌}于今日消费¥{金额}（{项目}），储值余额¥{余额}。如有疑问请致电{门店电话}。退订回T',
                             ),
@@ -593,18 +826,34 @@ class NotifyTemplatePage extends StatelessWidget {
                                 flex: 1,
                                 child: Text(
                                   '点击插入变量',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ),
                               hbox(
-                                bg: Color(0xFFFDEFD6),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFFDEFD6),
+                                  Color.fromRGBO(245, 165, 36, 0.16),
+                                ),
                                 radius: BorderRadius.circular(8),
                                 pad: EdgeInsets.fromLTRB(8, 2, 8, 2),
                                 child: Text(
                                   '实际约 86 字 · 按 2 条计费',
                                   style: hts(
                                     12,
-                                    Color(0xFF855F2E),
+                                    dk(
+                                      context,
+                                      Color(0xFF855F2E),
+                                      Color(0xFFF0C46A),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 16,
                                   ),
@@ -621,7 +870,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -631,7 +884,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                       '+ 会员姓名',
                                       style: hts(
                                         13,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -644,7 +901,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -654,7 +915,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                       '+ 金额',
                                       style: hts(
                                         13,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -667,7 +932,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -677,7 +946,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                       '+ 项目',
                                       style: hts(
                                         13,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -690,7 +963,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -700,7 +977,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                       '+ 车牌',
                                       style: hts(
                                         13,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -713,7 +994,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -723,7 +1008,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                       '+ 余额',
                                       style: hts(
                                         13,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -736,7 +1025,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                 context,
                                 hbox(
                                   h: 32,
-                                  bg: Color(0xFFE1F0FE),
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFE1F0FE),
+                                    Color.fromRGBO(4, 133, 247, 0.18),
+                                  ),
                                   radius: BorderRadius.circular(16),
                                   pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                   child: Align(
@@ -746,7 +1039,11 @@ class NotifyTemplatePage extends StatelessWidget {
                                       '+ 门店电话',
                                       style: hts(
                                         13,
-                                        Color(0xFF1E63AE),
+                                        dk(
+                                          context,
+                                          Color(0xFF1E63AE),
+                                          Color(0xFF6AB4FA),
+                                        ),
                                         w: FontWeight.w500,
                                         lh: 18,
                                       ),
@@ -761,38 +1058,73 @@ class NotifyTemplatePage extends StatelessWidget {
                             cross: WrapCrossAlignment.start,
                           ),
                           hbox(
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(18),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hcol(
                               [
                                 Text(
                                   '短信预览',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                                 Align(
                                   alignment: Alignment.topLeft,
                                   child: hbox(
                                     maxW: 300,
-                                    bg: Color(0xFFFFFFFF),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFFFFFFF),
+                                      Color(0xFF18181B),
+                                    ),
                                     radius: BorderRadius.only(
                                       topLeft: Radius.circular(4),
                                       topRight: Radius.circular(18),
                                       bottomRight: Radius.circular(18),
                                       bottomLeft: Radius.circular(18),
                                     ),
-                                    shadow: [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                                        offset: Offset(0, 1),
-                                        blurRadius: 2,
-                                        spreadRadius: 0,
-                                      ),
-                                    ],
+                                    shadow: dk(
+                                      context,
+                                      [
+                                        BoxShadow(
+                                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                                          offset: Offset(0, 1),
+                                          blurRadius: 2,
+                                          spreadRadius: 0,
+                                        ),
+                                      ],
+                                      [
+                                        BoxShadow(
+                                          color: Color(0xFF26262B),
+                                          offset: Offset(0, 0),
+                                          blurRadius: 0,
+                                          spreadRadius: 1,
+                                        ),
+                                      ],
+                                    ),
                                     pad: EdgeInsets.fromLTRB(14, 10, 14, 10),
                                     child: Text(
                                       '【驰光汽车】王先生您好，您的爱车沪A·8K826于今日消费¥1,422.00（镀晶养护），储值余额¥2,258.00。如有疑问请致电021-5566 8899。退订回T',
-                                      style: hts(14, Color(0xFF18181B), lh: 21),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
+                                        lh: 21,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -827,15 +1159,30 @@ class NotifyTemplatePage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.92),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.92),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -845,7 +1192,7 @@ class NotifyTemplatePage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment.center,
@@ -854,7 +1201,7 @@ class NotifyTemplatePage extends StatelessWidget {
                           '发给我测试',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),

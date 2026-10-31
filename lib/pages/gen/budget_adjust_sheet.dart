@@ -9,7 +9,7 @@ class BudgetAdjustSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hbox(
-      bg: Color(0xFFFFFFFF),
+      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
       radius: BorderRadius.only(
         topLeft: Radius.circular(32),
         topRight: Radius.circular(32),
@@ -24,13 +24,18 @@ class BudgetAdjustSheet extends StatelessWidget {
             child: hbox(
               w: 40,
               h: 5,
-              bg: Color(0xFFD4D4D8),
+              bg: dk(context, Color(0xFFD4D4D8), Color(0xFF3F3F46)),
               radius: BorderRadius.circular(3),
             ),
           ),
           Text(
             '追加预算 · 材料采购',
-            style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
+            style: hts(
+              20,
+              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+              w: FontWeight.w600,
+              lh: 28,
+            ),
           ),
           HSelHolder(
             groups: [
@@ -44,20 +49,28 @@ class BudgetAdjustSheet extends StatelessWidget {
                     ctrl: g1[0],
                     index: 0,
                     on: hbox(
-                      bg: Color(0xFFFFE1E2),
+                      bg: dk(
+                        context,
+                        Color(0xFFFFE1E2),
+                        Color.fromRGBO(255, 56, 60, 0.18),
+                      ),
                       radius: BorderRadius.circular(16),
                       pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                       child: hcol(
                         [
                           Text(
                             '当前预算',
-                            style: hts(11, Color(0xFF71717A), lh: 14),
+                            style: hts(
+                              11,
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                              lh: 14,
+                            ),
                           ),
                           Text(
                             '¥32,000',
                             style: hts(
                               15,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -69,20 +82,24 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                     ),
                     off: hbox(
-                      bg: Color(0xFFF4F4F5),
+                      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                       radius: BorderRadius.circular(16),
                       pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                       child: hcol(
                         [
                           Text(
                             '当前预算',
-                            style: hts(11, Color(0xFF71717A), lh: 14),
+                            style: hts(
+                              11,
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                              lh: 14,
+                            ),
                           ),
                           Text(
                             '¥32,000',
                             style: hts(
                               15,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -101,17 +118,28 @@ class BudgetAdjustSheet extends StatelessWidget {
                     ctrl: g1[0],
                     index: 1,
                     on: hbox(
-                      bg: Color(0xFFFFE1E2),
+                      bg: dk(
+                        context,
+                        Color(0xFFFFE1E2),
+                        Color.fromRGBO(255, 56, 60, 0.18),
+                      ),
                       radius: BorderRadius.circular(16),
                       pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                       child: hcol(
                         [
-                          Text('已用', style: hts(11, Color(0xFF71717A), lh: 14)),
+                          Text(
+                            '已用',
+                            style: hts(
+                              11,
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                              lh: 14,
+                            ),
+                          ),
                           Text(
                             '¥36,570',
                             style: hts(
                               15,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -123,17 +151,24 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                     ),
                     off: hbox(
-                      bg: Color(0xFFF4F4F5),
+                      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                       radius: BorderRadius.circular(16),
                       pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                       child: hcol(
                         [
-                          Text('已用', style: hts(11, Color(0xFF71717A), lh: 14)),
+                          Text(
+                            '已用',
+                            style: hts(
+                              11,
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                              lh: 14,
+                            ),
+                          ),
                           Text(
                             '¥36,570',
                             style: hts(
                               15,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -152,17 +187,28 @@ class BudgetAdjustSheet extends StatelessWidget {
                     ctrl: g1[0],
                     index: 2,
                     on: hbox(
-                      bg: Color(0xFFFFE1E2),
+                      bg: dk(
+                        context,
+                        Color(0xFFFFE1E2),
+                        Color.fromRGBO(255, 56, 60, 0.18),
+                      ),
                       radius: BorderRadius.circular(16),
                       pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                       child: hcol(
                         [
-                          Text('超支', style: hts(11, Color(0xFFA43433), lh: 14)),
+                          Text(
+                            '超支',
+                            style: hts(
+                              11,
+                              dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
+                              lh: 14,
+                            ),
+                          ),
                           Text(
                             '¥4,570',
                             style: hts(
                               15,
-                              Color(0xFFA43433),
+                              dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -174,17 +220,24 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                     ),
                     off: hbox(
-                      bg: Color(0xFFF4F4F5),
+                      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                       radius: BorderRadius.circular(16),
                       pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                       child: hcol(
                         [
-                          Text('超支', style: hts(11, Color(0xFFA43433), lh: 14)),
+                          Text(
+                            '超支',
+                            style: hts(
+                              11,
+                              dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
+                              lh: 14,
+                            ),
+                          ),
                           Text(
                             '¥4,570',
                             style: hts(
                               15,
-                              Color(0xFFA43433),
+                              dk(context, Color(0xFFA43433), Color(0xFFFF7B7E)),
                               w: FontWeight.w600,
                               lh: 20,
                             ),
@@ -208,7 +261,12 @@ class BudgetAdjustSheet extends StatelessWidget {
             [
               Text(
                 '追加金额',
-                style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                style: hts(
+                  14,
+                  dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                  w: FontWeight.w600,
+                  lh: 20,
+                ),
               ),
               hrow(
                 [
@@ -216,7 +274,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                     '¥',
                     style: hts(
                       22,
-                      Color(0xFF71717A),
+                      dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
                       w: FontWeight.w600,
                       lh: 30,
                     ),
@@ -227,7 +285,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       child: HInput(
                         style: hts(
                           32,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 40,
                           tab: true,
@@ -253,7 +311,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -267,7 +325,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '补齐超支 ¥4,570',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -276,7 +334,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -286,7 +344,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '补齐超支 ¥4,570',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -299,7 +357,11 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -313,7 +375,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '¥5,000',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -322,7 +384,11 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -332,7 +398,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '¥5,000',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -345,7 +411,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -359,7 +425,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '¥8,000',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -368,7 +434,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -378,7 +444,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '¥8,000',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -403,7 +469,12 @@ class BudgetAdjustSheet extends StatelessWidget {
                 pad: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   '资金来源',
-                  style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    w: FontWeight.w600,
+                    lh: 20,
+                  ),
                 ),
               ),
               HSelHolder(
@@ -417,7 +488,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -431,7 +502,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '总预算余额 ¥3,930',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -440,7 +511,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -450,7 +521,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '总预算余额 ¥3,930',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -463,7 +534,11 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 1,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -477,7 +552,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '其他分类调剂',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -486,7 +561,11 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: dk(
+                          context,
+                          Color(0xFFE1F0FE),
+                          Color.fromRGBO(4, 133, 247, 0.18),
+                        ),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -496,7 +575,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '其他分类调剂',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -509,7 +588,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -523,7 +602,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '追加总预算',
                             style: hts(
                               13,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -532,7 +611,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -542,7 +621,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                             '追加总预算',
                             style: hts(
                               13,
-                              Color(0xFF3F3F46),
+                              dk(context, Color(0xFF3F3F46), Color(0xFFD4D4D8)),
                               w: FontWeight.w500,
                               lh: 18,
                             ),
@@ -566,7 +645,7 @@ class BudgetAdjustSheet extends StatelessWidget {
             builder: (context, s4) => hTap(
               context,
               hbox(
-                bg: Color(0xFFF4F4F5),
+                bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                 radius: BorderRadius.circular(16),
                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                 child: hrow(
@@ -575,11 +654,22 @@ class BudgetAdjustSheet extends StatelessWidget {
                       flex: 1,
                       child: Text(
                         '从 营销 调剂',
-                        style: hts(14, Color(0xFF18181B), lh: 20),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          lh: 20,
+                        ),
                       ),
                     ),
-                    hStr(s4, hts(13, Color(0xFF71717A), lh: 18)),
-                    hsvg(Svgs.s2, w: 16, h: 16),
+                    hStr(
+                      s4,
+                      hts(
+                        13,
+                        dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                        lh: 18,
+                      ),
+                    ),
+                    hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                   ],
                   main: MainAxisAlignment.start,
                   cross: CrossAxisAlignment.center,
@@ -593,15 +683,24 @@ class BudgetAdjustSheet extends StatelessWidget {
             [
               Text(
                 '追加原因',
-                style: hts(14, Color(0xFF18181B), w: FontWeight.w600, lh: 20),
+                style: hts(
+                  14,
+                  dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                  w: FontWeight.w600,
+                  lh: 20,
+                ),
               ),
               hbox(
                 minH: 56,
-                bg: Color(0xFFF4F4F5),
+                bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
                 radius: BorderRadius.circular(14),
                 pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
                 child: HInput(
-                  style: hts(14, Color(0xFF18181B), lh: 20),
+                  style: hts(
+                    14,
+                    dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                    lh: 20,
+                  ),
                   maxLines: 4,
                   value: '10 月接了两台全车隐形车衣，贴膜材料集中采购',
                 ),
@@ -621,7 +720,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -630,7 +729,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                           '取消',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -646,7 +745,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -655,7 +754,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                           '确认追加',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

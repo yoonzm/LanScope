@@ -9,7 +9,7 @@ class BackupContentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 854,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class BackupContentPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class BackupContentPage extends StatelessWidget {
                         '发送内容',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -102,35 +113,46 @@ class BackupContentPage extends StatelessWidget {
                         '包含哪些数据',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -147,7 +169,11 @@ class BackupContentPage extends StatelessWidget {
                                         '会员与储值',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -155,7 +181,11 @@ class BackupContentPage extends StatelessWidget {
                                         '档案、余额、次卡、消费记录',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -174,7 +204,11 @@ class BackupContentPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -190,7 +224,11 @@ class BackupContentPage extends StatelessWidget {
                                         '订单与收款',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -198,7 +236,11 @@ class BackupContentPage extends StatelessWidget {
                                         '开单、挂单、退款、对账流水',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -217,7 +259,11 @@ class BackupContentPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -233,7 +279,11 @@ class BackupContentPage extends StatelessWidget {
                                         '商品与库存',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -241,7 +291,11 @@ class BackupContentPage extends StatelessWidget {
                                         '商品、出入库、盘点记录',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -260,7 +314,11 @@ class BackupContentPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -276,7 +334,11 @@ class BackupContentPage extends StatelessWidget {
                                         '开支与预算',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -284,7 +346,11 @@ class BackupContentPage extends StatelessWidget {
                                         '开支明细、预算执行',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -303,7 +369,11 @@ class BackupContentPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -319,7 +389,11 @@ class BackupContentPage extends StatelessWidget {
                                         '预约记录',
                                         style: hts(
                                           14,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           lh: 20,
                                         ),
                                       ),
@@ -327,7 +401,11 @@ class BackupContentPage extends StatelessWidget {
                                         '预约与到店情况',
                                         style: hts(
                                           12,
-                                          Color(0xFF71717A),
+                                          dk(
+                                            context,
+                                            Color(0xFF71717A),
+                                            Color(0xFF9A9AA3),
+                                          ),
                                           lh: 16,
                                         ),
                                       ),
@@ -363,35 +441,46 @@ class BackupContentPage extends StatelessWidget {
                         '数据范围',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -406,7 +495,11 @@ class BackupContentPage extends StatelessWidget {
                                   index: 0,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -420,7 +513,11 @@ class BackupContentPage extends StatelessWidget {
                                         '自上次发送起',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -429,7 +526,11 @@ class BackupContentPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -439,7 +540,11 @@ class BackupContentPage extends StatelessWidget {
                                         '自上次发送起',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -452,7 +557,11 @@ class BackupContentPage extends StatelessWidget {
                                   index: 1,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -466,7 +575,11 @@ class BackupContentPage extends StatelessWidget {
                                         '近 30 天',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -475,7 +588,11 @@ class BackupContentPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -485,7 +602,11 @@ class BackupContentPage extends StatelessWidget {
                                         '近 30 天',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -498,7 +619,11 @@ class BackupContentPage extends StatelessWidget {
                                   index: 2,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -512,7 +637,11 @@ class BackupContentPage extends StatelessWidget {
                                         '近 90 天',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -521,7 +650,11 @@ class BackupContentPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -531,7 +664,11 @@ class BackupContentPage extends StatelessWidget {
                                         '近 90 天',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -544,7 +681,11 @@ class BackupContentPage extends StatelessWidget {
                                   index: 3,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -558,7 +699,11 @@ class BackupContentPage extends StatelessWidget {
                                         '全部历史',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -567,7 +712,11 @@ class BackupContentPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -577,7 +726,11 @@ class BackupContentPage extends StatelessWidget {
                                         '全部历史',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -610,35 +763,46 @@ class BackupContentPage extends StatelessWidget {
                         '文件格式',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
@@ -653,7 +817,11 @@ class BackupContentPage extends StatelessWidget {
                                   index: 0,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -667,7 +835,11 @@ class BackupContentPage extends StatelessWidget {
                                         'Excel (.xlsx)',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -676,7 +848,11 @@ class BackupContentPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFE1F0FE),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE1F0FE),
+                                      Color.fromRGBO(4, 133, 247, 0.18),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -686,7 +862,11 @@ class BackupContentPage extends StatelessWidget {
                                         'Excel (.xlsx)',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -699,7 +879,11 @@ class BackupContentPage extends StatelessWidget {
                                   index: 1,
                                   on: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     border: Border.all(
                                       color: Color(0xFF0485F7),
@@ -713,7 +897,11 @@ class BackupContentPage extends StatelessWidget {
                                         'CSV',
                                         style: hts(
                                           13,
-                                          Color(0xFF1E63AE),
+                                          dk(
+                                            context,
+                                            Color(0xFF1E63AE),
+                                            Color(0xFF6AB4FA),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -722,7 +910,11 @@ class BackupContentPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 34,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(17),
                                     pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                     child: Align(
@@ -732,7 +924,11 @@ class BackupContentPage extends StatelessWidget {
                                         'CSV',
                                         style: hts(
                                           13,
-                                          Color(0xFF3F3F46),
+                                          dk(
+                                            context,
+                                            Color(0xFF3F3F46),
+                                            Color(0xFFD4D4D8),
+                                          ),
                                           w: FontWeight.w500,
                                           lh: 18,
                                         ),
@@ -759,7 +955,11 @@ class BackupContentPage extends StatelessWidget {
                 ),
                 Text(
                   '每次生成一个压缩包，每类数据一张表。邮箱附件通常限 25 MB，数据过大时会拆成多封发送。',
-                  style: hts(12, Color(0xFF71717A), lh: 18),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                    lh: 18,
+                  ),
                 ),
               ],
               main: MainAxisAlignment.start,

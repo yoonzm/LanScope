@@ -9,7 +9,7 @@ class PlanExpiredPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,9 +25,166 @@ class PlanExpiredPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
+                        child: hrow(
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
+                          main: MainAxisAlignment.center,
+                          cross: CrossAxisAlignment.center,
+                          gap: 0,
+                        ),
+                      ),
+                      back: true,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '套餐已到期',
+                        style: hts(
+                          17,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w600,
+                          lh: 24,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    hbox(w: 44),
+                  ],
+                  main: MainAxisAlignment.start,
+                  cross: CrossAxisAlignment.center,
+                  gap: 8,
+                ),
+                hbox(
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
+                  radius: BorderRadius.circular(28),
+                  pad: EdgeInsets.fromLTRB(20, 24, 20, 24),
+                  clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
+                  child: hstack(
+                    hcol(
+                      [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: hbox(
+                            w: 52,
+                            h: 52,
+                            bg: dk(
+                              context,
+                              Color(0xFFFDEFD6),
+                              Color.fromRGBO(245, 165, 36, 0.16),
+                            ),
+                            radius: BorderRadius.circular(26),
+                            child: hrow(
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s246, Svgs.s247),
+                                  w: 26,
+                                  h: 26,
+                                ),
+                              ],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 0,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          '试用已结束',
+                          style: hts(
+                            22,
+                            Color(0xFFFAFAFA),
+                            w: FontWeight.w600,
+                            lh: 30,
+                          ),
+                        ),
+                        Text(
+                          '专业版试用于 2026.11.14 到期，当前为只读模式。订阅后立即恢复，数据保留至 2026.12.14。',
+                          style: hts(
+                            14,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 20,
+                          ),
+                        ),
+                      ],
+                      main: MainAxisAlignment.start,
+                      cross: CrossAxisAlignment.stretch,
+                      gap: 12,
+                    ),
+                    [],
+                    behind: [
+                      Positioned(
+                        top: -90,
+                        right: -90,
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                hcol(
+                  [
+                    hbox(
+                      pad: EdgeInsets.fromLTRB(4, 0, 0, 0),
+                      child: Text(
+                        '当前可用功能',
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
+                          w: FontWeight.w500,
+                          lh: 18,
+                        ),
+                      ),
+                    ),
+                    hbox(
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
+                      radius: BorderRadius.circular(24),
+                      shadow: dk(
+                        context,
+                        [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.04),
                             offset: Offset(0, 2),
@@ -47,122 +204,15 @@ class PlanExpiredPage extends StatelessWidget {
                             spreadRadius: 0,
                           ),
                         ],
-                        child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
-                        ),
-                      ),
-                      back: true,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        '套餐已到期',
-                        style: hts(
-                          17,
-                          Color(0xFF18181B),
-                          w: FontWeight.w600,
-                          lh: 24,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    hbox(w: 44),
-                  ],
-                  main: MainAxisAlignment.start,
-                  cross: CrossAxisAlignment.center,
-                  gap: 8,
-                ),
-                hbox(
-                  bg: Color(0xFF18181B),
-                  radius: BorderRadius.circular(28),
-                  pad: EdgeInsets.fromLTRB(20, 24, 20, 24),
-                  clip: true,
-                  child: hstack(
-                    hcol(
-                      [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: hbox(
-                            w: 52,
-                            h: 52,
-                            bg: Color(0xFFFDEFD6),
-                            radius: BorderRadius.circular(26),
-                            child: hrow(
-                              [hsvg(Svgs.s134, w: 26, h: 26)],
-                              main: MainAxisAlignment.center,
-                              cross: CrossAxisAlignment.center,
-                              gap: 0,
-                            ),
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
                           ),
-                        ),
-                        Text(
-                          '试用已结束',
-                          style: hts(
-                            22,
-                            Color(0xFFFAFAFA),
-                            w: FontWeight.w600,
-                            lh: 30,
-                          ),
-                        ),
-                        Text(
-                          '专业版试用于 2026.11.14 到期，当前为只读模式。订阅后立即恢复，数据保留至 2026.12.14。',
-                          style: hts(14, Color(0xFFA1A1AA), lh: 20),
-                        ),
-                      ],
-                      main: MainAxisAlignment.start,
-                      cross: CrossAxisAlignment.stretch,
-                      gap: 12,
-                    ),
-                    [],
-                    behind: [
-                      Positioned(
-                        top: -90,
-                        right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                hcol(
-                  [
-                    hbox(
-                      pad: EdgeInsets.fromLTRB(4, 0, 0, 0),
-                      child: Text(
-                        '当前可用功能',
-                        style: hts(
-                          13,
-                          Color(0xFF52525B),
-                          w: FontWeight.w500,
-                          lh: 18,
-                        ),
-                      ),
-                    ),
-                    hbox(
-                      bg: Color(0xFFFFFFFF),
-                      radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -175,12 +225,28 @@ class PlanExpiredPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '查看会员、订单、库存与报表',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '可用',
-                                  style: hts(15, Color(0xFF2B7745), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -190,7 +256,11 @@ class PlanExpiredPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -202,12 +272,28 @@ class PlanExpiredPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '导出全部经营数据',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '可用',
-                                  style: hts(15, Color(0xFF2B7745), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -217,7 +303,11 @@ class PlanExpiredPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -229,12 +319,28 @@ class PlanExpiredPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '开单收银 · 会员充值',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '已暂停',
-                                  style: hts(15, Color(0xFFA43433), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -244,7 +350,11 @@ class PlanExpiredPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -256,12 +366,28 @@ class PlanExpiredPage extends StatelessWidget {
                                   flex: 1,
                                   child: Text(
                                     '商品入库 · 预约 · 微信通知',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF52525B),
+                                        Color(0xFFA8A8B3),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '已暂停',
-                                  style: hts(15, Color(0xFFA43433), lh: 22),
+                                  style: hts(
+                                    15,
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
+                                    lh: 22,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -281,28 +407,39 @@ class PlanExpiredPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -311,10 +448,20 @@ class PlanExpiredPage extends StatelessWidget {
                           hbox(
                             w: 36,
                             h: 36,
-                            bg: Color(0xFFDDF6E7),
+                            bg: dk(
+                              context,
+                              Color(0xFFDDF6E7),
+                              Color.fromRGBO(23, 201, 100, 0.16),
+                            ),
                             radius: BorderRadius.circular(12),
                             child: hrow(
-                              [hsvg(Svgs.s135, w: 18, h: 18)],
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s248, Svgs.s249),
+                                  w: 18,
+                                  h: 18,
+                                ),
+                              ],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -328,14 +475,26 @@ class PlanExpiredPage extends StatelessWidget {
                                   '不确定选哪个版本？',
                                   style: hts(
                                     15,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 22,
                                   ),
                                 ),
                                 Text(
                                   '联系客户经理 · 工作日 9:00–18:00',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -349,7 +508,11 @@ class PlanExpiredPage extends StatelessWidget {
                               '联系',
                               style: hts(
                                 13,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w600,
                               ),
                             ),
@@ -380,15 +543,30 @@ class PlanExpiredPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [

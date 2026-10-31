@@ -9,7 +9,7 @@ class PlanCheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1175,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class PlanCheckoutPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class PlanCheckoutPage extends StatelessWidget {
                         '确认订单',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,10 +87,20 @@ class PlanCheckoutPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -107,7 +128,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                   '年付',
                                   style: hts(
                                     11,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w600,
                                     lh: 18,
                                   ),
@@ -123,7 +148,11 @@ class PlanCheckoutPage extends StatelessWidget {
                         ),
                         Text(
                           '3 家门店 · 10 个员工账号 · 预约 · 微信通知 · 开支预算',
-                          style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                            lh: 18,
+                          ),
                         ),
                         Text(
                           '服务期：2026.10.31 – 2027.10.30',
@@ -139,34 +168,49 @@ class PlanCheckoutPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -174,7 +218,7 @@ class PlanCheckoutPage extends StatelessWidget {
                         '订阅周期',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
@@ -189,7 +233,11 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g1[0],
                               index: 0,
                               on: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -206,7 +254,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '1 个月',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -215,7 +267,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '按月订阅，随时可停',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -229,7 +285,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                       '¥399',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                     ),
@@ -240,7 +300,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -253,7 +317,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '1 个月',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -262,7 +330,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '按月订阅，随时可停',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -276,7 +348,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                       '¥399',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                     ),
@@ -291,7 +367,11 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g1[0],
                               index: 1,
                               on: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -308,7 +388,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '12 个月',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -317,7 +401,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '相当于每月 ¥333，省 ¥798',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -331,7 +419,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                       '¥3,990',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                     ),
@@ -342,7 +434,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -355,7 +451,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '12 个月',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w600,
                                               lh: 22,
                                             ),
@@ -364,7 +464,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '相当于每月 ¥333，省 ¥798',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -378,7 +482,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                       '¥3,990',
                                       style: hts(
                                         15,
-                                        Color(0xFF18181B),
+                                        dk(
+                                          context,
+                                          Color(0xFF18181B),
+                                          Color(0xFFFAFAFA),
+                                        ),
                                         w: FontWeight.w600,
                                       ),
                                     ),
@@ -402,28 +510,39 @@ class PlanCheckoutPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -431,7 +550,7 @@ class PlanCheckoutPage extends StatelessWidget {
                         '支付方式',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
@@ -446,7 +565,11 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g2[0],
                               index: 0,
                               on: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -458,10 +581,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                     hbox(
                                       w: 36,
                                       h: 36,
-                                      bg: Color(0xFFDDF6E7),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFDDF6E7),
+                                        Color.fromRGBO(23, 201, 100, 0.16),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s120, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s220, Svgs.s221),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -475,7 +608,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '微信支付',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -484,7 +621,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '推荐，支持自动续费',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -501,7 +642,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -509,10 +654,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                     hbox(
                                       w: 36,
                                       h: 36,
-                                      bg: Color(0xFFDDF6E7),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFDDF6E7),
+                                        Color.fromRGBO(23, 201, 100, 0.16),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s120, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s220, Svgs.s221),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -526,7 +681,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '微信支付',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -535,7 +694,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '推荐，支持自动续费',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -556,7 +719,11 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g2[0],
                               index: 1,
                               on: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -568,10 +735,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                     hbox(
                                       w: 36,
                                       h: 36,
-                                      bg: Color(0xFFE1F0FE),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFE1F0FE),
+                                        Color.fromRGBO(4, 133, 247, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s128, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s235, Svgs.s236),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -585,7 +762,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '支付宝',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -604,7 +785,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -612,10 +797,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                     hbox(
                                       w: 36,
                                       h: 36,
-                                      bg: Color(0xFFE1F0FE),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFE1F0FE),
+                                        Color.fromRGBO(4, 133, 247, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s128, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s235, Svgs.s236),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -629,7 +824,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '支付宝',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -652,7 +851,11 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g2[0],
                               index: 2,
                               on: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -664,10 +867,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                     hbox(
                                       w: 36,
                                       h: 36,
-                                      bg: Color(0xFFEEEEF0),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFEEEEF0),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s129, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s237, Svgs.s238),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -681,7 +894,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '对公转账',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -690,7 +907,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '需人工确认，1 个工作日内开通',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -707,7 +928,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -715,10 +940,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                     hbox(
                                       w: 36,
                                       h: 36,
-                                      bg: Color(0xFFEEEEF0),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFEEEEF0),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s129, w: 18, h: 18)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s237, Svgs.s238),
+                                            w: 18,
+                                            h: 18,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -732,7 +967,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '对公转账',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -741,7 +980,11 @@ class PlanCheckoutPage extends StatelessWidget {
                                             '需人工确认，1 个工作日内开通',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -771,28 +1014,39 @@ class PlanCheckoutPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
@@ -807,11 +1061,27 @@ class PlanCheckoutPage extends StatelessWidget {
                                 [
                                   Text(
                                     '到期自动续费',
-                                    style: hts(14, Color(0xFF18181B), lh: 20),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 20,
+                                    ),
                                   ),
                                   Text(
                                     '到期前 3 天微信扣款，可随时关闭',
-                                    style: hts(12, Color(0xFF71717A), lh: 16),
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                      lh: 16,
+                                    ),
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -833,28 +1103,39 @@ class PlanCheckoutPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -866,14 +1147,25 @@ class PlanCheckoutPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '专业版 12 个月',
-                                style: hts(14, Color(0xFF71717A)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                ),
                               ),
                             ),
                             Text(
                               '¥4,788',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -891,14 +1183,25 @@ class PlanCheckoutPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '年付优惠',
-                                style: hts(14, Color(0xFF71717A)),
+                                style: hts(
+                                  14,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                ),
                               ),
                             ),
                             Text(
                               '-¥798',
                               style: hts(
                                 14,
-                                Color(0xFF2B7745),
+                                dk(
+                                  context,
+                                  Color(0xFF2B7745),
+                                  Color(0xFF5FD48C),
+                                ),
                                 w: FontWeight.w500,
                               ),
                             ),
@@ -918,7 +1221,14 @@ class PlanCheckoutPage extends StatelessWidget {
                                 flex: 1,
                                 child: Text(
                                   '新店首购券',
-                                  style: hts(14, Color(0xFF71717A)),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                  ),
                                 ),
                               ),
                               hbox(
@@ -927,12 +1237,20 @@ class PlanCheckoutPage extends StatelessWidget {
                                   '-¥200',
                                   style: hts(
                                     14,
-                                    Color(0xFF2B7745),
+                                    dk(
+                                      context,
+                                      Color(0xFF2B7745),
+                                      Color(0xFF5FD48C),
+                                    ),
                                     w: FontWeight.w500,
                                   ),
                                 ),
                               ),
-                              hsvg(Svgs.s103, w: 14, h: 14),
+                              hsvg(
+                                dk(context, Svgs.s187, Svgs.s188),
+                                w: 14,
+                                h: 14,
+                              ),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -941,7 +1259,10 @@ class PlanCheckoutPage extends StatelessWidget {
                         ),
                         to: 'CouponSheet',
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hrow(
                         [
                           Expanded(
@@ -950,7 +1271,11 @@ class PlanCheckoutPage extends StatelessWidget {
                               '实付',
                               style: hts(
                                 14,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w600,
                               ),
                             ),
@@ -959,7 +1284,7 @@ class PlanCheckoutPage extends StatelessWidget {
                             '¥3,790',
                             style: hts(
                               26,
-                              Color(0xFF18181B),
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                               w: FontWeight.w600,
                               lh: 32,
                             ),
@@ -977,19 +1302,35 @@ class PlanCheckoutPage extends StatelessWidget {
                 ),
                 Text.rich(
                   TextSpan(
-                    style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                    style: hts(
+                      12,
+                      dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                      lh: 18,
+                    ),
                     children: [
                       TextSpan(
                         text: '支付即表示同意',
-                        style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                          lh: 18,
+                        ),
                       ),
                       TextSpan(
                         text: '《套餐订阅服务协议》',
-                        style: hts(12, Color(0xFF1E63AE), lh: 18),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
+                          lh: 18,
+                        ),
                       ),
                       TextSpan(
                         text: '，年付 7 天内可申请退款',
-                        style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                          lh: 18,
+                        ),
                       ),
                     ],
                   ),
@@ -1009,15 +1350,30 @@ class PlanCheckoutPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -1025,12 +1381,19 @@ class PlanCheckoutPage extends StatelessWidget {
                   flex: 1,
                   child: hcol(
                     [
-                      Text('实付', style: hts(12, Color(0xFF71717A), lh: 16)),
+                      Text(
+                        '实付',
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 16,
+                        ),
+                      ),
                       Text(
                         '¥3,790',
                         style: hts(
                           22,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 28,
                         ),

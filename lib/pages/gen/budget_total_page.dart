@@ -9,7 +9,7 @@ class BudgetTotalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1760,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class BudgetTotalPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s15, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class BudgetTotalPage extends StatelessWidget {
                         '调整预算',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -95,34 +106,49 @@ class BudgetTotalPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(18, 18, 18, 18),
                   child: hcol(
                     [
                       Text(
                         '10 月总预算（元）',
-                        style: hts(13, Color(0xFF71717A), lh: 18),
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 18,
+                        ),
                       ),
                       hrow(
                         [
@@ -130,7 +156,7 @@ class BudgetTotalPage extends StatelessWidget {
                             '¥',
                             style: hts(
                               26,
-                              Color(0xFF71717A),
+                              dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
                               w: FontWeight.w600,
                               lh: 34,
                             ),
@@ -141,7 +167,11 @@ class BudgetTotalPage extends StatelessWidget {
                               child: HInput(
                                 style: hts(
                                   38,
-                                  Color(0xFF18181B),
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 46,
                                   ls: -1.14,
@@ -160,28 +190,44 @@ class BudgetTotalPage extends StatelessWidget {
                       hwrap(
                         [
                           hbox(
-                            bg: Color(0xFFE1F0FE),
+                            bg: dk(
+                              context,
+                              Color(0xFFE1F0FE),
+                              Color.fromRGBO(4, 133, 247, 0.18),
+                            ),
                             radius: BorderRadius.circular(9),
                             pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                             child: Text(
                               '较上月预算 +3.6%',
                               style: hts(
                                 11,
-                                Color(0xFF1E63AE),
+                                dk(
+                                  context,
+                                  Color(0xFF1E63AE),
+                                  Color(0xFF6AB4FA),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 18,
                               ),
                             ),
                           ),
                           hbox(
-                            bg: Color(0xFFEEEEF0),
+                            bg: dk(
+                              context,
+                              Color(0xFFEEEEF0),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(9),
                             pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                             child: Text(
                               '占预计营收 52.1%',
                               style: hts(
                                 11,
-                                Color(0xFF52525B),
+                                dk(
+                                  context,
+                                  Color(0xFF52525B),
+                                  Color(0xFFA8A8B3),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 18,
                               ),
@@ -199,28 +245,39 @@ class BudgetTotalPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -228,7 +285,7 @@ class BudgetTotalPage extends StatelessWidget {
                         '分配方式',
                         style: hts(
                           14,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 20,
                         ),
@@ -244,7 +301,11 @@ class BudgetTotalPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -258,7 +319,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '手动分配',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -267,7 +332,11 @@ class BudgetTotalPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -277,7 +346,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '手动分配',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -290,7 +363,11 @@ class BudgetTotalPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -304,7 +381,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '沿用上月预算',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -313,7 +394,11 @@ class BudgetTotalPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -323,7 +408,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '沿用上月预算',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -336,7 +425,11 @@ class BudgetTotalPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -350,7 +443,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '按上月实际',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -359,7 +456,11 @@ class BudgetTotalPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -369,7 +470,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '按上月实际',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -382,7 +487,11 @@ class BudgetTotalPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -396,7 +505,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '按营收比例',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -405,7 +518,11 @@ class BudgetTotalPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -415,7 +532,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '按营收比例',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -431,7 +552,11 @@ class BudgetTotalPage extends StatelessWidget {
                       ),
                       Text(
                         '选择后会自动填入各分类金额，仍可逐项修改',
-                        style: hts(12, Color(0xFF71717A), lh: 16),
+                        style: hts(
+                          12,
+                          dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                          lh: 16,
+                        ),
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -447,35 +572,46 @@ class BudgetTotalPage extends StatelessWidget {
                         '分类分配',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -488,10 +624,20 @@ class BudgetTotalPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFE1F0FE),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFE1F0FE),
+                                        Color.fromRGBO(4, 133, 247, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s24, w: 17, h: 17)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s42, Svgs.s43),
+                                            w: 17,
+                                            h: 17,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -505,7 +651,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '房租',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -514,7 +664,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '占总预算 16%',
                                             style: hts(
                                               11,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 14,
                                             ),
                                           ),
@@ -526,7 +680,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     ),
                                     hbox(
                                       h: 38,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                       child: hrow(
@@ -535,7 +693,14 @@ class BudgetTotalPage extends StatelessWidget {
                                             flex: 6,
                                             child: Text(
                                               '¥',
-                                              style: hts(13, Color(0xFF71717A)),
+                                              style: hts(
+                                                13,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -544,7 +709,11 @@ class BudgetTotalPage extends StatelessWidget {
                                               child: HInput(
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                   tab: true,
@@ -574,7 +743,11 @@ class BudgetTotalPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -586,10 +759,20 @@ class BudgetTotalPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFDDF6E7),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFDDF6E7),
+                                        Color.fromRGBO(23, 201, 100, 0.16),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s25, w: 17, h: 17)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s44, Svgs.s45),
+                                            w: 17,
+                                            h: 17,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -603,7 +786,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '人工',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -612,7 +799,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '占总预算 50%',
                                             style: hts(
                                               11,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 14,
                                             ),
                                           ),
@@ -624,7 +815,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     ),
                                     hbox(
                                       h: 38,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                       child: hrow(
@@ -633,7 +828,14 @@ class BudgetTotalPage extends StatelessWidget {
                                             flex: 6,
                                             child: Text(
                                               '¥',
-                                              style: hts(13, Color(0xFF71717A)),
+                                              style: hts(
+                                                13,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -642,7 +844,11 @@ class BudgetTotalPage extends StatelessWidget {
                                               child: HInput(
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                   tab: true,
@@ -672,7 +878,11 @@ class BudgetTotalPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -684,10 +894,20 @@ class BudgetTotalPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFE1F0FE),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFE1F0FE),
+                                        Color.fromRGBO(4, 133, 247, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s26, w: 17, h: 17)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s46, Svgs.s47),
+                                            w: 17,
+                                            h: 17,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -701,7 +921,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '材料采购',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -710,7 +934,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '占总预算 19%',
                                             style: hts(
                                               11,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 14,
                                             ),
                                           ),
@@ -722,7 +950,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     ),
                                     hbox(
                                       h: 38,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                       child: hrow(
@@ -731,7 +963,14 @@ class BudgetTotalPage extends StatelessWidget {
                                             flex: 6,
                                             child: Text(
                                               '¥',
-                                              style: hts(13, Color(0xFF71717A)),
+                                              style: hts(
+                                                13,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -740,7 +979,11 @@ class BudgetTotalPage extends StatelessWidget {
                                               child: HInput(
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                   tab: true,
@@ -770,7 +1013,11 @@ class BudgetTotalPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -782,10 +1029,20 @@ class BudgetTotalPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFFDEFD6),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFFDEFD6),
+                                        Color.fromRGBO(245, 165, 36, 0.16),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s27, w: 17, h: 17)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s48, Svgs.s49),
+                                            w: 17,
+                                            h: 17,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -799,7 +1056,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '水电',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -808,7 +1069,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '占总预算 4%',
                                             style: hts(
                                               11,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 14,
                                             ),
                                           ),
@@ -820,7 +1085,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     ),
                                     hbox(
                                       h: 38,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                       child: hrow(
@@ -829,7 +1098,14 @@ class BudgetTotalPage extends StatelessWidget {
                                             flex: 6,
                                             child: Text(
                                               '¥',
-                                              style: hts(13, Color(0xFF71717A)),
+                                              style: hts(
+                                                13,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -838,7 +1114,11 @@ class BudgetTotalPage extends StatelessWidget {
                                               child: HInput(
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                   tab: true,
@@ -868,7 +1148,11 @@ class BudgetTotalPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -880,10 +1164,20 @@ class BudgetTotalPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFFFE1E2),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFFFE1E2),
+                                        Color.fromRGBO(255, 56, 60, 0.18),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s28, w: 17, h: 17)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s50, Svgs.s51),
+                                            w: 17,
+                                            h: 17,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -897,7 +1191,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '营销',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -906,7 +1204,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '占总预算 7%',
                                             style: hts(
                                               11,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 14,
                                             ),
                                           ),
@@ -918,7 +1220,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     ),
                                     hbox(
                                       h: 38,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                       child: hrow(
@@ -927,7 +1233,14 @@ class BudgetTotalPage extends StatelessWidget {
                                             flex: 6,
                                             child: Text(
                                               '¥',
-                                              style: hts(13, Color(0xFF71717A)),
+                                              style: hts(
+                                                13,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -936,7 +1249,11 @@ class BudgetTotalPage extends StatelessWidget {
                                               child: HInput(
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                   tab: true,
@@ -966,7 +1283,11 @@ class BudgetTotalPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hbox(
@@ -978,10 +1299,20 @@ class BudgetTotalPage extends StatelessWidget {
                                     hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFEEEEF0),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFEEEEF0),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s29, w: 17, h: 17)],
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s52, Svgs.s53),
+                                            w: 17,
+                                            h: 17,
+                                          ),
+                                        ],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -995,7 +1326,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '其他',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -1004,7 +1339,11 @@ class BudgetTotalPage extends StatelessWidget {
                                             '占总预算 4%',
                                             style: hts(
                                               11,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 14,
                                             ),
                                           ),
@@ -1016,7 +1355,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     ),
                                     hbox(
                                       h: 38,
-                                      bg: Color(0xFFF4F4F5),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFF4F4F5),
+                                        Color(0xFF27272A),
+                                      ),
                                       radius: BorderRadius.circular(12),
                                       pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                       child: hrow(
@@ -1025,7 +1368,14 @@ class BudgetTotalPage extends StatelessWidget {
                                             flex: 6,
                                             child: Text(
                                               '¥',
-                                              style: hts(13, Color(0xFF71717A)),
+                                              style: hts(
+                                                13,
+                                                dk(
+                                                  context,
+                                                  Color(0xFF71717A),
+                                                  Color(0xFF9A9AA3),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -1034,7 +1384,11 @@ class BudgetTotalPage extends StatelessWidget {
                                               child: HInput(
                                                 style: hts(
                                                   15,
-                                                  Color(0xFF18181B),
+                                                  dk(
+                                                    context,
+                                                    Color(0xFF18181B),
+                                                    Color(0xFFFAFAFA),
+                                                  ),
                                                   w: FontWeight.w600,
                                                   lh: 22,
                                                   tab: true,
@@ -1074,12 +1428,16 @@ class BudgetTotalPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFDDF6E7),
+                  bg: dk(
+                    context,
+                    Color(0xFFDDF6E7),
+                    Color.fromRGBO(23, 201, 100, 0.16),
+                  ),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                   child: hrow(
                     [
-                      hsvg(Svgs.s30, w: 18, h: 18),
+                      hsvg(dk(context, Svgs.s54, Svgs.s55), w: 18, h: 18),
                       Expanded(
                         flex: 1,
                         child: Text(
@@ -1099,28 +1457,39 @@ class BudgetTotalPage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -1128,7 +1497,7 @@ class BudgetTotalPage extends StatelessWidget {
                         '生效范围',
                         style: hts(
                           14,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 20,
                         ),
@@ -1144,7 +1513,11 @@ class BudgetTotalPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -1158,7 +1531,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '仅本月',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1167,7 +1544,11 @@ class BudgetTotalPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -1177,7 +1558,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '仅本月',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1190,7 +1575,11 @@ class BudgetTotalPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -1204,7 +1593,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '本月起每月沿用',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1213,7 +1606,11 @@ class BudgetTotalPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -1223,7 +1620,11 @@ class BudgetTotalPage extends StatelessWidget {
                                     '本月起每月沿用',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -1257,15 +1658,30 @@ class BudgetTotalPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -1275,7 +1691,7 @@ class BudgetTotalPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFFEEEEF0),
+                      bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -1284,7 +1700,7 @@ class BudgetTotalPage extends StatelessWidget {
                           '取消',
                           style: hts(
                             15,
-                            Color(0xFF18181B),
+                            dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                             w: FontWeight.w500,
                             lh: 22,
                           ),
@@ -1300,7 +1716,7 @@ class BudgetTotalPage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -1309,7 +1725,7 @@ class BudgetTotalPage extends StatelessWidget {
                           '保存预算',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

@@ -8,7 +8,7 @@ class AppCard extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry padding;
   final double radius;
-  final Color color;
+  final Color? color;
   final VoidCallback? onTap;
   final bool shadow;
   const AppCard({
@@ -16,7 +16,7 @@ class AppCard extends StatelessWidget {
     required this.child,
     this.padding = const EdgeInsets.all(16),
     this.radius = 24,
-    this.color = C.card,
+    this.color,
     this.onTap,
     this.shadow = true,
   });
@@ -26,7 +26,7 @@ class AppCard extends StatelessWidget {
     final box = Container(
       padding: padding,
       decoration: BoxDecoration(
-        color: color,
+        color: color ?? C.card,
         borderRadius: BorderRadius.circular(radius),
         boxShadow: shadow ? softShadow : null,
       ),
@@ -117,12 +117,13 @@ class PlateTag extends StatelessWidget {
 class Avatar extends StatelessWidget {
   final String text;
   final double size;
-  final Color bg, fg;
+  final Color? bg;
+  final Color fg;
   const Avatar(
     this.text, {
     super.key,
     this.size = 44,
-    this.bg = C.ink,
+    this.bg,
     this.fg = C.gold,
   });
   @override
@@ -130,7 +131,7 @@ class Avatar extends StatelessWidget {
     width: size,
     height: size,
     alignment: Alignment.center,
-    decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
+    decoration: BoxDecoration(color: bg ?? C.pill, shape: BoxShape.circle),
     child: Text(
       text,
       style: ts(size * 0.36, w: FontWeight.w600, color: fg),
@@ -160,8 +161,8 @@ class RoundBtn extends StatelessWidget {
       child: Container(
         width: 44,
         height: 44,
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: C.card,
           shape: BoxShape.circle,
           boxShadow: softShadow,
         ),
@@ -179,8 +180,8 @@ class RoundBtn extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: C.red,
                     shape: BoxShape.circle,
-                    boxShadow: const [
-                      BoxShadow(color: Colors.white, spreadRadius: 2),
+                    boxShadow: [
+                      BoxShadow(color: C.card, spreadRadius: 2),
                     ],
                   ),
                 ),
@@ -290,7 +291,7 @@ class ChipTabs extends StatelessWidget {
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(horizontal: 14),
             decoration: BoxDecoration(
-              color: on ? C.ink : Colors.white,
+              color: on ? C.btn : C.card,
               borderRadius: BorderRadius.circular(16),
               boxShadow: on ? null : softShadow,
             ),
@@ -299,7 +300,7 @@ class ChipTabs extends StatelessWidget {
               style: ts(
                 13,
                 w: FontWeight.w500,
-                color: on ? Colors.white : C.sub,
+                color: on ? C.btnFg : C.sub,
                 h: 18,
               ),
             ),
@@ -338,7 +339,7 @@ class Segmented extends StatelessWidget {
                 height: 32,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: i == selected ? Colors.white : Colors.transparent,
+                  color: i == selected ? (C.dark ? C.stroke : Colors.white) : Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: i == selected ? softShadow : null,
                 ),
@@ -464,7 +465,7 @@ class PlaceholderPage extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.construction_rounded,
                     size: 40,
                     color: C.faint,

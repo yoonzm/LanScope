@@ -9,7 +9,7 @@ class CardTiersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1000,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class CardTiersPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class CardTiersPage extends StatelessWidget {
                         '会员卡种与权益',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -74,10 +85,10 @@ class CardTiersPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFF18181B),
+                        bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         radius: BorderRadius.circular(22),
                         child: hrow(
-                          [hsvg(Svgs.s37, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s68, Svgs.s69), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -91,7 +102,7 @@ class CardTiersPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFE9E9EB),
+                  bg: dk(context, Color(0xFFE9E9EB), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(20),
                   pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
                   child: HSelHolder(
@@ -107,22 +118,37 @@ class CardTiersPage extends StatelessWidget {
                             index: 0,
                             on: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(17),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 0,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.06),
-                                  offset: Offset(0, 1),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
+                              shadow: dk(
+                                context,
+                                [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                [
+                                  BoxShadow(
+                                    color: Color(0xFF26262B),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -130,7 +156,11 @@ class CardTiersPage extends StatelessWidget {
                                   '等级储值卡 4',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -139,7 +169,11 @@ class CardTiersPage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
+                              bg: dk(
+                                context,
+                                Color(0xFFFFFFFF),
+                                Color(0xFF18181B),
+                              ),
                               radius: BorderRadius.circular(17),
                               child: Align(
                                 alignment: Alignment.center,
@@ -148,7 +182,11 @@ class CardTiersPage extends StatelessWidget {
                                   '等级储值卡 4',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -165,7 +203,7 @@ class CardTiersPage extends StatelessWidget {
                             on: hbox(
                               h: 34,
                               radius: BorderRadius.circular(17),
-                              shadow: [
+                              shadow: dk(context, [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.04),
                                   offset: Offset(0, 2),
@@ -178,7 +216,7 @@ class CardTiersPage extends StatelessWidget {
                                   blurRadius: 2,
                                   spreadRadius: 0,
                                 ),
-                              ],
+                              ], null),
                               child: Align(
                                 alignment: Alignment.center,
                                 widthFactor: 1,
@@ -186,7 +224,11 @@ class CardTiersPage extends StatelessWidget {
                                   '次卡套餐 6',
                                   style: hts(
                                     14,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -203,7 +245,11 @@ class CardTiersPage extends StatelessWidget {
                                   '次卡套餐 6',
                                   style: hts(
                                     14,
-                                    Color(0xFF52525B),
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 20,
                                   ),
@@ -223,7 +269,7 @@ class CardTiersPage extends StatelessWidget {
                 hTap(
                   context,
                   hbox(
-                    bg: Color(0xFF18181B),
+                    bg: dk(context, Color(0xFF18181B), Color(0xFF34343A)),
                     radius: BorderRadius.circular(24),
                     pad: EdgeInsets.fromLTRB(20, 18, 20, 18),
                     clip: true,
@@ -313,7 +359,11 @@ class CardTiersPage extends StatelessWidget {
                         Positioned(
                           top: -80,
                           right: -60,
-                          child: hsvg(Svgs.s38, w: 200, h: 200),
+                          child: hsvg(
+                            dk(context, Svgs.s70, Svgs.s71),
+                            w: 200,
+                            h: 200,
+                          ),
                         ),
                       ],
                     ),
@@ -412,7 +462,7 @@ class CardTiersPage extends StatelessWidget {
                 hTap(
                   context,
                   hbox(
-                    bg: Color(0xFFE4E4E7),
+                    bg: dk(context, Color(0xFFE4E4E7), Color(0xFF3A3A40)),
                     radius: BorderRadius.circular(24),
                     pad: EdgeInsets.fromLTRB(20, 18, 20, 18),
                     child: hcol(
@@ -425,7 +475,11 @@ class CardTiersPage extends StatelessWidget {
                                 '银卡',
                                 style: hts(
                                   18,
-                                  Color(0xFF27272A),
+                                  dk(
+                                    context,
+                                    Color(0xFF27272A),
+                                    Color(0xFFD4D4D8),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 26,
                                   ls: 0.72,
@@ -436,7 +490,11 @@ class CardTiersPage extends StatelessWidget {
                               TextSpan(
                                 style: hts(
                                   26,
-                                  Color(0xFF27272A),
+                                  dk(
+                                    context,
+                                    Color(0xFF27272A),
+                                    Color(0xFFD4D4D8),
+                                  ),
                                   w: FontWeight.w600,
                                   lh: 30,
                                 ),
@@ -445,7 +503,11 @@ class CardTiersPage extends StatelessWidget {
                                     text: '98',
                                     style: hts(
                                       26,
-                                      Color(0xFF27272A),
+                                      dk(
+                                        context,
+                                        Color(0xFF27272A),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 30,
                                     ),
@@ -454,7 +516,11 @@ class CardTiersPage extends StatelessWidget {
                                     text: ' 折',
                                     style: hts(
                                       14,
-                                      Color(0xFF27272A),
+                                      dk(
+                                        context,
+                                        Color(0xFF27272A),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w600,
                                       lh: 30,
                                     ),
@@ -473,14 +539,26 @@ class CardTiersPage extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 '单次充值 ¥2,000 开卡 · 积分 1 倍',
-                                style: hts(12, Color(0xFF52525B), lh: 16),
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF52525B),
+                                    Color(0xFFA8A8B3),
+                                  ),
+                                  lh: 16,
+                                ),
                               ),
                             ),
                             Text(
                               '540 人',
                               style: hts(
                                 12,
-                                Color(0xFF27272A),
+                                dk(
+                                  context,
+                                  Color(0xFF27272A),
+                                  Color(0xFFD4D4D8),
+                                ),
                                 w: FontWeight.w600,
                                 lh: 16,
                               ),
@@ -501,9 +579,128 @@ class CardTiersPage extends StatelessWidget {
                 hTap(
                   context,
                   hbox(
-                    bg: Color(0xFFFFFFFF),
+                    bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                     radius: BorderRadius.circular(24),
-                    shadow: [
+                    shadow: dk(
+                      context,
+                      [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.04),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 1),
+                          blurRadius: 2,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 0),
+                          blurRadius: 1,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                      [
+                        BoxShadow(
+                          color: Color(0xFF26262B),
+                          offset: Offset(0, 0),
+                          blurRadius: 0,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
+                    pad: EdgeInsets.fromLTRB(20, 18, 20, 18),
+                    child: hcol(
+                      [
+                        hrow(
+                          [
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                '普通会员',
+                                style: hts(
+                                  18,
+                                  dk(
+                                    context,
+                                    Color(0xFF18181B),
+                                    Color(0xFFFAFAFA),
+                                  ),
+                                  w: FontWeight.w600,
+                                  lh: 26,
+                                  ls: 0.72,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '原价',
+                              style: hts(
+                                15,
+                                dk(
+                                  context,
+                                  Color(0xFF52525B),
+                                  Color(0xFFA8A8B3),
+                                ),
+                                w: FontWeight.w500,
+                                lh: 30,
+                              ),
+                            ),
+                          ],
+                          main: MainAxisAlignment.start,
+                          cross: CrossAxisAlignment.baseline,
+                          gap: 8,
+                        ),
+                        hrow(
+                          [
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                '扫码免费注册 · 消费累积积分',
+                                style: hts(
+                                  12,
+                                  dk(
+                                    context,
+                                    Color(0xFF71717A),
+                                    Color(0xFF9A9AA3),
+                                  ),
+                                  lh: 16,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '348 人',
+                              style: hts(
+                                12,
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
+                                w: FontWeight.w600,
+                                lh: 16,
+                              ),
+                            ),
+                          ],
+                          main: MainAxisAlignment.start,
+                          cross: CrossAxisAlignment.center,
+                          gap: 8,
+                        ),
+                      ],
+                      main: MainAxisAlignment.start,
+                      cross: CrossAxisAlignment.stretch,
+                      gap: 22,
+                    ),
+                  ),
+                  to: 'CardTierEdit',
+                ),
+                hbox(
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
+                  radius: BorderRadius.circular(24),
+                  shadow: dk(
+                    context,
+                    [
                       BoxShadow(
                         color: Color.fromRGBO(0, 0, 0, 0.04),
                         offset: Offset(0, 2),
@@ -523,92 +720,15 @@ class CardTiersPage extends StatelessWidget {
                         spreadRadius: 0,
                       ),
                     ],
-                    pad: EdgeInsets.fromLTRB(20, 18, 20, 18),
-                    child: hcol(
-                      [
-                        hrow(
-                          [
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                '普通会员',
-                                style: hts(
-                                  18,
-                                  Color(0xFF18181B),
-                                  w: FontWeight.w600,
-                                  lh: 26,
-                                  ls: 0.72,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              '原价',
-                              style: hts(
-                                15,
-                                Color(0xFF52525B),
-                                w: FontWeight.w500,
-                                lh: 30,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.baseline,
-                          gap: 8,
-                        ),
-                        hrow(
-                          [
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                '扫码免费注册 · 消费累积积分',
-                                style: hts(12, Color(0xFF71717A), lh: 16),
-                              ),
-                            ),
-                            Text(
-                              '348 人',
-                              style: hts(
-                                12,
-                                Color(0xFF18181B),
-                                w: FontWeight.w600,
-                                lh: 16,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 8,
-                        ),
-                      ],
-                      main: MainAxisAlignment.start,
-                      cross: CrossAxisAlignment.stretch,
-                      gap: 22,
-                    ),
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
                   ),
-                  to: 'CardTierEdit',
-                ),
-                hbox(
-                  bg: Color(0xFFFFFFFF),
-                  radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -616,7 +736,7 @@ class CardTiersPage extends StatelessWidget {
                         '通用规则',
                         style: hts(
                           15,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 22,
                         ),
@@ -629,11 +749,27 @@ class CardTiersPage extends StatelessWidget {
                               [
                                 Text(
                                   '累计消费自动升级',
-                                  style: hts(14, Color(0xFF18181B), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 20,
+                                  ),
                                 ),
                                 Text(
                                   '达到上一级门槛后，次日自动升级',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -647,7 +783,10 @@ class CardTiersPage extends StatelessWidget {
                         cross: CrossAxisAlignment.center,
                         gap: 12,
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       hrow(
                         [
                           Expanded(
@@ -656,11 +795,27 @@ class CardTiersPage extends StatelessWidget {
                               [
                                 Text(
                                   '储值余额可退款',
-                                  style: hts(14, Color(0xFF18181B), lh: 20),
+                                  style: hts(
+                                    14,
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
+                                    lh: 20,
+                                  ),
                                 ),
                                 Text(
                                   '退款时扣除已赠送金额',
-                                  style: hts(12, Color(0xFF71717A), lh: 16),
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF71717A),
+                                      Color(0xFF9A9AA3),
+                                    ),
+                                    lh: 16,
+                                  ),
                                 ),
                               ],
                               main: MainAxisAlignment.start,

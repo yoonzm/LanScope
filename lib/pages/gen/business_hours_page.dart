@@ -9,7 +9,7 @@ class BusinessHoursPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1171,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class BusinessHoursPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class BusinessHoursPage extends StatelessWidget {
                         '营业时间与工位',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -95,34 +106,49 @@ class BusinessHoursPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
                       Text(
                         '营业时间',
-                        style: hts(14, Color(0xFF18181B), w: FontWeight.w600),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w600,
+                        ),
                       ),
                       HStrHolder(
                         initial: '09:00',
@@ -136,7 +162,11 @@ class BusinessHoursPage extends StatelessWidget {
                                   context,
                                   hbox(
                                     h: 48,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(14),
                                     child: Align(
                                       alignment: Alignment(0, 0),
@@ -145,7 +175,11 @@ class BusinessHoursPage extends StatelessWidget {
                                         s1,
                                         hts(
                                           17,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                         ),
                                       ),
@@ -154,14 +188,28 @@ class BusinessHoursPage extends StatelessWidget {
                                   onTap: () => hPick(context, 'time', '开始', s1),
                                 ),
                               ),
-                              Text('至', style: hts(16, Color(0xFFA1A1AA))),
+                              Text(
+                                '至',
+                                style: hts(
+                                  16,
+                                  dk(
+                                    context,
+                                    Color(0xFFA1A1AA),
+                                    Color(0xFF80808A),
+                                  ),
+                                ),
+                              ),
                               Expanded(
                                 flex: 1,
                                 child: hTap(
                                   context,
                                   hbox(
                                     h: 48,
-                                    bg: Color(0xFFF4F4F5),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFF4F4F5),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(14),
                                     child: Align(
                                       alignment: Alignment(0, 0),
@@ -170,7 +218,11 @@ class BusinessHoursPage extends StatelessWidget {
                                         s2,
                                         hts(
                                           17,
-                                          Color(0xFF18181B),
+                                          dk(
+                                            context,
+                                            Color(0xFF18181B),
+                                            Color(0xFFFAFAFA),
+                                          ),
                                           w: FontWeight.w600,
                                         ),
                                       ),
@@ -186,10 +238,17 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                      hbox(
+                        h: 1,
+                        bg: dk(context, Color(0xFFEFEFF1), Color(0xFF2A2A2E)),
+                      ),
                       Text(
                         '营业日',
-                        style: hts(14, Color(0xFF18181B), w: FontWeight.w600),
+                        style: hts(
+                          14,
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                          w: FontWeight.w600,
+                        ),
                       ),
                       HSelHolder(
                         groups: [
@@ -202,7 +261,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -216,7 +279,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周一',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -225,7 +292,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -235,7 +306,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周一',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -248,7 +323,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -262,7 +341,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周二',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -271,7 +354,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -281,7 +368,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周二',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -294,7 +385,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -308,7 +403,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周三',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -317,7 +416,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -327,7 +430,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周三',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -340,7 +447,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -354,7 +465,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周四',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -363,7 +478,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -373,7 +492,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周四',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -386,7 +509,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 4,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -400,7 +527,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周五',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -409,7 +540,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -419,7 +554,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周五',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -432,7 +571,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 5,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -446,7 +589,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周六',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -455,7 +602,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -465,7 +616,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周六',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -478,7 +633,11 @@ class BusinessHoursPage extends StatelessWidget {
                               index: 6,
                               on: hbox(
                                 h: 34,
-                                bg: Color(0xFFE1F0FE),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFE1F0FE),
+                                  Color.fromRGBO(4, 133, 247, 0.18),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -492,7 +651,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周日',
                                     style: hts(
                                       13,
-                                      Color(0xFF1E63AE),
+                                      dk(
+                                        context,
+                                        Color(0xFF1E63AE),
+                                        Color(0xFF6AB4FA),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -501,7 +664,11 @@ class BusinessHoursPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 34,
-                                bg: Color(0xFFF4F4F5),
+                                bg: dk(
+                                  context,
+                                  Color(0xFFF4F4F5),
+                                  Color(0xFF27272A),
+                                ),
                                 radius: BorderRadius.circular(17),
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: Align(
@@ -511,7 +678,11 @@ class BusinessHoursPage extends StatelessWidget {
                                     '周日',
                                     style: hts(
                                       13,
-                                      Color(0xFF3F3F46),
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
                                       w: FontWeight.w500,
                                       lh: 18,
                                     ),
@@ -539,35 +710,46 @@ class BusinessHoursPage extends StatelessWidget {
                         '节假日',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -582,14 +764,34 @@ class BusinessHoursPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '国庆 10.01 – 10.07',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '正常营业',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -600,7 +802,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -614,14 +820,34 @@ class BusinessHoursPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '春节 2027.02.05 – 02.11',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     '休息',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -632,7 +858,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -646,11 +876,23 @@ class BusinessHoursPage extends StatelessWidget {
                                     flex: 1,
                                     child: Text(
                                       '添加休息日',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                                      style: hts(
+                                        14,
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
+                                        lh: 20,
+                                      ),
                                     ),
                                   ),
                                   SizedBox.shrink(),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -678,35 +920,46 @@ class BusinessHoursPage extends StatelessWidget {
                         '工位 · 共 6 个',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -725,7 +978,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '1 号工位',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                         ),
@@ -733,7 +990,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '洗车',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -744,14 +1005,22 @@ class BusinessHoursPage extends StatelessWidget {
                                     ),
                                   ),
                                   hbox(
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Text(
                                       '可预约',
                                       style: hts(
                                         11,
-                                        Color(0xFF2B7745),
+                                        dk(
+                                          context,
+                                          Color(0xFF2B7745),
+                                          Color(0xFF5FD48C),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 18,
                                       ),
@@ -759,7 +1028,11 @@ class BusinessHoursPage extends StatelessWidget {
                                       maxLines: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -770,7 +1043,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -788,7 +1065,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '2 号工位',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                         ),
@@ -796,7 +1077,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '洗车',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -807,14 +1092,22 @@ class BusinessHoursPage extends StatelessWidget {
                                     ),
                                   ),
                                   hbox(
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Text(
                                       '可预约',
                                       style: hts(
                                         11,
-                                        Color(0xFF2B7745),
+                                        dk(
+                                          context,
+                                          Color(0xFF2B7745),
+                                          Color(0xFF5FD48C),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 18,
                                       ),
@@ -822,7 +1115,11 @@ class BusinessHoursPage extends StatelessWidget {
                                       maxLines: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -833,7 +1130,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -851,7 +1152,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '3 号工位',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                         ),
@@ -859,7 +1164,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '美容',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -870,14 +1179,22 @@ class BusinessHoursPage extends StatelessWidget {
                                     ),
                                   ),
                                   hbox(
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Text(
                                       '可预约',
                                       style: hts(
                                         11,
-                                        Color(0xFF2B7745),
+                                        dk(
+                                          context,
+                                          Color(0xFF2B7745),
+                                          Color(0xFF5FD48C),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 18,
                                       ),
@@ -885,7 +1202,11 @@ class BusinessHoursPage extends StatelessWidget {
                                       maxLines: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -896,7 +1217,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -914,7 +1239,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '4 号工位',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                         ),
@@ -922,7 +1251,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '美容',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -933,14 +1266,22 @@ class BusinessHoursPage extends StatelessWidget {
                                     ),
                                   ),
                                   hbox(
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Text(
                                       '可预约',
                                       style: hts(
                                         11,
-                                        Color(0xFF2B7745),
+                                        dk(
+                                          context,
+                                          Color(0xFF2B7745),
+                                          Color(0xFF5FD48C),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 18,
                                       ),
@@ -948,7 +1289,11 @@ class BusinessHoursPage extends StatelessWidget {
                                       maxLines: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -959,7 +1304,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -977,7 +1326,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '贴膜间 A',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                         ),
@@ -985,7 +1338,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '贴膜 · 施工周期长',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -996,14 +1353,22 @@ class BusinessHoursPage extends StatelessWidget {
                                     ),
                                   ),
                                   hbox(
-                                    bg: Color(0xFFDDF6E7),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFDDF6E7),
+                                      Color.fromRGBO(23, 201, 100, 0.16),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Text(
                                       '可预约',
                                       style: hts(
                                         11,
-                                        Color(0xFF2B7745),
+                                        dk(
+                                          context,
+                                          Color(0xFF2B7745),
+                                          Color(0xFF5FD48C),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 18,
                                       ),
@@ -1011,7 +1376,11 @@ class BusinessHoursPage extends StatelessWidget {
                                       maxLines: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -1022,7 +1391,11 @@ class BusinessHoursPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
                           hTap(
@@ -1040,7 +1413,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '贴膜间 B',
                                           style: hts(
                                             15,
-                                            Color(0xFF18181B),
+                                            dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFFFAFAFA),
+                                            ),
                                             lh: 22,
                                           ),
                                         ),
@@ -1048,7 +1425,11 @@ class BusinessHoursPage extends StatelessWidget {
                                           '贴膜 · 施工周期长',
                                           style: hts(
                                             12,
-                                            Color(0xFF71717A),
+                                            dk(
+                                              context,
+                                              Color(0xFF71717A),
+                                              Color(0xFF9A9AA3),
+                                            ),
                                             lh: 16,
                                           ),
                                         ),
@@ -1059,14 +1440,22 @@ class BusinessHoursPage extends StatelessWidget {
                                     ),
                                   ),
                                   hbox(
-                                    bg: Color(0xFFEEEEF0),
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFEEEEF0),
+                                      Color(0xFF27272A),
+                                    ),
                                     radius: BorderRadius.circular(9),
                                     pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Text(
                                       '仅内部',
                                       style: hts(
                                         11,
-                                        Color(0xFF52525B),
+                                        dk(
+                                          context,
+                                          Color(0xFF52525B),
+                                          Color(0xFFA8A8B3),
+                                        ),
                                         w: FontWeight.w600,
                                         lh: 18,
                                       ),
@@ -1074,7 +1463,11 @@ class BusinessHoursPage extends StatelessWidget {
                                       maxLines: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s2, w: 16, h: 16),
+                                  hsvg(
+                                    dk(context, Svgs.s3, Svgs.s4),
+                                    w: 16,
+                                    h: 16,
+                                  ),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -1098,38 +1491,49 @@ class BusinessHoursPage extends StatelessWidget {
                   context,
                   hbox(
                     h: 48,
-                    bg: Color(0xFFFFFFFF),
+                    bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                     radius: BorderRadius.circular(24),
-                    shadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.04),
-                        offset: Offset(0, 2),
-                        blurRadius: 4,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 1),
-                        blurRadius: 2,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 0),
-                        blurRadius: 1,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                    shadow: dk(
+                      context,
+                      [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.04),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 1),
+                          blurRadius: 2,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 0),
+                          blurRadius: 1,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                      [
+                        BoxShadow(
+                          color: Color(0xFF26262B),
+                          offset: Offset(0, 0),
+                          blurRadius: 0,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
                     child: hrow(
                       [
-                        hsvg(Svgs.s31, w: 18, h: 18),
+                        hsvg(dk(context, Svgs.s56, Svgs.s57), w: 18, h: 18),
                         Flexible(
                           flex: 60,
                           child: Text(
                             '添加工位',
                             style: hts(
                               15,
-                              Color(0xFF1E63AE),
+                              dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
                               w: FontWeight.w600,
                             ),
                           ),
@@ -1144,7 +1548,10 @@ class BusinessHoursPage extends StatelessWidget {
                 ),
                 Text(
                   '工位数量受套餐限制，当前专业版最多 20 个',
-                  style: hts(12, Color(0xFFA1A1AA)),
+                  style: hts(
+                    12,
+                    dk(context, Color(0xFFA1A1AA), Color(0xFF80808A)),
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],

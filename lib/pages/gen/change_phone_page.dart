@@ -9,7 +9,7 @@ class ChangePhonePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 844,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class ChangePhonePage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class ChangePhonePage extends StatelessWidget {
                         '更换手机号',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -81,14 +92,17 @@ class ChangePhonePage extends StatelessWidget {
                       '先验证当前手机号',
                       style: hts(
                         22,
-                        Color(0xFF18181B),
+                        dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                         w: FontWeight.w600,
                         lh: 30,
                       ),
                     ),
                     Text(
                       '验证码将发送至 139 **** 8812',
-                      style: hts(14, Color(0xFF71717A)),
+                      style: hts(
+                        14,
+                        dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                      ),
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -96,28 +110,39 @@ class ChangePhonePage extends StatelessWidget {
                   gap: 6,
                 ),
                 hbox(
-                  bg: Color(0xFFFFFFFF),
+                  bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                   radius: BorderRadius.circular(24),
-                  shadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.04),
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      spreadRadius: 0,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.06),
-                      offset: Offset(0, 0),
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                    ),
-                  ],
+                  shadow: dk(
+                    context,
+                    [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.04),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.06),
+                        offset: Offset(0, 0),
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    [
+                      BoxShadow(
+                        color: Color(0xFF26262B),
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: hcol(
                     [
@@ -127,7 +152,11 @@ class ChangePhonePage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -136,7 +165,11 @@ class ChangePhonePage extends StatelessWidget {
                                   text: '当前号码验证码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -145,7 +178,11 @@ class ChangePhonePage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -155,14 +192,26 @@ class ChangePhonePage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 6, 0),
                             child: hrow(
                               [
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '6 位数字',
                                   ),
                                 ),
@@ -171,16 +220,36 @@ class ChangePhonePage extends StatelessWidget {
                                     context,
                                     hbox(
                                       h: 36,
-                                      bg: Color(0xFFFFFFFF),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFFFFFFF),
+                                        Color(0xFF18181B),
+                                      ),
                                       radius: BorderRadius.circular(18),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
+                                      shadow: dk(
+                                        context,
+                                        [
+                                          BoxShadow(
+                                            color: Color.fromRGBO(
+                                              0,
+                                              0,
+                                              0,
+                                              0.06,
+                                            ),
+                                            offset: Offset(0, 1),
+                                            blurRadius: 2,
+                                            spreadRadius: 0,
+                                          ),
+                                        ],
+                                        [
+                                          BoxShadow(
+                                            color: Color(0xFF26262B),
+                                            offset: Offset(0, 0),
+                                            blurRadius: 0,
+                                            spreadRadius: 1,
+                                          ),
+                                        ],
+                                      ),
                                       pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                       child: Align(
                                         alignment: Alignment.center,
@@ -189,7 +258,11 @@ class ChangePhonePage extends StatelessWidget {
                                           k1,
                                           hts(
                                             13,
-                                            Color(0xFF1E63AE),
+                                            dk(
+                                              context,
+                                              Color(0xFF1E63AE),
+                                              Color(0xFF6AB4FA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 18,
                                           ),
@@ -216,7 +289,11 @@ class ChangePhonePage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -225,7 +302,11 @@ class ChangePhonePage extends StatelessWidget {
                                   text: '新手机号 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -234,7 +315,11 @@ class ChangePhonePage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -244,7 +329,11 @@ class ChangePhonePage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                             child: hrow(
@@ -253,14 +342,34 @@ class ChangePhonePage extends StatelessWidget {
                                   '+86',
                                   style: hts(
                                     15,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                   ),
                                 ),
-                                hbox(w: 1, h: 18, bg: Color(0xFFD4D4D8)),
+                                hbox(
+                                  w: 1,
+                                  h: 18,
+                                  bg: dk(
+                                    context,
+                                    Color(0xFFD4D4D8),
+                                    Color(0xFF3F3F46),
+                                  ),
+                                ),
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '请输入新手机号',
                                     keyboard: TextInputType.phone,
                                   ),
@@ -282,7 +391,11 @@ class ChangePhonePage extends StatelessWidget {
                             TextSpan(
                               style: hts(
                                 13,
-                                Color(0xFF18181B),
+                                dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFFFAFAFA),
+                                ),
                                 w: FontWeight.w500,
                                 lh: 18,
                               ),
@@ -291,7 +404,11 @@ class ChangePhonePage extends StatelessWidget {
                                   text: '新号码验证码 ',
                                   style: hts(
                                     13,
-                                    Color(0xFF18181B),
+                                    dk(
+                                      context,
+                                      Color(0xFF18181B),
+                                      Color(0xFFFAFAFA),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -300,7 +417,11 @@ class ChangePhonePage extends StatelessWidget {
                                   text: '*',
                                   style: hts(
                                     13,
-                                    Color(0xFFA43433),
+                                    dk(
+                                      context,
+                                      Color(0xFFA43433),
+                                      Color(0xFFFF7B7E),
+                                    ),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
@@ -310,14 +431,26 @@ class ChangePhonePage extends StatelessWidget {
                           ),
                           hbox(
                             minH: 48,
-                            bg: Color(0xFFF4F4F5),
+                            bg: dk(
+                              context,
+                              Color(0xFFF4F4F5),
+                              Color(0xFF27272A),
+                            ),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 6, 0),
                             child: hrow(
                               [
                                 Expanded(
                                   child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                    style: hts(
+                                      15,
+                                      dk(
+                                        context,
+                                        Color(0xFF18181B),
+                                        Color(0xFFFAFAFA),
+                                      ),
+                                      lh: 22,
+                                    ),
                                     hint: '6 位数字',
                                   ),
                                 ),
@@ -326,16 +459,36 @@ class ChangePhonePage extends StatelessWidget {
                                     context,
                                     hbox(
                                       h: 36,
-                                      bg: Color(0xFFFFFFFF),
+                                      bg: dk(
+                                        context,
+                                        Color(0xFFFFFFFF),
+                                        Color(0xFF18181B),
+                                      ),
                                       radius: BorderRadius.circular(18),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
+                                      shadow: dk(
+                                        context,
+                                        [
+                                          BoxShadow(
+                                            color: Color.fromRGBO(
+                                              0,
+                                              0,
+                                              0,
+                                              0.06,
+                                            ),
+                                            offset: Offset(0, 1),
+                                            blurRadius: 2,
+                                            spreadRadius: 0,
+                                          ),
+                                        ],
+                                        [
+                                          BoxShadow(
+                                            color: Color(0xFF26262B),
+                                            offset: Offset(0, 0),
+                                            blurRadius: 0,
+                                            spreadRadius: 1,
+                                          ),
+                                        ],
+                                      ),
                                       pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                       child: Align(
                                         alignment: Alignment.center,
@@ -344,7 +497,11 @@ class ChangePhonePage extends StatelessWidget {
                                           k2,
                                           hts(
                                             13,
-                                            Color(0xFF1E63AE),
+                                            dk(
+                                              context,
+                                              Color(0xFF1E63AE),
+                                              Color(0xFF6AB4FA),
+                                            ),
                                             w: FontWeight.w500,
                                             lh: 18,
                                           ),
@@ -372,17 +529,25 @@ class ChangePhonePage extends StatelessWidget {
                   ),
                 ),
                 hbox(
-                  bg: Color(0xFFFDEFD6),
+                  bg: dk(
+                    context,
+                    Color(0xFFFDEFD6),
+                    Color.fromRGBO(245, 165, 36, 0.16),
+                  ),
                   radius: BorderRadius.circular(18),
                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                   child: hrow(
                     [
-                      hsvg(Svgs.s14, w: 18, h: 18),
+                      hsvg(dk(context, Svgs.s24, Svgs.s25), w: 18, h: 18),
                       Flexible(
                         flex: 416,
                         child: Text(
                           '更换后需使用新手机号登录，微信与短信通知的接收号码也会同步更新。',
-                          style: hts(13, Color(0xFF855F2E), lh: 19),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFF855F2E), Color(0xFFF0C46A)),
+                            lh: 19,
+                          ),
                         ),
                       ),
                     ],
@@ -405,15 +570,30 @@ class ChangePhonePage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            bg: Color.fromRGBO(255, 255, 255, 0.94),
-            shadow: [
-              BoxShadow(
-                color: Color(0xFFE4E4E7),
-                offset: Offset(0, -1),
-                blurRadius: 0,
-                spreadRadius: 0,
-              ),
-            ],
+            bg: dk(
+              context,
+              Color.fromRGBO(255, 255, 255, 0.94),
+              Color.fromRGBO(9, 9, 11, 0.92),
+            ),
+            shadow: dk(
+              context,
+              [
+                BoxShadow(
+                  color: Color(0xFFE4E4E7),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+              [
+                BoxShadow(
+                  color: Color(0xFF3A3A40),
+                  offset: Offset(0, -1),
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
             child: hrow(
               [
@@ -423,7 +603,7 @@ class ChangePhonePage extends StatelessWidget {
                     context,
                     hbox(
                       h: 50,
-                      bg: Color(0xFF18181B),
+                      bg: dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                       radius: BorderRadius.circular(25),
                       child: Align(
                         alignment: Alignment(0, 0),
@@ -432,7 +612,7 @@ class ChangePhonePage extends StatelessWidget {
                           '确认更换',
                           style: hts(
                             15,
-                            Color(0xFFFFFFFF),
+                            dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                             w: FontWeight.w600,
                             lh: 22,
                           ),

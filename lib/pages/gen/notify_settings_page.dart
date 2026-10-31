@@ -9,7 +9,7 @@ class NotifySettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HPage(
-      bg: Color(0xFFF4F4F5),
+      bg: dk(context, Color(0xFFF4F4F5), Color(0xFF09090B)),
       height: 1320,
       fixedHeight: false,
       flow: hcol(
@@ -25,30 +25,41 @@ class NotifySettingsPage extends StatelessWidget {
                       hbox(
                         w: 44,
                         h: 44,
-                        bg: Color(0xFFFFFFFF),
+                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                         radius: BorderRadius.circular(22),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
+                        shadow: dk(
+                          context,
+                          [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.04),
+                              offset: Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                            ),
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.06),
+                              offset: Offset(0, 0),
+                              blurRadius: 1,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                          [
+                            BoxShadow(
+                              color: Color(0xFF26262B),
+                              offset: Offset(0, 0),
+                              blurRadius: 0,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: hrow(
-                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -62,7 +73,7 @@ class NotifySettingsPage extends StatelessWidget {
                         '通知与消息',
                         style: hts(
                           17,
-                          Color(0xFF18181B),
+                          dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
                           w: FontWeight.w600,
                           lh: 24,
                         ),
@@ -76,10 +87,20 @@ class NotifySettingsPage extends StatelessWidget {
                   gap: 8,
                 ),
                 hbox(
-                  bg: Color(0xFF18181B),
+                  bg: dk(context, Color(0xFF18181B), Color(0xFF1F1F23)),
                   radius: BorderRadius.circular(28),
                   pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   clip: true,
+                  border: dk(
+                    context,
+                    null,
+                    Border(
+                      top: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      right: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      bottom: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                      left: BorderSide(color: Color(0xFF2E2E33), width: 1),
+                    ),
+                  ),
                   child: hstack(
                     hcol(
                       [
@@ -87,7 +108,15 @@ class NotifySettingsPage extends StatelessWidget {
                           [
                             Text(
                               '本月已通知会员',
-                              style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                              style: hts(
+                                13,
+                                dk(
+                                  context,
+                                  Color(0xFFA1A1AA),
+                                  Color(0xFF80808A),
+                                ),
+                                lh: 18,
+                              ),
                             ),
                             hrow(
                               [
@@ -108,7 +137,14 @@ class NotifySettingsPage extends StatelessWidget {
                                   flex: 14,
                                   child: Text(
                                     '条',
-                                    style: hts(14, Color(0xFFA1A1AA)),
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFFA1A1AA),
+                                        Color(0xFF80808A),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -223,7 +259,11 @@ class NotifySettingsPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s4, w: 240, h: 240),
+                        child: hsvg(
+                          dk(context, Svgs.s7, Svgs.s8),
+                          w: 240,
+                          h: 240,
+                        ),
                       ),
                     ],
                   ),
@@ -236,35 +276,46 @@ class NotifySettingsPage extends StatelessWidget {
                         '发送渠道 · 商家自选',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -284,10 +335,29 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 40,
                                             h: 40,
-                                            bg: Color(0xFFDDF6E7),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFDDF6E7),
+                                              Color.fromRGBO(
+                                                23,
+                                                201,
+                                                100,
+                                                0.16,
+                                              ),
+                                            ),
                                             radius: BorderRadius.circular(13),
                                             child: hrow(
-                                              [hsvg(Svgs.s118, w: 22, h: 22)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s216,
+                                                    Svgs.s217,
+                                                  ),
+                                                  w: 22,
+                                                  h: 22,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -301,7 +371,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '微信模板消息',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 22,
                                                   ),
@@ -323,7 +397,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         '已授权 · 驰光汽车美容服务号',
                                                         style: hts(
                                                           12,
-                                                          Color(0xFF2B7745),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF2B7745),
+                                                            Color(0xFF5FD48C),
+                                                          ),
                                                           lh: 16,
                                                         ),
                                                       ),
@@ -340,7 +418,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 2,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -359,7 +441,11 @@ class NotifySettingsPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(68, 0, 0, 0),
                           ),
                           hbox(
@@ -378,10 +464,24 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 40,
                                             h: 40,
-                                            bg: Color(0xFFE1F0FE),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFE1F0FE),
+                                              Color.fromRGBO(4, 133, 247, 0.18),
+                                            ),
                                             radius: BorderRadius.circular(13),
                                             child: hrow(
-                                              [hsvg(Svgs.s119, w: 22, h: 22)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s218,
+                                                    Svgs.s219,
+                                                  ),
+                                                  w: 22,
+                                                  h: 22,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -395,7 +495,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '短信',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 22,
                                                   ),
@@ -417,7 +521,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         '【驰光汽车】· 剩余 1,240 条',
                                                         style: hts(
                                                           12,
-                                                          Color(0xFF52525B),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF52525B),
+                                                            Color(0xFFA8A8B3),
+                                                          ),
                                                           lh: 16,
                                                         ),
                                                       ),
@@ -434,7 +542,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 2,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -470,35 +582,46 @@ class NotifySettingsPage extends StatelessWidget {
                         '发送策略',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: HSelHolder(
                         groups: [
@@ -526,7 +649,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '优先微信，失败转短信',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 22,
                                                   ),
@@ -535,7 +662,16 @@ class NotifySettingsPage extends StatelessWidget {
                                               Flexible(
                                                 flex: 34,
                                                 child: hbox(
-                                                  bg: Color(0xFFE1F0FE),
+                                                  bg: dk(
+                                                    context,
+                                                    Color(0xFFE1F0FE),
+                                                    Color.fromRGBO(
+                                                      4,
+                                                      133,
+                                                      247,
+                                                      0.18,
+                                                    ),
+                                                  ),
                                                   radius: BorderRadius.circular(
                                                     8,
                                                   ),
@@ -549,7 +685,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                     '推荐',
                                                     style: hts(
                                                       11,
-                                                      Color(0xFF1E63AE),
+                                                      dk(
+                                                        context,
+                                                        Color(0xFF1E63AE),
+                                                        Color(0xFF6AB4FA),
+                                                      ),
                                                       w: FontWeight.w600,
                                                       lh: 16,
                                                     ),
@@ -565,7 +705,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '会员已关注公众号走微信，否则自动发短信',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -585,7 +729,11 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 8,
                                             h: 8,
-                                            bg: Color(0xFFFFFFFF),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFFFFFFF),
+                                              Color(0xFF18181B),
+                                            ),
                                             radius: BorderRadius.circular(4),
                                           ),
                                         ],
@@ -617,7 +765,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '优先微信，失败转短信',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     w: FontWeight.w500,
                                                     lh: 22,
                                                   ),
@@ -626,7 +778,16 @@ class NotifySettingsPage extends StatelessWidget {
                                               Flexible(
                                                 flex: 34,
                                                 child: hbox(
-                                                  bg: Color(0xFFE1F0FE),
+                                                  bg: dk(
+                                                    context,
+                                                    Color(0xFFE1F0FE),
+                                                    Color.fromRGBO(
+                                                      4,
+                                                      133,
+                                                      247,
+                                                      0.18,
+                                                    ),
+                                                  ),
                                                   radius: BorderRadius.circular(
                                                     8,
                                                   ),
@@ -640,7 +801,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                     '推荐',
                                                     style: hts(
                                                       11,
-                                                      Color(0xFF1E63AE),
+                                                      dk(
+                                                        context,
+                                                        Color(0xFF1E63AE),
+                                                        Color(0xFF6AB4FA),
+                                                      ),
                                                       w: FontWeight.w600,
                                                       lh: 16,
                                                     ),
@@ -656,7 +821,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '会员已关注公众号走微信，否则自动发短信',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -676,7 +845,11 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 8,
                                             h: 8,
-                                            bg: Color(0xFFFFFFFF),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFFFFFFF),
+                                              Color(0xFF18181B),
+                                            ),
                                             radius: BorderRadius.circular(4),
                                           ),
                                         ],
@@ -694,7 +867,11 @@ class NotifySettingsPage extends StatelessWidget {
                             ),
                             hbox(
                               h: 1,
-                              bg: Color(0xFFEFEFF1),
+                              bg: dk(
+                                context,
+                                Color(0xFFEFEFF1),
+                                Color(0xFF2A2A2E),
+                              ),
                               margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                             ),
                             HSel(
@@ -713,7 +890,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '仅微信',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -722,7 +903,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '不产生费用，未关注公众号的会员收不到',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -736,9 +921,16 @@ class NotifySettingsPage extends StatelessWidget {
                                       w: 22,
                                       h: 22,
                                       radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      border: dk(
+                                        context,
+                                        Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                        Border.all(
+                                          color: Color(0xFF3F3F46),
+                                          width: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -760,7 +952,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '仅微信',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -769,7 +965,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '不产生费用，未关注公众号的会员收不到',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -783,9 +983,16 @@ class NotifySettingsPage extends StatelessWidget {
                                       w: 22,
                                       h: 22,
                                       radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      border: dk(
+                                        context,
+                                        Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                        Border.all(
+                                          color: Color(0xFF3F3F46),
+                                          width: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -797,7 +1004,11 @@ class NotifySettingsPage extends StatelessWidget {
                             ),
                             hbox(
                               h: 1,
-                              bg: Color(0xFFEFEFF1),
+                              bg: dk(
+                                context,
+                                Color(0xFFEFEFF1),
+                                Color(0xFF2A2A2E),
+                              ),
                               margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                             ),
                             HSel(
@@ -816,7 +1027,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '仅短信',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -825,7 +1040,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '所有会员都能收到，按条计费',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -839,9 +1058,16 @@ class NotifySettingsPage extends StatelessWidget {
                                       w: 22,
                                       h: 22,
                                       radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      border: dk(
+                                        context,
+                                        Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                        Border.all(
+                                          color: Color(0xFF3F3F46),
+                                          width: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -863,7 +1089,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '仅短信',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -872,7 +1102,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '所有会员都能收到，按条计费',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -886,9 +1120,16 @@ class NotifySettingsPage extends StatelessWidget {
                                       w: 22,
                                       h: 22,
                                       radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      border: dk(
+                                        context,
+                                        Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                        Border.all(
+                                          color: Color(0xFF3F3F46),
+                                          width: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -900,7 +1141,11 @@ class NotifySettingsPage extends StatelessWidget {
                             ),
                             hbox(
                               h: 1,
-                              bg: Color(0xFFEFEFF1),
+                              bg: dk(
+                                context,
+                                Color(0xFFEFEFF1),
+                                Color(0xFF2A2A2E),
+                              ),
                               margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                             ),
                             HSel(
@@ -919,7 +1164,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '微信 + 短信同时发',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -928,7 +1177,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '重要通知双保险，费用最高',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -942,9 +1195,16 @@ class NotifySettingsPage extends StatelessWidget {
                                       w: 22,
                                       h: 22,
                                       radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      border: dk(
+                                        context,
+                                        Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                        Border.all(
+                                          color: Color(0xFF3F3F46),
+                                          width: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -966,7 +1226,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '微信 + 短信同时发',
                                             style: hts(
                                               15,
-                                              Color(0xFF18181B),
+                                              dk(
+                                                context,
+                                                Color(0xFF18181B),
+                                                Color(0xFFFAFAFA),
+                                              ),
                                               w: FontWeight.w500,
                                               lh: 22,
                                             ),
@@ -975,7 +1239,11 @@ class NotifySettingsPage extends StatelessWidget {
                                             '重要通知双保险，费用最高',
                                             style: hts(
                                               12,
-                                              Color(0xFF71717A),
+                                              dk(
+                                                context,
+                                                Color(0xFF71717A),
+                                                Color(0xFF9A9AA3),
+                                              ),
                                               lh: 16,
                                             ),
                                           ),
@@ -989,9 +1257,16 @@ class NotifySettingsPage extends StatelessWidget {
                                       w: 22,
                                       h: 22,
                                       radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      border: dk(
+                                        context,
+                                        Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                        Border.all(
+                                          color: Color(0xFF3F3F46),
+                                          width: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -1021,35 +1296,46 @@ class NotifySettingsPage extends StatelessWidget {
                         '通知场景 · 点击编辑内容',
                         style: hts(
                           13,
-                          Color(0xFF52525B),
+                          dk(context, Color(0xFF52525B), Color(0xFFA8A8B3)),
                           w: FontWeight.w500,
                           lh: 18,
                         ),
                       ),
                     ),
                     hbox(
-                      bg: Color(0xFFFFFFFF),
+                      bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                       radius: BorderRadius.circular(24),
-                      shadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04),
-                          offset: Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 1),
-                          blurRadius: 2,
-                          spreadRadius: 0,
-                        ),
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.06),
-                          offset: Offset(0, 0),
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      shadow: dk(
+                        context,
+                        [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        [
+                          BoxShadow(
+                            color: Color(0xFF26262B),
+                            offset: Offset(0, 0),
+                            blurRadius: 0,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
@@ -1068,10 +1354,24 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 32,
                                             h: 32,
-                                            bg: Color(0xFFE1F0FE),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFE1F0FE),
+                                              Color.fromRGBO(4, 133, 247, 0.18),
+                                            ),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s80, w: 18, h: 18)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s148,
+                                                    Svgs.s149,
+                                                  ),
+                                                  w: 18,
+                                                  h: 18,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1085,7 +1385,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '消费扣款',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     lh: 22,
                                                   ),
                                                 ),
@@ -1094,7 +1398,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFDDF6E7),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFDDF6E7),
+                                                          Color.fromRGBO(
+                                                            23,
+                                                            201,
+                                                            100,
+                                                            0.16,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1110,7 +1423,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '微信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF2B7745),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF2B7745),
+                                                              Color(0xFF5FD48C),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1120,7 +1437,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFE1F0FE),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFE1F0FE),
+                                                          Color.fromRGBO(
+                                                            4,
+                                                            133,
+                                                            247,
+                                                            0.18,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1136,7 +1462,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '短信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF1E63AE),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF1E63AE),
+                                                              Color(0xFF6AB4FA),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1156,7 +1486,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 3,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -1175,7 +1509,11 @@ class NotifySettingsPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hbox(
@@ -1193,10 +1531,29 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 32,
                                             h: 32,
-                                            bg: Color(0xFFDDF6E7),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFDDF6E7),
+                                              Color.fromRGBO(
+                                                23,
+                                                201,
+                                                100,
+                                                0.16,
+                                              ),
+                                            ),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s120, w: 18, h: 18)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s220,
+                                                    Svgs.s221,
+                                                  ),
+                                                  w: 18,
+                                                  h: 18,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1210,7 +1567,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '储值充值',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     lh: 22,
                                                   ),
                                                 ),
@@ -1219,7 +1580,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFDDF6E7),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFDDF6E7),
+                                                          Color.fromRGBO(
+                                                            23,
+                                                            201,
+                                                            100,
+                                                            0.16,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1235,7 +1605,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '微信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF2B7745),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF2B7745),
+                                                              Color(0xFF5FD48C),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1245,7 +1619,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFE1F0FE),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFE1F0FE),
+                                                          Color.fromRGBO(
+                                                            4,
+                                                            133,
+                                                            247,
+                                                            0.18,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1261,7 +1644,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '短信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF1E63AE),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF1E63AE),
+                                                              Color(0xFF6AB4FA),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1281,7 +1668,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 3,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -1300,7 +1691,11 @@ class NotifySettingsPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hbox(
@@ -1318,10 +1713,24 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 32,
                                             h: 32,
-                                            bg: Color(0xFFEEEEF0),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFEEEEF0),
+                                              Color(0xFF27272A),
+                                            ),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s121, w: 18, h: 18)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s222,
+                                                    Svgs.s223,
+                                                  ),
+                                                  w: 18,
+                                                  h: 18,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1335,7 +1744,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   '次卡核销',
                                                   style: hts(
                                                     15,
-                                                    Color(0xFF18181B),
+                                                    dk(
+                                                      context,
+                                                      Color(0xFF18181B),
+                                                      Color(0xFFFAFAFA),
+                                                    ),
                                                     lh: 22,
                                                   ),
                                                 ),
@@ -1344,7 +1757,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFDDF6E7),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFDDF6E7),
+                                                          Color.fromRGBO(
+                                                            23,
+                                                            201,
+                                                            100,
+                                                            0.16,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1360,7 +1782,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '微信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF2B7745),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF2B7745),
+                                                              Color(0xFF5FD48C),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1380,7 +1806,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 3,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -1399,7 +1829,11 @@ class NotifySettingsPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hbox(
@@ -1417,10 +1851,24 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 32,
                                             h: 32,
-                                            bg: Color(0xFFFFE1E2),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFFFE1E2),
+                                              Color.fromRGBO(255, 56, 60, 0.18),
+                                            ),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s122, w: 18, h: 18)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s224,
+                                                    Svgs.s225,
+                                                  ),
+                                                  w: 18,
+                                                  h: 18,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1434,7 +1882,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   TextSpan(
                                                     style: hts(
                                                       15,
-                                                      Color(0xFF18181B),
+                                                      dk(
+                                                        context,
+                                                        Color(0xFF18181B),
+                                                        Color(0xFFFAFAFA),
+                                                      ),
                                                       lh: 22,
                                                     ),
                                                     children: [
@@ -1442,7 +1894,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         text: '余额不足 ',
                                                         style: hts(
                                                           15,
-                                                          Color(0xFF18181B),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF18181B),
+                                                            Color(0xFFFAFAFA),
+                                                          ),
                                                           lh: 22,
                                                         ),
                                                       ),
@@ -1450,7 +1906,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         text: '· 低于 ¥300',
                                                         style: hts(
                                                           12,
-                                                          Color(0xFF71717A),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF71717A),
+                                                            Color(0xFF9A9AA3),
+                                                          ),
                                                           lh: 22,
                                                         ),
                                                       ),
@@ -1462,7 +1922,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFE1F0FE),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFE1F0FE),
+                                                          Color.fromRGBO(
+                                                            4,
+                                                            133,
+                                                            247,
+                                                            0.18,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1478,7 +1947,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '短信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF1E63AE),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF1E63AE),
+                                                              Color(0xFF6AB4FA),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1498,7 +1971,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 3,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -1517,7 +1994,11 @@ class NotifySettingsPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hbox(
@@ -1535,10 +2016,29 @@ class NotifySettingsPage extends StatelessWidget {
                                           hbox(
                                             w: 32,
                                             h: 32,
-                                            bg: Color(0xFFFDEFD6),
+                                            bg: dk(
+                                              context,
+                                              Color(0xFFFDEFD6),
+                                              Color.fromRGBO(
+                                                245,
+                                                165,
+                                                36,
+                                                0.16,
+                                              ),
+                                            ),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s123, w: 18, h: 18)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s226,
+                                                    Svgs.s227,
+                                                  ),
+                                                  w: 18,
+                                                  h: 18,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1552,7 +2052,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   TextSpan(
                                                     style: hts(
                                                       15,
-                                                      Color(0xFF18181B),
+                                                      dk(
+                                                        context,
+                                                        Color(0xFF18181B),
+                                                        Color(0xFFFAFAFA),
+                                                      ),
                                                       lh: 22,
                                                     ),
                                                     children: [
@@ -1560,7 +2064,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         text: '次卡将到期 ',
                                                         style: hts(
                                                           15,
-                                                          Color(0xFF18181B),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF18181B),
+                                                            Color(0xFFFAFAFA),
+                                                          ),
                                                           lh: 22,
                                                         ),
                                                       ),
@@ -1568,7 +2076,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         text: '· 提前 7 天',
                                                         style: hts(
                                                           12,
-                                                          Color(0xFF71717A),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF71717A),
+                                                            Color(0xFF9A9AA3),
+                                                          ),
                                                           lh: 22,
                                                         ),
                                                       ),
@@ -1580,7 +2092,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFDDF6E7),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFDDF6E7),
+                                                          Color.fromRGBO(
+                                                            23,
+                                                            201,
+                                                            100,
+                                                            0.16,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1596,7 +2117,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '微信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF2B7745),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF2B7745),
+                                                              Color(0xFF5FD48C),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1606,7 +2131,16 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 34,
                                                       child: hbox(
-                                                        bg: Color(0xFFE1F0FE),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFE1F0FE),
+                                                          Color.fromRGBO(
+                                                            4,
+                                                            133,
+                                                            247,
+                                                            0.18,
+                                                          ),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1622,7 +2156,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '短信',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF1E63AE),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF1E63AE),
+                                                              Color(0xFF6AB4FA),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1642,7 +2180,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 3,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -1661,7 +2203,11 @@ class NotifySettingsPage extends StatelessWidget {
                           ),
                           hbox(
                             h: 1,
-                            bg: Color(0xFFEFEFF1),
+                            bg: dk(
+                              context,
+                              Color(0xFFEFEFF1),
+                              Color(0xFF2A2A2E),
+                            ),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
                           hbox(
@@ -1682,7 +2228,17 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFF5D78E),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s124, w: 18, h: 18)],
+                                              [
+                                                hsvg(
+                                                  dk(
+                                                    context,
+                                                    Svgs.s228,
+                                                    Svgs.s229,
+                                                  ),
+                                                  w: 18,
+                                                  h: 18,
+                                                ),
+                                              ],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1696,7 +2252,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                   TextSpan(
                                                     style: hts(
                                                       15,
-                                                      Color(0xFF18181B),
+                                                      dk(
+                                                        context,
+                                                        Color(0xFF18181B),
+                                                        Color(0xFFFAFAFA),
+                                                      ),
                                                       lh: 22,
                                                     ),
                                                     children: [
@@ -1704,7 +2264,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         text: '生日祝福 ',
                                                         style: hts(
                                                           15,
-                                                          Color(0xFF18181B),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF18181B),
+                                                            Color(0xFFFAFAFA),
+                                                          ),
                                                           lh: 22,
                                                         ),
                                                       ),
@@ -1712,7 +2276,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                         text: '· 当天 09:00',
                                                         style: hts(
                                                           12,
-                                                          Color(0xFF71717A),
+                                                          dk(
+                                                            context,
+                                                            Color(0xFF71717A),
+                                                            Color(0xFF9A9AA3),
+                                                          ),
                                                           lh: 22,
                                                         ),
                                                       ),
@@ -1724,7 +2292,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                     Flexible(
                                                       flex: 67,
                                                       child: hbox(
-                                                        bg: Color(0xFFEEEEF0),
+                                                        bg: dk(
+                                                          context,
+                                                          Color(0xFFEEEEF0),
+                                                          Color(0xFF27272A),
+                                                        ),
                                                         radius:
                                                             BorderRadius.circular(
                                                               8,
@@ -1740,7 +2312,11 @@ class NotifySettingsPage extends StatelessWidget {
                                                           '未选择渠道',
                                                           style: hts(
                                                             11,
-                                                            Color(0xFF71717A),
+                                                            dk(
+                                                              context,
+                                                              Color(0xFF71717A),
+                                                              Color(0xFF9A9AA3),
+                                                            ),
                                                             w: FontWeight.w500,
                                                             lh: 16,
                                                           ),
@@ -1760,7 +2336,11 @@ class NotifySettingsPage extends StatelessWidget {
                                               gap: 3,
                                             ),
                                           ),
-                                          hsvg(Svgs.s2, w: 16, h: 16),
+                                          hsvg(
+                                            dk(context, Svgs.s3, Svgs.s4),
+                                            w: 16,
+                                            h: 16,
+                                          ),
                                         ],
                                         main: MainAxisAlignment.start,
                                         cross: CrossAxisAlignment.center,
@@ -1792,38 +2372,55 @@ class NotifySettingsPage extends StatelessWidget {
                   context,
                   hbox(
                     h: 56,
-                    bg: Color(0xFFFFFFFF),
+                    bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
                     radius: BorderRadius.circular(24),
-                    shadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.04),
-                        offset: Offset(0, 2),
-                        blurRadius: 4,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 1),
-                        blurRadius: 2,
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                        offset: Offset(0, 0),
-                        blurRadius: 1,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                    shadow: dk(
+                      context,
+                      [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.04),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 1),
+                          blurRadius: 2,
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                          offset: Offset(0, 0),
+                          blurRadius: 1,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                      [
+                        BoxShadow(
+                          color: Color(0xFF26262B),
+                          offset: Offset(0, 0),
+                          blurRadius: 0,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
                     pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
                     child: hrow(
                       [
                         hbox(
                           w: 32,
                           h: 32,
-                          bg: Color(0xFFEEEEF0),
+                          bg: dk(context, Color(0xFFEEEEF0), Color(0xFF27272A)),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s125, w: 18, h: 18)],
+                            [
+                              hsvg(
+                                dk(context, Svgs.s230, Svgs.s231),
+                                w: 18,
+                                h: 18,
+                              ),
+                            ],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -1833,14 +2430,22 @@ class NotifySettingsPage extends StatelessWidget {
                           flex: 1,
                           child: Text(
                             '发送记录',
-                            style: hts(15, Color(0xFF18181B), lh: 22),
+                            style: hts(
+                              15,
+                              dk(context, Color(0xFF18181B), Color(0xFFFAFAFA)),
+                              lh: 22,
+                            ),
                           ),
                         ),
                         Text(
                           '今日 12 条 · 1 条失败',
-                          style: hts(13, Color(0xFF71717A), lh: 18),
+                          style: hts(
+                            13,
+                            dk(context, Color(0xFF71717A), Color(0xFF9A9AA3)),
+                            lh: 18,
+                          ),
                         ),
-                        hsvg(Svgs.s2, w: 16, h: 16),
+                        hsvg(dk(context, Svgs.s3, Svgs.s4), w: 16, h: 16),
                       ],
                       main: MainAxisAlignment.start,
                       cross: CrossAxisAlignment.center,
