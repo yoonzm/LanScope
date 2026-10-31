@@ -395,7 +395,7 @@ class RenewPaidPage extends StatelessWidget {
                             child: hrow(
                               [
                                 hsvg(
-                                  dk(context, Svgs.s250, Svgs.s251),
+                                  dk(context, Svgs.s249, Svgs.s250),
                                   w: 18,
                                   h: 18,
                                 ),

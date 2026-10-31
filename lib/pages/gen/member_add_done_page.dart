@@ -357,7 +357,7 @@ class MemberAddDonePage extends StatelessWidget {
                             child: hrow(
                               [
                                 hsvg(
-                                  dk(context, Svgs.s189, Svgs.s190),
+                                  dk(context, Svgs.s188, Svgs.s189),
                                   w: 18,
                                   h: 18,
                                 ),
@@ -412,7 +412,7 @@ class MemberAddDonePage extends StatelessWidget {
                             ),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hrow(
-                              [hsvg(Svgs.s191, w: 132, h: 132)],
+                              [hsvg(Svgs.s190, w: 132, h: 132)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,

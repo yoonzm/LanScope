@@ -20,53 +20,7 @@ class RegDonePage extends StatelessWidget {
               [
                 hrow(
                   [
-                    hTap(
-                      context,
-                      hbox(
-                        w: 44,
-                        h: 44,
-                        bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
-                        radius: BorderRadius.circular(22),
-                        shadow: dk(
-                          context,
-                          [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.04),
-                              offset: Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 1),
-                              blurRadius: 2,
-                              spreadRadius: 0,
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.06),
-                              offset: Offset(0, 0),
-                              blurRadius: 1,
-                              spreadRadius: 0,
-                            ),
-                          ],
-                          [
-                            BoxShadow(
-                              color: Color(0xFF26262B),
-                              offset: Offset(0, 0),
-                              blurRadius: 0,
-                              spreadRadius: 1,
-                            ),
-                          ],
-                        ),
-                        child: hrow(
-                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
-                        ),
-                      ),
-                      back: true,
-                    ),
+                    hbox(w: 44),
                     Expanded(
                       flex: 1,
                       child: Text(
@@ -112,7 +66,7 @@ class RegDonePage extends StatelessWidget {
                             bg: Color(0xFF17C964),
                             radius: BorderRadius.circular(26),
                             child: hrow(
-                              [hsvg(Svgs.s275, w: 26, h: 26)],
+                              [hsvg(Svgs.s274, w: 26, h: 26)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,

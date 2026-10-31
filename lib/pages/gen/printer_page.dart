@@ -131,7 +131,7 @@ class PrinterPage extends StatelessWidget {
                         child: hrow(
                           [
                             hsvg(
-                              dk(context, Svgs.s254, Svgs.s255),
+                              dk(context, Svgs.s253, Svgs.s254),
                               w: 26,
                               h: 26,
                             ),

@@ -590,7 +590,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       child: hrow(
                                         [
                                           hsvg(
-                                            dk(context, Svgs.s220, Svgs.s221),
+                                            dk(context, Svgs.s219, Svgs.s220),
                                             w: 18,
                                             h: 18,
                                           ),
@@ -663,7 +663,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       child: hrow(
                                         [
                                           hsvg(
-                                            dk(context, Svgs.s220, Svgs.s221),
+                                            dk(context, Svgs.s219, Svgs.s220),
                                             w: 18,
                                             h: 18,
                                           ),
@@ -744,7 +744,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       child: hrow(
                                         [
                                           hsvg(
-                                            dk(context, Svgs.s235, Svgs.s236),
+                                            dk(context, Svgs.s234, Svgs.s235),
                                             w: 18,
                                             h: 18,
                                           ),
@@ -806,7 +806,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       child: hrow(
                                         [
                                           hsvg(
-                                            dk(context, Svgs.s235, Svgs.s236),
+                                            dk(context, Svgs.s234, Svgs.s235),
                                             w: 18,
                                             h: 18,
                                           ),
@@ -876,7 +876,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       child: hrow(
                                         [
                                           hsvg(
-                                            dk(context, Svgs.s237, Svgs.s238),
+                                            dk(context, Svgs.s236, Svgs.s237),
                                             w: 18,
                                             h: 18,
                                           ),
@@ -949,7 +949,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       child: hrow(
                                         [
                                           hsvg(
-                                            dk(context, Svgs.s237, Svgs.s238),
+                                            dk(context, Svgs.s236, Svgs.s237),
                                             w: 18,
                                             h: 18,
                                           ),
@@ -1247,7 +1247,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               hsvg(
-                                dk(context, Svgs.s187, Svgs.s188),
+                                dk(context, Svgs.s186, Svgs.s187),
                                 w: 14,
                                 h: 14,
                               ),

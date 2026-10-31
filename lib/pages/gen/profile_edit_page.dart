@@ -155,7 +155,7 @@ class ProfileEditPage extends StatelessWidget {
                                 ),
                               ],
                               child: hrow(
-                                [hsvg(Svgs.s265, w: 15, h: 15)],
+                                [hsvg(Svgs.s264, w: 15, h: 15)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,

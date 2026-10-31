@@ -367,7 +367,7 @@ class PayUnboundPage extends StatelessWidget {
                             child: hrow(
                               [
                                 hsvg(
-                                  dk(context, Svgs.s244, Svgs.s245),
+                                  dk(context, Svgs.s243, Svgs.s244),
                                   w: 18,
                                   h: 18,
                                 ),
@@ -444,7 +444,7 @@ class PayUnboundPage extends StatelessWidget {
                             ),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hrow(
-                              [hsvg(Svgs.s191, w: 132, h: 132)],
+                              [hsvg(Svgs.s190, w: 132, h: 132)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,

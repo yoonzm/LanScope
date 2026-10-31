@@ -1432,247 +1432,257 @@ class MainExpiringPage extends StatelessWidget {
       overlays: [
         HBottomDock(
           child: hbox(
-            h: 84,
-            bg: dk(context, Color(0xFFFFFFFF), Color(0xFF18181B)),
-            shadow: dk(
-              context,
+            h: 108,
+            child: hstack(
+              hcol(
+                [],
+                main: MainAxisAlignment.start,
+                cross: CrossAxisAlignment.stretch,
+                gap: 0,
+                min: false,
+              ),
               [
-                BoxShadow(
-                  color: Color(0xFFE8E8EA),
-                  offset: Offset(0, -1),
-                  blurRadius: 0,
-                  spreadRadius: 0,
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: 84,
+                  child: hbox(
+                    h: 84,
+                    child: hcol(
+                      [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: hbox(
+                            w: 390,
+                            h: 84,
+                            bg: dk(
+                              context,
+                              Color(0xFFFFFFFF),
+                              Color(0xFF18181B),
+                            ),
+                          ),
+                        ),
+                      ],
+                      main: MainAxisAlignment.start,
+                      cross: CrossAxisAlignment.stretch,
+                      gap: 0,
+                      min: false,
+                    ),
+                  ),
                 ),
-                BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.04),
-                  offset: Offset(0, -8),
-                  blurRadius: 24,
-                  spreadRadius: 0,
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: 84,
+                  child: hbox(
+                    h: 84,
+                    pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    child: hcol([
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                pad: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: hcol(
+                                  [
+                                    hsvg(Svgs.s176, w: 24, h: 24),
+                                    Text(
+                                      '首页',
+                                      style: hts(
+                                        11,
+                                        Color(0xFF0485F7),
+                                        w: FontWeight.w600,
+                                        lh: 14,
+                                      ),
+                                    ),
+                                    hbox(
+                                      w: 4,
+                                      h: 4,
+                                      bg: Color(0xFF0485F7),
+                                      radius: BorderRadius.circular(2),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 3,
+                                ),
+                              ),
+                              to: 'Main',
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                pad: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: hcol(
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s177, Svgs.s178),
+                                      w: 24,
+                                      h: 24,
+                                    ),
+                                    Text(
+                                      '会员',
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        w: FontWeight.w500,
+                                        lh: 14,
+                                      ),
+                                    ),
+                                    hbox(w: 4, h: 4),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 3,
+                                ),
+                              ),
+                              to: 'Members',
+                            ),
+                          ),
+                          Expanded(flex: 1, child: SizedBox.shrink()),
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                pad: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: hcol(
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s179, Svgs.s180),
+                                      w: 24,
+                                      h: 24,
+                                    ),
+                                    Text(
+                                      '库存',
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        w: FontWeight.w500,
+                                        lh: 14,
+                                      ),
+                                    ),
+                                    hbox(w: 4, h: 4),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 3,
+                                ),
+                              ),
+                              to: 'Inventory',
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                pad: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: hcol(
+                                  [
+                                    hsvg(
+                                      dk(context, Svgs.s181, Svgs.s182),
+                                      w: 24,
+                                      h: 24,
+                                    ),
+                                    Text(
+                                      '统计',
+                                      style: hts(
+                                        11,
+                                        dk(
+                                          context,
+                                          Color(0xFF71717A),
+                                          Color(0xFF9A9AA3),
+                                        ),
+                                        w: FontWeight.w500,
+                                        lh: 14,
+                                      ),
+                                    ),
+                                    hbox(w: 4, h: 4),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 3,
+                                ),
+                              ),
+                              to: 'Stats',
+                            ),
+                          ),
+                        ],
+                        cross: CrossAxisAlignment.stretch,
+                        gap: 0,
+                        intrinsic: true,
+                        min: false,
+                      ),
+                    ], gap: 0),
+                  ),
                 ),
-              ],
-              [
-                BoxShadow(
-                  color: Color(0xFF26262B),
-                  offset: Offset(0, 0),
-                  blurRadius: 0,
-                  spreadRadius: 1,
+                Positioned(
+                  top: 0,
+                  width: 56,
+                  height: 56,
+                  child: hTap(
+                    context,
+                    NegMargin(
+                      top: 0,
+                      left: -28,
+                      child: hbox(
+                        w: 56,
+                        h: 56,
+                        grad: LinearGradient(
+                          begin: Alignment(-0.574, -0.819),
+                          end: Alignment(0.574, 0.819),
+                          colors: [
+                            Color(0xFF4DB0FF),
+                            Color(0xFF0485F7),
+                            Color(0xFF0568D8),
+                          ],
+                          stops: [0, 0.55, 1],
+                        ),
+                        radius: BorderRadius.circular(28),
+                        shadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(4, 133, 247, 0.55),
+                            offset: Offset(0, 10),
+                            blurRadius: 26,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(4, 133, 247, 0.35),
+                            offset: Offset(0, 2),
+                            blurRadius: 6,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        child: hrow(
+                          [hsvg(Svgs.s183, w: 26, h: 26)],
+                          main: MainAxisAlignment.center,
+                          cross: CrossAxisAlignment.center,
+                          gap: 0,
+                        ),
+                      ),
+                    ),
+                    to: 'Order',
+                  ),
                 ),
               ],
             ),
-            pad: EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: hcol([
-              hrow(
-                [
-                  Expanded(
-                    flex: 1,
-                    child: hTap(
-                      context,
-                      hbox(
-                        pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                        child: hcol(
-                          [
-                            hsvg(Svgs.s176, w: 24, h: 24),
-                            Text(
-                              '首页',
-                              style: hts(
-                                11,
-                                dk(
-                                  context,
-                                  Color(0xFF18181B),
-                                  Color(0xFFFAFAFA),
-                                ),
-                                w: FontWeight.w600,
-                                lh: 14,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 4,
-                        ),
-                      ),
-                      to: 'Main',
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: hTap(
-                      context,
-                      hbox(
-                        pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                        child: hcol(
-                          [
-                            hsvg(
-                              dk(context, Svgs.s177, Svgs.s178),
-                              w: 24,
-                              h: 24,
-                            ),
-                            Text(
-                              '会员',
-                              style: hts(
-                                11,
-                                dk(
-                                  context,
-                                  Color(0xFF71717A),
-                                  Color(0xFF9A9AA3),
-                                ),
-                                w: FontWeight.w500,
-                                lh: 14,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 4,
-                        ),
-                      ),
-                      to: 'Members',
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: hTap(
-                      context,
-                      NegMargin(
-                        top: -22,
-                        left: 0,
-                        child: hcol(
-                          [
-                            hbox(
-                              w: 54,
-                              h: 54,
-                              bg: dk(
-                                context,
-                                Color(0xFF18181B),
-                                Color(0xFFFAFAFA),
-                              ),
-                              radius: BorderRadius.circular(27),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color(0xFFFFFFFF),
-                                  offset: Offset(0, 0),
-                                  blurRadius: 0,
-                                  spreadRadius: 5,
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(24, 24, 27, 0.25),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20,
-                                  spreadRadius: 0,
-                                ),
-                              ],
-                              child: hrow(
-                                [
-                                  hsvg(
-                                    dk(context, Svgs.s179, Svgs.s180),
-                                    w: 24,
-                                    h: 24,
-                                  ),
-                                ],
-                                main: MainAxisAlignment.center,
-                                cross: CrossAxisAlignment.center,
-                                gap: 0,
-                              ),
-                            ),
-                            Text(
-                              '开单',
-                              style: hts(
-                                11,
-                                dk(
-                                  context,
-                                  Color(0xFF18181B),
-                                  Color(0xFFFAFAFA),
-                                ),
-                                w: FontWeight.w500,
-                                lh: 14,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 4,
-                        ),
-                      ),
-                      to: 'Order',
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: hTap(
-                      context,
-                      hbox(
-                        pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                        child: hcol(
-                          [
-                            hsvg(
-                              dk(context, Svgs.s181, Svgs.s182),
-                              w: 24,
-                              h: 24,
-                            ),
-                            Text(
-                              '库存',
-                              style: hts(
-                                11,
-                                dk(
-                                  context,
-                                  Color(0xFF71717A),
-                                  Color(0xFF9A9AA3),
-                                ),
-                                w: FontWeight.w500,
-                                lh: 14,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 4,
-                        ),
-                      ),
-                      to: 'Inventory',
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: hTap(
-                      context,
-                      hbox(
-                        pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                        child: hcol(
-                          [
-                            hsvg(
-                              dk(context, Svgs.s183, Svgs.s184),
-                              w: 24,
-                              h: 24,
-                            ),
-                            Text(
-                              '统计',
-                              style: hts(
-                                11,
-                                dk(
-                                  context,
-                                  Color(0xFF71717A),
-                                  Color(0xFF9A9AA3),
-                                ),
-                                w: FontWeight.w500,
-                                lh: 14,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 4,
-                        ),
-                      ),
-                      to: 'Stats',
-                    ),
-                  ),
-                ],
-                cross: CrossAxisAlignment.stretch,
-                gap: 0,
-                intrinsic: true,
-                min: false,
-              ),
-            ], gap: 0),
           ),
         ),
       ],

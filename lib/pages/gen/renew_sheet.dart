@@ -540,7 +540,7 @@ class RenewSheet extends StatelessWidget {
                   ),
                   radius: BorderRadius.circular(12),
                   child: hrow(
-                    [hsvg(dk(context, Svgs.s220, Svgs.s221), w: 18, h: 18)],
+                    [hsvg(dk(context, Svgs.s219, Svgs.s220), w: 18, h: 18)],
                     main: MainAxisAlignment.center,
                     cross: CrossAxisAlignment.center,
                     gap: 0,

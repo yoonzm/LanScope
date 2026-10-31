@@ -593,7 +593,7 @@ class SecurityPage extends StatelessWidget {
                                   child: hrow(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s278, Svgs.s279),
+                                        dk(context, Svgs.s277, Svgs.s278),
                                         w: 18,
                                         h: 18,
                                       ),
@@ -681,7 +681,7 @@ class SecurityPage extends StatelessWidget {
                                   child: hrow(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s280, Svgs.s281),
+                                        dk(context, Svgs.s279, Svgs.s280),
                                         w: 18,
                                         h: 18,
                                       ),
@@ -769,7 +769,7 @@ class SecurityPage extends StatelessWidget {
                                   child: hrow(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s280, Svgs.s281),
+                                        dk(context, Svgs.s279, Svgs.s280),
                                         w: 18,
                                         h: 18,
                                       ),

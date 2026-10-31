@@ -22,7 +22,7 @@ HANDWRITTEN = {
     'Settings', 'Order', 'Appointments', 'AppointmentAdd', 'Services',
     'ThemeSheet',  # 外观选择：手写，直接作用于全局主题
 }
-SKIP = {'AppIcon', 'DarkTokens'}
+SKIP = {'AppIcon', 'DarkTokens', 'PageTransitions'}
 # 设计稿里的深色版本只是参考，深色效果由同一套页面自动适配
 SKIP_SUFFIX = ('Dark',)
 

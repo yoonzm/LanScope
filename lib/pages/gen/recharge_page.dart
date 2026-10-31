@@ -221,7 +221,7 @@ class RechargePage extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 6),
                               child: hsvg(
-                                dk(context, Svgs.s268, Svgs.s269),
+                                dk(context, Svgs.s267, Svgs.s268),
                                 w: 20,
                                 h: 20,
                               ),
@@ -271,7 +271,7 @@ class RechargePage extends StatelessWidget {
                         right: -80,
                         bottom: -110,
                         child: hsvg(
-                          dk(context, Svgs.s266, Svgs.s267),
+                          dk(context, Svgs.s265, Svgs.s266),
                           w: 220,
                           h: 220,
                         ),
@@ -930,7 +930,7 @@ class RechargePage extends StatelessWidget {
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s270, w: 20, h: 20),
+                                      hsvg(Svgs.s269, w: 20, h: 20),
                                       Text(
                                         '扫码收款',
                                         style: hts(
@@ -965,7 +965,7 @@ class RechargePage extends StatelessWidget {
                                   child: hcol(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s271, Svgs.s272),
+                                        dk(context, Svgs.s270, Svgs.s271),
                                         w: 20,
                                         h: 20,
                                       ),
@@ -1007,7 +1007,7 @@ class RechargePage extends StatelessWidget {
                                   child: hcol(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s273, Svgs.s274),
+                                        dk(context, Svgs.s272, Svgs.s273),
                                         w: 20,
                                         h: 20,
                                       ),

@@ -383,7 +383,7 @@ class StaffDetailPage extends StatelessWidget {
                         top: -90,
                         right: -80,
                         child: hsvg(
-                          dk(context, Svgs.s292, Svgs.s293),
+                          dk(context, Svgs.s291, Svgs.s292),
                           w: 220,
                           h: 220,
                         ),

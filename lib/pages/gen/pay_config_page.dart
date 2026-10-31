@@ -112,7 +112,7 @@ class PayConfigPage extends StatelessWidget {
                               bg: Color(0xFF17C964),
                               radius: BorderRadius.circular(12),
                               child: hrow(
-                                [hsvg(Svgs.s234, w: 20, h: 20)],
+                                [hsvg(Svgs.s233, w: 20, h: 20)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,

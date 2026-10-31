@@ -59,7 +59,7 @@ class RegPhonePage extends StatelessWidget {
                           ],
                         ),
                         child: hrow(
-                          [hsvg(dk(context, Svgs.s26, Svgs.s27), w: 20, h: 20)],
+                          [hsvg(dk(context, Svgs.s0, Svgs.s1), w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,

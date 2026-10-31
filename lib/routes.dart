@@ -94,6 +94,22 @@ const Set<String> _resultPages = {
   'BindDone',
 };
 
+/// 表单卡片 / 全屏流程：从底部滑入，左上角是 ✕（设计稿“页面出场方式”第 3、4 类）。
+const Set<String> _modalPages = {
+  'MemberAdd',
+  'VehicleAdd',
+  'AppointmentAdd',
+  'StockIn',
+  'StockOut',
+  'ExpenseAdd',
+  'BudgetTotal',
+  'BudgetEdit',
+  'StoreEdit',
+  'ServiceEdit',
+  'CardTierEdit',
+  'StockCheck',
+};
+
 String? _routeName(BuildContext context) =>
     ModalRoute.of(context)?.settings.name;
 
@@ -158,9 +174,12 @@ void openRoute(BuildContext context, String name) {
   if (name == 'PlanPaid' || name == 'RenewPaid') {
     subState.value = SubState.normal;
   }
+  // 结果页（第 5 类）禁止下拉 / 侧滑返回，只能点主按钮或 ✕
+  final locked = _resultPages.contains(name);
   final route = MaterialPageRoute<void>(
     settings: RouteSettings(name: name),
-    builder: (_) => page,
+    fullscreenDialog: locked || _modalPages.contains(name),
+    builder: (_) => locked ? PopScope(canPop: false, child: page) : page,
   );
   final found = navTracker.has(name);
   if (found) {

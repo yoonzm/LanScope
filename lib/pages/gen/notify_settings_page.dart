@@ -351,8 +351,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s215,
                                                     Svgs.s216,
-                                                    Svgs.s217,
                                                   ),
                                                   w: 22,
                                                   h: 22,
@@ -475,8 +475,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s217,
                                                     Svgs.s218,
-                                                    Svgs.s219,
                                                   ),
                                                   w: 22,
                                                   h: 22,
@@ -1547,8 +1547,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s219,
                                                     Svgs.s220,
-                                                    Svgs.s221,
                                                   ),
                                                   w: 18,
                                                   h: 18,
@@ -1724,8 +1724,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s221,
                                                     Svgs.s222,
-                                                    Svgs.s223,
                                                   ),
                                                   w: 18,
                                                   h: 18,
@@ -1862,8 +1862,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s223,
                                                     Svgs.s224,
-                                                    Svgs.s225,
                                                   ),
                                                   w: 18,
                                                   h: 18,
@@ -2032,8 +2032,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s225,
                                                     Svgs.s226,
-                                                    Svgs.s227,
                                                   ),
                                                   w: 18,
                                                   h: 18,
@@ -2232,8 +2232,8 @@ class NotifySettingsPage extends StatelessWidget {
                                                 hsvg(
                                                   dk(
                                                     context,
+                                                    Svgs.s227,
                                                     Svgs.s228,
-                                                    Svgs.s229,
                                                   ),
                                                   w: 18,
                                                   h: 18,
@@ -2416,7 +2416,7 @@ class NotifySettingsPage extends StatelessWidget {
                           child: hrow(
                             [
                               hsvg(
-                                dk(context, Svgs.s230, Svgs.s231),
+                                dk(context, Svgs.s229, Svgs.s230),
                                 w: 18,
                                 h: 18,
                               ),

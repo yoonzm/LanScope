@@ -130,7 +130,7 @@ class VehicleAddPage extends StatelessWidget {
                             child: hrow(
                               [
                                 hsvg(
-                                  dk(context, Svgs.s329, Svgs.s330),
+                                  dk(context, Svgs.s328, Svgs.s329),
                                   w: 22,
                                   h: 22,
                                 ),

@@ -194,7 +194,7 @@ class StoreEditPage extends StatelessWidget {
                                     hrow(
                                       [
                                         hsvg(
-                                          dk(context, Svgs.s304, Svgs.s305),
+                                          dk(context, Svgs.s303, Svgs.s304),
                                           w: 20,
                                           h: 20,
                                         ),
@@ -245,7 +245,7 @@ class StoreEditPage extends StatelessWidget {
                                   child: hrow(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s304, Svgs.s305),
+                                        dk(context, Svgs.s303, Svgs.s304),
                                         w: 20,
                                         h: 20,
                                       ),
@@ -271,7 +271,7 @@ class StoreEditPage extends StatelessWidget {
                                   child: hrow(
                                     [
                                       hsvg(
-                                        dk(context, Svgs.s304, Svgs.s305),
+                                        dk(context, Svgs.s303, Svgs.s304),
                                         w: 20,
                                         h: 20,
                                       ),
@@ -310,7 +310,7 @@ class StoreEditPage extends StatelessWidget {
                                     child: hrow(
                                       [
                                         hsvg(
-                                          dk(context, Svgs.s306, Svgs.s307),
+                                          dk(context, Svgs.s305, Svgs.s306),
                                           w: 22,
                                           h: 22,
                                         ),
@@ -541,7 +541,7 @@ class StoreEditPage extends StatelessWidget {
                                     child: hrow(
                                       [
                                         hsvg(
-                                          dk(context, Svgs.s308, Svgs.s309),
+                                          dk(context, Svgs.s307, Svgs.s308),
                                           w: 16,
                                           h: 16,
                                         ),
