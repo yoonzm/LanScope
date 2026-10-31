@@ -174,11 +174,15 @@ private struct IdleSection: View {
                             .monospacedDigit()
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
-                        Text(addressCount == nil ? tr("请输入有效网段") : tr("个地址待扫描"))
+                        // One short word under the number; it must never wrap inside the inner ring.
+                        Text(addressCount == nil ? tr("无效网段") : tr("个地址"))
                             .font(.footnote)
                             .foregroundStyle(Theme.secondary)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
-                    .frame(maxWidth: 110)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 130)
                     .accessibilityElement(children: .combine)
                 }
 
@@ -339,8 +343,11 @@ private struct RunningSection: View {
                         Text("台设备")
                             .font(.footnote)
                             .foregroundStyle(Theme.secondary)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
-                    .frame(maxWidth: 110)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 130)
                     .accessibilityElement(children: .combine)
                 }
 

@@ -234,19 +234,19 @@
         }
       }
     },
-    "个地址待扫描" : {
+    "个地址" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "addresses to scan"
+            "value" : "addresses"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "个地址待扫描"
+            "value" : "个地址"
           }
         }
       }
@@ -1210,6 +1210,23 @@
         }
       }
     },
+    "无效网段" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid range"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效网段"
+          }
+        }
+      }
+    },
     "无法确定本机 Wi-Fi IPv4 地址，请检查网络后重试。" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1801,23 +1818,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请输入有效 IPv4 CIDR，例如 192.168.1.0/24。"
-          }
-        }
-      }
-    },
-    "请输入有效网段" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter a valid range"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入有效网段"
           }
         }
       }
