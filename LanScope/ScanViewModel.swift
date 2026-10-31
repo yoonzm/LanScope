@@ -40,7 +40,7 @@ final class ScanViewModel: ObservableObject {
     @Published private(set) var completed = 0
     @Published private(set) var total = 0
     @Published private(set) var running = false
-    @Published private(set) var status = "连接 Wi-Fi，确认网段后开始扫描。"
+    @Published private(set) var status = String(localized: "连接 Wi-Fi，确认网段后开始扫描。")
     @Published private(set) var diagnostic: String?
     @Published private(set) var history: [ScanRecord] = []
     @Published private(set) var historyError: String?
@@ -67,7 +67,7 @@ final class ScanViewModel: ObservableObject {
     init() {
         settings = settingsStore.load()
         do { history = try historyStore.load() }
-        catch { historyError = "无法读取扫描历史：\(error.localizedDescription)" }
+        catch { historyError = String(localized: "无法读取扫描历史：\(error.localizedDescription)") }
         networkMonitor.pathUpdateHandler = { [weak self] path in
             DispatchQueue.main.async { self?.fillInitialNetwork(path: path) }
         }
@@ -97,12 +97,12 @@ final class ScanViewModel: ObservableObject {
         // even if the user has since cleared the field.
         guard !hasEditedCIDR, !running else { return }
         guard let network = WiFiNetwork.current(path: path) else {
-            networkMessage = "未能识别 Wi-Fi IPv4 网段，请手动输入扫描范围。"
+            networkMessage = String(localized: "未能识别 Wi-Fi IPv4 网段，请手动输入扫描范围。")
             return
         }
         cidr = network.cidr
         do { _ = try IPv4Range(network.cidr) }
-        catch { networkMessage = "已识别网段 \(network.cidr)。\(error.localizedDescription)请直接修改扫描范围。" }
+        catch { networkMessage = String(localized: "已识别网段 \(network.cidr)。\(error.localizedDescription)请直接修改扫描范围。") }
     }
 
     func deleteHistory(ids: Set<UUID>) {
@@ -111,7 +111,7 @@ final class ScanViewModel: ObservableObject {
             try historyStore.save(remaining)
             history = remaining
             historyError = nil
-        } catch { historyError = "删除未保存：\(error.localizedDescription)" }
+        } catch { historyError = String(localized: "删除未保存：\(error.localizedDescription)") }
     }
 
     private func saveHistory(outcome: ScanRecord.Outcome) {
@@ -125,7 +125,7 @@ final class ScanViewModel: ObservableObject {
         do {
             try historyStore.save(history)
             historyError = nil
-        } catch { historyError = "扫描历史尚未保存到本机：\(error.localizedDescription)" }
+        } catch { historyError = String(localized: "扫描历史尚未保存到本机：\(error.localizedDescription)") }
     }
 
     func start() {
@@ -141,7 +141,7 @@ final class ScanViewModel: ObservableObject {
             diagnostic = nil
             running = true
             scanSettings = settings
-            status = "正在扫描…"
+            status = String(localized: "正在扫描…")
             session = UUID()
             recordID = UUID()
             pausedScan = nil
@@ -167,7 +167,7 @@ final class ScanViewModel: ObservableObject {
     }
 
     private func beginScan(range: IPv4Range, session current: UUID, done: Set<String> = []) {
-        status = "正在扫描…"
+        status = String(localized: "正在扫描…")
         scanner.start(addresses: range.addresses, settings: scanSettings, done: done) { [weak self] update in
             DispatchQueue.main.async {
                 guard let self, self.session == current, self.running else { return }
@@ -180,15 +180,15 @@ final class ScanViewModel: ObservableObject {
                     self.running = false
                     self.saveHistory(outcome: update.completed == update.total ? .completed : .interrupted)
                     if update.completed != update.total {
-                        self.status = "扫描因网络或权限问题中止，请检查后重试。"
+                        self.status = String(localized: "扫描因网络或权限问题中止，请检查后重试。")
                     } else if update.total == 0 {
-                        self.status = "已排除本机地址，扫描范围内没有其他地址。"
+                        self.status = String(localized: "已排除本机地址，扫描范围内没有其他地址。")
                     } else if self.diagnostic != nil {
-                        self.status = "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。"
+                        self.status = String(localized: "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。")
                     } else {
                         self.status = self.scanSettings.pingOnly
-                            ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
-                            : "扫描完成；未发现的地址仍可能在线。"
+                            ? String(localized: "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。")
+                            : String(localized: "扫描完成；未发现的地址仍可能在线。")
                     }
                 }
             }
@@ -222,7 +222,7 @@ final class ScanViewModel: ObservableObject {
     func resume() {
         guard !running, let paused = pausedScan, let range = try? IPv4Range(paused.cidr) else { return }
         running = true
-        status = "正在检查网络…"
+        status = String(localized: "正在检查网络…")
         session = UUID()
         let current = session
         Task {
@@ -233,7 +233,7 @@ final class ScanViewModel: ObservableObject {
                                        pausedWiFi: paused.wifiName, currentWiFi: name) else {
                 running = false
                 pausedScan = nil
-                status = "网络已变化，无法继续扫描；已保留之前的结果，请确认网段后重新开始。"
+                status = String(localized: "网络已变化，无法继续扫描；已保留之前的结果，请确认网段后重新开始。")
                 return
             }
             pausedScan = nil
@@ -254,7 +254,7 @@ final class ScanViewModel: ObservableObject {
                 self.session = UUID()
                 self.running = false
                 self.pausedScan = PausedScan(cidr: cidr, network: network, wifiName: wifiName, done: done)
-                self.status = "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。"
+                self.status = String(localized: "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。")
             }
             return
         }
@@ -263,7 +263,7 @@ final class ScanViewModel: ObservableObject {
         running = false
         pausedScan = nil
         scanner.cancel()
-        status = background ? "进入后台，扫描已停止；已发现结果保留。" : "扫描已停止；已发现结果保留。"
+        status = background ? String(localized: "进入后台，扫描已停止；已发现结果保留。") : String(localized: "扫描已停止；已发现结果保留。")
     }
 
     private static func snapshot(_ network: WiFiNetwork) -> NetworkSnapshot {

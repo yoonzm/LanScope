@@ -41,7 +41,7 @@ struct AdvancedSettingsView: View {
                                 .font(.headline)
                             Spacer(minLength: 8)
                             if let portCount {
-                                Chip(text: "\(portCount) 个")
+                                Chip(text: String(localized: "\(portCount) 个"))
                             }
                         }
                         TextField(ScanSettings().portsText, text: $portsText, axis: .vertical)

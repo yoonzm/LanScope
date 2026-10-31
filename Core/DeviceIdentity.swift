@@ -21,9 +21,10 @@ struct DeviceIdentity: Codable, Equatable {
 
     // Secondary line: type and model. The host name is omitted; it is the title when no name exists
     // and otherwise only repeats the friendly name in another spelling.
+    // `kind` stays the untranslated label (icon matching relies on it); only the display text is localized.
     var summary: String? {
         var parts: [String] = []
-        if let kind { parts.append(kind) }
+        if let kind { parts.append(NSLocalizedString(kind, comment: "Device type")) }
         if let model, model != kind { parts.append(model) }
         return parts.isEmpty ? nil : parts.joined(separator: " · ")
     }

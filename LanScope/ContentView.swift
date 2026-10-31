@@ -102,12 +102,12 @@ private struct TopBar: View {
             .background(Theme.surface, in: Capsule())
             .overlay(Capsule().strokeBorder(Theme.hairline, lineWidth: 1))
             .accessibilityElement(children: .combine)
-            .accessibilityLabel("当前 Wi-Fi：\(model.currentWiFiName ?? "未获取到名称")")
+            .accessibilityLabel("当前 Wi-Fi：\(model.currentWiFiName ?? String(localized: "未获取到名称"))")
 
             RoundButton(systemName: "clock.arrow.circlepath",
-                        label: "扫描历史，共 \(model.history.count) 条",
+                        label: String(localized: "扫描历史，共 \(model.history.count) 条"),
                         badge: model.history.count) { showingHistory = true }
-            RoundButton(systemName: "slider.horizontal.3", label: "高级设置") { showingSettings = true }
+            RoundButton(systemName: "slider.horizontal.3", label: String(localized: "高级设置")) { showingSettings = true }
                 .disabled(model.running)
         }
         .padding(.top, 8)
@@ -170,7 +170,7 @@ private struct IdleSection: View {
                             .monospacedDigit()
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
-                        Text(addressCount == nil ? "请输入有效网段" : "个地址待扫描")
+                        Text(addressCount == nil ? String(localized: "请输入有效网段") : String(localized: "个地址待扫描"))
                             .font(.footnote)
                             .foregroundStyle(Theme.secondary)
                     }
@@ -181,10 +181,12 @@ private struct IdleSection: View {
             RangeCard(model: model)
 
             HStack(spacing: 10) {
-                SettingChip(title: "Ping 筛选", value: model.settings.pingOnly ? "已开启" : "已关闭") {
+                SettingChip(title: String(localized: "Ping 筛选"),
+                            value: model.settings.pingOnly ? String(localized: "已开启") : String(localized: "已关闭")) {
                     showingSettings = true
                 }
-                SettingChip(title: "TCP 端口", value: "\(model.settings.ports.count) 个") {
+                SettingChip(title: String(localized: "TCP 端口"),
+                            value: String(localized: "\(model.settings.ports.count) 个")) {
                     showingSettings = true
                 }
             }
@@ -373,8 +375,8 @@ private struct FinishedSection: View {
     private var complete: Bool { model.total > 0 && model.completed >= model.total }
     private var tint: Color { complete ? Theme.mint : Theme.amber }
     private var title: String {
-        if complete { return "扫描完成" }
-        return model.canResume ? "扫描已暂停" : "扫描未完成"
+        if complete { return String(localized: "扫描完成") }
+        return model.canResume ? String(localized: "扫描已暂停") : String(localized: "扫描未完成")
     }
     private var symbol: String {
         if complete { return "checkmark" }
@@ -435,7 +437,7 @@ private struct ActionBar: View {
                 .buttonStyle(ActionButtonStyle(kind: .secondary, compact: true))
             } else {
                 Button { model.start() } label: {
-                    Label(hasResult ? "重新开始扫描" : "开始扫描",
+                    Label(hasResult ? String(localized: "重新开始扫描") : String(localized: "开始扫描"),
                           systemImage: hasResult ? "arrow.counterclockwise" : "antenna.radiowaves.left.and.right")
                 }
                 .buttonStyle(ActionButtonStyle(kind: .primary))

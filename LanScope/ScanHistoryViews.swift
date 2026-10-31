@@ -3,12 +3,13 @@ import SwiftUI
 struct ScanHistoryView: View {
     @ObservedObject var model: ScanViewModel
 
-    private var groups: [(title: String, records: [ScanRecord])] {
+    // `earlier` groups show the date as well as the time.
+    private var groups: [(title: String, earlier: Bool, records: [ScanRecord])] {
         let calendar = Calendar.current
         return [
-            ("今天", model.history.filter { calendar.isDateInToday($0.startedAt) }),
-            ("昨天", model.history.filter { calendar.isDateInYesterday($0.startedAt) }),
-            ("更早", model.history.filter {
+            (String(localized: "今天"), false, model.history.filter { calendar.isDateInToday($0.startedAt) }),
+            (String(localized: "昨天"), false, model.history.filter { calendar.isDateInYesterday($0.startedAt) }),
+            (String(localized: "更早"), true, model.history.filter {
                 !calendar.isDateInToday($0.startedAt) && !calendar.isDateInYesterday($0.startedAt)
             })
         ]
@@ -36,7 +37,7 @@ struct ScanHistoryView: View {
                             // The link sits invisibly on top of the card so the system
                             // disclosure chevron is not drawn and the whole card stays tappable.
                             ZStack {
-                                HistoryRow(record: record, showsDate: group.title == "更早")
+                                HistoryRow(record: record, showsDate: group.earlier)
                                 NavigationLink {
                                     ScanRecordView(record: record)
                                 } label: {
@@ -93,7 +94,7 @@ private struct HistoryRow: View {
                     Image(systemName: "wifi")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(wifiName == nil ? Theme.tertiary : Theme.mint)
-                    Text(wifiName ?? "未记录 Wi-Fi")
+                    Text(wifiName ?? String(localized: "未记录 Wi-Fi"))
                         .font(.headline)
                         .foregroundStyle(wifiName == nil ? Theme.secondary : Theme.text)
                         .lineLimit(1)
@@ -132,25 +133,26 @@ struct ScanRecordView: View {
     let record: ScanRecord
 
     private var wifiName: String {
-        record.wifiName.flatMap { $0.isEmpty ? nil : $0 } ?? "未记录 Wi-Fi"
+        record.wifiName.flatMap { $0.isEmpty ? nil : $0 } ?? String(localized: "未记录 Wi-Fi")
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 VStack(alignment: .leading, spacing: 0) {
-                    InfoRow(label: "网段", value: record.cidr, mono: true)
+                    InfoRow(label: String(localized: "网段"), value: record.cidr, mono: true)
                     if let settings = record.settings {
-                        InfoRow(label: "仅扫描 ping 成功的设备", value: settings.pingOnly ? "是" : "否")
-                        InfoRow(label: "扫描端口", value: settings.portsText, mono: true)
+                        InfoRow(label: String(localized: "仅扫描 ping 成功的设备"),
+                                value: settings.pingOnly ? String(localized: "是") : String(localized: "否"))
+                        InfoRow(label: String(localized: "扫描端口"), value: settings.portsText, mono: true)
                     }
-                    InfoRow(label: "扫描时 Wi-Fi", value: wifiName)
-                    InfoRow(label: "开始时间",
+                    InfoRow(label: String(localized: "扫描时 Wi-Fi"), value: wifiName)
+                    InfoRow(label: String(localized: "开始时间"),
                             value: record.startedAt.formatted(date: .abbreviated, time: .standard))
-                    InfoRow(label: "结束时间",
+                    InfoRow(label: String(localized: "结束时间"),
                             value: record.endedAt.formatted(date: .abbreviated, time: .standard))
-                    InfoRow(label: "状态", value: record.outcome.title)
-                    InfoRow(label: "已扫描地址", value: "\(record.completed)/\(record.total)", last: true)
+                    InfoRow(label: String(localized: "状态"), value: record.outcome.title)
+                    InfoRow(label: String(localized: "已扫描地址"), value: "\(record.completed)/\(record.total)", last: true)
                 }
                 .padding(.horizontal, 16)
                 .card(radius: 22)

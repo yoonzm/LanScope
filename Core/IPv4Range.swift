@@ -8,9 +8,9 @@ struct IPv4Range {
         case invalid, tooLarge, notPrivate
         var errorDescription: String? {
             switch self {
-            case .invalid: return "请输入有效 IPv4 CIDR，例如 192.168.1.0/24。"
-            case .tooLarge: return "单次最多 1024 个地址，请使用 /22 或更小的范围。"
-            case .notPrivate: return "首版仅支持私有 IPv4 网段和 169.254.0.0/16 链路本地地址。"
+            case .invalid: return NSLocalizedString("请输入有效 IPv4 CIDR，例如 192.168.1.0/24。", comment: "CIDR validation")
+            case .tooLarge: return NSLocalizedString("单次最多 1024 个地址，请使用 /22 或更小的范围。", comment: "CIDR validation")
+            case .notPrivate: return NSLocalizedString("首版仅支持私有 IPv4 网段和 169.254.0.0/16 链路本地地址。", comment: "CIDR validation")
             }
         }
     }

@@ -1,0 +1,1329 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "%@，%lld 项" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %lld"
+          }
+        }
+      }
+    },
+    "%lld 个" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld port"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld ports"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "AirPlay 设备" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AirPlay device"
+          }
+        }
+      }
+    },
+    "Apple 设备" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple device"
+          }
+        }
+      }
+    },
+    "HomeKit 配件" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit accessory"
+          }
+        }
+      }
+    },
+    "ICMP 探测失败：%@。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ICMP probe failed: %@. Check Wi-Fi and Local Network access, or turn off “Only scan devices that respond to ping”."
+          }
+        }
+      }
+    },
+    "IPv4 网段" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IPv4 range"
+          }
+        }
+      }
+    },
+    "Mac 笔记本" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac laptop"
+          }
+        }
+      }
+    },
+    "Ping 筛选" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ping filter"
+          }
+        }
+      }
+    },
+    "TCP 扫描端口" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TCP ports to scan"
+          }
+        }
+      }
+    },
+    "TCP 端口" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TCP ports"
+          }
+        }
+      }
+    },
+    "Wi-Fi 接口不可用，请检查网络后重试。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Wi-Fi interface is unavailable. Check your network and try again."
+          }
+        }
+      }
+    },
+    "上次扫描 · %@ · 发现 %lld 台" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last scan · %@ · %lld found"
+          }
+        }
+      }
+    },
+    "不参与扫描" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not scanned"
+          }
+        }
+      }
+    },
+    "个地址待扫描" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "addresses to scan"
+          }
+        }
+      }
+    },
+    "仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。扫描时自动排除本机地址。更换 Wi-Fi 后请确认扫描范围。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi only · private IPv4 / link-local addresses · up to 1,024 addresses. This device's address is excluded automatically. After switching Wi-Fi, check the scan range."
+          }
+        }
+      }
+    },
+    "仅保存在本机，保留最近 30 次扫描。向左滑动可删除记录。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stored only on this device; the last 30 scans are kept. Swipe left to delete a record."
+          }
+        }
+      }
+    },
+    "仅响应 Ping，未发现开放端口" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Responded to ping only; no open ports found"
+          }
+        }
+      }
+    },
+    "仅扫描 ping 成功的设备" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only scan devices that respond to ping"
+          }
+        }
+      }
+    },
+    "仅通过 Bonjour 发现，未发现开放端口" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Found via Bonjour only; no open ports found"
+          }
+        }
+      }
+    },
+    "今天" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today"
+          }
+        }
+      }
+    },
+    "今天 %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today %@"
+          }
+        }
+      }
+    },
+    "例如 192.168.1.0/24" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "e.g. 192.168.1.0/24"
+          }
+        }
+      }
+    },
+    "保存" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "停止扫描" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop Scan"
+          }
+        }
+      }
+    },
+    "删除未保存：%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't delete: %@"
+          }
+        }
+      }
+    },
+    "单次最多 1024 个地址，请使用 /22 或更小的范围。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A scan can cover at most 1,024 addresses. Use a /22 or smaller range."
+          }
+        }
+      }
+    },
+    "发现 %lld 台" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld device found"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld devices found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "取消" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "只扫描 ping 成功的设备" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only scan devices that respond to ping"
+          }
+        }
+      }
+    },
+    "台设备" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "devices"
+          }
+        }
+      }
+    },
+    "否" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        }
+      }
+    },
+    "在浏览器中打开" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens in browser"
+          }
+        }
+      }
+    },
+    "已停止 · 未完成" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stopped · Incomplete"
+          }
+        }
+      }
+    },
+    "已关闭" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        }
+      }
+    },
+    "已发现资产" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discovered Assets"
+          }
+        }
+      }
+    },
+    "已完成" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed"
+          }
+        }
+      }
+    },
+    "已完成 %lld / %lld · %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed %lld / %lld · %@"
+          }
+        }
+      }
+    },
+    "已开启" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On"
+          }
+        }
+      }
+    },
+    "已扫描 %lld/%lld 个地址" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanned %lld/%lld addresses"
+          }
+        }
+      }
+    },
+    "已扫描地址" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Addresses scanned"
+          }
+        }
+      }
+    },
+    "已排除本机地址，扫描范围内没有其他地址。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This device's address was excluded; there are no other addresses in the range."
+          }
+        }
+      }
+    },
+    "已识别网段 %@。%@请直接修改扫描范围。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detected range %@. %@ Edit the scan range directly."
+          }
+        }
+      }
+    },
+    "开启后先进行 ICMP ping，只有回应的设备才会扫描端口。关闭后直接探测所有目标的指定 TCP 端口。不回应 ping 不代表设备离线。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When on, each address is pinged (ICMP) first and only devices that reply have their ports scanned. When off, the selected TCP ports are probed on every address. Not replying to ping doesn't mean a device is offline."
+          }
+        }
+      }
+    },
+    "开始扫描" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Scan"
+          }
+        }
+      }
+    },
+    "开始时间" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Started"
+          }
+        }
+      }
+    },
+    "开放" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open"
+          }
+        }
+      }
+    },
+    "当前 Wi-Fi：%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Wi-Fi: %@"
+          }
+        }
+      }
+    },
+    "恢复默认设置" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore Defaults"
+          }
+        }
+      }
+    },
+    "打印机" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Printer"
+          }
+        }
+      }
+    },
+    "打开高级设置" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens advanced settings"
+          }
+        }
+      }
+    },
+    "扫描历史" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan History"
+          }
+        }
+      }
+    },
+    "扫描历史尚未保存到本机：%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan history couldn't be saved on this device: %@"
+          }
+        }
+      }
+    },
+    "扫描历史，共 %lld 条" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Scan history, %lld record"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Scan history, %lld records"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "扫描因网络或权限问题中止，请检查后重试。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The scan stopped because of a network or permission problem. Check and try again."
+          }
+        }
+      }
+    },
+    "扫描地址或端口列表为空。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The address or port list is empty."
+          }
+        }
+      }
+    },
+    "扫描完成" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Complete"
+          }
+        }
+      }
+    },
+    "扫描完成；未发现的地址仍可能在线。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan complete. Addresses that weren't found may still be online."
+          }
+        }
+      }
+    },
+    "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan complete. Addresses that didn't reply to ping skipped the port scan; that doesn't mean they're offline. If no devices were found, check Local Network access."
+          }
+        }
+      }
+    },
+    "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan complete, but some port probes failed — see the notice. Addresses that weren't found may still be online."
+          }
+        }
+      }
+    },
+    "扫描已停止；已发现结果保留。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan stopped. Results found so far are kept."
+          }
+        }
+      }
+    },
+    "扫描已暂停" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Paused"
+          }
+        }
+      }
+    },
+    "扫描时 Wi-Fi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi at scan time"
+          }
+        }
+      }
+    },
+    "扫描未完成" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Incomplete"
+          }
+        }
+      }
+    },
+    "扫描端口" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ports scanned"
+          }
+        }
+      }
+    },
+    "扫描结束后自动保存，有进度的未完成扫描也会保留。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scans are saved automatically when they end. Unfinished scans with progress are kept too."
+          }
+        }
+      }
+    },
+    "扫描结果" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Results"
+          }
+        }
+      }
+    },
+    "扫描范围" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Range"
+          }
+        }
+      }
+    },
+    "拒绝连接" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refused"
+          }
+        }
+      }
+    },
+    "探测错误" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probe error"
+          }
+        }
+      }
+    },
+    "探测错误（%@，不是离线证明）：%@。其余探测继续。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probe error (%@; not proof it's offline): %@. Other probes continue."
+          }
+        }
+      }
+    },
+    "无效的 ping 目标地址。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid ping target address."
+          }
+        }
+      }
+    },
+    "无法确定本机 Wi-Fi IPv4 地址，请检查网络后重试。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't determine this device's Wi-Fi IPv4 address. Check your network and try again."
+          }
+        }
+      }
+    },
+    "无法读取扫描历史：%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read scan history: %@"
+          }
+        }
+      }
+    },
+    "昨天" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yesterday"
+          }
+        }
+      }
+    },
+    "昨天 %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yesterday %@"
+          }
+        }
+      }
+    },
+    "是" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        }
+      }
+    },
+    "暂无已发现资产" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No assets found"
+          }
+        }
+      }
+    },
+    "暂无已确认的 Web 资产" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No confirmed web assets"
+          }
+        }
+      }
+    },
+    "暂无扫描历史" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Scan History"
+          }
+        }
+      }
+    },
+    "更早" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earlier"
+          }
+        }
+      }
+    },
+    "未响应" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No response"
+          }
+        }
+      }
+    },
+    "未能识别 Wi-Fi IPv4 网段，请手动输入扫描范围。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't detect the Wi-Fi IPv4 range. Enter a scan range manually."
+          }
+        }
+      }
+    },
+    "未获取到名称" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name unavailable"
+          }
+        }
+      }
+    },
+    "未记录 Wi-Fi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi not recorded"
+          }
+        }
+      }
+    },
+    "本机" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Device"
+          }
+        }
+      }
+    },
+    "正在扫描…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanning…"
+          }
+        }
+      }
+    },
+    "正在检查网络…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checking network…"
+          }
+        }
+      }
+    },
+    "点击保存后仅保存在当前设备，下次启动自动沿用。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap Save to store these settings on this device only. They'll be used the next time the app opens."
+          }
+        }
+      }
+    },
+    "状态" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        }
+      }
+    },
+    "电脑" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Computer"
+          }
+        }
+      }
+    },
+    "电脑 / NAS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Computer / NAS"
+          }
+        }
+      }
+    },
+    "等待 Wi-Fi 接口超时，请检查网络后重试。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timed out waiting for the Wi-Fi interface. Check your network and try again."
+          }
+        }
+      }
+    },
+    "等待网络路径超时（%@）：%@。请检查 Wi-Fi 和局域网权限；其余探测继续。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timed out waiting for a network path (%@): %@. Check Wi-Fi and Local Network access. Other probes continue."
+          }
+        }
+      }
+    },
+    "系统不允许此网络操作（%@），请检查权限；其余探测继续。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The system doesn't allow this network operation (%@). Check permissions. Other probes continue."
+          }
+        }
+      }
+    },
+    "结束时间" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ended"
+          }
+        }
+      }
+    },
+    "继续扫描" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resume Scan"
+          }
+        }
+      }
+    },
+    "网段" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Range"
+          }
+        }
+      }
+    },
+    "网络已变化，无法继续扫描；已保留之前的结果，请确认网段后重新开始。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The network has changed, so the scan can't resume. Earlier results are kept; check the range and start again."
+          }
+        }
+      }
+    },
+    "网络或权限异常 · 未完成" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network or permission problem · Incomplete"
+          }
+        }
+      }
+    },
+    "访问被拒绝（%@），请检查局域网权限；其余探测继续。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access denied (%@). Check Local Network access. Other probes continue."
+          }
+        }
+      }
+    },
+    "证书校验未通过" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificate not trusted"
+          }
+        }
+      }
+    },
+    "请输入 1–65535 的端口号，用逗号或空格分隔，至少保留一个端口。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter port numbers from 1–65535, separated by commas or spaces. Keep at least one port."
+          }
+        }
+      }
+    },
+    "请输入有效 IPv4 CIDR，例如 192.168.1.0/24。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a valid IPv4 CIDR, e.g. 192.168.1.0/24."
+          }
+        }
+      }
+    },
+    "请输入有效网段" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a valid range"
+          }
+        }
+      }
+    },
+    "资产类型" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asset type"
+          }
+        }
+      }
+    },
+    "跳转至：%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redirects to: %@"
+          }
+        }
+      }
+    },
+    "输入 1–65535 的端口号，以逗号或空格分隔。重复端口自动合并；端口越多，扫描耗时越长。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter port numbers from 1–65535, separated by commas or spaces. Duplicates are merged. More ports make scans take longer."
+          }
+        }
+      }
+    },
+    "这是扫描当时的结果，不代表设备当前状态。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These are the results at scan time and may not reflect the devices' current state."
+          }
+        }
+      }
+    },
+    "进入后台 · 未完成" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moved to background · Incomplete"
+          }
+        }
+      }
+    },
+    "进入后台，扫描已停止；已发现结果保留。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app moved to the background and the scan stopped. Results found so far are kept."
+          }
+        }
+      }
+    },
+    "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app moved to the background and the scan was paused. Results found so far are kept. Return to the app and tap “Resume Scan” to continue."
+          }
+        }
+      }
+    },
+    "进度 %lld%%" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress %lld%%"
+          }
+        }
+      }
+    },
+    "连接 Wi-Fi，确认网段后开始扫描。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to Wi-Fi, check the range, then start scanning."
+          }
+        }
+      }
+    },
+    "重新开始扫描" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Again"
+          }
+        }
+      }
+    },
+    "首版仅支持私有 IPv4 网段和 169.254.0.0/16 链路本地地址。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only private IPv4 ranges and 169.254.0.0/16 link-local addresses are supported for now."
+          }
+        }
+      }
+    },
+    "高级设置" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced Settings"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

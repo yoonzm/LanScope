@@ -28,14 +28,14 @@ struct DiscoveredAssetsView: View {
                         LocalDeviceCard(address: localAddress, wifiName: localWiFiName)
                     }
                     if hosts.isEmpty {
-                        EmptyAssetsRow(text: running ? "正在扫描…" : "暂无已发现资产")
+                        EmptyAssetsRow(text: running ? String(localized: "正在扫描…") : String(localized: "暂无已发现资产"))
                     }
                     ForEach(hosts) { host in
                         HostCard(host: host)
                     }
                 case .web:
                     if services.isEmpty {
-                        EmptyAssetsRow(text: running ? "正在扫描…" : "暂无已确认的 Web 资产")
+                        EmptyAssetsRow(text: running ? String(localized: "正在扫描…") : String(localized: "暂无已确认的 Web 资产"))
                     }
                     ForEach(services) { service in
                         WebServiceCard(service: service)
@@ -110,7 +110,7 @@ private struct EmptyAssetsRow: View {
 // MARK: - IP
 
 enum DeviceSymbol {
-    // Icon for the type label produced by DeviceIdentity.kind; unknown devices get a generic one.
+    // Icon for the untranslated type label produced by DeviceIdentity.kind; unknown devices get a generic one.
     static func name(for kind: String?) -> String {
         guard let kind else { return "network" }
         if kind.contains("Apple TV") || kind.contains("Android TV") || kind.contains("Chromecast") { return "tv" }
@@ -140,8 +140,8 @@ struct HostCard: View {
     // Explain cards that would otherwise show nothing below the address.
     private var hint: String? {
         guard openPorts.isEmpty, host.ports != nil, host.open != true else { return nil }
-        if host.pingMilliseconds != nil { return "仅响应 Ping，未发现开放端口" }
-        if host.identity != nil { return "仅通过 Bonjour 发现，未发现开放端口" }
+        if host.pingMilliseconds != nil { return String(localized: "仅响应 Ping，未发现开放端口") }
+        if host.identity != nil { return String(localized: "仅通过 Bonjour 发现，未发现开放端口") }
         return nil
     }
 
@@ -212,7 +212,7 @@ struct LocalDeviceCard: View {
                         .font(.footnote)
                         .foregroundStyle(Theme.secondary)
                 }
-                Chip(text: "不参与扫描", tone: .neutral, mono: false)
+                Chip(text: String(localized: "不参与扫描"), tone: .neutral, mono: false)
                     .padding(.top, 4)
             }
             Spacer(minLength: 0)
