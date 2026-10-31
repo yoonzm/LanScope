@@ -9,6 +9,12 @@
             "state" : "translated",
             "value" : "%@, %lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@，%lld 项"
+          }
         }
       }
     },
@@ -32,6 +38,12 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 个"
+          }
         }
       }
     },
@@ -42,6 +54,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "AirPlay device"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AirPlay 设备"
           }
         }
       }
@@ -54,6 +72,12 @@
             "state" : "translated",
             "value" : "Apple device"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 设备"
+          }
         }
       }
     },
@@ -64,6 +88,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "HomeKit accessory"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit 配件"
           }
         }
       }
@@ -76,6 +106,12 @@
             "state" : "translated",
             "value" : "ICMP probe failed: %@. Check Wi-Fi and Local Network access, or turn off “Only scan devices that respond to ping”."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ICMP 探测失败：%@。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。"
+          }
         }
       }
     },
@@ -86,6 +122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "IPv4 range"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IPv4 网段"
           }
         }
       }
@@ -98,6 +140,12 @@
             "state" : "translated",
             "value" : "Mac laptop"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac 笔记本"
+          }
         }
       }
     },
@@ -108,6 +156,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ping filter"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ping 筛选"
           }
         }
       }
@@ -120,6 +174,12 @@
             "state" : "translated",
             "value" : "TCP ports to scan"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TCP 扫描端口"
+          }
         }
       }
     },
@@ -130,6 +190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "TCP ports"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TCP 端口"
           }
         }
       }
@@ -142,6 +208,12 @@
             "state" : "translated",
             "value" : "The Wi-Fi interface is unavailable. Check your network and try again."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi 接口不可用，请检查网络后重试。"
+          }
         }
       }
     },
@@ -152,6 +224,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Last scan · %@ · %lld found"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次扫描 · %@ · 发现 %lld 台"
           }
         }
       }
@@ -164,6 +242,12 @@
             "state" : "translated",
             "value" : "Not scanned"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不参与扫描"
+          }
         }
       }
     },
@@ -174,6 +258,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "addresses to scan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "个地址待扫描"
           }
         }
       }
@@ -186,6 +276,12 @@
             "state" : "translated",
             "value" : "Wi-Fi only · private IPv4 / link-local addresses · up to 1,024 addresses. This device's address is excluded automatically. After switching Wi-Fi, check the scan range."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅 Wi-Fi · 私有 IPv4 / 链路本地地址 · 最多 1024 个地址。扫描时自动排除本机地址。更换 Wi-Fi 后请确认扫描范围。"
+          }
         }
       }
     },
@@ -196,6 +292,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stored only on this device; the last 30 scans are kept. Swipe left to delete a record."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅保存在本机，保留最近 30 次扫描。向左滑动可删除记录。"
           }
         }
       }
@@ -208,6 +310,12 @@
             "state" : "translated",
             "value" : "Responded to ping only; no open ports found"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅响应 Ping，未发现开放端口"
+          }
         }
       }
     },
@@ -218,6 +326,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Only scan devices that respond to ping"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅扫描 ping 成功的设备"
           }
         }
       }
@@ -230,6 +344,12 @@
             "state" : "translated",
             "value" : "Found via Bonjour only; no open ports found"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅通过 Bonjour 发现，未发现开放端口"
+          }
         }
       }
     },
@@ -240,6 +360,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Today"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天"
           }
         }
       }
@@ -252,6 +378,12 @@
             "state" : "translated",
             "value" : "Today %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天 %@"
+          }
         }
       }
     },
@@ -262,6 +394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "e.g. 192.168.1.0/24"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "例如 192.168.1.0/24"
           }
         }
       }
@@ -274,6 +412,29 @@
             "state" : "translated",
             "value" : "Save"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "保存后立即切换。系统权限弹窗的文字将在下次打开 App 时更新。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applies as soon as you save. System permission prompts switch on the next launch."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存后立即切换。系统权限弹窗的文字将在下次打开 App 时更新。"
+          }
         }
       }
     },
@@ -284,6 +445,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stop Scan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止扫描"
           }
         }
       }
@@ -296,6 +463,12 @@
             "state" : "translated",
             "value" : "Couldn't delete: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除未保存：%@"
+          }
         }
       }
     },
@@ -306,6 +479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A scan can cover at most 1,024 addresses. Use a /22 or smaller range."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单次最多 1024 个地址，请使用 /22 或更小的范围。"
           }
         }
       }
@@ -330,6 +509,12 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现 %lld 台"
+          }
         }
       }
     },
@@ -340,6 +525,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
           }
         }
       }
@@ -352,6 +543,12 @@
             "state" : "translated",
             "value" : "Only scan devices that respond to ping"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只扫描 ping 成功的设备"
+          }
         }
       }
     },
@@ -362,6 +559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "devices"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "台设备"
           }
         }
       }
@@ -374,6 +577,12 @@
             "state" : "translated",
             "value" : "No"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "否"
+          }
         }
       }
     },
@@ -384,6 +593,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opens in browser"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在浏览器中打开"
           }
         }
       }
@@ -396,6 +611,12 @@
             "state" : "translated",
             "value" : "Media player"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "媒体播放器"
+          }
         }
       }
     },
@@ -406,6 +627,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Media server"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "媒体服务器"
           }
         }
       }
@@ -418,6 +645,12 @@
             "state" : "translated",
             "value" : "Stopped · Incomplete"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已停止 · 未完成"
+          }
         }
       }
     },
@@ -428,6 +661,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Off"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已关闭"
           }
         }
       }
@@ -440,6 +679,12 @@
             "state" : "translated",
             "value" : "Discovered Assets"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已发现资产"
+          }
         }
       }
     },
@@ -450,6 +695,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Completed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已完成"
           }
         }
       }
@@ -462,6 +713,12 @@
             "state" : "translated",
             "value" : "Completed %lld / %lld · %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已完成 %lld / %lld · %@"
+          }
         }
       }
     },
@@ -472,6 +729,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "On"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已开启"
           }
         }
       }
@@ -484,6 +747,12 @@
             "state" : "translated",
             "value" : "Scanned %lld/%lld addresses"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已扫描 %lld/%lld 个地址"
+          }
         }
       }
     },
@@ -494,6 +763,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Addresses scanned"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已扫描地址"
           }
         }
       }
@@ -506,6 +781,12 @@
             "state" : "translated",
             "value" : "This device's address was excluded; there are no other addresses in the range."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已排除本机地址，扫描范围内没有其他地址。"
+          }
         }
       }
     },
@@ -516,6 +797,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Detected range %@. %@ Edit the scan range directly."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已识别网段 %@。%@请直接修改扫描范围。"
           }
         }
       }
@@ -528,6 +815,12 @@
             "state" : "translated",
             "value" : "When on, each address is pinged (ICMP) first and only devices that reply have their ports scanned. When off, the selected TCP ports are probed on every address. Not replying to ping doesn't mean a device is offline."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开启后先进行 ICMP ping，只有回应的设备才会扫描端口。关闭后直接探测所有目标的指定 TCP 端口。不回应 ping 不代表设备离线。"
+          }
         }
       }
     },
@@ -538,6 +831,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Start Scan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始扫描"
           }
         }
       }
@@ -550,6 +849,12 @@
             "state" : "translated",
             "value" : "Started"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始时间"
+          }
         }
       }
     },
@@ -560,6 +865,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开放"
           }
         }
       }
@@ -572,6 +883,12 @@
             "state" : "translated",
             "value" : "Current Wi-Fi: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前 Wi-Fi：%@"
+          }
         }
       }
     },
@@ -582,6 +899,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restore Defaults"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复默认设置"
           }
         }
       }
@@ -594,6 +917,12 @@
             "state" : "translated",
             "value" : "Printer"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打印机"
+          }
         }
       }
     },
@@ -604,6 +933,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opens advanced settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开高级设置"
           }
         }
       }
@@ -616,6 +951,12 @@
             "state" : "translated",
             "value" : "Scan History"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描历史"
+          }
         }
       }
     },
@@ -626,6 +967,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan history couldn't be saved on this device: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描历史尚未保存到本机：%@"
           }
         }
       }
@@ -650,6 +997,12 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描历史，共 %lld 条"
+          }
         }
       }
     },
@@ -660,6 +1013,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The scan stopped because of a network or permission problem. Check and try again."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描因网络或权限问题中止，请检查后重试。"
           }
         }
       }
@@ -672,6 +1031,12 @@
             "state" : "translated",
             "value" : "The address or port list is empty."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描地址或端口列表为空。"
+          }
         }
       }
     },
@@ -682,6 +1047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan Complete"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描完成"
           }
         }
       }
@@ -694,6 +1065,12 @@
             "state" : "translated",
             "value" : "Scan complete. Addresses that weren't found may still be online."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描完成；未发现的地址仍可能在线。"
+          }
         }
       }
     },
@@ -704,6 +1081,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan complete. Addresses that didn't reply to ping skipped the port scan; that doesn't mean they're offline. If no devices were found, check Local Network access."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
           }
         }
       }
@@ -716,6 +1099,12 @@
             "state" : "translated",
             "value" : "Scan complete, but some port probes failed — see the notice. Addresses that weren't found may still be online."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。"
+          }
         }
       }
     },
@@ -726,6 +1115,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan stopped. Results found so far are kept."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描已停止；已发现结果保留。"
           }
         }
       }
@@ -738,6 +1133,12 @@
             "state" : "translated",
             "value" : "Scan Paused"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描已暂停"
+          }
         }
       }
     },
@@ -748,6 +1149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wi-Fi at scan time"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描时 Wi-Fi"
           }
         }
       }
@@ -760,6 +1167,12 @@
             "state" : "translated",
             "value" : "Scan Incomplete"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描未完成"
+          }
         }
       }
     },
@@ -770,6 +1183,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ports scanned"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描端口"
           }
         }
       }
@@ -782,6 +1201,12 @@
             "state" : "translated",
             "value" : "Scans are saved automatically when they end. Unfinished scans with progress are kept too."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描结束后自动保存，有进度的未完成扫描也会保留。"
+          }
         }
       }
     },
@@ -792,6 +1217,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan Results"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描结果"
           }
         }
       }
@@ -804,6 +1235,12 @@
             "state" : "translated",
             "value" : "Scan Range"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描范围"
+          }
         }
       }
     },
@@ -814,6 +1251,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refused"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拒绝连接"
           }
         }
       }
@@ -826,6 +1269,12 @@
             "state" : "translated",
             "value" : "Probe error"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探测错误"
+          }
         }
       }
     },
@@ -836,6 +1285,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Probe error (%@; not proof it's offline): %@. Other probes continue."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探测错误（%@，不是离线证明）：%@。其余探测继续。"
           }
         }
       }
@@ -848,6 +1303,12 @@
             "state" : "translated",
             "value" : "Invalid ping target address."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效的 ping 目标地址。"
+          }
         }
       }
     },
@@ -858,6 +1319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't determine this device's Wi-Fi IPv4 address. Check your network and try again."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法确定本机 Wi-Fi IPv4 地址，请检查网络后重试。"
           }
         }
       }
@@ -870,6 +1337,12 @@
             "state" : "translated",
             "value" : "Couldn't read scan history: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取扫描历史：%@"
+          }
         }
       }
     },
@@ -880,6 +1353,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yesterday"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "昨天"
           }
         }
       }
@@ -892,6 +1371,12 @@
             "state" : "translated",
             "value" : "Yesterday %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "昨天 %@"
+          }
         }
       }
     },
@@ -902,6 +1387,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是"
           }
         }
       }
@@ -914,6 +1405,12 @@
             "state" : "translated",
             "value" : "Smart TV"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "智能电视"
+          }
         }
       }
     },
@@ -924,6 +1421,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No assets found"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无已发现资产"
           }
         }
       }
@@ -936,6 +1439,12 @@
             "state" : "translated",
             "value" : "No confirmed web assets"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无已确认的 Web 资产"
+          }
         }
       }
     },
@@ -946,6 +1455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Scan History"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无扫描历史"
           }
         }
       }
@@ -958,6 +1473,12 @@
             "state" : "translated",
             "value" : "Earlier"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更早"
+          }
         }
       }
     },
@@ -968,6 +1489,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No response"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未响应"
           }
         }
       }
@@ -980,6 +1507,12 @@
             "state" : "translated",
             "value" : "Couldn't detect the Wi-Fi IPv4 range. Enter a scan range manually."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未能识别 Wi-Fi IPv4 网段，请手动输入扫描范围。"
+          }
         }
       }
     },
@@ -990,6 +1523,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name unavailable"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未获取到名称"
           }
         }
       }
@@ -1002,6 +1541,12 @@
             "state" : "translated",
             "value" : "Wi-Fi not recorded"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未记录 Wi-Fi"
+          }
         }
       }
     },
@@ -1012,6 +1557,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This Device"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本机"
           }
         }
       }
@@ -1024,6 +1575,12 @@
             "state" : "translated",
             "value" : "Scanning…"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在扫描…"
+          }
         }
       }
     },
@@ -1034,6 +1591,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Checking network…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在检查网络…"
           }
         }
       }
@@ -1046,6 +1609,12 @@
             "state" : "translated",
             "value" : "Tap Save to store these settings on this device only. They'll be used the next time the app opens."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击保存后仅保存在当前设备，下次启动自动沿用。"
+          }
         }
       }
     },
@@ -1056,6 +1625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Status"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状态"
           }
         }
       }
@@ -1068,6 +1643,12 @@
             "state" : "translated",
             "value" : "Computer"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电脑"
+          }
         }
       }
     },
@@ -1078,6 +1659,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Computer / NAS"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电脑 / NAS"
           }
         }
       }
@@ -1090,6 +1677,12 @@
             "state" : "translated",
             "value" : "Timed out waiting for the Wi-Fi interface. Check your network and try again."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等待 Wi-Fi 接口超时，请检查网络后重试。"
+          }
         }
       }
     },
@@ -1100,6 +1693,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Timed out waiting for a network path (%@): %@. Check Wi-Fi and Local Network access. Other probes continue."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等待网络路径超时（%@）：%@。请检查 Wi-Fi 和局域网权限；其余探测继续。"
           }
         }
       }
@@ -1112,6 +1711,12 @@
             "state" : "translated",
             "value" : "The system doesn't allow this network operation (%@). Check permissions. Other probes continue."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统不允许此网络操作（%@），请检查权限；其余探测继续。"
+          }
         }
       }
     },
@@ -1122,6 +1727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ended"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "结束时间"
           }
         }
       }
@@ -1134,6 +1745,12 @@
             "state" : "translated",
             "value" : "Resume Scan"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续扫描"
+          }
         }
       }
     },
@@ -1144,6 +1761,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Range"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网段"
           }
         }
       }
@@ -1156,6 +1779,12 @@
             "state" : "translated",
             "value" : "The network has changed, so the scan can't resume. Earlier results are kept; check the range and start again."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络已变化，无法继续扫描；已保留之前的结果，请确认网段后重新开始。"
+          }
         }
       }
     },
@@ -1166,6 +1795,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Network or permission problem · Incomplete"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络或权限异常 · 未完成"
           }
         }
       }
@@ -1178,6 +1813,12 @@
             "state" : "translated",
             "value" : "Access denied (%@). Check Local Network access. Other probes continue."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "访问被拒绝（%@），请检查局域网权限；其余探测继续。"
+          }
         }
       }
     },
@@ -1188,6 +1829,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificate not trusted"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "证书校验未通过"
+          }
+        }
+      }
+    },
+    "语言" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
           }
         }
       }
@@ -1200,6 +1864,12 @@
             "state" : "translated",
             "value" : "Enter port numbers from 1–65535, separated by commas or spaces. Keep at least one port."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入 1–65535 的端口号，用逗号或空格分隔，至少保留一个端口。"
+          }
         }
       }
     },
@@ -1210,6 +1880,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter a valid IPv4 CIDR, e.g. 192.168.1.0/24."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入有效 IPv4 CIDR，例如 192.168.1.0/24。"
           }
         }
       }
@@ -1222,6 +1898,12 @@
             "state" : "translated",
             "value" : "Enter a valid range"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入有效网段"
+          }
         }
       }
     },
@@ -1232,6 +1914,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Asset type"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "资产类型"
+          }
+        }
+      }
+    },
+    "跟随系统" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跟随系统"
           }
         }
       }
@@ -1244,6 +1949,12 @@
             "state" : "translated",
             "value" : "Router"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "路由器"
+          }
         }
       }
     },
@@ -1254,6 +1965,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redirects to: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳转至：%@"
           }
         }
       }
@@ -1266,6 +1983,12 @@
             "state" : "translated",
             "value" : "Enter port numbers from 1–65535, separated by commas or spaces. Duplicates are merged. More ports make scans take longer."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入 1–65535 的端口号，以逗号或空格分隔。重复端口自动合并；端口越多，扫描耗时越长。"
+          }
         }
       }
     },
@@ -1276,6 +1999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "These are the results at scan time and may not reflect the devices' current state."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是扫描当时的结果，不代表设备当前状态。"
           }
         }
       }
@@ -1288,6 +2017,12 @@
             "state" : "translated",
             "value" : "Moved to background · Incomplete"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进入后台 · 未完成"
+          }
         }
       }
     },
@@ -1298,6 +2033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The app moved to the background and the scan stopped. Results found so far are kept."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进入后台，扫描已停止；已发现结果保留。"
           }
         }
       }
@@ -1310,6 +2051,12 @@
             "state" : "translated",
             "value" : "The app moved to the background and the scan was paused. Results found so far are kept. Return to the app and tap “Resume Scan” to continue."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进入后台，扫描已暂停；已发现结果保留。回到前台后可点击“继续扫描”。"
+          }
         }
       }
     },
@@ -1320,6 +2067,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Progress %lld%%"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进度 %lld%%"
           }
         }
       }
@@ -1332,6 +2085,12 @@
             "state" : "translated",
             "value" : "Connect to Wi-Fi, check the range, then start scanning."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连接 Wi-Fi，确认网段后开始扫描。"
+          }
         }
       }
     },
@@ -1342,6 +2101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan Again"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新开始扫描"
           }
         }
       }
@@ -1354,6 +2119,12 @@
             "state" : "translated",
             "value" : "Only private IPv4 ranges and 169.254.0.0/16 link-local addresses are supported for now."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首版仅支持私有 IPv4 网段和 169.254.0.0/16 链路本地地址。"
+          }
         }
       }
     },
@@ -1364,6 +2135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Advanced Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高级设置"
           }
         }
       }

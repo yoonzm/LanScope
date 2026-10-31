@@ -7,6 +7,7 @@ struct AdvancedSettingsView: View {
     @State private var pingOnly: Bool
     @State private var portsText: String
     @State private var error: String?
+    @State private var language = AppLanguage.saved
 
     init(model: ScanViewModel) {
         self.model = model
@@ -41,7 +42,7 @@ struct AdvancedSettingsView: View {
                                 .font(.headline)
                             Spacer(minLength: 8)
                             if let portCount {
-                                Chip(text: String(localized: "\(portCount) 个"))
+                                Chip(text: tr("\(portCount) 个"))
                             }
                         }
                         TextField(ScanSettings().portsText, text: $portsText, axis: .vertical)
@@ -61,6 +62,27 @@ struct AdvancedSettingsView: View {
                                 .foregroundStyle(Theme.coral)
                         }
                         Text("输入 1–65535 的端口号，以逗号或空格分隔。重复端口自动合并；端口越多，扫描耗时越长。")
+                            .font(.footnote)
+                            .foregroundStyle(Theme.secondary)
+                    }
+                    .padding(16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .card(radius: 22)
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Text("语言")
+                                .font(.headline)
+                            Spacer(minLength: 8)
+                            Picker("语言", selection: $language) {
+                                ForEach(AppLanguage.allCases) { option in
+                                    Text(option.title).tag(option)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                            .labelsHidden()
+                        }
+                        Text("保存后立即切换。系统权限弹窗的文字将在下次打开 App 时更新。")
                             .font(.footnote)
                             .foregroundStyle(Theme.secondary)
                     }
@@ -99,7 +121,13 @@ struct AdvancedSettingsView: View {
                     Button("保存") {
                         do {
                             try model.saveSettings(pingOnly: pingOnly, portsText: portsText)
+                            let languageChanged = language != AppLanguage.saved
                             dismiss()
+                            // After dismissal starts, so rebuilding the interface does not fight the sheet.
+                            if languageChanged {
+                                let chosen = language
+                                DispatchQueue.main.async { AppLanguage.apply(chosen) }
+                            }
                         } catch { self.error = error.localizedDescription }
                     }
                     .fontWeight(.bold)

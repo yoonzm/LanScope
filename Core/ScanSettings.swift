@@ -27,7 +27,7 @@ struct ScanSettings: Codable, Equatable {
     enum PortError: LocalizedError {
         case invalid
         var errorDescription: String? {
-            NSLocalizedString("请输入 1–65535 的端口号，用逗号或空格分隔，至少保留一个端口。", comment: "Port validation")
+            AppLocalization.string("请输入 1–65535 的端口号，用逗号或空格分隔，至少保留一个端口。")
         }
     }
 }

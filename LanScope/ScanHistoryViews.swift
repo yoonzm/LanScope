@@ -7,9 +7,9 @@ struct ScanHistoryView: View {
     private var groups: [(title: String, earlier: Bool, records: [ScanRecord])] {
         let calendar = Calendar.current
         return [
-            (String(localized: "今天"), false, model.history.filter { calendar.isDateInToday($0.startedAt) }),
-            (String(localized: "昨天"), false, model.history.filter { calendar.isDateInYesterday($0.startedAt) }),
-            (String(localized: "更早"), true, model.history.filter {
+            (tr("今天"), false, model.history.filter { calendar.isDateInToday($0.startedAt) }),
+            (tr("昨天"), false, model.history.filter { calendar.isDateInYesterday($0.startedAt) }),
+            (tr("更早"), true, model.history.filter {
                 !calendar.isDateInToday($0.startedAt) && !calendar.isDateInYesterday($0.startedAt)
             })
         ]
@@ -18,7 +18,7 @@ struct ScanHistoryView: View {
     var body: some View {
         List {
             if let error = model.historyError {
-                Text(error)
+                Text(tr(error))
                     .font(.footnote)
                     .foregroundStyle(Theme.amber)
                     .listRowBackground(Color.clear)
@@ -94,14 +94,14 @@ private struct HistoryRow: View {
                     Image(systemName: "wifi")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(wifiName == nil ? Theme.tertiary : Theme.mint)
-                    Text(wifiName ?? String(localized: "未记录 Wi-Fi"))
+                    Text(wifiName ?? tr("未记录 Wi-Fi"))
                         .font(.headline)
                         .foregroundStyle(wifiName == nil ? Theme.secondary : Theme.text)
                         .lineLimit(1)
                         .truncationMode(.middle)
                 }
                 Spacer(minLength: 0)
-                Text(record.startedAt.formatted(date: showsDate ? .numeric : .omitted, time: .shortened))
+                Text(record.startedAt.appFormatted(date: showsDate ? .numeric : .omitted, time: .shortened))
                     .font(.caption)
                     .foregroundStyle(Theme.secondary)
                     .fixedSize()
@@ -133,26 +133,26 @@ struct ScanRecordView: View {
     let record: ScanRecord
 
     private var wifiName: String {
-        record.wifiName.flatMap { $0.isEmpty ? nil : $0 } ?? String(localized: "未记录 Wi-Fi")
+        record.wifiName.flatMap { $0.isEmpty ? nil : $0 } ?? tr("未记录 Wi-Fi")
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 VStack(alignment: .leading, spacing: 0) {
-                    InfoRow(label: String(localized: "网段"), value: record.cidr, mono: true)
+                    InfoRow(label: tr("网段"), value: record.cidr, mono: true)
                     if let settings = record.settings {
-                        InfoRow(label: String(localized: "仅扫描 ping 成功的设备"),
-                                value: settings.pingOnly ? String(localized: "是") : String(localized: "否"))
-                        InfoRow(label: String(localized: "扫描端口"), value: settings.portsText, mono: true)
+                        InfoRow(label: tr("仅扫描 ping 成功的设备"),
+                                value: settings.pingOnly ? tr("是") : tr("否"))
+                        InfoRow(label: tr("扫描端口"), value: settings.portsText, mono: true)
                     }
-                    InfoRow(label: String(localized: "扫描时 Wi-Fi"), value: wifiName)
-                    InfoRow(label: String(localized: "开始时间"),
-                            value: record.startedAt.formatted(date: .abbreviated, time: .standard))
-                    InfoRow(label: String(localized: "结束时间"),
-                            value: record.endedAt.formatted(date: .abbreviated, time: .standard))
-                    InfoRow(label: String(localized: "状态"), value: record.outcome.title)
-                    InfoRow(label: String(localized: "已扫描地址"), value: "\(record.completed)/\(record.total)", last: true)
+                    InfoRow(label: tr("扫描时 Wi-Fi"), value: wifiName)
+                    InfoRow(label: tr("开始时间"),
+                            value: record.startedAt.appFormatted(date: .abbreviated, time: .standard))
+                    InfoRow(label: tr("结束时间"),
+                            value: record.endedAt.appFormatted(date: .abbreviated, time: .standard))
+                    InfoRow(label: tr("状态"), value: record.outcome.title)
+                    InfoRow(label: tr("已扫描地址"), value: "\(record.completed)/\(record.total)", last: true)
                 }
                 .padding(.horizontal, 16)
                 .card(radius: 22)

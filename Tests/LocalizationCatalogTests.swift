@@ -1,5 +1,6 @@
 import Foundation
 import XCTest
+@testable import LanScopeCore
 
 // Guards the hand-maintained string catalogs: every key needs an English translation whose
 // placeholders match the key, otherwise String(format:) can crash or show the wrong value.
@@ -39,6 +40,19 @@ final class LocalizationCatalogTests: XCTestCase {
                 XCTAssertEqual(placeholders(value).sorted(), placeholders(key).sorted(), "Placeholder mismatch for \(key)")
             }
         }
+    }
+
+    // The in-app language switch loads zh-Hans.lproj directly, so the source language must be compiled too.
+    func testEveryKeyHasSimplifiedChineseValue() throws {
+        for (key, entry) in try catalog("Localizable.xcstrings") {
+            let localizations = (entry as? [String: Any])?["localizations"] as? [String: Any]
+            let unit = (localizations?["zh-Hans"] as? [String: Any])?["stringUnit"] as? [String: Any]
+            XCTAssertEqual(unit?["value"] as? String, key, "Missing zh-Hans for \(key)")
+        }
+    }
+
+    func testLookupFallsBackToKey() {
+        XCTAssertEqual(AppLocalization.string("开放"), "开放")
     }
 
     func testPrivacyDescriptionsAreTranslated() throws {

@@ -24,7 +24,7 @@ struct DeviceIdentity: Codable, Equatable {
     // `kind` stays the untranslated label (icon matching relies on it); only the display text is localized.
     var summary: String? {
         var parts: [String] = []
-        if let kind { parts.append(NSLocalizedString(kind, comment: "Device type")) }
+        if let kind { parts.append(AppLocalization.string(kind)) }
         if let model, model != kind { parts.append(model) }
         return parts.isEmpty ? nil : parts.joined(separator: " · ")
     }

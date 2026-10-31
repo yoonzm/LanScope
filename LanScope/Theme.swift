@@ -41,10 +41,10 @@ extension Date {
     // "今天 18:42" / "Yesterday 9:41 AM" / "2026/10/27 20:30", following the app language
     var lanScopeStamp: String {
         let calendar = Calendar.current
-        let time = formatted(date: .omitted, time: .shortened)
-        if calendar.isDateInToday(self) { return String(localized: "今天 \(time)") }
-        if calendar.isDateInYesterday(self) { return String(localized: "昨天 \(time)") }
-        return formatted(date: .numeric, time: .shortened)
+        let time = appFormatted(date: .omitted, time: .shortened)
+        if calendar.isDateInToday(self) { return tr("今天 \(time)") }
+        if calendar.isDateInYesterday(self) { return tr("昨天 \(time)") }
+        return appFormatted(date: .numeric, time: .shortened)
     }
 }
 

@@ -5,6 +5,8 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     @State private var showingSettings = false
     @State private var showingHistory = false
+    // Written when the language changes; the new id rebuilds every view so all strings re-resolve.
+    @AppStorage(AppLanguage.changeKey) private var language = AppLanguage.system.rawValue
 
     var body: some View {
         NavigationStack {
@@ -18,6 +20,8 @@ struct ContentView: View {
                         .presentationBackground(Theme.sheet)
                 }
         }
+        .id(language)
+        .environment(\.locale, AppLocalization.locale)
         .tint(Theme.mint)
         .preferredColorScheme(.dark)
         .onChange(of: scenePhase) { _, phase in
@@ -102,12 +106,12 @@ private struct TopBar: View {
             .background(Theme.surface, in: Capsule())
             .overlay(Capsule().strokeBorder(Theme.hairline, lineWidth: 1))
             .accessibilityElement(children: .combine)
-            .accessibilityLabel("当前 Wi-Fi：\(model.currentWiFiName ?? String(localized: "未获取到名称"))")
+            .accessibilityLabel("当前 Wi-Fi：\(model.currentWiFiName ?? tr("未获取到名称"))")
 
             RoundButton(systemName: "clock.arrow.circlepath",
-                        label: String(localized: "扫描历史，共 \(model.history.count) 条"),
+                        label: tr("扫描历史，共 \(model.history.count) 条"),
                         badge: model.history.count) { showingHistory = true }
-            RoundButton(systemName: "slider.horizontal.3", label: String(localized: "高级设置")) { showingSettings = true }
+            RoundButton(systemName: "slider.horizontal.3", label: tr("高级设置")) { showingSettings = true }
                 .disabled(model.running)
         }
         .padding(.top, 8)
@@ -170,7 +174,7 @@ private struct IdleSection: View {
                             .monospacedDigit()
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
-                        Text(addressCount == nil ? String(localized: "请输入有效网段") : String(localized: "个地址待扫描"))
+                        Text(addressCount == nil ? tr("请输入有效网段") : tr("个地址待扫描"))
                             .font(.footnote)
                             .foregroundStyle(Theme.secondary)
                     }
@@ -181,12 +185,12 @@ private struct IdleSection: View {
             RangeCard(model: model)
 
             HStack(spacing: 10) {
-                SettingChip(title: String(localized: "Ping 筛选"),
-                            value: model.settings.pingOnly ? String(localized: "已开启") : String(localized: "已关闭")) {
+                SettingChip(title: tr("Ping 筛选"),
+                            value: model.settings.pingOnly ? tr("已开启") : tr("已关闭")) {
                     showingSettings = true
                 }
-                SettingChip(title: String(localized: "TCP 端口"),
-                            value: String(localized: "\(model.settings.ports.count) 个")) {
+                SettingChip(title: tr("TCP 端口"),
+                            value: tr("\(model.settings.ports.count) 个")) {
                     showingSettings = true
                 }
             }
@@ -241,7 +245,7 @@ private struct RangeCard: View {
                 .disabled(model.running)
                 .accessibilityLabel("IPv4 网段")
             if let message = model.networkMessage {
-                Text(message)
+                Text(tr(message))
                     .font(.footnote)
                     .foregroundStyle(Theme.secondary)
             }
@@ -293,7 +297,7 @@ private struct StatusMessages: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             if showsStatus {
-                Text(model.status)
+                Text(tr(model.status))
                     .font(.footnote)
                     .foregroundStyle(Theme.secondary)
             }
@@ -303,7 +307,7 @@ private struct StatusMessages: View {
                     .foregroundStyle(Theme.amber)
             }
             if let error = model.historyError {
-                Text(error)
+                Text(tr(error))
                     .font(.footnote)
                     .foregroundStyle(Theme.amber)
             }
@@ -344,7 +348,7 @@ private struct RunningSection: View {
                 VStack(alignment: .leading, spacing: 3) {
                     HStack(spacing: 8) {
                         Circle().fill(Theme.mint).frame(width: 7, height: 7)
-                        Text(model.status)
+                        Text(tr(model.status))
                             .font(.subheadline.weight(.semibold))
                     }
                     Text("已完成 \(model.completed) / \(model.total) · \(model.cidr)")
@@ -375,8 +379,8 @@ private struct FinishedSection: View {
     private var complete: Bool { model.total > 0 && model.completed >= model.total }
     private var tint: Color { complete ? Theme.mint : Theme.amber }
     private var title: String {
-        if complete { return String(localized: "扫描完成") }
-        return model.canResume ? String(localized: "扫描已暂停") : String(localized: "扫描未完成")
+        if complete { return tr("扫描完成") }
+        return model.canResume ? tr("扫描已暂停") : tr("扫描未完成")
     }
     private var symbol: String {
         if complete { return "checkmark" }
@@ -437,7 +441,7 @@ private struct ActionBar: View {
                 .buttonStyle(ActionButtonStyle(kind: .secondary, compact: true))
             } else {
                 Button { model.start() } label: {
-                    Label(hasResult ? String(localized: "重新开始扫描") : String(localized: "开始扫描"),
+                    Label(hasResult ? tr("重新开始扫描") : tr("开始扫描"),
                           systemImage: hasResult ? "arrow.counterclockwise" : "antenna.radiowaves.left.and.right")
                 }
                 .buttonStyle(ActionButtonStyle(kind: .primary))

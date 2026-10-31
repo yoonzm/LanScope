@@ -18,7 +18,7 @@ final class PingProbe {
         let fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_ICMP)
         guard fd >= 0 else { fail(errno); return }
         var index = if_nametoindex(interface)
-        guard index != 0 else { close(fd); finish(.failure(String(localized: "Wi-Fi 接口不可用，请检查网络后重试。"))); return }
+        guard index != 0 else { close(fd); finish(.failure(tr("Wi-Fi 接口不可用，请检查网络后重试。"))); return }
         guard setsockopt(fd, IPPROTO_IP, IP_BOUND_IF, &index, socklen_t(MemoryLayout.size(ofValue: index))) == 0,
               fcntl(fd, F_SETFL, O_NONBLOCK) == 0 else {
             let code = errno
@@ -31,7 +31,7 @@ final class PingProbe {
         destination.sin_family = sa_family_t(AF_INET)
         guard inet_pton(AF_INET, ip, &destination.sin_addr) == 1 else {
             close(fd)
-            finish(.failure(String(localized: "无效的 ping 目标地址。")))
+            finish(.failure(tr("无效的 ping 目标地址。")))
             return
         }
         let expectedAddress = destination.sin_addr.s_addr
@@ -99,6 +99,6 @@ final class PingProbe {
             return
         }
         let reason = String(cString: strerror(code))
-        finish(.failure(String(localized: "ICMP 探测失败：\(reason)。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。")))
+        finish(.failure(tr("ICMP 探测失败：\(reason)。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。")))
     }
 }

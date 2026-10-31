@@ -151,10 +151,10 @@ struct PortResult: Codable, Identifiable {
         case open, closed, noResponse, error
         var title: String {
             switch self {
-            case .open: return NSLocalizedString("开放", comment: "Port state")
-            case .closed: return NSLocalizedString("拒绝连接", comment: "Port state")
-            case .noResponse: return NSLocalizedString("未响应", comment: "Port state")
-            case .error: return NSLocalizedString("探测错误", comment: "Port state")
+            case .open: return AppLocalization.string("开放")
+            case .closed: return AppLocalization.string("拒绝连接")
+            case .noResponse: return AppLocalization.string("未响应")
+            case .error: return AppLocalization.string("探测错误")
             }
         }
     }
@@ -170,10 +170,10 @@ struct ScanRecord: Identifiable, Codable {
 
         var title: String {
             switch self {
-            case .completed: return NSLocalizedString("已完成", comment: "Scan outcome")
-            case .stopped: return NSLocalizedString("已停止 · 未完成", comment: "Scan outcome")
-            case .background: return NSLocalizedString("进入后台 · 未完成", comment: "Scan outcome")
-            case .interrupted: return NSLocalizedString("网络或权限异常 · 未完成", comment: "Scan outcome")
+            case .completed: return AppLocalization.string("已完成")
+            case .stopped: return AppLocalization.string("已停止 · 未完成")
+            case .background: return AppLocalization.string("进入后台 · 未完成")
+            case .interrupted: return AppLocalization.string("网络或权限异常 · 未完成")
             }
         }
     }

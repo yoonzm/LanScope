@@ -50,7 +50,7 @@ final class Scanner {
             self.completed = 0
             self.callback = update
             guard !addresses.isEmpty, !settings.ports.isEmpty else {
-                self.abort(String(localized: "扫描地址或端口列表为空。"))
+                self.abort(tr("扫描地址或端口列表为空。"))
                 return
             }
             // Both scan modes need the current local address before probing.
@@ -106,7 +106,7 @@ final class Scanner {
             self.monitor = nil
             self.timers.removeValue(forKey: id)?.cancel()
             guard let network = WiFiNetwork.current(path: path) else {
-                self.abort(String(localized: "无法确定本机 Wi-Fi IPv4 地址，请检查网络后重试。"))
+                self.abort(tr("无法确定本机 Wi-Fi IPv4 地址，请检查网络后重试。"))
                 return
             }
             self.interface = network.interface
@@ -126,7 +126,7 @@ final class Scanner {
         }
         let timeout = DispatchWorkItem { [weak self] in
             guard let self, self.generation == token else { return }
-            self.abort(String(localized: "等待 Wi-Fi 接口超时，请检查网络后重试。"))
+            self.abort(tr("等待 Wi-Fi 接口超时，请检查网络后重试。"))
         }
         timers[id] = timeout
         queue.asyncAfter(deadline: .now() + 3, execute: timeout)
@@ -290,11 +290,11 @@ final class Scanner {
             case .failed(let error):
                 if case .posix(.ECONNREFUSED) = error { finish(.closed) }
                 else if case .posix(.EACCES) = error {
-                    finish(.error, diagnostic: String(localized: "访问被拒绝（\(target)），请检查局域网权限；其余探测继续。"))
+                    finish(.error, diagnostic: tr("访问被拒绝（\(target)），请检查局域网权限；其余探测继续。"))
                 } else if case .posix(.EPERM) = error {
-                    finish(.error, diagnostic: String(localized: "系统不允许此网络操作（\(target)），请检查权限；其余探测继续。"))
+                    finish(.error, diagnostic: tr("系统不允许此网络操作（\(target)），请检查权限；其余探测继续。"))
                 } else if case .posix(.ETIMEDOUT) = error { finish(.noResponse) }
-                else { finish(.error, diagnostic: String(localized: "探测错误（\(target)，不是离线证明）：\(String(describing: error))。其余探测继续。")) }
+                else { finish(.error, diagnostic: tr("探测错误（\(target)，不是离线证明）：\(String(describing: error))。其余探测继续。")) }
             case .waiting(let error):
                 // Network.framework can report refusal or permission errors as
                 // waiting. Finish those ports now; allow other paths until the
@@ -302,11 +302,11 @@ final class Scanner {
                 if case .posix(.ECONNREFUSED) = error { finish(.closed) }
                 else if case .posix(.ETIMEDOUT) = error { finish(.noResponse) }
                 else if case .posix(.EPERM) = error {
-                    finish(.error, diagnostic: String(localized: "系统不允许此网络操作（\(target)），请检查权限；其余探测继续。"))
+                    finish(.error, diagnostic: tr("系统不允许此网络操作（\(target)），请检查权限；其余探测继续。"))
                 } else if case .posix(.EACCES) = error {
-                    finish(.error, diagnostic: String(localized: "访问被拒绝（\(target)），请检查局域网权限；其余探测继续。"))
+                    finish(.error, diagnostic: tr("访问被拒绝（\(target)），请检查局域网权限；其余探测继续。"))
                 } else {
-                    waitingReason = String(localized: "等待网络路径超时（\(target)）：\(String(describing: error))。请检查 Wi-Fi 和局域网权限；其余探测继续。")
+                    waitingReason = tr("等待网络路径超时（\(target)）：\(String(describing: error))。请检查 Wi-Fi 和局域网权限；其余探测继续。")
                 }
             case .preparing:
                 // A recovered path must not retain an earlier waiting error.
