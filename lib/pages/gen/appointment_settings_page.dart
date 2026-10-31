@@ -275,53 +275,69 @@ class AppointmentSettingsPage extends StatelessWidget {
                               lh: 20,
                             ),
                           ),
-                          hrow(
-                            [
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 44,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(14),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '09:00',
-                                      style: hts(
-                                        16,
-                                        Color(0xFF18181B),
-                                        w: FontWeight.w600,
+                          HStrHolder(
+                            initial: '09:00',
+                            builder: (context, s1) => HStrHolder(
+                              initial: '20:00',
+                              builder: (context, s2) => hrow(
+                                [
+                                  Expanded(
+                                    flex: 1,
+                                    child: hTap(
+                                      context,
+                                      hbox(
+                                        h: 44,
+                                        bg: Color(0xFFF4F4F5),
+                                        radius: BorderRadius.circular(14),
+                                        child: Align(
+                                          alignment: Alignment(0, 0),
+                                          widthFactor: 1,
+                                          child: hStr(
+                                            s1,
+                                            hts(
+                                              16,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
                                       ),
+                                      onTap: () =>
+                                          hPick(context, 'time', '开始', s1),
                                     ),
                                   ),
-                                ),
-                              ),
-                              Text('至', style: hts(16, Color(0xFFA1A1AA))),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 44,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(14),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '20:00',
-                                      style: hts(
-                                        16,
-                                        Color(0xFF18181B),
-                                        w: FontWeight.w600,
+                                  Text('至', style: hts(16, Color(0xFFA1A1AA))),
+                                  Expanded(
+                                    flex: 1,
+                                    child: hTap(
+                                      context,
+                                      hbox(
+                                        h: 44,
+                                        bg: Color(0xFFF4F4F5),
+                                        radius: BorderRadius.circular(14),
+                                        child: Align(
+                                          alignment: Alignment(0, 0),
+                                          widthFactor: 1,
+                                          child: hStr(
+                                            s2,
+                                            hts(
+                                              16,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
                                       ),
+                                      onTap: () =>
+                                          hPick(context, 'time', '结束', s2),
                                     ),
                                   ),
-                                ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.center,
+                                gap: 10,
                               ),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.center,
-                            gap: 10,
+                            ),
                           ),
                           Text(
                             '与"营业时间与工位"保持一致，修改请前往营业设置',
@@ -341,10 +357,10 @@ class AppointmentSettingsPage extends StatelessWidget {
                             groups: [
                               ({1}, false),
                             ],
-                            builder: (context, g1) => hwrap(
+                            builder: (context, g3) => hwrap(
                               [
                                 HSel(
-                                  ctrl: g1[0],
+                                  ctrl: g3[0],
                                   index: 0,
                                   on: hbox(
                                     h: 34,
@@ -390,7 +406,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g1[0],
+                                  ctrl: g3[0],
                                   index: 1,
                                   on: hbox(
                                     h: 34,
@@ -436,7 +452,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g1[0],
+                                  ctrl: g3[0],
                                   index: 2,
                                   on: hbox(
                                     h: 34,
@@ -499,10 +515,10 @@ class AppointmentSettingsPage extends StatelessWidget {
                           ),
                           HSelHolder(
                             groups: [({}, true)],
-                            builder: (context, g2) => hwrap(
+                            builder: (context, g4) => hwrap(
                               [
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 0,
                                   on: hbox(
                                     h: 34,
@@ -548,7 +564,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 1,
                                   on: hbox(
                                     h: 34,
@@ -594,7 +610,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 2,
                                   on: hbox(
                                     h: 34,
@@ -640,7 +656,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 3,
                                   on: hbox(
                                     h: 34,
@@ -686,7 +702,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 4,
                                   on: hbox(
                                     h: 34,
@@ -732,7 +748,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 5,
                                   on: hbox(
                                     h: 34,
@@ -778,7 +794,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                   ),
                                 ),
                                 HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 6,
                                   on: hbox(
                                     h: 34,
@@ -918,7 +934,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                       child: HHolder(
                                         inits: [2],
                                         builder: (context, ctrls) {
-                                          final c3 = ctrls[0];
+                                          final c5 = ctrls[0];
                                           return hrow(
                                             [
                                               hTap(
@@ -945,14 +961,14 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c3.add(-1),
+                                                onTap: () => c5.add(-1),
                                               ),
                                               Flexible(
                                                 flex: 9,
                                                 child: hbox(
                                                   minW: 36,
                                                   child: hCount(
-                                                    c3,
+                                                    c5,
                                                     hts(
                                                       15,
                                                       Color(0xFF18181B),
@@ -987,7 +1003,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c3.add(1),
+                                                onTap: () => c5.add(1),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
@@ -1060,7 +1076,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                       child: HHolder(
                                         inits: [1],
                                         builder: (context, ctrls) {
-                                          final c4 = ctrls[0];
+                                          final c6 = ctrls[0];
                                           return hrow(
                                             [
                                               hTap(
@@ -1087,14 +1103,14 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c4.add(-1),
+                                                onTap: () => c6.add(-1),
                                               ),
                                               Flexible(
                                                 flex: 9,
                                                 child: hbox(
                                                   minW: 36,
                                                   child: hCount(
-                                                    c4,
+                                                    c6,
                                                     hts(
                                                       15,
                                                       Color(0xFF18181B),
@@ -1129,7 +1145,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c4.add(1),
+                                                onTap: () => c6.add(1),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
@@ -1202,7 +1218,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                       child: HHolder(
                                         inits: [30],
                                         builder: (context, ctrls) {
-                                          final c5 = ctrls[0];
+                                          final c7 = ctrls[0];
                                           return hrow(
                                             [
                                               hTap(
@@ -1229,14 +1245,14 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c5.add(-1),
+                                                onTap: () => c7.add(-1),
                                               ),
                                               Flexible(
                                                 flex: 17,
                                                 child: hbox(
                                                   minW: 36,
                                                   child: hCount(
-                                                    c5,
+                                                    c7,
                                                     hts(
                                                       15,
                                                       Color(0xFF18181B),
@@ -1271,7 +1287,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c5.add(1),
+                                                onTap: () => c7.add(1),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
@@ -1352,7 +1368,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                       child: HHolder(
                                         inits: [15],
                                         builder: (context, ctrls) {
-                                          final c6 = ctrls[0];
+                                          final c8 = ctrls[0];
                                           return hrow(
                                             [
                                               hTap(
@@ -1379,14 +1395,14 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c6.add(-1),
+                                                onTap: () => c8.add(-1),
                                               ),
                                               Flexible(
                                                 flex: 17,
                                                 child: hbox(
                                                   minW: 36,
                                                   child: hCount(
-                                                    c6,
+                                                    c8,
                                                     hts(
                                                       15,
                                                       Color(0xFF18181B),
@@ -1421,7 +1437,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c6.add(1),
+                                                onTap: () => c8.add(1),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
@@ -1573,7 +1589,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                       child: HHolder(
                                         inits: [3],
                                         builder: (context, ctrls) {
-                                          final c7 = ctrls[0];
+                                          final c9 = ctrls[0];
                                           return hrow(
                                             [
                                               hTap(
@@ -1600,14 +1616,14 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c7.add(-1),
+                                                onTap: () => c9.add(-1),
                                               ),
                                               Flexible(
                                                 flex: 9,
                                                 child: hbox(
                                                   minW: 36,
                                                   child: hCount(
-                                                    c7,
+                                                    c9,
                                                     hts(
                                                       15,
                                                       Color(0xFF18181B),
@@ -1642,7 +1658,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c7.add(1),
+                                                onTap: () => c9.add(1),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
@@ -1713,7 +1729,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                       child: HHolder(
                                         inits: [50],
                                         builder: (context, ctrls) {
-                                          final c8 = ctrls[0];
+                                          final c10 = ctrls[0];
                                           return hrow(
                                             [
                                               hTap(
@@ -1740,14 +1756,14 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c8.add(-1),
+                                                onTap: () => c10.add(-1),
                                               ),
                                               Flexible(
                                                 flex: 17,
                                                 child: hbox(
                                                   minW: 36,
                                                   child: hCount(
-                                                    c8,
+                                                    c10,
                                                     hts(
                                                       15,
                                                       Color(0xFF18181B),
@@ -1782,7 +1798,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                     gap: 0,
                                                   ),
                                                 ),
-                                                onTap: () => c8.add(1),
+                                                onTap: () => c10.add(1),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,

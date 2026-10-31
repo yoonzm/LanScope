@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 
 import 'pages/login_page.dart';
@@ -20,6 +21,13 @@ class QimeiApp extends StatelessWidget {
     debugShowCheckedModeBanner: false,
     theme: buildTheme(),
     navigatorObservers: [navTracker],
+    locale: const Locale('zh', 'CN'),
+    supportedLocales: const [Locale('zh', 'CN')],
+    localizationsDelegates: const [
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
     home: const LoginPage(),
   );
 }

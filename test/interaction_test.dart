@@ -235,6 +235,50 @@ void main() {
     expect(find.text('宝马 5系 525Li'), findsNothing);
   });
 
+  testWidgets('推荐人使用带检索的客户选择器', (t) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    await open(t, 'MemberAdd');
+    await t.ensureVisible(find.text('推荐人'));
+    await t.tap(find.text('推荐人'));
+    await t.pumpAndSettle();
+    expect(find.text('选择推荐人'), findsOneWidget);
+    final search = find.descendant(
+      of: find.byType(BottomSheet),
+      matching: find.byType(TextField),
+    );
+    expect(search, findsOneWidget); // 检索框
+    await t.enterText(search, '林晓');
+    await t.pump();
+    expect(find.text('王建国'), findsNothing);
+    await t.tap(find.text('林晓雯'));
+    await t.pumpAndSettle();
+    expect(find.text('林晓雯 · 金卡'), findsOneWidget);
+  });
+
+  testWidgets('门店营业时间：开门 / 打烊可通过时间选择器修改', (t) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    await open(t, 'StoreEdit');
+    expect(find.text('09:00'), findsOneWidget);
+    await t.ensureVisible(find.text('开门'));
+    await t.tap(find.text('开门'));
+    await t.pumpAndSettle();
+    expect(find.text('选择开门时间'), findsOneWidget);
+    await t.drag(find.byType(ListWheelScrollView).first, const Offset(0, -60));
+    await t.pumpAndSettle();
+    await t.tap(find.text('确定'));
+    await t.pumpAndSettle();
+    expect(find.text('09:00'), findsNothing); // 已改成新的时间
+    expect(find.text('20:00'), findsOneWidget);
+  });
+
   testWidgets('车牌输入：点格子弹出键盘，可输入并切换新能源', (t) async {
     final old = FlutterError.onError;
     FlutterError.onError = (d) {

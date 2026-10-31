@@ -188,9 +188,13 @@ Future<String?> pickFromList(
 );
 
 Widget _wheelTheme(Widget child) => CupertinoTheme(
+  // 显式指定亮色和文字颜色：系统为深色模式时，Cupertino 滚轮默认文字是白色，
+  // 放在白色面板上就看不见了。
   data: const CupertinoThemeData(
+    brightness: Brightness.light,
     textTheme: CupertinoTextThemeData(
       pickerTextStyle: TextStyle(fontSize: 20, color: _ink),
+      dateTimePickerTextStyle: TextStyle(fontSize: 20, color: _ink),
     ),
   ),
   child: child,
@@ -468,6 +472,49 @@ Future<String?> pickDate(
   );
 }
 
+// ───────── 时间（营业时间等）─────────
+Future<String?> pickTime(BuildContext context, String title, String current) {
+  final m = RegExp(r'(\d{1,2}):(\d{2})').firstMatch(current);
+  var picked = DateTime(
+    2026,
+    10,
+    31,
+    m == null ? 9 : int.parse(m.group(1)!),
+    m == null ? 0 : int.parse(m.group(2)!),
+  );
+  return _sheet<String>(
+    context,
+    (ctx) => Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _handle(),
+        _header(
+          ctx,
+          title,
+          onOk: () {
+            Navigator.pop(
+              ctx,
+              '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}',
+            );
+          },
+        ),
+        SizedBox(
+          height: 216,
+          child: _wheelTheme(
+            CupertinoDatePicker(
+              mode: CupertinoDatePickerMode.time,
+              use24hFormat: true,
+              minuteInterval: 5,
+              initialDateTime: picked,
+              onDateTimeChanged: (d) => picked = d,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 // ───────── 品牌车型 ─────────
 const carBrands = <String, List<String>>{
   '宝马': ['3系 325Li', '5系 525Li', 'X3', 'X5'],
@@ -704,6 +751,8 @@ Future<void> hPick(
       r = await pickDate(context, '选择生日', birthday: true, current: c.v);
     case 'date':
       r = await pickDate(context, '选择$label', birthday: false, current: c.v);
+    case 'time':
+      r = await pickTime(context, label.isEmpty ? '选择时间' : '选择$label时间', c.v);
     case 'car':
       r = await pickCarModel(context, c.v);
     case 'city':
@@ -711,9 +760,8 @@ Future<void> hPick(
     case 'amount':
       r = await pickAmount(context, label, c.v);
     case 'referrer':
-      r = await pickFromList(context, '选择推荐人', [
-        for (final m in members) '${m.name} · ${m.level}',
-      ], c.v);
+      final m = await pickMember(context, title: '选择推荐人');
+      if (m != null) r = '${m.name} · ${m.level}';
     case 'category':
       r = await pickFromList(context, '选择分类', [
         '镀晶镀膜',

@@ -641,40 +641,44 @@ class StoreEditPage extends StatelessWidget {
                             [
                               Expanded(
                                 flex: 1,
-                                child: hTap(
-                                  context,
-                                  hbox(
-                                    h: 48,
-                                    bg: Color(0xFFF4F4F5),
-                                    radius: BorderRadius.circular(14),
-                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '开门',
-                                          style: hts(
-                                            11,
-                                            Color(0xFF71717A),
-                                            lh: 14,
+                                child: HStrHolder(
+                                  initial: '09:00',
+                                  builder: (context, s1) => hTap(
+                                    context,
+                                    hbox(
+                                      h: 48,
+                                      bg: Color(0xFFF4F4F5),
+                                      radius: BorderRadius.circular(14),
+                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '开门',
+                                            style: hts(
+                                              11,
+                                              Color(0xFF71717A),
+                                              lh: 14,
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          '09:00',
-                                          style: hts(
-                                            16,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                            lh: 22,
+                                          hStr(
+                                            s1,
+                                            hts(
+                                              16,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 0,
-                                      min: false,
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
+                                        min: false,
+                                      ),
                                     ),
+                                    onTap: () =>
+                                        hPick(context, 'time', '开门', s1),
                                   ),
-                                  label: '开门09:00',
                                 ),
                               ),
                               hbox(
@@ -685,40 +689,44 @@ class StoreEditPage extends StatelessWidget {
                               ),
                               Expanded(
                                 flex: 1,
-                                child: hTap(
-                                  context,
-                                  hbox(
-                                    h: 48,
-                                    bg: Color(0xFFF4F4F5),
-                                    radius: BorderRadius.circular(14),
-                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '打烊',
-                                          style: hts(
-                                            11,
-                                            Color(0xFF71717A),
-                                            lh: 14,
+                                child: HStrHolder(
+                                  initial: '20:00',
+                                  builder: (context, s2) => hTap(
+                                    context,
+                                    hbox(
+                                      h: 48,
+                                      bg: Color(0xFFF4F4F5),
+                                      radius: BorderRadius.circular(14),
+                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '打烊',
+                                            style: hts(
+                                              11,
+                                              Color(0xFF71717A),
+                                              lh: 14,
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          '20:00',
-                                          style: hts(
-                                            16,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                            lh: 22,
+                                          hStr(
+                                            s2,
+                                            hts(
+                                              16,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 0,
-                                      min: false,
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
+                                        min: false,
+                                      ),
                                     ),
+                                    onTap: () =>
+                                        hPick(context, 'time', '打烊', s2),
                                   ),
-                                  label: '打烊20:00',
                                 ),
                               ),
                             ],
@@ -824,194 +832,6 @@ class StoreEditPage extends StatelessWidget {
                                 HHolder(
                                   inits: [2],
                                   builder: (context, ctrls) {
-                                    final c1 = ctrls[0];
-                                    return hrow(
-                                      [
-                                        hTap(
-                                          context,
-                                          hbox(
-                                            w: 32,
-                                            h: 32,
-                                            bg: Color(0xFFEEEEF0),
-                                            radius: BorderRadius.circular(16),
-                                            align: Alignment.center,
-                                            child: Text(
-                                              '−',
-                                              style: hts(
-                                                18,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
-                                            ),
-                                          ),
-                                          onTap: () => c1.add(-1),
-                                        ),
-                                        hbox(
-                                          w: 32,
-                                          child: hCount(
-                                            c1,
-                                            hts(
-                                              16,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w600,
-                                              lh: 22,
-                                            ),
-                                          ),
-                                        ),
-                                        hTap(
-                                          context,
-                                          hbox(
-                                            w: 32,
-                                            h: 32,
-                                            bg: Color(0xFF18181B),
-                                            radius: BorderRadius.circular(16),
-                                            align: Alignment.center,
-                                            child: Text(
-                                              '+',
-                                              style: hts(
-                                                18,
-                                                Color(0xFFFFFFFF),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
-                                            ),
-                                          ),
-                                          onTap: () => c1.add(1),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 4,
-                                    );
-                                  },
-                                ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
-                            ),
-                          ),
-                          hbox(
-                            h: 1,
-                            bg: Color(0xFFEFEFF1),
-                            margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
-                          ),
-                          hbox(
-                            h: 56,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                hbox(
-                                  w: 10,
-                                  h: 10,
-                                  bg: Color(0xFF17C964),
-                                  radius: BorderRadius.circular(5),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '美容工位',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
-                                  ),
-                                ),
-                                HHolder(
-                                  inits: [2],
-                                  builder: (context, ctrls) {
-                                    final c2 = ctrls[0];
-                                    return hrow(
-                                      [
-                                        hTap(
-                                          context,
-                                          hbox(
-                                            w: 32,
-                                            h: 32,
-                                            bg: Color(0xFFEEEEF0),
-                                            radius: BorderRadius.circular(16),
-                                            align: Alignment.center,
-                                            child: Text(
-                                              '−',
-                                              style: hts(
-                                                18,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
-                                            ),
-                                          ),
-                                          onTap: () => c2.add(-1),
-                                        ),
-                                        hbox(
-                                          w: 32,
-                                          child: hCount(
-                                            c2,
-                                            hts(
-                                              16,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w600,
-                                              lh: 22,
-                                            ),
-                                          ),
-                                        ),
-                                        hTap(
-                                          context,
-                                          hbox(
-                                            w: 32,
-                                            h: 32,
-                                            bg: Color(0xFF18181B),
-                                            radius: BorderRadius.circular(16),
-                                            align: Alignment.center,
-                                            child: Text(
-                                              '+',
-                                              style: hts(
-                                                18,
-                                                Color(0xFFFFFFFF),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
-                                            ),
-                                          ),
-                                          onTap: () => c2.add(1),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 4,
-                                    );
-                                  },
-                                ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
-                            ),
-                          ),
-                          hbox(
-                            h: 1,
-                            bg: Color(0xFFEFEFF1),
-                            margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
-                          ),
-                          hbox(
-                            h: 56,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                hbox(
-                                  w: 10,
-                                  h: 10,
-                                  bg: Color(0xFFF5A524),
-                                  radius: BorderRadius.circular(5),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '贴膜间',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
-                                  ),
-                                ),
-                                HHolder(
-                                  inits: [2],
-                                  builder: (context, ctrls) {
                                     final c3 = ctrls[0];
                                     return hrow(
                                       [
@@ -1066,6 +886,194 @@ class StoreEditPage extends StatelessWidget {
                                             ),
                                           ),
                                           onTap: () => c3.add(1),
+                                        ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 4,
+                                    );
+                                  },
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
+                            ),
+                          ),
+                          hbox(
+                            h: 1,
+                            bg: Color(0xFFEFEFF1),
+                            margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
+                          ),
+                          hbox(
+                            h: 56,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                hbox(
+                                  w: 10,
+                                  h: 10,
+                                  bg: Color(0xFF17C964),
+                                  radius: BorderRadius.circular(5),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    '美容工位',
+                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                  ),
+                                ),
+                                HHolder(
+                                  inits: [2],
+                                  builder: (context, ctrls) {
+                                    final c4 = ctrls[0];
+                                    return hrow(
+                                      [
+                                        hTap(
+                                          context,
+                                          hbox(
+                                            w: 32,
+                                            h: 32,
+                                            bg: Color(0xFFEEEEF0),
+                                            radius: BorderRadius.circular(16),
+                                            align: Alignment.center,
+                                            child: Text(
+                                              '−',
+                                              style: hts(
+                                                18,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w500,
+                                                lh: 18,
+                                              ),
+                                            ),
+                                          ),
+                                          onTap: () => c4.add(-1),
+                                        ),
+                                        hbox(
+                                          w: 32,
+                                          child: hCount(
+                                            c4,
+                                            hts(
+                                              16,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
+                                            ),
+                                          ),
+                                        ),
+                                        hTap(
+                                          context,
+                                          hbox(
+                                            w: 32,
+                                            h: 32,
+                                            bg: Color(0xFF18181B),
+                                            radius: BorderRadius.circular(16),
+                                            align: Alignment.center,
+                                            child: Text(
+                                              '+',
+                                              style: hts(
+                                                18,
+                                                Color(0xFFFFFFFF),
+                                                w: FontWeight.w500,
+                                                lh: 18,
+                                              ),
+                                            ),
+                                          ),
+                                          onTap: () => c4.add(1),
+                                        ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 4,
+                                    );
+                                  },
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
+                            ),
+                          ),
+                          hbox(
+                            h: 1,
+                            bg: Color(0xFFEFEFF1),
+                            margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
+                          ),
+                          hbox(
+                            h: 56,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                hbox(
+                                  w: 10,
+                                  h: 10,
+                                  bg: Color(0xFFF5A524),
+                                  radius: BorderRadius.circular(5),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    '贴膜间',
+                                    style: hts(15, Color(0xFF18181B), lh: 22),
+                                  ),
+                                ),
+                                HHolder(
+                                  inits: [2],
+                                  builder: (context, ctrls) {
+                                    final c5 = ctrls[0];
+                                    return hrow(
+                                      [
+                                        hTap(
+                                          context,
+                                          hbox(
+                                            w: 32,
+                                            h: 32,
+                                            bg: Color(0xFFEEEEF0),
+                                            radius: BorderRadius.circular(16),
+                                            align: Alignment.center,
+                                            child: Text(
+                                              '−',
+                                              style: hts(
+                                                18,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w500,
+                                                lh: 18,
+                                              ),
+                                            ),
+                                          ),
+                                          onTap: () => c5.add(-1),
+                                        ),
+                                        hbox(
+                                          w: 32,
+                                          child: hCount(
+                                            c5,
+                                            hts(
+                                              16,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
+                                            ),
+                                          ),
+                                        ),
+                                        hTap(
+                                          context,
+                                          hbox(
+                                            w: 32,
+                                            h: 32,
+                                            bg: Color(0xFF18181B),
+                                            radius: BorderRadius.circular(16),
+                                            align: Alignment.center,
+                                            child: Text(
+                                              '+',
+                                              style: hts(
+                                                18,
+                                                Color(0xFFFFFFFF),
+                                                w: FontWeight.w500,
+                                                lh: 18,
+                                              ),
+                                            ),
+                                          ),
+                                          onTap: () => c5.add(1),
                                         ),
                                       ],
                                       main: MainAxisAlignment.start,

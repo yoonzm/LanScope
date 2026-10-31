@@ -644,7 +644,7 @@ class Gen:
             return 'HSwitch(initial: %s)' % ('true' if on else 'false')
         if n.attrs.get('aria-label', '').startswith('车牌号') and n.tag == 'div':
             return self.emit_plate(n)
-        pick_var = self.setup_picker(n)
+        pick_vars = self.setup_picker(n)
         inh2 = self.inherit(inh, n.style)
         st = n.style
         disp = self.disp(n)
@@ -711,9 +711,8 @@ class Gen:
         # 点击
         if n.tag == 'a' or n.tag == 'button' or ('_tap' in n.attrs and not n.attrs.get('_notap')):
             code = self.tap(n, code)
-        if pick_var:
-            init = n.attrs['_pick_init']
-            code = 'HStrHolder(initial: %s, builder: (context, %s) => %s)' % (dstr(init), pick_var, code)
+        for pv, init in reversed(pick_vars):
+            code = 'HStrHolder(initial: %s, builder: (context, %s) => %s)' % (dstr(init), pv, code)
         return code
 
     def tap(self, n, code):
@@ -986,17 +985,36 @@ class Gen:
                    for c in n.children) or any(
             isinstance(c, Node) and c.tag in ('span', 'div') and self.has_chevron(c) for c in n.children)
 
+    TIME_RE = r'\d{1,2}:\d{2}'
+
     def setup_picker(self, n):
-        """表单里“标签 + 值 + ›”的选择行：点击弹出选择器，选中值回写到行内。返回控制器变量名。"""
+        """表单里“标签 + 值 + ›”的选择行：点击弹出选择器，选中值回写到行内。返回 [(控制器变量, 初始值)]。"""
         if '_picked' in n.attrs or n.tag not in ('div', 'button') or n.attrs.get('href') or self.is_abs(n):
-            return None
-        if not self.has_chevron(n) or n.attrs.get('aria-label') in ('上个月', '下个月'):
-            return None
+            return []
         leaves = self.leaf_texts(n)
         texts = [re.sub(r'\s+', ' ', self.tree_text(l)).strip() for l in leaves]
+        # 时间区间：09:00 至 20:00，两个时间各自可选
+        if n.tag == 'div' and len(texts) == 3 and texts[1] == '至' and all(re.fullmatch(self.TIME_RE, t) for t in (texts[0], texts[2])):
+            out = []
+            for leaf, t, lab in ((leaves[0], texts[0], '开始'), (leaves[2], texts[2], '结束')):
+                var = self.new_ctrl('s')
+                leaf.attrs['_str'] = var
+                leaf.attrs['_tap'] = '() => hPick(context, \'time\', %s, %s)' % (dstr(lab), var)
+                out.append((var, t))
+            n.attrs['_picked'] = 'time-range'
+            return out
+        # 单个时间按钮：开门 09:00 / 打烊 20:00
+        if n.tag == 'button' and len(texts) == 2 and re.fullmatch(self.TIME_RE, texts[1]):
+            var = self.new_ctrl('s')
+            n.attrs['_picked'] = var
+            leaves[1].attrs['_str'] = var
+            n.attrs['_tap'] = '() => hPick(context, \'time\', %s, %s)' % (dstr(texts[0]), var)
+            return [(var, texts[1])]
+        if not self.has_chevron(n) or n.attrs.get('aria-label') in ('上个月', '下个月'):
+            return []
         texts = [t for t in texts if t and t != '*']
         if not texts or len(texts) > 3:
-            return None
+            return []
         label = re.sub(r'\s*\*$', '', texts[0]) if len(texts) >= 2 else ''
         value_node = [l for l in leaves if re.sub(r'\s+', ' ', self.tree_text(l)).strip() not in ('', '*')][-1]
         value = texts[-1]
@@ -1009,15 +1027,14 @@ class Gen:
                     kind = k
                     break
         if kind is None or len(texts) < 2 and kind != 'city':
-            return None
+            return []
         var = self.new_ctrl('s')
         n.attrs['_picked'] = var
-        n.attrs['_pick_init'] = value
         value_node.attrs['_str'] = var
         if re.match(r'^(选填|请选择|请输入)', value):
             value_node.attrs['_ph'] = value
         n.attrs['_tap'] = '() => hPick(context, %s, %s, %s)' % (dstr(kind), dstr(label), var)
-        return var
+        return [(var, value)]
 
     def emit_plate(self, n):
         cells = [c for c in self.kids(n) if isinstance(c, Node)]
