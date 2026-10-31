@@ -7,6 +7,8 @@ struct DiscoveredAssetsView: View {
     let hosts: [HostResult]
     var running = false
     var historical = false
+    var localAddress: String?
+    var localWiFiName: String?
     @State private var tab: AssetTab = .ip
 
     private var services: [WebService] { hosts.flatMap { $0.webServices ?? [] } }
@@ -22,6 +24,9 @@ struct DiscoveredAssetsView: View {
             VStack(spacing: 10) {
                 switch tab {
                 case .ip:
+                    if let localAddress {
+                        LocalDeviceCard(address: localAddress, wifiName: localWiFiName)
+                    }
                     if hosts.isEmpty {
                         EmptyAssetsRow(text: running ? "正在扫描…" : "暂无已发现资产")
                     }
@@ -187,7 +192,40 @@ struct HostCard: View {
     }
 }
 
+
+// This device. Listed so the user can tell which address is their own; it is never scanned.
+struct LocalDeviceCard: View {
+    let address: String
+    let wifiName: String?
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            IconTile(systemName: "iphone", tint: Theme.sky)
+            VStack(alignment: .leading, spacing: 3) {
+                Text("本机")
+                    .font(.headline)
+                Text(address)
+                    .font(Font.mono(.footnote))
+                    .foregroundStyle(Theme.secondary)
+                if let wifiName, !wifiName.isEmpty {
+                    Text(wifiName)
+                        .font(.footnote)
+                        .foregroundStyle(Theme.secondary)
+                }
+                Chip(text: "不参与扫描", tone: .neutral, mono: false)
+                    .padding(.top, 4)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .card()
+        .accessibilityElement(children: .combine)
+    }
+}
+
 // MARK: - Web
+
 
 struct WebServiceCard: View {
     let service: WebService

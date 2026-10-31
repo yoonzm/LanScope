@@ -35,6 +35,8 @@ final class ScanViewModel: ObservableObject {
     @Published private(set) var networkMessage: String?
     @Published private(set) var currentWiFiName: String?
     @Published private(set) var hosts: [HostResult] = []
+    // This device's Wi-Fi address while it lies inside the scanned range; shown but never probed.
+    @Published private(set) var localAddress: String?
     @Published private(set) var completed = 0
     @Published private(set) var total = 0
     @Published private(set) var running = false
@@ -132,6 +134,7 @@ final class ScanViewModel: ObservableObject {
             let range = try IPv4Range(cidr)
             cidr = range.canonicalCIDR
             hosts = []
+            localAddress = nil
             identities = [:]
             completed = 0
             total = range.addresses.count
@@ -154,6 +157,7 @@ final class ScanViewModel: ObservableObject {
                 guard session == current, running else { return }
                 scanWiFiName = name
                 scanNetwork = network.map(Self.snapshot)
+                localAddress = network.map(\.address).flatMap { range.addresses.contains($0) ? $0 : nil }
                 startedAt = Date()
                 beginScan(range: range, session: current)
             }

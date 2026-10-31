@@ -63,7 +63,8 @@ private struct ScanHomeView: View {
                     FinishedSection(model: model)
                 }
                 if phase != .idle {
-                    DiscoveredAssetsView(hosts: model.hosts, running: model.running)
+                    DiscoveredAssetsView(hosts: model.hosts, running: model.running,
+                                         localAddress: model.localAddress, localWiFiName: model.currentWiFiName)
                 }
             }
             .padding(.horizontal, 20)
