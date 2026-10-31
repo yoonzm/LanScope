@@ -33,10 +33,16 @@ struct ScanHistoryView: View {
                 if !group.records.isEmpty {
                     Section {
                         ForEach(group.records) { record in
-                            NavigationLink {
-                                ScanRecordView(record: record)
-                            } label: {
+                            // The link sits invisibly on top of the card so the system
+                            // disclosure chevron is not drawn and the whole card stays tappable.
+                            ZStack {
                                 HistoryRow(record: record, showsDate: group.title == "更早")
+                                NavigationLink {
+                                    ScanRecordView(record: record)
+                                } label: {
+                                    EmptyView()
+                                }
+                                .opacity(0)
                             }
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)

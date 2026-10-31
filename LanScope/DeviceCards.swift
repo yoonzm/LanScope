@@ -79,6 +79,7 @@ private struct AssetPicker: View {
             .font(.subheadline.weight(.semibold))
             .foregroundStyle(selected ? Theme.text : Theme.secondary)
             .frame(maxWidth: .infinity, minHeight: 34)
+            .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .background(selected ? Theme.selected : Color.clear,
                         in: RoundedRectangle(cornerRadius: 10, style: .continuous))
         }
