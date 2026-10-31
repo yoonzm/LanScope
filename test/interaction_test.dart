@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:qimei_guanjia/kit/keyboard.dart';
 import 'package:qimei_guanjia/kit/kit.dart';
@@ -233,6 +234,40 @@ void main() {
     await t.tap(find.text('确定'));
     await t.pumpAndSettle();
     expect(find.text('宝马 5系 525Li'), findsNothing);
+  });
+
+  testWidgets('日期选择：中文本地化，年月日联动并显示星期 / 年龄', (tester) async {
+    phone(tester);
+    late BuildContext ctx;
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('zh', 'CN'),
+        supportedLocales: const [Locale('zh', 'CN')],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        home: Builder(
+          builder: (c) {
+            ctx = c;
+            return const Scaffold(body: SizedBox());
+          },
+        ),
+      ),
+    );
+    pickDate(ctx, '选择生日', birthday: true, current: '');
+    await tester.pumpAndSettle();
+    // 中文：不是 “October / 十月” 之类的英文月份
+    expect(find.text('六月'), findsOneWidget);
+    expect(find.text('18日'), findsOneWidget);
+    expect(find.text('1990年'), findsOneWidget);
+    expect(find.text('1990 年 6 月 18 日 · 周一 · 36 岁'), findsOneWidget);
+    // 滚动年份列后，下方的完整日期随之联动
+    await tester.drag(find.text('1990年'), const Offset(0, -40));
+    await tester.pumpAndSettle();
+    expect(find.text('1990 年 6 月 18 日 · 周一 · 36 岁'), findsNothing);
+    expect(find.textContaining('岁'), findsOneWidget);
   });
 
   testWidgets('推荐人使用带检索的客户选择器', (t) async {

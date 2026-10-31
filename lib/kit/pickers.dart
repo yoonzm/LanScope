@@ -416,15 +416,23 @@ class _MemberPickerState extends State<_MemberPicker> {
 // ───────── 日期 ─────────
 const _today = (2026, 10, 31);
 
+/// 日期选择。年 / 月 / 日三列联动：月份决定天数（含闰年），并受 [min]、[max] 限制。
+/// 生日：1930 年至今天；入库 / 开支等已发生的日期：最近一年内、不晚于今天；其余：前后各一年。
 Future<String?> pickDate(
   BuildContext context,
   String title, {
   required bool birthday,
   required String current,
+  bool pastOnly = false,
 }) {
-  var picked = birthday
-      ? DateTime(1990, 6, 18)
-      : DateTime(_today.$1, _today.$2, _today.$3);
+  final now = DateTime(_today.$1, _today.$2, _today.$3);
+  final min = birthday
+      ? DateTime(1930)
+      : DateTime(now.year - 1, now.month, now.day);
+  final max = (birthday || pastOnly)
+      ? now
+      : DateTime(now.year + 1, now.month, now.day);
+  var picked = birthday ? DateTime(1990, 6, 18) : now;
   final m = RegExp(r'(\d{4})\.(\d{1,2})\.(\d{1,2})').firstMatch(current);
   if (m != null) {
     picked = DateTime(
@@ -433,41 +441,64 @@ Future<String?> pickDate(
       int.parse(m.group(3)!),
     );
   }
-  final now = DateTime(_today.$1, _today.$2, _today.$3);
+  const weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+  String caption(DateTime d) {
+    final base =
+        '${d.year} 年 ${d.month} 月 ${d.day} 日 · ${weeks[d.weekday - 1]}';
+    if (birthday) {
+      var age = now.year - d.year;
+      if (now.month < d.month || (now.month == d.month && now.day < d.day)) {
+        age--;
+      }
+      return '$base · $age 岁';
+    }
+    final diff = DateTime(d.year, d.month, d.day).difference(now).inDays;
+    return diff == 0
+        ? '$base · 今天'
+        : (diff > 0 ? '$base · $diff 天后' : '$base · ${-diff} 天前');
+  }
+
   return _sheet<String>(
     context,
-    (ctx) => Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _handle(),
-        _header(
-          ctx,
-          title,
-          onOk: () {
-            final d = picked;
-            Navigator.pop(
-              ctx,
-              birthday
-                  ? '${d.year}.${d.month.toString().padLeft(2, '0')}.${d.day.toString().padLeft(2, '0')}'
-                  : (d == now
-                        ? '今天 ${d.month}.${d.day.toString().padLeft(2, '0')}'
-                        : '${d.month.toString().padLeft(2, '0')}.${d.day.toString().padLeft(2, '0')}'),
-            );
-          },
-        ),
-        SizedBox(
-          height: 216,
-          child: _wheelTheme(
-            CupertinoDatePicker(
-              mode: CupertinoDatePickerMode.date,
-              initialDateTime: picked,
-              minimumDate: birthday ? DateTime(1930) : DateTime(now.year - 1),
-              maximumDate: birthday ? now : DateTime(now.year + 1),
-              onDateTimeChanged: (d) => picked = d,
+    (ctx) => StatefulBuilder(
+      builder: (ctx, setS) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _handle(),
+          _header(
+            ctx,
+            title,
+            onOk: () {
+              final d = picked;
+              Navigator.pop(
+                ctx,
+                birthday
+                    ? '${d.year}.${d.month.toString().padLeft(2, '0')}.${d.day.toString().padLeft(2, '0')}'
+                    : (d == now
+                          ? '今天 ${d.month}.${d.day.toString().padLeft(2, '0')}'
+                          : '${d.month.toString().padLeft(2, '0')}.${d.day.toString().padLeft(2, '0')}'),
+              );
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(caption(picked), style: _ts(13, c: _muted)),
+          ),
+          SizedBox(
+            height: 216,
+            child: _wheelTheme(
+              CupertinoDatePicker(
+                mode: CupertinoDatePickerMode.date,
+                dateOrder: DatePickerDateOrder.ymd,
+                initialDateTime: picked,
+                minimumDate: min,
+                maximumDate: max,
+                onDateTimeChanged: (d) => setS(() => picked = d),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }
@@ -750,7 +781,13 @@ Future<void> hPick(
     case 'birthday':
       r = await pickDate(context, '选择生日', birthday: true, current: c.v);
     case 'date':
-      r = await pickDate(context, '选择$label', birthday: false, current: c.v);
+      r = await pickDate(
+        context,
+        '选择$label',
+        birthday: false,
+        current: c.v,
+        pastOnly: true,
+      );
     case 'time':
       r = await pickTime(context, label.isEmpty ? '选择时间' : '选择$label时间', c.v);
     case 'car':
