@@ -31,6 +31,8 @@ Widget? pageFor(String name) {
       return const OrderPage();
     case 'Appointments':
       return const AppointmentsPage();
+    case 'AppointmentSchedule':
+      return const AppointmentsPage(initialView: 1);
     case 'AppointmentAdd':
       return const AppointmentAddPage();
     case 'MemberDetail':
@@ -73,9 +75,6 @@ class NavTracker extends NavigatorObserver {
 }
 
 final NavTracker navTracker = NavTracker();
-
-/// 同一界面的两种视图（如预约的“列表 / 工位时间表”）：切换时原地替换，不叠页。
-const Set<String> _swapViews = {'Appointments', 'AppointmentSchedule'};
 
 /// 结果页：覆盖在提交它的表单页之上，返回时不再回到表单。
 const Set<String> _resultPages = {
@@ -157,18 +156,6 @@ void openRoute(BuildContext context, String name) {
     settings: RouteSettings(name: name),
     builder: (_) => page,
   );
-  // 同一界面的视图切换：原地替换，无转场
-  if (_swapViews.contains(name) && cur != null && _swapViews.contains(cur)) {
-    nav.pushReplacement(
-      PageRouteBuilder<void>(
-        settings: RouteSettings(name: name),
-        transitionDuration: Duration.zero,
-        reverseTransitionDuration: Duration.zero,
-        pageBuilder: (_, _, _) => page,
-      ),
-    );
-    return;
-  }
   final found = navTracker.has(name);
   if (found) {
     nav.popUntil((r) => r.settings.name == name || r.isFirst);

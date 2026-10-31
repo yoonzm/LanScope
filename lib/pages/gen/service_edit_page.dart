@@ -534,6 +534,7 @@ class ServiceEditPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 32,
+                                    bg: Color(0xFFFFFFFF),
                                     radius: BorderRadius.circular(16),
                                     child: Align(
                                       alignment: Alignment.center,
@@ -558,7 +559,6 @@ class ServiceEditPage extends StatelessWidget {
                                   index: 1,
                                   on: hbox(
                                     h: 32,
-                                    bg: Color(0xFFFFFFFF),
                                     radius: BorderRadius.circular(16),
                                     shadow: [
                                       BoxShadow(

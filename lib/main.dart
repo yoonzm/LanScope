@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'pages/login_page.dart';
-import 'kit/keyboard.dart';
 import 'routes.dart';
 import 'theme.dart';
 
@@ -21,8 +20,6 @@ class QimeiApp extends StatelessWidget {
     debugShowCheckedModeBanner: false,
     theme: buildTheme(),
     navigatorObservers: [navTracker],
-    builder: (context, child) =>
-        KeyboardDoneBar(child: child ?? const SizedBox.shrink()),
     home: const LoginPage(),
   );
 }

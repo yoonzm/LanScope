@@ -10,6 +10,14 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:qimei_guanjia/pages/gen/gen_routes.dart';
+import 'package:qimei_guanjia/pages/shell.dart';
+import 'package:qimei_guanjia/pages/settings_page.dart';
+import 'package:qimei_guanjia/pages/services_page.dart';
+import 'package:qimei_guanjia/pages/order_page.dart';
+import 'package:qimei_guanjia/pages/appointments_page.dart';
+import 'package:qimei_guanjia/pages/login_page.dart';
+import 'package:qimei_guanjia/pages/member_detail_page.dart';
+import 'package:qimei_guanjia/mock/mock_data.dart';
 
 void main() {
   const out = String.fromEnvironment('OUT', defaultValue: '/tmp/out');
@@ -33,13 +41,39 @@ void main() {
     Directory(out).createSync(recursive: true);
   });
 
-  for (final e in {
+  final hand = <String, Widget Function()>{
+    'Main': () {
+      tabIndex.value = 0;
+      return const Shell();
+    },
+    'Stats': () {
+      tabIndex.value = 3;
+      return const Shell();
+    },
+    'Members': () {
+      tabIndex.value = 1;
+      return const Shell();
+    },
+    'Inventory': () {
+      tabIndex.value = 2;
+      return const Shell();
+    },
+    'Settings': () => const SettingsPage(),
+    'Services': () => const ServicesPage(),
+    'Order': () => const OrderPage(),
+    'Appointments': () => const AppointmentsPage(),
+    'Login': () => const LoginPage(),
+    'MemberDetail': () => MemberDetailPage(member: members.first),
+  };
+  for (final e in <String, WidgetBuilder>{
     ...genRoutes,
     for (final s in genSheets.entries) '${s.key}__sheet': s.value,
+    for (final h in hand.entries) '${h.key}__hand': (_) => h.value(),
   }.entries) {
     if (only.isNotEmpty && !only.split(',').contains(e.key)) continue;
     testWidgets('render ${e.key}', (tester) async {
-      final h = (boards['${e.key}.dc.html']?['h'] ?? 844).toDouble();
+      final bk = e.key.replaceAll('__hand', '');
+      final h = (boards['$bk.dc.html']?['h'] ?? 844).toDouble();
       tester.view.physicalSize = Size(390 * 2, h * 2);
       tester.view.devicePixelRatio = 2;
       addTearDown(tester.view.reset);
@@ -55,6 +89,14 @@ void main() {
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'Wqy', useMaterial3: true),
+            builder: (c, w) => e.key.endsWith('__hand')
+                ? MediaQuery(
+                    data: MediaQuery.of(c).copyWith(
+                      padding: const EdgeInsets.only(top: 44, bottom: 34),
+                    ),
+                    child: w!,
+                  )
+                : w!,
             home: e.key.endsWith('__sheet')
                 ? Scaffold(
                     backgroundColor: Colors.black38,

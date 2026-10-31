@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../kit/pickers.dart';
 import '../mock/mock_data.dart';
 import '../kit/keyboard.dart';
 import '../theme.dart';
@@ -47,6 +48,13 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
     '16:30',
   };
 
+  Member customer = members[5]; // 刘先生
+
+  Future<void> _pickCustomer() async {
+    final m = await pickMember(context, current: customer);
+    if (m != null && mounted) setState(() => customer = m);
+  }
+
   int get total => picked.fold(0, (s, i) => s + apptServices[i].price);
 
   void submit() {
@@ -58,9 +66,9 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
       Appointment(
         time,
         '1.5 小时',
-        '沪C·9H318',
-        isMember ? '刘先生' : '散客',
-        isMember ? '金卡' : '散客',
+        customer.plate,
+        isMember ? customer.name : '散客',
+        isMember ? customer.level : '散客',
         picked.map((i) => apptServices[i].name).join(' · '),
         '${station + 1} 号工位 · $tech',
         ApptStatus.waiting,
@@ -98,8 +106,8 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
                       padding: const EdgeInsets.all(14),
                       child: Row(
                         children: [
-                          const Avatar(
-                            '刘',
+                          Avatar(
+                            customer.name.substring(0, 1),
                             size: 44,
                             bg: C.amberSoft,
                             fg: C.amberInk,
@@ -112,27 +120,31 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
                                 Row(
                                   children: [
                                     Text(
-                                      '刘先生',
+                                      customer.name,
                                       style: ts(15, w: FontWeight.w500, h: 22),
                                     ),
                                     const SizedBox(width: 6),
-                                    const LevelBadge('金卡'),
+                                    LevelBadge(customer.level),
                                   ],
                                 ),
                                 Text(
-                                  '139 **** 5026 · 余额 ¥1,860',
+                                  '${customer.phone.substring(0, 3)} **** ${customer.phone.substring(7)} · ${customer.amountNote == '余额' ? '余额 ${customer.amount}' : customer.amountNote}',
                                   style: ts(12, color: C.muted, h: 16),
                                 ),
                               ],
                             ),
                           ),
-                          Text(
-                            '更换',
-                            style: ts(
-                              13,
-                              w: FontWeight.w500,
-                              color: C.primaryInk,
-                              h: 18,
+                          GestureDetector(
+                            behavior: HitTestBehavior.opaque,
+                            onTap: _pickCustomer,
+                            child: Text(
+                              '更换',
+                              style: ts(
+                                13,
+                                w: FontWeight.w500,
+                                color: C.primaryInk,
+                                h: 18,
+                              ),
                             ),
                           ),
                         ],
@@ -144,7 +156,7 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
                     padding: const EdgeInsets.all(14),
                     child: Row(
                       children: [
-                        const PlateTag('沪C·9H318'),
+                        PlateTag(customer.plate),
                         const SizedBox(width: 12),
                         Expanded(
                           child: Text(

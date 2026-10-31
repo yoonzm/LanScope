@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../kit/pickers.dart';
 import '../mock/mock_data.dart';
 import '../theme.dart';
 import '../routes.dart';
@@ -183,76 +184,9 @@ class _OrderPageState extends State<OrderPage> {
   String get _balanceText =>
       customer.amountNote == '余额' ? customer.amount : '¥0';
 
-  void _pickCustomer() {
-    showModalBottomSheet<void>(
-      context: context,
-      backgroundColor: Colors.white,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.of(ctx).size.height * 0.7,
-          ),
-          child: ListView(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
-            shrinkWrap: true,
-            children: [
-              Text('选择客户', style: ts(17, w: FontWeight.w600, h: 24)),
-              const SizedBox(height: 8),
-              for (final m in members)
-                GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () {
-                    setState(() => customer = m);
-                    Navigator.of(ctx).pop();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      children: [
-                        Avatar(m.name.substring(0, 1), size: 40),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    m.name,
-                                    style: ts(15, w: FontWeight.w500, h: 22),
-                                  ),
-                                  const SizedBox(width: 6),
-                                  LevelBadge(m.level),
-                                ],
-                              ),
-                              Text(
-                                '${m.plate} · ${m.bound ? '微信已绑定' : '微信未绑定'}',
-                                style: ts(12, color: C.muted, h: 16),
-                              ),
-                            ],
-                          ),
-                        ),
-                        if (customer == m)
-                          const AppIcon(
-                            'check',
-                            size: 18,
-                            color: C.primary,
-                            stroke: 2.6,
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
+  Future<void> _pickCustomer() async {
+    final m = await pickMember(context, current: customer);
+    if (m != null && mounted) setState(() => customer = m);
   }
 
   Widget _customer(BuildContext context) => AppCard(

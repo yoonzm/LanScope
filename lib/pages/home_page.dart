@@ -298,28 +298,44 @@ class HomePage extends StatelessWidget {
       child: GestureDetector(
         onTap: tap,
         child: Container(
+          clipBehavior: Clip.antiAlias,
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
             color: bg,
             borderRadius: BorderRadius.circular(24),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
+            clipBehavior: Clip.none,
             children: [
-              Row(
-                children: [
-                  AppIcon(icon, size: 20, color: fg),
-                  const SizedBox(width: 8),
-                  Text(
-                    title,
-                    style: ts(15, w: FontWeight.w600, color: fg, h: 22),
-                  ),
-                ],
+              Positioned(
+                right: -22,
+                bottom: -24,
+                child: Opacity(
+                  opacity: 0.22,
+                  child: AppIcon(icon, size: 64, color: fg, stroke: 1.4),
+                ),
               ),
-              Text(
-                sub,
-                style: ts(12, color: fg.withValues(alpha: 0.75), h: 16),
+              Positioned.fill(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        AppIcon(icon, size: 20, color: fg),
+                        const SizedBox(width: 8),
+                        Text(
+                          title,
+                          style: ts(15, w: FontWeight.w600, color: fg, h: 22),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      sub,
+                      style: ts(12, color: fg.withValues(alpha: 0.75), h: 16),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

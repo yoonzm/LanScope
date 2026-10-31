@@ -196,7 +196,6 @@ class VehicleAddPage extends StatelessWidget {
                                   index: 0,
                                   on: hbox(
                                     h: 32,
-                                    bg: Color(0xFFFFFFFF),
                                     radius: BorderRadius.circular(16),
                                     shadow: [
                                       BoxShadow(
@@ -272,6 +271,7 @@ class VehicleAddPage extends StatelessWidget {
                                   ),
                                   off: hbox(
                                     h: 32,
+                                    bg: Color(0xFFFFFFFF),
                                     radius: BorderRadius.circular(16),
                                     child: Align(
                                       alignment: Alignment.center,

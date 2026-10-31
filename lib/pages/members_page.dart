@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../kit/pickers.dart';
 import '../mock/mock_data.dart';
 import '../kit/keyboard.dart';
 import '../theme.dart';
@@ -26,8 +27,7 @@ class _MembersPageState extends State<MembersPage> {
       final k = _keys[filter];
       if (k != null && !m.tags.contains(k)) return false;
       if (query.isEmpty) return true;
-      return m.name.contains(query) ||
-          m.plate.toLowerCase().contains(query.toLowerCase());
+      return memberMatches(m, query);
     }).toList();
 
     return Scaffold(
@@ -107,7 +107,7 @@ class _MembersPageState extends State<MembersPage> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         isCollapsed: true,
-                        hintText: '搜索会员 / 车牌 / 手机号',
+                        hintText: '搜索姓名 / 车牌 / 手机号',
                         hintStyle: ts(14, color: C.muted),
                       ),
                     ),

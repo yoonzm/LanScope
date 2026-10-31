@@ -234,11 +234,13 @@ Widget hbox({
       child: r,
     );
   } else {
+    final outer =
+        bg == null && grad == null && shadow != null && shadow.isNotEmpty;
     final hasDeco =
         bg != null ||
         grad != null ||
         radius != null ||
-        shadow != null ||
+        (shadow != null && !outer) ||
         border != null;
     r = Container(
       width: w,
@@ -251,14 +253,14 @@ Widget hbox({
             )
           : null,
       padding: pad,
-      margin: margin,
+      margin: outer ? null : margin,
       alignment: align,
       decoration: hasDeco
           ? BoxDecoration(
               color: bg,
               gradient: grad,
               borderRadius: radius,
-              boxShadow: shadow,
+              boxShadow: outer ? null : shadow,
               border: border,
             )
           : null,
@@ -268,8 +270,45 @@ Widget hbox({
           : child,
     );
   }
+  if (bg == null &&
+      grad == null &&
+      shadow != null &&
+      shadow.isNotEmpty &&
+      !dashed) {
+    r = CustomPaint(painter: _OuterShadowPainter(shadow, radius), child: r);
+    if (margin != null) r = Padding(padding: margin, child: r);
+  }
   if (opacity != null) r = Opacity(opacity: opacity, child: r);
   return r;
+}
+
+/// CSS 的 box-shadow 只画在盒子外面；Flutter 的 BoxShadow 会铺满盒子底下。
+/// 盒子本身没有底色时（透明），用这个只画外侧阴影。
+class _OuterShadowPainter extends CustomPainter {
+  final List<BoxShadow> shadows;
+  final BorderRadiusGeometry? radius;
+  _OuterShadowPainter(this.shadows, this.radius);
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = Offset.zero & size;
+    final rr = (radius ?? BorderRadius.zero)
+        .resolve(TextDirection.ltr)
+        .toRRect(rect);
+    final outside = Path.combine(
+      PathOperation.difference,
+      Path()..addRect(rect.inflate(400)),
+      Path()..addRRect(rr),
+    );
+    canvas.save();
+    canvas.clipPath(outside);
+    for (final s in shadows) {
+      canvas.drawRRect(rr.shift(s.offset).inflate(s.spreadRadius), s.toPaint());
+    }
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(covariant _OuterShadowPainter old) => true;
 }
 
 class _DashedPainter extends CustomPainter {

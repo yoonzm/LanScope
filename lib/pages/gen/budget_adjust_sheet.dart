@@ -253,7 +253,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: Color(0xFFF4F4F5),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -322,7 +322,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: Color(0xFFE1F0FE),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -345,7 +345,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: Color(0xFFF4F4F5),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -417,7 +417,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 0,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: Color(0xFFF4F4F5),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),
@@ -486,7 +486,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                       off: hbox(
                         h: 34,
-                        bg: Color(0xFFF4F4F5),
+                        bg: Color(0xFFE1F0FE),
                         radius: BorderRadius.circular(17),
                         pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                         child: Align(
@@ -509,7 +509,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       index: 2,
                       on: hbox(
                         h: 34,
-                        bg: Color(0xFFE1F0FE),
+                        bg: Color(0xFFF4F4F5),
                         radius: BorderRadius.circular(17),
                         border: Border.all(
                           color: Color(0xFF0485F7),

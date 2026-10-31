@@ -18,6 +18,7 @@ class Member {
   final String name, level, plate, lastVisit, amount, amountNote;
   final Set<String> tags;
   final bool bound;
+  final String phone;
   const Member(
     this.name,
     this.level,
@@ -27,21 +28,56 @@ class Member {
     this.amountNote,
     this.tags, {
     this.bound = true,
+    this.phone = '',
   });
 }
 
 const members = <Member>[
-  Member('王建国', '黑金', '沪A·8K29M', '今天到店', '¥3,680', '余额', {'黑金'}),
-  Member('林晓雯', '金卡', '沪AD·61207', '3 天前', '¥1,240', '余额', {'金卡'}),
-  Member('陈浩', '银卡', '苏E·3QX18', '1 周前', '¥520', '次卡 3 天到期', {
-    '次卡将到期',
-  }, bound: false),
-  Member('赵一鸣', '金卡', '沪B·72M51', '2 周前', '¥2,060', '余额', {'金卡'}),
-  Member('周志远', '银卡', '浙A·5L0P2', '47 天未到店', '¥180', '待回访', {
+  Member('王建国', '黑金', '沪A·8K29M', '今天到店', '¥3,680', '余额', {
+    '黑金',
+  }, phone: '13816826021'),
+  Member('林晓雯', '金卡', '沪AD·61207', '3 天前', '¥1,240', '余额', {
+    '金卡',
+  }, phone: '13917630412'),
+  Member(
+    '陈浩',
+    '银卡',
+    '苏E·3QX18',
+    '1 周前',
+    '¥520',
+    '次卡 3 天到期',
+    {'次卡将到期'},
+    bound: false,
+    phone: '13761885507',
+  ),
+  Member('赵一鸣', '金卡', '沪B·72M51', '2 周前', '¥2,060', '余额', {
+    '金卡',
+  }, phone: '13588205126'),
+  Member(
+    '周志远',
+    '银卡',
+    '浙A·5L0P2',
+    '47 天未到店',
+    '¥180',
     '待回访',
-  }, bound: false),
-  Member('刘先生', '金卡', '沪C·9H318', '5 天前', '¥1,860', '余额', {'金卡'}, bound: false),
-  Member('周女士', '黑金', '沪A·6Q552', '昨天到店', '¥5,200', '余额', {'黑金'}),
+    {'待回访'},
+    bound: false,
+    phone: '13472215908',
+  ),
+  Member(
+    '刘先生',
+    '金卡',
+    '沪C·9H318',
+    '5 天前',
+    '¥1,860',
+    '余额',
+    {'金卡'},
+    bound: false,
+    phone: '13916885026',
+  ),
+  Member('周女士', '黑金', '沪A·6Q552', '昨天到店', '¥5,200', '余额', {
+    '黑金',
+  }, phone: '13701865530'),
 ];
 
 class Vehicle {

@@ -196,6 +196,219 @@ Widget _wheelTheme(Widget child) => CupertinoTheme(
   child: child,
 );
 
+// ───────── 客户选择（支持按姓名 / 车牌 / 手机号检索）─────────
+bool memberMatches(Member m, String q) {
+  final k = q.trim().toLowerCase().replaceAll(RegExp(r'[\s·]'), '');
+  if (k.isEmpty) return true;
+  return m.name.toLowerCase().contains(k) ||
+      m.plate.toLowerCase().replaceAll('·', '').contains(k) ||
+      m.phone.contains(k) ||
+      m.level.contains(k);
+}
+
+Future<Member?> pickMember(
+  BuildContext context, {
+  Member? current,
+  String title = '选择客户',
+}) {
+  return showModalBottomSheet<Member>(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.white,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+    ),
+    builder: (ctx) => _MemberPicker(current: current, title: title),
+  );
+}
+
+class _MemberPicker extends StatefulWidget {
+  final Member? current;
+  final String title;
+  const _MemberPicker({this.current, required this.title});
+  @override
+  State<_MemberPicker> createState() => _MemberPickerState();
+}
+
+class _MemberPickerState extends State<_MemberPicker> {
+  String q = '';
+  @override
+  Widget build(BuildContext context) {
+    final list = [
+      for (final m in members)
+        if (memberMatches(m, q)) m,
+    ];
+    final h = MediaQuery.of(context).size.height;
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: SafeArea(
+        child: SizedBox(
+          height: h * 0.72,
+          child: Column(
+            children: [
+              _handle(),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 6, 20, 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        widget.title,
+                        style: _ts(17, w: FontWeight.w600),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Text(
+                        '取消',
+                        style: _ts(15, w: FontWeight.w500, c: _muted),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                child: Container(
+                  height: 44,
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF4F4F5),
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.search_rounded, size: 20, color: _muted),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: TextField(
+                          onChanged: (v) => setState(() => q = v),
+                          onTapOutside: onTapOutsideDismiss,
+                          style: _ts(14),
+                          decoration: const InputDecoration(
+                            isCollapsed: true,
+                            border: InputBorder.none,
+                            hintText: '搜索姓名 / 车牌 / 手机号',
+                            hintStyle: TextStyle(fontSize: 14, color: _muted),
+                          ),
+                        ),
+                      ),
+                      if (q.isNotEmpty)
+                        GestureDetector(
+                          onTap: () => setState(() => q = ''),
+                          child: const Icon(
+                            Icons.cancel_rounded,
+                            size: 18,
+                            color: Color(0xFFA1A1AA),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: list.isEmpty
+                    ? Center(
+                        child: Text('没有找到匹配的客户', style: _ts(14, c: _muted)),
+                      )
+                    : ListView(
+                        keyboardDismissBehavior:
+                            ScrollViewKeyboardDismissBehavior.onDrag,
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                        children: [
+                          for (final m in list)
+                            GestureDetector(
+                              behavior: HitTestBehavior.opaque,
+                              onTap: () => Navigator.pop(context, m),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                ),
+                                decoration: const BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(color: _line),
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 40,
+                                      height: 40,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: m.level == '黑金'
+                                            ? _ink
+                                            : const Color(0xFFEEEEF0),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        m.name.substring(0, 1),
+                                        style: _ts(
+                                          15,
+                                          w: FontWeight.w600,
+                                          c: m.level == '黑金'
+                                              ? const Color(0xFFF5D78E)
+                                              : const Color(0xFF52525B),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                m.name,
+                                                style: _ts(
+                                                  15,
+                                                  w: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 6),
+                                              Text(
+                                                m.level,
+                                                style: _ts(
+                                                  11,
+                                                  w: FontWeight.w600,
+                                                  c: _muted,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(height: 2),
+                                          Text(
+                                            '${m.plate} · ${m.phone.isEmpty ? '' : '${m.phone.substring(0, 3)} **** ${m.phone.substring(7)}'}',
+                                            style: _ts(12, c: _muted),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    if (widget.current == m)
+                                      const Icon(
+                                        Icons.check_rounded,
+                                        size: 20,
+                                        color: _primary,
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 // ───────── 日期 ─────────
 const _today = (2026, 10, 31);
 

@@ -98,6 +98,12 @@ class AppIcon extends StatelessWidget {
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="$f" '
         'stroke="${isFill ? 'none' : _hex(color)}" stroke-opacity="${color.a}" stroke-width="$w" '
         'stroke-linecap="round" stroke-linejoin="round">$inner</svg>';
-    return SvgPicture.string(svg, width: size, height: size);
+    // 与 Icon 一致：父级给出紧约束时，图标仍保持自身尺寸并居中
+    return SizedBox.square(
+      dimension: size,
+      child: Center(
+        child: SvgPicture.string(svg, width: size, height: size),
+      ),
+    );
   }
 }

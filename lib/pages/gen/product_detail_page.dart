@@ -802,6 +802,7 @@ class ProductDetailPage extends StatelessWidget {
                                 ),
                                 off: hbox(
                                   h: 32,
+                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(16),
                                   child: Align(
                                     alignment: Alignment.center,
@@ -826,7 +827,6 @@ class ProductDetailPage extends StatelessWidget {
                                 index: 1,
                                 on: hbox(
                                   h: 32,
-                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(16),
                                   shadow: [
                                     BoxShadow(
@@ -882,7 +882,6 @@ class ProductDetailPage extends StatelessWidget {
                                 index: 2,
                                 on: hbox(
                                   h: 32,
-                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(16),
                                   shadow: [
                                     BoxShadow(
@@ -938,7 +937,6 @@ class ProductDetailPage extends StatelessWidget {
                                 index: 3,
                                 on: hbox(
                                   h: 32,
-                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(16),
                                   shadow: [
                                     BoxShadow(

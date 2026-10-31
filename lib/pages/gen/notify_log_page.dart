@@ -369,6 +369,7 @@ class NotifyLogPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 36,
+                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(18),
                                 child: Align(
                                   alignment: Alignment.center,
@@ -393,7 +394,6 @@ class NotifyLogPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 36,
-                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(18),
                                 shadow: [
                                   BoxShadow(
@@ -443,7 +443,6 @@ class NotifyLogPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 36,
-                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(18),
                                 shadow: [
                                   BoxShadow(
@@ -493,7 +492,6 @@ class NotifyLogPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 36,
-                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(18),
                                 shadow: [
                                   BoxShadow(

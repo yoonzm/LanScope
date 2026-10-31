@@ -114,7 +114,6 @@ class RolePermissionPage extends StatelessWidget {
                             index: 0,
                             on: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
                               radius: BorderRadius.circular(17),
                               shadow: [
                                 BoxShadow(
@@ -170,7 +169,6 @@ class RolePermissionPage extends StatelessWidget {
                             index: 1,
                             on: hbox(
                               h: 34,
-                              bg: Color(0xFFFFFFFF),
                               radius: BorderRadius.circular(17),
                               shadow: [
                                 BoxShadow(
@@ -258,6 +256,7 @@ class RolePermissionPage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 34,
+                              bg: Color(0xFFFFFFFF),
                               radius: BorderRadius.circular(17),
                               child: Align(
                                 alignment: Alignment.center,

@@ -518,42 +518,48 @@ class NotifySettingsPage extends StatelessWidget {
                                       flex: 1,
                                       child: hcol(
                                         [
-                                          hcol(
+                                          hrow(
                                             [
-                                              Text(
-                                                '优先微信，失败转短信',
-                                                style: hts(
-                                                  15,
-                                                  Color(0xFF18181B),
-                                                  w: FontWeight.w500,
-                                                  lh: 22,
+                                              Flexible(
+                                                flex: 150,
+                                                child: Text(
+                                                  '优先微信，失败转短信',
+                                                  style: hts(
+                                                    15,
+                                                    Color(0xFF18181B),
+                                                    w: FontWeight.w500,
+                                                    lh: 22,
+                                                  ),
                                                 ),
                                               ),
-                                              hbox(
-                                                bg: Color(0xFFE1F0FE),
-                                                radius: BorderRadius.circular(
-                                                  8,
-                                                ),
-                                                pad: EdgeInsets.fromLTRB(
-                                                  6,
-                                                  1,
-                                                  6,
-                                                  1,
-                                                ),
-                                                child: Text(
-                                                  '推荐',
-                                                  style: hts(
-                                                    11,
-                                                    Color(0xFF1E63AE),
-                                                    w: FontWeight.w600,
-                                                    lh: 16,
+                                              Flexible(
+                                                flex: 34,
+                                                child: hbox(
+                                                  bg: Color(0xFFE1F0FE),
+                                                  radius: BorderRadius.circular(
+                                                    8,
+                                                  ),
+                                                  pad: EdgeInsets.fromLTRB(
+                                                    6,
+                                                    1,
+                                                    6,
+                                                    1,
+                                                  ),
+                                                  child: Text(
+                                                    '推荐',
+                                                    style: hts(
+                                                      11,
+                                                      Color(0xFF1E63AE),
+                                                      w: FontWeight.w600,
+                                                      lh: 16,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
-                                            cross: CrossAxisAlignment.stretch,
-                                            gap: 0,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 6,
                                           ),
                                           Text(
                                             '会员已关注公众号走微信，否则自动发短信',
@@ -603,42 +609,48 @@ class NotifySettingsPage extends StatelessWidget {
                                       flex: 1,
                                       child: hcol(
                                         [
-                                          hcol(
+                                          hrow(
                                             [
-                                              Text(
-                                                '优先微信，失败转短信',
-                                                style: hts(
-                                                  15,
-                                                  Color(0xFF18181B),
-                                                  w: FontWeight.w500,
-                                                  lh: 22,
+                                              Flexible(
+                                                flex: 150,
+                                                child: Text(
+                                                  '优先微信，失败转短信',
+                                                  style: hts(
+                                                    15,
+                                                    Color(0xFF18181B),
+                                                    w: FontWeight.w500,
+                                                    lh: 22,
+                                                  ),
                                                 ),
                                               ),
-                                              hbox(
-                                                bg: Color(0xFFE1F0FE),
-                                                radius: BorderRadius.circular(
-                                                  8,
-                                                ),
-                                                pad: EdgeInsets.fromLTRB(
-                                                  6,
-                                                  1,
-                                                  6,
-                                                  1,
-                                                ),
-                                                child: Text(
-                                                  '推荐',
-                                                  style: hts(
-                                                    11,
-                                                    Color(0xFF1E63AE),
-                                                    w: FontWeight.w600,
-                                                    lh: 16,
+                                              Flexible(
+                                                flex: 34,
+                                                child: hbox(
+                                                  bg: Color(0xFFE1F0FE),
+                                                  radius: BorderRadius.circular(
+                                                    8,
+                                                  ),
+                                                  pad: EdgeInsets.fromLTRB(
+                                                    6,
+                                                    1,
+                                                    6,
+                                                    1,
+                                                  ),
+                                                  child: Text(
+                                                    '推荐',
+                                                    style: hts(
+                                                      11,
+                                                      Color(0xFF1E63AE),
+                                                      w: FontWeight.w600,
+                                                      lh: 16,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ],
                                             main: MainAxisAlignment.start,
-                                            cross: CrossAxisAlignment.stretch,
-                                            gap: 0,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 6,
                                           ),
                                           Text(
                                             '会员已关注公众号走微信，否则自动发短信',

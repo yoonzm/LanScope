@@ -573,7 +573,7 @@ class ChannelConfigPage extends StatelessWidget {
                                         ctrl: g1[0],
                                         index: 0,
                                         on: hbox(
-                                          bg: Color(0xFFE1F0FE),
+                                          bg: Color(0xFFF4F4F5),
                                           radius: BorderRadius.circular(16),
                                           border: Border.all(
                                             color: Color(0xFF0485F7),
@@ -690,7 +690,7 @@ class ChannelConfigPage extends StatelessWidget {
                                           ),
                                         ),
                                         off: hbox(
-                                          bg: Color(0xFFF4F4F5),
+                                          bg: Color(0xFFE1F0FE),
                                           radius: BorderRadius.circular(16),
                                           pad: EdgeInsets.fromLTRB(
                                             0,
@@ -731,7 +731,7 @@ class ChannelConfigPage extends StatelessWidget {
                                         ctrl: g1[0],
                                         index: 2,
                                         on: hbox(
-                                          bg: Color(0xFFE1F0FE),
+                                          bg: Color(0xFFF4F4F5),
                                           radius: BorderRadius.circular(16),
                                           border: Border.all(
                                             color: Color(0xFF0485F7),

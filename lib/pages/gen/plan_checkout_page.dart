@@ -189,7 +189,7 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g1[0],
                               index: 0,
                               on: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: Color(0xFFF4F4F5),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -342,7 +342,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: Color(0xFFE1F0FE),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -501,7 +501,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               off: hbox(
-                                bg: Color(0xFFF4F4F5),
+                                bg: Color(0xFFE1F0FE),
                                 radius: BorderRadius.circular(18),
                                 pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                                 child: hrow(
@@ -556,7 +556,7 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g2[0],
                               index: 1,
                               on: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: Color(0xFFF4F4F5),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),
@@ -652,7 +652,7 @@ class PlanCheckoutPage extends StatelessWidget {
                               ctrl: g2[0],
                               index: 2,
                               on: hbox(
-                                bg: Color(0xFFE1F0FE),
+                                bg: Color(0xFFF4F4F5),
                                 radius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: Color(0xFF0485F7),

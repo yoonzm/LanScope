@@ -3,7 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:qimei_guanjia/kit/keyboard.dart';
 import 'package:qimei_guanjia/kit/kit.dart';
 import 'package:qimei_guanjia/mock/app_state.dart';
+import 'package:qimei_guanjia/pages/appointments_page.dart';
 import 'package:qimei_guanjia/pages/home_page.dart';
+import 'package:qimei_guanjia/pages/login_page.dart';
 import 'package:qimei_guanjia/routes.dart';
 import 'package:qimei_guanjia/pages/gen/gen_routes.dart';
 
@@ -106,12 +108,11 @@ void main() {
     subState.value = SubState.normal;
   });
 
-  testWidgets('键盘弹出时出现「完成」栏，点击后收起；点输入框外也会收起', (t) async {
+  testWidgets('点击输入框以外的区域会收起键盘', (t) async {
     phone(t);
     await t.pumpWidget(
-      MaterialApp(
-        builder: (context, child) => KeyboardDoneBar(child: child!),
-        home: const Scaffold(
+      const MaterialApp(
+        home: Scaffold(
           body: Column(
             children: [
               TextField(
@@ -125,24 +126,87 @@ void main() {
         ),
       ),
     );
-    expect(find.text('完成'), findsNothing);
-    await t.tap(find.byType(TextField));
-    t.view.viewInsets = const FakeViewPadding(bottom: 900);
-    addTearDown(t.view.resetViewInsets);
-    await t.pump();
-    expect(find.text('完成'), findsOneWidget);
-    expect(FocusManager.instance.primaryFocus?.hasPrimaryFocus, isTrue);
-    await t.tap(find.text('完成'));
-    await t.pump();
-    expect(find.byType(EditableText), findsOneWidget);
-    expect(focusOf(t), isFalse);
-    // 再次聚焦后点击空白处同样收起
     await t.tap(find.byType(TextField));
     await t.pump();
     expect(focusOf(t), isTrue);
     await t.tapAt(const Offset(195, 400));
     await t.pump();
     expect(focusOf(t), isFalse);
+  });
+
+  testWidgets('预约管理：列表 / 工位时间表是同一页面里的标签，不跳转', (t) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    phone(t);
+    await t.pumpWidget(const MaterialApp(home: AppointmentsPage()));
+    expect(find.text('待处理 · 现在 16:47'), findsOneWidget);
+    await t.tap(find.text('工位时间表'));
+    await t.pump();
+    expect(find.text('待处理 · 现在 16:47'), findsNothing);
+    expect(find.text('预约管理'), findsOneWidget); // 仍是同一页面（只有一个标题）
+    expect(find.textContaining('共 6 个工位'), findsOneWidget);
+    await t.tap(find.text('列表'));
+    await t.pump();
+    expect(find.text('待处理 · 现在 16:47'), findsOneWidget);
+  });
+
+  testWidgets('客户选择支持按姓名 / 车牌 / 手机号检索', (t) async {
+    phone(t);
+    late BuildContext ctx;
+    await t.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (c) {
+            ctx = c;
+            return const Scaffold(body: SizedBox());
+          },
+        ),
+      ),
+    );
+    pickMember(ctx);
+    await t.pumpAndSettle();
+    expect(find.text('王建国'), findsOneWidget);
+    expect(find.text('周志远'), findsOneWidget);
+    await t.enterText(find.byType(TextField), '周');
+    await t.pump();
+    expect(find.text('王建国'), findsNothing);
+    expect(find.text('周志远'), findsOneWidget);
+    await t.enterText(find.byType(TextField), '8k29');
+    await t.pump();
+    expect(find.text('王建国'), findsOneWidget);
+    expect(find.text('周志远'), findsNothing);
+    await t.enterText(find.byType(TextField), '1391688');
+    await t.pump();
+    expect(find.text('刘先生'), findsOneWidget);
+    await t.enterText(find.byType(TextField), '不存在');
+    await t.pump();
+    expect(find.text('没有找到匹配的客户'), findsOneWidget);
+  });
+
+  testWidgets('密码登录：密码输入框的占位文字在输入框内垂直居中', (t) async {
+    phone(t);
+    await t.pumpWidget(const MaterialApp(home: LoginPage()));
+    await t.tap(find.text('密码登录'));
+    await t.pump();
+    final hint = t.getRect(find.text('请输入密码')).center;
+    final phoneHint = t.getRect(find.text('请输入手机号')).center;
+    // 与手机号输入框相同的 48px 高度：占位文字应落在各自输入框的垂直中心
+    final box = t.getRect(
+      find
+          .ancestor(of: find.text('请输入密码'), matching: find.byType(Container))
+          .first,
+    );
+    final pbox = t.getRect(
+      find
+          .ancestor(of: find.text('请输入手机号'), matching: find.byType(Container))
+          .first,
+    );
+    expect((hint.dy - box.center.dy).abs() < 14, isTrue);
+    expect((phoneHint.dy - pbox.center.dy).abs() < 14, isTrue);
+    expect(t.getRect(find.text('请输入密码')).left, closeTo(54, 1)); // 靠左对齐（左内边距 14）
   });
 
   testWidgets('新增会员：生日 / 品牌车型 / 城市选择器可用并回写', (t) async {

@@ -179,7 +179,9 @@ class RoundBtn extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: C.red,
                     shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 2),
+                    boxShadow: const [
+                      BoxShadow(color: Colors.white, spreadRadius: 2),
+                    ],
                   ),
                 ),
               ),

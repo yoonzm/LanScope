@@ -229,7 +229,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                 ),
                                 off: hbox(
                                   h: 34,
-                                  bg: Color(0xFFFFFFFF),
+                                  bg: Color(0xFF18181B),
                                   radius: BorderRadius.circular(17),
                                   border: Border.all(
                                     color: Color(0xFFE4E4E7),
@@ -256,7 +256,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                 index: 1,
                                 on: hbox(
                                   h: 34,
-                                  bg: Color(0xFF18181B),
+                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(17),
                                   pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                   child: Align(
@@ -302,7 +302,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                 index: 2,
                                 on: hbox(
                                   h: 34,
-                                  bg: Color(0xFF18181B),
+                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(17),
                                   pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                   child: Align(
@@ -348,7 +348,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                 index: 3,
                                 on: hbox(
                                   h: 34,
-                                  bg: Color(0xFF18181B),
+                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(17),
                                   pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                   child: Align(
@@ -394,7 +394,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                 index: 4,
                                 on: hbox(
                                   h: 34,
-                                  bg: Color(0xFF18181B),
+                                  bg: Color(0xFFFFFFFF),
                                   radius: BorderRadius.circular(17),
                                   pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                   child: Align(

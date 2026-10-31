@@ -332,6 +332,7 @@ class MemberRecordsPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
+                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(16),
                                 child: Align(
                                   alignment: Alignment.center,
@@ -356,7 +357,6 @@ class MemberRecordsPage extends StatelessWidget {
                               index: 1,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(16),
                                 shadow: [
                                   BoxShadow(
@@ -412,7 +412,6 @@ class MemberRecordsPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(16),
                                 shadow: [
                                   BoxShadow(
@@ -468,7 +467,6 @@ class MemberRecordsPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFFFFFFFF),
                                 radius: BorderRadius.circular(16),
                                 shadow: [
                                   BoxShadow(

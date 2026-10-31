@@ -354,6 +354,7 @@ class MemberAddPage extends StatelessWidget {
                                             ),
                                             off: hbox(
                                               h: 28,
+                                              bg: Color(0xFFFFFFFF),
                                               radius: BorderRadius.circular(14),
                                               pad: EdgeInsets.fromLTRB(
                                                 14,
@@ -384,7 +385,6 @@ class MemberAddPage extends StatelessWidget {
                                             index: 1,
                                             on: hbox(
                                               h: 28,
-                                              bg: Color(0xFFFFFFFF),
                                               radius: BorderRadius.circular(14),
                                               shadow: [
                                                 BoxShadow(
@@ -646,6 +646,20 @@ class MemberAddPage extends StatelessWidget {
                                               h: 26,
                                               bg: Color(0xFF18181B),
                                               radius: BorderRadius.circular(13),
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
+                                              ),
+                                            ),
+                                          ),
+                                          HSel(
+                                            ctrl: g4[0],
+                                            index: 1,
+                                            on: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(13),
                                               shadow: [
                                                 BoxShadow(
                                                   color: Color(0xFFFFFFFF),
@@ -660,20 +674,6 @@ class MemberAddPage extends StatelessWidget {
                                                   spreadRadius: 4,
                                                 ),
                                               ],
-                                            ),
-                                          ),
-                                          HSel(
-                                            ctrl: g4[0],
-                                            index: 1,
-                                            on: hbox(
-                                              w: 26,
-                                              h: 26,
-                                              bg: Color(0xFFFFFFFF),
-                                              radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
-                                              ),
                                             ),
                                             off: hbox(
                                               w: 26,
@@ -694,6 +694,20 @@ class MemberAddPage extends StatelessWidget {
                                               h: 26,
                                               bg: Color(0xFF8E8E93),
                                               radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
+                                                ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
                                             off: hbox(
                                               w: 26,
@@ -710,6 +724,20 @@ class MemberAddPage extends StatelessWidget {
                                               h: 26,
                                               bg: Color(0xFF1E40AF),
                                               radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
+                                                ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
                                             off: hbox(
                                               w: 26,
@@ -726,6 +754,20 @@ class MemberAddPage extends StatelessWidget {
                                               h: 26,
                                               bg: Color(0xFFB91C1C),
                                               radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
+                                                ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
                                             off: hbox(
                                               w: 26,
@@ -991,7 +1033,7 @@ class MemberAddPage extends StatelessWidget {
                               index: 0,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFF18181B),
+                                bg: Color(0xFFF4F4F5),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1052,7 +1094,7 @@ class MemberAddPage extends StatelessWidget {
                               ),
                               off: hbox(
                                 h: 32,
-                                bg: Color(0xFFF4F4F5),
+                                bg: Color(0xFF18181B),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1075,7 +1117,7 @@ class MemberAddPage extends StatelessWidget {
                               index: 2,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFF18181B),
+                                bg: Color(0xFFF4F4F5),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(
@@ -1117,7 +1159,7 @@ class MemberAddPage extends StatelessWidget {
                               index: 3,
                               on: hbox(
                                 h: 32,
-                                bg: Color(0xFF18181B),
+                                bg: Color(0xFFF4F4F5),
                                 radius: BorderRadius.circular(16),
                                 pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
                                 child: Align(

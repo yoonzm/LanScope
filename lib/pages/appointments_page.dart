@@ -6,15 +6,19 @@ import '../routes.dart';
 import '../widgets/app_icon.dart';
 import '../widgets/common.dart';
 import 'appointment_add_page.dart';
+import 'gen/appointment_schedule_body.dart';
 
 class AppointmentsPage extends StatefulWidget {
-  const AppointmentsPage({super.key});
+  /// 0 = 列表，1 = 工位时间表（同一界面的两个视图）
+  final int initialView;
+  const AppointmentsPage({super.key, this.initialView = 0});
   @override
   State<AppointmentsPage> createState() => _AppointmentsPageState();
 }
 
 class _AppointmentsPageState extends State<AppointmentsPage> {
   int day = 5; // 周六 31 日（今天）
+  late int view = widget.initialView;
   ApptStatus? filter;
 
   // 其他日期的示例预约（仅展示用）
@@ -131,70 +135,82 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                   const SizedBox(height: 16),
                   Segmented(
                     labels: const ['列表', '工位时间表'],
-                    selected: 0,
-                    onChanged: (i) => i == 1
-                        ? openRoute(context, 'AppointmentSchedule')
-                        : null,
+                    selected: view,
+                    onChanged: (i) => setState(() => view = i),
                   ),
                   const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      _stat(
-                        '待到店',
-                        count(ApptStatus.waiting),
-                        C.amberInk,
-                        ApptStatus.waiting,
-                      ),
-                      _stat(
-                        '已到店',
-                        count(ApptStatus.arrived),
-                        C.greenInk,
-                        ApptStatus.arrived,
-                      ),
-                      _stat(
-                        '超时未到',
-                        count(ApptStatus.late),
-                        C.redInk,
-                        ApptStatus.late,
-                      ),
-                      _stat(
-                        '已完成',
-                        count(ApptStatus.done),
-                        C.muted,
-                        ApptStatus.done,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  if (pending.isEmpty && done.isEmpty)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 48),
-                      child: Center(
-                        child: Text(
-                          '当天没有符合条件的预约',
-                          style: ts(14, color: C.muted),
+                  if (view == 1)
+                    const AppointmentScheduleBody()
+                  else ...[
+                    Row(
+                      children: [
+                        _stat(
+                          '待到店',
+                          count(ApptStatus.waiting),
+                          C.amberInk,
+                          ApptStatus.waiting,
+                        ),
+                        _stat(
+                          '已到店',
+                          count(ApptStatus.arrived),
+                          C.greenInk,
+                          ApptStatus.arrived,
+                        ),
+                        _stat(
+                          '超时未到',
+                          count(ApptStatus.late),
+                          C.redInk,
+                          ApptStatus.late,
+                        ),
+                        _stat(
+                          '已完成',
+                          count(ApptStatus.done),
+                          C.muted,
+                          ApptStatus.done,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    if (pending.isEmpty && done.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 48),
+                        child: Center(
+                          child: Text(
+                            '当天没有符合条件的预约',
+                            style: ts(14, color: C.muted),
+                          ),
                         ),
                       ),
-                    ),
-                  ...[
-                    Text(
-                      '待处理 · 现在 16:47',
-                      style: ts(13, w: FontWeight.w500, color: C.muted, h: 18),
-                    ),
-                    const SizedBox(height: 10),
-                    for (final a in pending) ...[
-                      _card(context, a),
+                    ...[
+                      Text(
+                        '待处理 · 现在 16:47',
+                        style: ts(
+                          13,
+                          w: FontWeight.w500,
+                          color: C.muted,
+                          h: 18,
+                        ),
+                      ),
                       const SizedBox(height: 10),
-                    ],
-                    const SizedBox(height: 10),
-                    Text(
-                      '已完成',
-                      style: ts(13, w: FontWeight.w500, color: C.muted, h: 18),
-                    ),
-                    const SizedBox(height: 10),
-                    for (final a in done) ...[
-                      _card(context, a),
+                      for (final a in pending) ...[
+                        _card(context, a),
+                        const SizedBox(height: 10),
+                      ],
                       const SizedBox(height: 10),
+                      Text(
+                        '已完成',
+                        style: ts(
+                          13,
+                          w: FontWeight.w500,
+                          color: C.muted,
+                          h: 18,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      for (final a in done) ...[
+                        _card(context, a),
+                        const SizedBox(height: 10),
+                      ],
                     ],
                   ],
                 ],

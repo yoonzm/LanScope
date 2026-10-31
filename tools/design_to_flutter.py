@@ -668,7 +668,16 @@ class Gen:
         elif disp == 'grid':
             content = self.emit_grid(n, inh2)
         else:
-            direction = 'col' if (disp in ('block', 'inline') or st.get('flex-direction') == 'column') else 'row'
+            inline_mixed = (disp == 'inline' and any(isinstance(k, str) for k in kids)
+                            and any(isinstance(k, Node) for k in kids))
+            if inline_mixed:
+                # 行内混排（文字 + 带底色的小标签）：按一行排列，垂直居中
+                n.style.setdefault('align-items', 'center')
+                n.style.setdefault('gap', '6px')
+                direction = 'row'
+                disp = 'inline-flex'
+            else:
+                direction = 'col' if (disp in ('block', 'inline') or st.get('flex-direction') == 'column') else 'row'
             content = self.emit_flex(n, inh2, direction, disp, parent)
         # 盒子
         args, neg = self.box_args(n, inh2, parent)
@@ -909,20 +918,24 @@ class Gen:
             return None
         multi = self.page_name in ('AppointmentAdd', 'RegShop')
         return {'multi': multi, 'on_node': on_nodes[0], 'off_node': off_nodes[0], 'cands': els,
-                'initial': [i for i, c in enumerate(els) if c in on_nodes], 'style_only': True}
+                'initial': [i for i, c in enumerate(els) if c in on_nodes], 'style_only': True, 'on_members': on_nodes}
 
     def variant(self, c, g, want_on):
         ref = g['on_node'] if want_on else g['off_node']
         other = g['off_node'] if want_on else g['on_node']
+        orig = self.sel_state(c) if 'style_only' not in g else (c in g.get('on_members', []))
+        if 'style_only' in g:
+            orig = c in g['on_members']
+        if want_on == orig:
+            # 本来就处于该状态：保持设计稿原样
+            n = c.copy_with_style(dict(c.style))
+            n.attrs['_notap'] = '1'
+            return n
         delta = [k for k in set(ref.style) | set(other.style) if ref.style.get(k) != other.style.get(k)]
-        # 同一状态的成员之间本来就不同的属性（如各色圆点的背景色）不属于“选中态差异”
+        # 各成员本来就不同的底色（如各色圆点）不属于“选中态差异”
         members = g.get('cands', [])
-        for k in list(delta):
-            for state in (True, False):
-                vals = {x.style.get(k) for x in members if self.sel_state(x) == state}
-                if len(vals) > 1 and not g.get('style_only'):
-                    delta.remove(k)
-                    break
+        if not g.get('style_only') and len({x.style.get('background') for x in members}) > 1 and 'background' in delta:
+            delta.remove('background')
         st = dict(c.style)
         for k in delta:
             if k in ref.style:
@@ -1406,6 +1419,34 @@ class Gen:
         return 'Positioned(%s, child: %s)' % (', '.join(pos), body)
 
     # ── 根 ──
+    def emit_body_after_tabs(self, root, name):
+        """取 main 里“分段控件之后”的内容，生成可嵌入其他页面的片段（同一界面的不同视图）。"""
+        st = root.style
+        inh = {'color': parse_color(st.get('color', '#18181B')), 'size': 16.0, 'w': 400, 'lh': None}
+        inh = self.inherit(inh, st)
+        main = [c for c in self.kids(root) if isinstance(c, Node) and c.tag == 'main'][0]
+        kids = [k for k in self.kids(main) if isinstance(k, Node) and not self.is_abs(k)]
+        idx = [i for i, k in enumerate(kids) if k.tag == 'nav' and '视图切换' in k.attrs.get('aria-label', '')][0]
+        tmp = Node('div', [])
+        tmp.style = {'display': 'flex', 'flex-direction': 'column', 'gap': main.style.get('gap', '16px')}
+        tmp.children = kids[idx + 1:]
+        code = self.emit_flex(tmp, inh, 'col', 'flex', 'col')
+        cls = '%sBody' % name
+        imp = "import 'svgs.dart';\n" if 'Svgs.' in code else ''
+        return """import 'package:flutter/material.dart';
+import '../../kit/kit.dart';
+%s
+/// 由设计稿“%s”页分段控件之后的内容生成，嵌入同一界面的对应视图。
+class %s extends StatelessWidget {
+  const %s({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return %s;
+  }
+}
+""" % (imp, name, cls, cls, code)
+
     def emit_page(self, root, name):
         self.page_name = name
         self.refs, self.shared, self.dyn_filter = {}, {}, {}
@@ -1524,6 +1565,9 @@ def main():
         except Exception as e:  # noqa
             print('FAILED', name, repr(e))
             raise
+        if name == 'AppointmentSchedule':
+            open(os.path.join(out_dir, 'appointment_schedule_body.dart'), 'w', encoding='utf-8').write(
+                gen.emit_body_after_tabs(root, name))
         if gen.is_sheet:
             open(os.path.join(out_dir, snake(name) + '_sheet.dart'), 'w', encoding='utf-8').write(code)
             sheets.append((name, gen.sheet_parent))

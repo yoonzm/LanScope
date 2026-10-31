@@ -92,7 +92,6 @@ class PlansPage extends StatelessWidget {
                             index: 0,
                             on: hbox(
                               h: 36,
-                              bg: Color(0xFFFFFFFF),
                               radius: BorderRadius.circular(16),
                               shadow: [
                                 BoxShadow(
@@ -201,6 +200,7 @@ class PlansPage extends StatelessWidget {
                             ),
                             off: hbox(
                               h: 36,
+                              bg: Color(0xFFFFFFFF),
                               radius: BorderRadius.circular(16),
                               child: Align(
                                 alignment: Alignment.center,
