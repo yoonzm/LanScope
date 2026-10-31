@@ -211,63 +211,78 @@ class RegShopPage extends StatelessWidget {
                         cross: CrossAxisAlignment.stretch,
                         gap: 6,
                       ),
-                      hcol(
-                        [
-                          Text.rich(
-                            TextSpan(
-                              style: hts(
-                                13,
-                                Color(0xFF18181B),
-                                w: FontWeight.w500,
-                                lh: 18,
-                              ),
-                              children: [
+                      HStrHolder(
+                        initial: '上海市 · 浦东新区',
+                        builder: (context, s1) => hTap(
+                          context,
+                          hcol(
+                            [
+                              Text.rich(
                                 TextSpan(
-                                  text: '所在城市 ',
                                   style: hts(
                                     13,
                                     Color(0xFF18181B),
                                     w: FontWeight.w500,
                                     lh: 18,
                                   ),
+                                  children: [
+                                    TextSpan(
+                                      text: '所在城市 ',
+                                      style: hts(
+                                        13,
+                                        Color(0xFF18181B),
+                                        w: FontWeight.w500,
+                                        lh: 18,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: hts(
+                                        13,
+                                        Color(0xFFA43433),
+                                        w: FontWeight.w500,
+                                        lh: 18,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                TextSpan(
-                                  text: '*',
-                                  style: hts(
-                                    13,
-                                    Color(0xFFA43433),
-                                    w: FontWeight.w500,
-                                    lh: 18,
+                              ),
+                              HStrHolder(
+                                initial: '上海市 · 浦东新区',
+                                builder: (context, s2) => hTap(
+                                  context,
+                                  hbox(
+                                    minH: 48,
+                                    bg: Color(0xFFF4F4F5),
+                                    radius: BorderRadius.circular(14),
+                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                    child: hrow(
+                                      [
+                                        Expanded(
+                                          flex: 1,
+                                          child: hStr(
+                                            s2,
+                                            hts(15, Color(0xFF18181B)),
+                                          ),
+                                        ),
+                                        hsvg(Svgs.s9, w: 16, h: 16),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 10,
+                                    ),
                                   ),
+                                  onTap: () =>
+                                      hPick(context, 'city', '所在城市', s2),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.stretch,
+                            gap: 6,
                           ),
-                          hbox(
-                            minH: 48,
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(14),
-                            pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '上海市 · 浦东新区',
-                                    style: hts(15, Color(0xFF18181B)),
-                                  ),
-                                ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
-                          ),
-                        ],
-                        main: MainAxisAlignment.start,
-                        cross: CrossAxisAlignment.stretch,
-                        gap: 6,
+                          onTap: () => hPick(context, 'city', '所在城市', s1),
+                        ),
                       ),
                       hcol(
                         [
@@ -406,10 +421,10 @@ class RegShopPage extends StatelessWidget {
                         groups: [
                           ({0}, false),
                         ],
-                        builder: (context, g1) => hwrap(
+                        builder: (context, g3) => hwrap(
                           [
                             HSel(
-                              ctrl: g1[0],
+                              ctrl: g3[0],
                               index: 0,
                               on: hbox(
                                 h: 34,
@@ -455,7 +470,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g1[0],
+                              ctrl: g3[0],
                               index: 1,
                               on: hbox(
                                 h: 34,
@@ -501,7 +516,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g1[0],
+                              ctrl: g3[0],
                               index: 2,
                               on: hbox(
                                 h: 34,
@@ -565,10 +580,10 @@ class RegShopPage extends StatelessWidget {
                         groups: [
                           ({1}, false),
                         ],
-                        builder: (context, g2) => hwrap(
+                        builder: (context, g4) => hwrap(
                           [
                             HSel(
-                              ctrl: g2[0],
+                              ctrl: g4[0],
                               index: 0,
                               on: hbox(
                                 h: 34,
@@ -614,7 +629,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g2[0],
+                              ctrl: g4[0],
                               index: 1,
                               on: hbox(
                                 h: 34,
@@ -660,7 +675,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g2[0],
+                              ctrl: g4[0],
                               index: 2,
                               on: hbox(
                                 h: 34,
@@ -706,7 +721,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g2[0],
+                              ctrl: g4[0],
                               index: 3,
                               on: hbox(
                                 h: 34,
@@ -786,10 +801,10 @@ class RegShopPage extends StatelessWidget {
                         groups: [
                           ({0, 1, 2}, true),
                         ],
-                        builder: (context, g3) => hwrap(
+                        builder: (context, g5) => hwrap(
                           [
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 0,
                               on: hbox(
                                 h: 34,
@@ -835,7 +850,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 1,
                               on: hbox(
                                 h: 34,
@@ -881,7 +896,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 2,
                               on: hbox(
                                 h: 34,
@@ -927,7 +942,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 3,
                               on: hbox(
                                 h: 34,
@@ -973,7 +988,7 @@ class RegShopPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 4,
                               on: hbox(
                                 h: 34,

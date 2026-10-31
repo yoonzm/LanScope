@@ -87,7 +87,8 @@ class BindH5Page extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 16,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,
@@ -126,19 +127,16 @@ class BindH5Page extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(8, 12, 8, 12),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hbox(
-                                w: 32,
-                                h: 32,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(10),
-                                child: hrow(
-                                  [hsvg(Svgs.s14, w: 18, h: 18)],
-                                  main: MainAxisAlignment.center,
-                                  cross: CrossAxisAlignment.center,
-                                  gap: 0,
-                                ),
+                            hbox(
+                              w: 32,
+                              h: 32,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(10),
+                              child: hrow(
+                                [hsvg(Svgs.s14, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
                               ),
                             ),
                             Text(
@@ -180,19 +178,16 @@ class BindH5Page extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(8, 12, 8, 12),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hbox(
-                                w: 32,
-                                h: 32,
-                                bg: Color(0xFFDDF6E7),
-                                radius: BorderRadius.circular(10),
-                                child: hrow(
-                                  [hsvg(Svgs.s15, w: 18, h: 18)],
-                                  main: MainAxisAlignment.center,
-                                  cross: CrossAxisAlignment.center,
-                                  gap: 0,
-                                ),
+                            hbox(
+                              w: 32,
+                              h: 32,
+                              bg: Color(0xFFDDF6E7),
+                              radius: BorderRadius.circular(10),
+                              child: hrow(
+                                [hsvg(Svgs.s15, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
                               ),
                             ),
                             Text(
@@ -234,19 +229,16 @@ class BindH5Page extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(8, 12, 8, 12),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hbox(
-                                w: 32,
-                                h: 32,
-                                bg: Color(0xFFFFE1E2),
-                                radius: BorderRadius.circular(10),
-                                child: hrow(
-                                  [hsvg(Svgs.s16, w: 18, h: 18)],
-                                  main: MainAxisAlignment.center,
-                                  cross: CrossAxisAlignment.center,
-                                  gap: 0,
-                                ),
+                            hbox(
+                              w: 32,
+                              h: 32,
+                              bg: Color(0xFFFFE1E2),
+                              radius: BorderRadius.circular(10),
+                              child: hrow(
+                                [hsvg(Svgs.s16, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
                               ),
                             ),
                             Text(

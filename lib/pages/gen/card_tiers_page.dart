@@ -308,7 +308,8 @@ class CardTiersPage extends StatelessWidget {
                         cross: CrossAxisAlignment.stretch,
                         gap: 22,
                       ),
-                      [
+                      [],
+                      behind: [
                         Positioned(
                           top: -80,
                           right: -60,

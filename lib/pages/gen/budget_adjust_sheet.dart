@@ -561,25 +561,32 @@ class BudgetAdjustSheet extends StatelessWidget {
             cross: CrossAxisAlignment.stretch,
             gap: 0,
           ),
-          hbox(
-            bg: Color(0xFFF4F4F5),
-            radius: BorderRadius.circular(16),
-            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-            child: hrow(
-              [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    '从 营销 调剂',
-                    style: hts(14, Color(0xFF18181B), lh: 20),
-                  ),
+          HStrHolder(
+            initial: '可调剂 ¥2,200',
+            builder: (context, s4) => hTap(
+              context,
+              hbox(
+                bg: Color(0xFFF4F4F5),
+                radius: BorderRadius.circular(16),
+                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                child: hrow(
+                  [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '从 营销 调剂',
+                        style: hts(14, Color(0xFF18181B), lh: 20),
+                      ),
+                    ),
+                    hStr(s4, hts(13, Color(0xFF71717A), lh: 18)),
+                    hsvg(Svgs.s9, w: 16, h: 16),
+                  ],
+                  main: MainAxisAlignment.start,
+                  cross: CrossAxisAlignment.center,
+                  gap: 12,
                 ),
-                Text('可调剂 ¥2,200', style: hts(13, Color(0xFF71717A), lh: 18)),
-                hsvg(Svgs.s9, w: 16, h: 16),
-              ],
-              main: MainAxisAlignment.start,
-              cross: CrossAxisAlignment.center,
-              gap: 12,
+              ),
+              onTap: () => hPick(context, 'budgetFrom', '从 营销 调剂', s4),
             ),
           ),
           hcol(

@@ -277,7 +277,8 @@ class AppointmentDetailPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 16,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,
@@ -318,19 +319,16 @@ class AppointmentDetailPage extends StatelessWidget {
                             flex: 1,
                             child: hcol(
                               [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: hbox(
-                                    w: 22,
-                                    h: 22,
-                                    bg: Color(0xFF17C964),
-                                    radius: BorderRadius.circular(11),
-                                    child: hrow(
-                                      [hsvg(Svgs.s4, w: 13, h: 13)],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 0,
-                                    ),
+                                hbox(
+                                  w: 22,
+                                  h: 22,
+                                  bg: Color(0xFF17C964),
+                                  radius: BorderRadius.circular(11),
+                                  child: hrow(
+                                    [hsvg(Svgs.s4, w: 13, h: 13)],
+                                    main: MainAxisAlignment.center,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 0,
                                   ),
                                 ),
                                 Text(
@@ -352,34 +350,31 @@ class AppointmentDetailPage extends StatelessWidget {
                             flex: 1,
                             child: hcol(
                               [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: hbox(
-                                    w: 22,
-                                    h: 22,
-                                    bg: Color(0xFF0485F7),
-                                    radius: BorderRadius.circular(11),
-                                    shadow: [
-                                      BoxShadow(
-                                        color: Color(0xFFCFE6FD),
-                                        offset: Offset(0, 0),
-                                        blurRadius: 0,
-                                        spreadRadius: 4,
+                                hbox(
+                                  w: 22,
+                                  h: 22,
+                                  bg: Color(0xFF0485F7),
+                                  radius: BorderRadius.circular(11),
+                                  shadow: [
+                                    BoxShadow(
+                                      color: Color(0xFFCFE6FD),
+                                      offset: Offset(0, 0),
+                                      blurRadius: 0,
+                                      spreadRadius: 4,
+                                    ),
+                                  ],
+                                  child: hrow(
+                                    [
+                                      hbox(
+                                        w: 8,
+                                        h: 8,
+                                        bg: Color(0xFFFFFFFF),
+                                        radius: BorderRadius.circular(4),
                                       ),
                                     ],
-                                    child: hrow(
-                                      [
-                                        hbox(
-                                          w: 8,
-                                          h: 8,
-                                          bg: Color(0xFFFFFFFF),
-                                          radius: BorderRadius.circular(4),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 0,
-                                    ),
+                                    main: MainAxisAlignment.center,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 0,
                                   ),
                                 ),
                                 Text(
@@ -401,16 +396,13 @@ class AppointmentDetailPage extends StatelessWidget {
                             flex: 1,
                             child: hcol(
                               [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: hbox(
-                                    w: 22,
-                                    h: 22,
-                                    radius: BorderRadius.circular(11),
-                                    border: Border.all(
-                                      color: Color(0xFFD4D4D8),
-                                      width: 2,
-                                    ),
+                                hbox(
+                                  w: 22,
+                                  h: 22,
+                                  radius: BorderRadius.circular(11),
+                                  border: Border.all(
+                                    color: Color(0xFFD4D4D8),
+                                    width: 2,
                                   ),
                                 ),
                                 Text(
@@ -432,16 +424,13 @@ class AppointmentDetailPage extends StatelessWidget {
                             flex: 1,
                             child: hcol(
                               [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: hbox(
-                                    w: 22,
-                                    h: 22,
-                                    radius: BorderRadius.circular(11),
-                                    border: Border.all(
-                                      color: Color(0xFFD4D4D8),
-                                      width: 2,
-                                    ),
+                                hbox(
+                                  w: 22,
+                                  h: 22,
+                                  radius: BorderRadius.circular(11),
+                                  border: Border.all(
+                                    color: Color(0xFFD4D4D8),
+                                    width: 2,
                                   ),
                                 ),
                                 Text(

@@ -491,7 +491,8 @@ class ChannelConfigPage extends StatelessWidget {
                           cross: CrossAxisAlignment.center,
                           gap: 12,
                         ),
-                        [
+                        [],
+                        behind: [
                           Positioned(
                             top: -80,
                             right: -70,

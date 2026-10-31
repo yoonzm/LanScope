@@ -129,10 +129,7 @@ class StoreInfoPage extends StatelessWidget {
                         child: hstack(
                           hcol(
                             [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: hsvg(Svgs.s139, w: 28, h: 28),
-                              ),
+                              hsvg(Svgs.s139, w: 28, h: 28),
                               Text(
                                 '[门店门头照片]',
                                 style: hts(12, Color(0xFF52525B), lh: 16),

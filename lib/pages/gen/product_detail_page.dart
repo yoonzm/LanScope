@@ -385,7 +385,8 @@ class ProductDetailPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 16,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,
@@ -515,27 +516,39 @@ class ProductDetailPage extends StatelessWidget {
                             bg: Color(0xFFEFEFF1),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
-                          hbox(
-                            minH: 54,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '供应商',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
-                                  ),
+                          HStrHolder(
+                            initial: '蓝盾膜业',
+                            builder: (context, s1) => hTap(
+                              context,
+                              hbox(
+                                minH: 54,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        '供应商',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF52525B),
+                                          lh: 20,
+                                        ),
+                                      ),
+                                    ),
+                                    hStr(
+                                      s1,
+                                      hts(15, Color(0xFF18181B), lh: 22),
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
-                                Text(
-                                  '蓝盾膜业',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
-                                ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
+                              ),
+                              onTap: () =>
+                                  hPick(context, 'supplier', '供应商', s1),
                             ),
                           ),
                           hbox(
@@ -748,12 +761,12 @@ class ProductDetailPage extends StatelessWidget {
                         groups: [
                           ({0}, false),
                         ],
-                        builder: (context, g1) => hrow(
+                        builder: (context, g2) => hrow(
                           [
                             Expanded(
                               flex: 1,
                               child: HSel(
-                                ctrl: g1[0],
+                                ctrl: g2[0],
                                 index: 0,
                                 on: hbox(
                                   h: 32,
@@ -809,7 +822,7 @@ class ProductDetailPage extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: HSel(
-                                ctrl: g1[0],
+                                ctrl: g2[0],
                                 index: 1,
                                 on: hbox(
                                   h: 32,
@@ -865,7 +878,7 @@ class ProductDetailPage extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: HSel(
-                                ctrl: g1[0],
+                                ctrl: g2[0],
                                 index: 2,
                                 on: hbox(
                                   h: 32,
@@ -921,7 +934,7 @@ class ProductDetailPage extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: HSel(
-                                ctrl: g1[0],
+                                ctrl: g2[0],
                                 index: 3,
                                 on: hbox(
                                   h: 32,

@@ -642,6 +642,9 @@ class Gen:
         if n.attrs.get('role') == 'switch':
             on = n.attrs.get('aria-checked') == 'true'
             return 'HSwitch(initial: %s)' % ('true' if on else 'false')
+        if n.attrs.get('aria-label', '').startswith('车牌号') and n.tag == 'div':
+            return self.emit_plate(n)
+        pick_var = self.setup_picker(n)
         inh2 = self.inherit(inh, n.style)
         st = n.style
         disp = self.disp(n)
@@ -649,7 +652,10 @@ class Gen:
         content = None
         direction = 'row'
         is_text = self.text_only(n)
-        if is_text and '_count' in n.attrs:
+        if is_text and '_str' in n.attrs:
+            ph = n.attrs.get('_ph')
+            content = 'hStr(%s, %s%s)' % (n.attrs['_str'], self.ts(inh2), ', placeholder: %s' % dstr(ph) if ph else '')
+        elif is_text and '_count' in n.attrs:
             content = 'hCount(%s, %s)' % (n.attrs['_count'], self.ts(inh2))
         elif is_text and '_month' in n.attrs:
             content = 'hMonth(%s, %s)' % (n.attrs['_month'], self.ts(inh2))
@@ -694,8 +700,11 @@ class Gen:
         if neg:
             code = 'NegMargin(top: %s, left: %s, child: %s)' % (num(neg.get('top', 0)), num(neg.get('left', 0)), code)
         # 点击
-        if n.tag == 'a' or n.tag == 'button':
+        if n.tag == 'a' or n.tag == 'button' or ('_tap' in n.attrs and not n.attrs.get('_notap')):
             code = self.tap(n, code)
+        if pick_var:
+            init = n.attrs['_pick_init']
+            code = 'HStrHolder(initial: %s, builder: (context, %s) => %s)' % (dstr(init), pick_var, code)
         return code
 
     def tap(self, n, code):
@@ -905,26 +914,30 @@ class Gen:
     def variant(self, c, g, want_on):
         ref = g['on_node'] if want_on else g['off_node']
         other = g['off_node'] if want_on else g['on_node']
-        keep = ('width', 'height', 'min-width', 'min-height', 'flex-grow', 'flex-shrink', 'margin-top', 'margin-right',
-                'margin-bottom', 'margin-left', 'position', 'left', 'right', 'top', 'bottom', 'align-self')
-        if not self.has_text(c) and not g.get('style_only'):
-            # 纯图标控件：直接用参考节点（含选中态里的 √ 图标）
-            st = dict(ref.style)
-            for k in keep:
-                if k in c.style:
-                    st[k] = c.style[k]
-            n = ref.copy_with_style(st)
-        else:
-            delta = [k for k in set(ref.style) | set(other.style) if ref.style.get(k) != other.style.get(k)]
-            st = dict(c.style)
-            for k in delta:
-                if k in ref.style:
-                    st[k] = ref.style[k]
-                else:
-                    st.pop(k, None)
-            n = c.copy_with_style(st)
+        delta = [k for k in set(ref.style) | set(other.style) if ref.style.get(k) != other.style.get(k)]
+        # 同一状态的成员之间本来就不同的属性（如各色圆点的背景色）不属于“选中态差异”
+        members = g.get('cands', [])
+        for k in list(delta):
+            for state in (True, False):
+                vals = {x.style.get(k) for x in members if self.sel_state(x) == state}
+                if len(vals) > 1 and not g.get('style_only'):
+                    delta.remove(k)
+                    break
+        st = dict(c.style)
+        for k in delta:
+            if k in ref.style:
+                st[k] = ref.style[k]
+            else:
+                st.pop(k, None)
+        n = c.copy_with_style(st)
+        # 纯图标控件：选中态常带有额外的子元素（如 √），以参考节点的子元素为准
+        if not self.has_text(c) and not g.get('style_only') and self.struct(ref) != self.struct(other):
+            n.children = ref.children
         n.attrs['_notap'] = '1'
         return n
+
+    def struct(self, n):
+        return [(x.tag, x.raw if x.tag == 'svg' else None) if isinstance(x, Node) else 'T' for x in n.children]
 
     # 把页面内同一类控件当作独立开关处理（没有同级对照时使用页面参考）
     def toggle_code(self, c, inh, direction):
@@ -935,6 +948,73 @@ class Gen:
         on = self.emit(self.variant(c, g, True), inh, direction)
         off = self.emit(self.variant(c, g, False), inh, direction)
         return 'HToggle(initial: %s, on: %s, off: %s)' % ('true' if self.sel_state(c) else 'false', on, off)
+
+    # ── 表单选择行 / 车牌 ──
+    PICK_RULES = [
+        (r'^生日(?!礼)', 'birthday'), (r'品牌车型', 'car'), (r'^(所在)?城市', 'city'), (r'^所属分类', 'category'),
+        (r'^标准工时', 'duration'), (r'^供应商', 'supplier'), (r'^收款方', 'payee'),
+        (r'^支付(账户|方式)', 'account'), (r'^推荐人', 'referrer'), (r'^工位', 'station'),
+        (r'^(领用)?技师', 'tech'), (r'^关联工单', 'workorder'), (r'^积分倍率', 'multiplier'),
+        (r'^生日礼', 'gift'), (r'^运费', 'amount'), (r'^(入库|出库)?日期', 'date'), (r'^从 ', 'budgetFrom'),
+    ]
+
+    def leaf_texts(self, n, out=None):
+        out = [] if out is None else out
+        for c in n.children:
+            if isinstance(c, Node) and c.tag not in ('svg', 'input', 'textarea'):
+                if self.text_only(c):
+                    out.append(c)
+                else:
+                    self.leaf_texts(c, out)
+        return out
+
+    def has_chevron(self, n):
+        return any(isinstance(c, Node) and c.tag == 'svg' and ('M9 6l6 6-6 6' in c.raw or 'M6 9l6 6 6-6' in c.raw)
+                   for c in n.children) or any(
+            isinstance(c, Node) and c.tag in ('span', 'div') and self.has_chevron(c) for c in n.children)
+
+    def setup_picker(self, n):
+        """表单里“标签 + 值 + ›”的选择行：点击弹出选择器，选中值回写到行内。返回控制器变量名。"""
+        if '_picked' in n.attrs or n.tag not in ('div', 'button') or n.attrs.get('href') or self.is_abs(n):
+            return None
+        if not self.has_chevron(n) or n.attrs.get('aria-label') in ('上个月', '下个月'):
+            return None
+        leaves = self.leaf_texts(n)
+        texts = [re.sub(r'\s+', ' ', self.tree_text(l)).strip() for l in leaves]
+        texts = [t for t in texts if t and t != '*']
+        if not texts or len(texts) > 3:
+            return None
+        label = re.sub(r'\s*\*$', '', texts[0]) if len(texts) >= 2 else ''
+        value_node = [l for l in leaves if re.sub(r'\s+', ' ', self.tree_text(l)).strip() not in ('', '*')][-1]
+        value = texts[-1]
+        kind = None
+        if len(texts) == 1 and re.fullmatch(r'\S+[市] · \S+', value):
+            kind, label = 'city', '所在城市'
+        else:
+            for pat, k in self.PICK_RULES:
+                if re.search(pat, label):
+                    kind = k
+                    break
+        if kind is None or len(texts) < 2 and kind != 'city':
+            return None
+        var = self.new_ctrl('s')
+        n.attrs['_picked'] = var
+        n.attrs['_pick_init'] = value
+        value_node.attrs['_str'] = var
+        if re.match(r'^(选填|请选择|请输入)', value):
+            value_node.attrs['_ph'] = value
+        n.attrs['_tap'] = '() => hPick(context, %s, %s, %s)' % (dstr(kind), dstr(label), var)
+        return var
+
+    def emit_plate(self, n):
+        cells = [c for c in self.kids(n) if isinstance(c, Node)]
+        label = n.attrs.get('aria-label', '')
+        m = re.search(r'车牌号\s*(\S+)', label)
+        initial = m.group(1) if m else ''
+        bg = parse_color(cells[0].style.get('background', '')) if cells else None
+        green = bool(bg and bg[1] > bg[2] and bg[1] > bg[0] + 30)
+        linked = 'true' if self.page_name == 'VehicleAdd' else 'false'
+        return 'HPlate(initial: %s, green: %s, linked: %s)' % (dstr(initial), 'true' if green else 'false', linked)
 
     # ── 交互：计数器 / 月份 / 密码显隐 / 列表筛选与删除 ──
     def find_all(self, n, pred, out=None):
@@ -1102,7 +1182,7 @@ class Gen:
         gap = px(st.get('gap'), 0.0)
         rowgap = px(st.get('row-gap'), gap)
         wrap = st.get('flex-wrap') == 'wrap'
-        flow, absn = [], []
+        flow, absn, behind = [], [], []
         # 子项
         grows = [self.grow(c) for c in kids if isinstance(c, Node) and not self.is_abs(c)]
         scale = 10 if any(abs(g - round(g)) > 1e-6 for g in grows) else 1
@@ -1120,7 +1200,12 @@ class Gen:
                 flow.append(tcode)
                 continue
             if self.is_abs(c):
-                absn.append(self.emit_abs(c, inh))
+                # CSS 绘制顺序：DOM 中排在后面的 position:relative 子项会盖在前面的绝对定位元素之上
+                later = kids[kids.index(c) + 1:]
+                if any(isinstance(x, Node) and x.style.get('position') == 'relative' and not self.is_abs(x) for x in later):
+                    behind.append(self.emit_abs(c, inh))
+                else:
+                    absn.append(self.emit_abs(c, inh))
                 continue
             if id(c) in mapping:
                 gi, idx = mapping[id(c)]
@@ -1133,7 +1218,7 @@ class Gen:
             else:
                 code = self.emit(c, inh, direction if disp in ('flex', 'inline-flex') else 'block')
             if not wrap:
-                code = self.wrap_child(c, code, direction, definite, disp, scale, flow, any_grow, inh)
+                code = self.wrap_child(c, code, direction, definite, disp, scale, flow, any_grow, inh, ai)
             if dyn and id(c) in item_ids:
                 if not dyn_codes:
                     flow.append('...%s.vis([DYN_PLACEHOLDER])' % dyn)
@@ -1171,9 +1256,8 @@ class Gen:
                 layout = 'IntrinsicWidth(child: %s)' % layout
         if direction == 'row' and not wrap and st.get('overflow') == 'hidden' and self.est(n, inh) > 340:
             layout = 'SingleChildScrollView(scrollDirection: Axis.horizontal, child: %s)' % layout
-        if absn:
-            clip = st.get('overflow') == 'hidden'
-            layout = 'hstack(%s, [%s]%s)' % (layout, ', '.join(absn), ', clip: true' if clip and False else '')
+        if absn or behind:
+            layout = 'hstack(%s, [%s]%s)' % (layout, ', '.join(absn), ', behind: [%s]' % ', '.join(behind) if behind else '')
         if dyn:
             extra = ''
             if flt:
@@ -1181,7 +1265,13 @@ class Gen:
             layout = 'HDyn(texts: [%s]%s, builder: (context, %s) => %s)' % (', '.join(dyn_texts), extra, dyn, layout)
         if gname:
             gl = ', '.join('({%s}, %s)' % (', '.join(map(str, init)), 'true' if multi else 'false') for init, multi in own)
-            layout = 'HSelHolder(groups: [%s], builder: (context, %s) => %s)' % (gl, gname, layout)
+            onsel = ''
+            for gi, g in enumerate(groups):
+                if gref.get(gi, '').startswith(gname + '[') and any('新能源' in self.tree_text(c) for c in g['cands']):
+                    idx = int(gref[gi][len(gname) + 1:-1])
+                    ne = [i for i, c in enumerate(g['cands']) if '新能源' in self.tree_text(c)][0]
+                    onsel = ', onSelect: {%d: (i) => plateEnergy.value = i == %d}' % (idx, ne)
+            layout = 'HSelHolder(groups: [%s]%s, builder: (context, %s) => %s)' % (gl, onsel, gname, layout)
         if holders:
             names = ''.join('final %s = ctrls[%d];' % (v, i) for i, (v, _) in enumerate(holders))
             layout = 'HHolder(inits: [%s], builder: (context, ctrls) { %s return %s; })' % (
@@ -1197,7 +1287,7 @@ class Gen:
         except ValueError:
             return 0
 
-    def wrap_child(self, c, code, direction, definite, disp, scale, flow, any_grow=False, inh=None):
+    def wrap_child(self, c, code, direction, definite, disp, scale, flow, any_grow=False, inh=None, parent_ai=None):
         st = c.style
         g = self.grow(c)
         w = st.get('width')
@@ -1227,6 +1317,8 @@ class Gen:
             return 'Align(alignment: %s, child: %s)' % (al, code)
         has_w = (w is not None and not w.endswith('%')) or (w and w.endswith('%') and w != '100%')
         inline_child = self.disp(c) in ('inline-flex', 'inline') and disp == 'block'
+        if parent_ai in ('center', 'flex-start', 'start', 'flex-end', 'end') and not (st.get('align-self')):
+            return code
         if has_w or inline_child or (c.tag == 'svg'):
             if st.get('margin') == '0 auto' or (st.get('margin-left') == 'auto' and st.get('margin-right') == 'auto'):
                 return 'Align(alignment: Alignment.topCenter, child: %s)' % code

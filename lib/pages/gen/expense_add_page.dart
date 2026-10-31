@@ -210,19 +210,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFE1F0FE),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s35, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s35, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -257,19 +254,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFFDEFD6),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s36, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFFDEFD6),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s36, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -300,19 +294,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFDDF6E7),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s37, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFDDF6E7),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s37, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -343,19 +334,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFE1F0FE),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s38, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s38, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -394,19 +382,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFEEEEF0),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s39, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFEEEEF0),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s39, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -437,19 +422,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFFFE1E2),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s40, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFFFE1E2),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s40, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -480,19 +462,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFEEEEF0),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s41, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFEEEEF0),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s41, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -523,19 +502,16 @@ class ExpenseAddPage extends StatelessWidget {
                                   pad: EdgeInsets.fromLTRB(0, 12, 0, 10),
                                   child: hcol(
                                     [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: hbox(
-                                          w: 36,
-                                          h: 36,
-                                          bg: Color(0xFFEEEEF0),
-                                          radius: BorderRadius.circular(12),
-                                          child: hrow(
-                                            [hsvg(Svgs.s42, w: 19, h: 19)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFEEEEF0),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s42, w: 19, h: 19)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
                                         ),
                                       ),
                                       Text(
@@ -595,27 +571,31 @@ class ExpenseAddPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                   child: hcol(
                     [
-                      hbox(
-                        minH: 54,
-                        pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                        child: hrow(
-                          [
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                '日期',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
-                              ),
+                      HStrHolder(
+                        initial: '今天 10.31',
+                        builder: (context, s1) => hTap(
+                          context,
+                          hbox(
+                            minH: 54,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    '日期',
+                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                  ),
+                                ),
+                                hStr(s1, hts(15, Color(0xFF18181B), lh: 22)),
+                                hsvg(Svgs.s9, w: 16, h: 16),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
                             ),
-                            Text(
-                              '今天 10.31',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
-                            ),
-                            hsvg(Svgs.s9, w: 16, h: 16),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 12,
+                          ),
+                          onTap: () => hPick(context, 'date', '日期', s1),
                         ),
                       ),
                       hbox(
@@ -623,27 +603,31 @@ class ExpenseAddPage extends StatelessWidget {
                         bg: Color(0xFFEFEFF1),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
-                      hbox(
-                        minH: 54,
-                        pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                        child: hrow(
-                          [
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                '支付账户',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
-                              ),
+                      HStrHolder(
+                        initial: '微信',
+                        builder: (context, s2) => hTap(
+                          context,
+                          hbox(
+                            minH: 54,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    '支付账户',
+                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                  ),
+                                ),
+                                hStr(s2, hts(15, Color(0xFF18181B), lh: 22)),
+                                hsvg(Svgs.s9, w: 16, h: 16),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
                             ),
-                            Text(
-                              '微信',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
-                            ),
-                            hsvg(Svgs.s9, w: 16, h: 16),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 12,
+                          ),
+                          onTap: () => hPick(context, 'account', '支付账户', s2),
                         ),
                       ),
                       hbox(
@@ -651,27 +635,31 @@ class ExpenseAddPage extends StatelessWidget {
                         bg: Color(0xFFEFEFF1),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
-                      hbox(
-                        minH: 54,
-                        pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                        child: hrow(
-                          [
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                '收款方',
-                                style: hts(14, Color(0xFF52525B), lh: 20),
-                              ),
+                      HStrHolder(
+                        initial: '市供电局',
+                        builder: (context, s3) => hTap(
+                          context,
+                          hbox(
+                            minH: 54,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    '收款方',
+                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                  ),
+                                ),
+                                hStr(s3, hts(15, Color(0xFF18181B), lh: 22)),
+                                hsvg(Svgs.s9, w: 16, h: 16),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
                             ),
-                            Text(
-                              '市供电局',
-                              style: hts(15, Color(0xFF18181B), lh: 22),
-                            ),
-                            hsvg(Svgs.s9, w: 16, h: 16),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.center,
-                          gap: 12,
+                          ),
+                          onTap: () => hPick(context, 'payee', '收款方', s3),
                         ),
                       ),
                     ],
@@ -719,10 +707,10 @@ class ExpenseAddPage extends StatelessWidget {
                         groups: [
                           ({0}, false),
                         ],
-                        builder: (context, g1) => hwrap(
+                        builder: (context, g4) => hwrap(
                           [
                             HSel(
-                              ctrl: g1[0],
+                              ctrl: g4[0],
                               index: 0,
                               on: hbox(
                                 h: 34,
@@ -768,7 +756,7 @@ class ExpenseAddPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g1[0],
+                              ctrl: g4[0],
                               index: 1,
                               on: hbox(
                                 h: 34,

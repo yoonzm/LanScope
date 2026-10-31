@@ -101,19 +101,16 @@ class ExpenseDetailPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(20, 24, 20, 24),
                   child: hcol(
                     [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: hbox(
-                          w: 52,
-                          h: 52,
-                          bg: Color(0xFFE1F0FE),
-                          radius: BorderRadius.circular(17),
-                          child: hrow(
-                            [hsvg(Svgs.s51, w: 26, h: 26)],
-                            main: MainAxisAlignment.center,
-                            cross: CrossAxisAlignment.center,
-                            gap: 0,
-                          ),
+                      hbox(
+                        w: 52,
+                        h: 52,
+                        bg: Color(0xFFE1F0FE),
+                        radius: BorderRadius.circular(17),
+                        child: hrow(
+                          [hsvg(Svgs.s51, w: 26, h: 26)],
+                          main: MainAxisAlignment.center,
+                          cross: CrossAxisAlignment.center,
+                          gap: 0,
                         ),
                       ),
                       Text('材料采购', style: hts(14, Color(0xFF52525B), lh: 20)),
@@ -386,10 +383,7 @@ class ExpenseDetailPage extends StatelessWidget {
                             radius: BorderRadius.circular(16),
                             child: hcol(
                               [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: hsvg(Svgs.s52, w: 26, h: 26),
-                                ),
+                                hsvg(Svgs.s52, w: 26, h: 26),
                                 Text('送货单', style: hts(11, Color(0xFF71717A))),
                               ],
                               main: MainAxisAlignment.center,
@@ -405,10 +399,7 @@ class ExpenseDetailPage extends StatelessWidget {
                             radius: BorderRadius.circular(16),
                             child: hcol(
                               [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: hsvg(Svgs.s52, w: 26, h: 26),
-                                ),
+                                hsvg(Svgs.s52, w: 26, h: 26),
                                 Text('转账回单', style: hts(11, Color(0xFF71717A))),
                               ],
                               main: MainAxisAlignment.center,

@@ -876,6 +876,7 @@ class MemberFilterSheet extends StatelessWidget {
                 groups: [
                   ({1}, true),
                 ],
+                onSelect: {0: (i) => plateEnergy.value = i == 0},
                 builder: (context, g5) => hwrap(
                   [
                     HSel(

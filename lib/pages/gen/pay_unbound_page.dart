@@ -65,48 +65,46 @@ class PayUnboundPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: hcol(
                     [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: hbox(
-                          w: 96,
-                          h: 96,
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                          child: hstack(
-                            hrow(
-                              [
-                                hbox(
-                                  w: 72,
-                                  h: 72,
-                                  bg: Color(0xFF17C964),
-                                  radius: BorderRadius.circular(36),
-                                  shadow: [
-                                    BoxShadow(
-                                      color: Color.fromRGBO(23, 201, 100, 0.35),
-                                      offset: Offset(0, 8),
-                                      blurRadius: 20,
-                                      spreadRadius: 0,
-                                    ),
-                                  ],
-                                  child: hrow(
-                                    [hsvg(Svgs.s12, w: 36, h: 36)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
-                                ),
-                              ],
-                              main: MainAxisAlignment.center,
-                              cross: CrossAxisAlignment.center,
-                              gap: 0,
-                            ),
+                      hbox(
+                        w: 96,
+                        h: 96,
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                        child: hstack(
+                          hrow(
                             [
-                              Positioned(
-                                left: -32,
-                                top: -32,
-                                child: hsvg(Svgs.s11, w: 160, h: 160),
+                              hbox(
+                                w: 72,
+                                h: 72,
+                                bg: Color(0xFF17C964),
+                                radius: BorderRadius.circular(36),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(23, 201, 100, 0.35),
+                                    offset: Offset(0, 8),
+                                    blurRadius: 20,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                child: hrow(
+                                  [hsvg(Svgs.s12, w: 36, h: 36)],
+                                  main: MainAxisAlignment.center,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 0,
+                                ),
                               ),
                             ],
+                            main: MainAxisAlignment.center,
+                            cross: CrossAxisAlignment.center,
+                            gap: 0,
                           ),
+                          [],
+                          behind: [
+                            Positioned(
+                              left: -32,
+                              top: -32,
+                              child: hsvg(Svgs.s11, w: 160, h: 160),
+                            ),
+                          ],
                         ),
                       ),
                       Text(
@@ -356,23 +354,20 @@ class PayUnboundPage extends StatelessWidget {
                               flex: 1,
                               child: hcol(
                                 [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: hbox(
-                                      w: 24,
-                                      h: 24,
-                                      bg: Color(0xFF18181B),
-                                      radius: BorderRadius.circular(12),
-                                      align: Alignment(0, 0),
-                                      child: Text(
-                                        '1',
-                                        style: hts(
-                                          12,
-                                          Color(0xFFFFFFFF),
-                                          w: FontWeight.w600,
-                                        ),
-                                        textAlign: TextAlign.center,
+                                  hbox(
+                                    w: 24,
+                                    h: 24,
+                                    bg: Color(0xFF18181B),
+                                    radius: BorderRadius.circular(12),
+                                    align: Alignment(0, 0),
+                                    child: Text(
+                                      '1',
+                                      style: hts(
+                                        12,
+                                        Color(0xFFFFFFFF),
+                                        w: FontWeight.w600,
                                       ),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
                                   Text(
@@ -390,23 +385,20 @@ class PayUnboundPage extends StatelessWidget {
                               flex: 1,
                               child: hcol(
                                 [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: hbox(
-                                      w: 24,
-                                      h: 24,
-                                      bg: Color(0xFF18181B),
-                                      radius: BorderRadius.circular(12),
-                                      align: Alignment(0, 0),
-                                      child: Text(
-                                        '2',
-                                        style: hts(
-                                          12,
-                                          Color(0xFFFFFFFF),
-                                          w: FontWeight.w600,
-                                        ),
-                                        textAlign: TextAlign.center,
+                                  hbox(
+                                    w: 24,
+                                    h: 24,
+                                    bg: Color(0xFF18181B),
+                                    radius: BorderRadius.circular(12),
+                                    align: Alignment(0, 0),
+                                    child: Text(
+                                      '2',
+                                      style: hts(
+                                        12,
+                                        Color(0xFFFFFFFF),
+                                        w: FontWeight.w600,
                                       ),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
                                   Text(
@@ -424,23 +416,20 @@ class PayUnboundPage extends StatelessWidget {
                               flex: 1,
                               child: hcol(
                                 [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: hbox(
-                                      w: 24,
-                                      h: 24,
-                                      bg: Color(0xFF18181B),
-                                      radius: BorderRadius.circular(12),
-                                      align: Alignment(0, 0),
-                                      child: Text(
-                                        '3',
-                                        style: hts(
-                                          12,
-                                          Color(0xFFFFFFFF),
-                                          w: FontWeight.w600,
-                                        ),
-                                        textAlign: TextAlign.center,
+                                  hbox(
+                                    w: 24,
+                                    h: 24,
+                                    bg: Color(0xFF18181B),
+                                    radius: BorderRadius.circular(12),
+                                    align: Alignment(0, 0),
+                                    child: Text(
+                                      '3',
+                                      style: hts(
+                                        12,
+                                        Color(0xFFFFFFFF),
+                                        w: FontWeight.w600,
                                       ),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
                                   Text(

@@ -65,48 +65,46 @@ class BindDonePage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: hcol(
                     [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: hbox(
-                          w: 96,
-                          h: 96,
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                          child: hstack(
-                            hrow(
-                              [
-                                hbox(
-                                  w: 72,
-                                  h: 72,
-                                  bg: Color(0xFF17C964),
-                                  radius: BorderRadius.circular(36),
-                                  shadow: [
-                                    BoxShadow(
-                                      color: Color.fromRGBO(23, 201, 100, 0.35),
-                                      offset: Offset(0, 8),
-                                      blurRadius: 20,
-                                      spreadRadius: 0,
-                                    ),
-                                  ],
-                                  child: hrow(
-                                    [hsvg(Svgs.s12, w: 36, h: 36)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
-                                ),
-                              ],
-                              main: MainAxisAlignment.center,
-                              cross: CrossAxisAlignment.center,
-                              gap: 0,
-                            ),
+                      hbox(
+                        w: 96,
+                        h: 96,
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                        child: hstack(
+                          hrow(
                             [
-                              Positioned(
-                                left: -32,
-                                top: -32,
-                                child: hsvg(Svgs.s11, w: 160, h: 160),
+                              hbox(
+                                w: 72,
+                                h: 72,
+                                bg: Color(0xFF17C964),
+                                radius: BorderRadius.circular(36),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(23, 201, 100, 0.35),
+                                    offset: Offset(0, 8),
+                                    blurRadius: 20,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                child: hrow(
+                                  [hsvg(Svgs.s12, w: 36, h: 36)],
+                                  main: MainAxisAlignment.center,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 0,
+                                ),
                               ),
                             ],
+                            main: MainAxisAlignment.center,
+                            cross: CrossAxisAlignment.center,
+                            gap: 0,
                           ),
+                          [],
+                          behind: [
+                            Positioned(
+                              left: -32,
+                              top: -32,
+                              child: hsvg(Svgs.s11, w: 160, h: 160),
+                            ),
+                          ],
                         ),
                       ),
                       Text(
@@ -251,7 +249,8 @@ class BindDonePage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 14,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         right: -90,
                         bottom: -120,

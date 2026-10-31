@@ -463,32 +463,40 @@ class MemberAddPage extends StatelessWidget {
                             bg: Color(0xFFEFEFF1),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
-                          hTap(
-                            context,
-                            hbox(
-                              minH: 54,
-                              pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                              child: hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      '生日',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                          HStrHolder(
+                            initial: '选填，用于生日礼',
+                            builder: (context, s2) => hTap(
+                              context,
+                              hbox(
+                                minH: 54,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        '生日',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF52525B),
+                                          lh: 20,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    '选填，用于生日礼',
-                                    style: hts(15, Color(0xFF71717A), lh: 22),
-                                  ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 12,
+                                    hStr(
+                                      s2,
+                                      hts(15, Color(0xFF71717A), lh: 22),
+                                      placeholder: '选填，用于生日礼',
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
+                                ),
                               ),
+                              onTap: () => hPick(context, 'birthday', '生日', s2),
                             ),
-                            label: '生日选填，用于生日礼',
                           ),
                         ],
                         main: MainAxisAlignment.start,
@@ -541,223 +549,47 @@ class MemberAddPage extends StatelessWidget {
                       pad: EdgeInsets.fromLTRB(0, 16, 0, 4),
                       child: hcol(
                         [
-                          hbox(
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hcol([
-                              hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFF0B5FD6),
-                                      radius: BorderRadius.circular(10),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '沪',
-                                          style: hts(
-                                            18,
-                                            Color(0xFFFFFFFF),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(10),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          'A',
-                                          style: hts(
-                                            18,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(10),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '8',
-                                          style: hts(
-                                            18,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(10),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          'K',
-                                          style: hts(
-                                            18,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(10),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '2',
-                                          style: hts(
-                                            18,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(10),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '9',
-                                          style: hts(
-                                            18,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                        color: Color(0xFF0485F7),
-                                        width: 2,
-                                      ),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          'M',
-                                          style: hts(
-                                            18,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hbox(
-                                      h: 46,
-                                      radius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                        color: Color(0xFFA1A1AA),
-                                        width: 1.5,
-                                      ),
-                                      child: Align(
-                                        alignment: Alignment(0, 0),
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '新能源',
-                                          style: hts(
-                                            10,
-                                            Color(0xFF71717A),
-                                            lh: 12,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                                cross: CrossAxisAlignment.stretch,
-                                gap: 5,
-                                intrinsic: true,
-                                min: false,
-                              ),
-                            ], gap: 5),
+                          HPlate(
+                            initial: '沪A8K29M',
+                            green: false,
+                            linked: false,
                           ),
                           hcol(
                             [
-                              hTap(
-                                context,
-                                hbox(
-                                  minH: 54,
-                                  pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: Text(
-                                          '品牌车型',
-                                          style: hts(
-                                            14,
-                                            Color(0xFF52525B),
-                                            lh: 20,
+                              HStrHolder(
+                                initial: '宝马 5系 525Li',
+                                builder: (context, s3) => hTap(
+                                  context,
+                                  hbox(
+                                    minH: 54,
+                                    pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                    child: hrow(
+                                      [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            '品牌车型',
+                                            style: hts(
+                                              14,
+                                              Color(0xFF52525B),
+                                              lh: 20,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Text(
-                                        '宝马 5系 525Li',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          lh: 22,
+                                        hStr(
+                                          s3,
+                                          hts(15, Color(0xFF18181B), lh: 22),
                                         ),
-                                      ),
-                                      hsvg(Svgs.s9, w: 16, h: 16),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
+                                        hsvg(Svgs.s9, w: 16, h: 16),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 12,
+                                    ),
                                   ),
+                                  onTap: () =>
+                                      hPick(context, 'car', '品牌车型', s3),
                                 ),
-                                label: '品牌车型宝马 5系 525L',
                               ),
                               hbox(
                                 h: 1,
@@ -784,10 +616,10 @@ class MemberAddPage extends StatelessWidget {
                                       groups: [
                                         ({0}, false),
                                       ],
-                                      builder: (context, g2) => hrow(
+                                      builder: (context, g4) => hrow(
                                         [
                                           HSel(
-                                            ctrl: g2[0],
+                                            ctrl: g4[0],
                                             index: 0,
                                             on: hbox(
                                               w: 26,
@@ -812,36 +644,36 @@ class MemberAddPage extends StatelessWidget {
                                             off: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: Color(0xFF18181B),
                                               radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
-                                              ),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
+                                                ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
                                           ),
                                           HSel(
-                                            ctrl: g2[0],
+                                            ctrl: g4[0],
                                             index: 1,
                                             on: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFF18181B),
+                                              bg: Color(0xFFFFFFFF),
                                               radius: BorderRadius.circular(13),
-                                              shadow: [
-                                                BoxShadow(
-                                                  color: Color(0xFFFFFFFF),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 2,
-                                                ),
-                                                BoxShadow(
-                                                  color: Color(0xFF0485F7),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 4,
-                                                ),
-                                              ],
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
+                                              ),
                                             ),
                                             off: hbox(
                                               w: 26,
@@ -855,105 +687,51 @@ class MemberAddPage extends StatelessWidget {
                                             ),
                                           ),
                                           HSel(
-                                            ctrl: g2[0],
+                                            ctrl: g4[0],
                                             index: 2,
                                             on: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFF18181B),
+                                              bg: Color(0xFF8E8E93),
                                               radius: BorderRadius.circular(13),
-                                              shadow: [
-                                                BoxShadow(
-                                                  color: Color(0xFFFFFFFF),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 2,
-                                                ),
-                                                BoxShadow(
-                                                  color: Color(0xFF0485F7),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 4,
-                                                ),
-                                              ],
                                             ),
                                             off: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: Color(0xFF8E8E93),
                                               radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
-                                              ),
                                             ),
                                           ),
                                           HSel(
-                                            ctrl: g2[0],
+                                            ctrl: g4[0],
                                             index: 3,
                                             on: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFF18181B),
+                                              bg: Color(0xFF1E40AF),
                                               radius: BorderRadius.circular(13),
-                                              shadow: [
-                                                BoxShadow(
-                                                  color: Color(0xFFFFFFFF),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 2,
-                                                ),
-                                                BoxShadow(
-                                                  color: Color(0xFF0485F7),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 4,
-                                                ),
-                                              ],
                                             ),
                                             off: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: Color(0xFF1E40AF),
                                               radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
-                                              ),
                                             ),
                                           ),
                                           HSel(
-                                            ctrl: g2[0],
+                                            ctrl: g4[0],
                                             index: 4,
                                             on: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFF18181B),
+                                              bg: Color(0xFFB91C1C),
                                               radius: BorderRadius.circular(13),
-                                              shadow: [
-                                                BoxShadow(
-                                                  color: Color(0xFFFFFFFF),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 2,
-                                                ),
-                                                BoxShadow(
-                                                  color: Color(0xFF0485F7),
-                                                  offset: Offset(0, 0),
-                                                  blurRadius: 0,
-                                                  spreadRadius: 4,
-                                                ),
-                                              ],
                                             ),
                                             off: hbox(
                                               w: 26,
                                               h: 26,
-                                              bg: Color(0xFFFFFFFF),
+                                              bg: Color(0xFFB91C1C),
                                               radius: BorderRadius.circular(13),
-                                              border: Border.all(
-                                                color: Color(0xFFD4D4D8),
-                                                width: 1.5,
-                                              ),
                                             ),
                                           ),
                                         ],
@@ -1206,10 +984,10 @@ class MemberAddPage extends StatelessWidget {
                         groups: [
                           ({1}, false),
                         ],
-                        builder: (context, g3) => hwrap(
+                        builder: (context, g5) => hwrap(
                           [
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 0,
                               on: hbox(
                                 h: 32,
@@ -1251,7 +1029,7 @@ class MemberAddPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 1,
                               on: hbox(
                                 h: 32,
@@ -1293,7 +1071,7 @@ class MemberAddPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 2,
                               on: hbox(
                                 h: 32,
@@ -1335,7 +1113,7 @@ class MemberAddPage extends StatelessWidget {
                               ),
                             ),
                             HSel(
-                              ctrl: g3[0],
+                              ctrl: g5[0],
                               index: 3,
                               on: hbox(
                                 h: 32,
@@ -1382,38 +1160,41 @@ class MemberAddPage extends StatelessWidget {
                           cross: WrapCrossAlignment.start,
                         ),
                       ),
-                      hTap(
-                        context,
-                        hbox(
-                          bg: Color(0xFFF4F4F5),
-                          radius: BorderRadius.circular(14),
-                          pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                          child: hrow(
-                            [
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  '推荐人',
-                                  style: hts(13, Color(0xFF52525B), lh: 18),
+                      HStrHolder(
+                        initial: '王建国 · 黑金',
+                        builder: (context, s6) => hTap(
+                          context,
+                          hbox(
+                            bg: Color(0xFFF4F4F5),
+                            radius: BorderRadius.circular(14),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hrow(
+                              [
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    '推荐人',
+                                    style: hts(13, Color(0xFF52525B), lh: 18),
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '王建国 · 黑金',
-                                style: hts(
-                                  14,
-                                  Color(0xFF18181B),
-                                  w: FontWeight.w500,
-                                  lh: 20,
+                                hStr(
+                                  s6,
+                                  hts(
+                                    14,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 20,
+                                  ),
                                 ),
-                              ),
-                              hsvg(Svgs.s82, w: 14, h: 14),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.center,
-                            gap: 10,
+                                hsvg(Svgs.s82, w: 14, h: 14),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 10,
+                            ),
                           ),
+                          onTap: () => hPick(context, 'referrer', '推荐人', s6),
                         ),
-                        label: '推荐人王建国 · 黑金',
                       ),
                       Text(
                         '备注',

@@ -402,7 +402,8 @@ class ExpenseBudgetPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 14,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,
@@ -512,19 +513,16 @@ class ExpenseBudgetPage extends StatelessWidget {
                           pad: EdgeInsets.fromLTRB(4, 12, 4, 12),
                           child: hcol(
                             [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: hbox(
-                                  w: 34,
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(11),
-                                  child: hrow(
-                                    [hsvg(Svgs.s48, w: 18, h: 18)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
+                              hbox(
+                                w: 34,
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(11),
+                                child: hrow(
+                                  [hsvg(Svgs.s48, w: 18, h: 18)],
+                                  main: MainAxisAlignment.center,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 0,
                                 ),
                               ),
                               Text(
@@ -575,19 +573,16 @@ class ExpenseBudgetPage extends StatelessWidget {
                           pad: EdgeInsets.fromLTRB(4, 12, 4, 12),
                           child: hcol(
                             [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: hbox(
-                                  w: 34,
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(11),
-                                  child: hrow(
-                                    [hsvg(Svgs.s49, w: 18, h: 18)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
+                              hbox(
+                                w: 34,
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(11),
+                                child: hrow(
+                                  [hsvg(Svgs.s49, w: 18, h: 18)],
+                                  main: MainAxisAlignment.center,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 0,
                                 ),
                               ),
                               Text(
@@ -638,19 +633,16 @@ class ExpenseBudgetPage extends StatelessWidget {
                           pad: EdgeInsets.fromLTRB(4, 12, 4, 12),
                           child: hcol(
                             [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: hbox(
-                                  w: 34,
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(11),
-                                  child: hrow(
-                                    [hsvg(Svgs.s50, w: 18, h: 18)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
+                              hbox(
+                                w: 34,
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(11),
+                                child: hrow(
+                                  [hsvg(Svgs.s50, w: 18, h: 18)],
+                                  main: MainAxisAlignment.center,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 0,
                                 ),
                               ),
                               Text(

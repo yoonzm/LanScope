@@ -149,7 +149,8 @@ class CardTierEditPage extends StatelessWidget {
                       gap: 0,
                       min: false,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         right: -80,
                         bottom: -110,
@@ -258,7 +259,7 @@ class CardTierEditPage extends StatelessWidget {
                                     off: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFF3E2B3),
+                                      bg: Color(0xFF18181B),
                                       radius: BorderRadius.circular(16),
                                     ),
                                   ),
@@ -268,7 +269,7 @@ class CardTierEditPage extends StatelessWidget {
                                     on: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFF18181B),
+                                      bg: Color(0xFFF3E2B3),
                                       radius: BorderRadius.circular(16),
                                       shadow: [
                                         BoxShadow(
@@ -298,7 +299,7 @@ class CardTierEditPage extends StatelessWidget {
                                     on: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFF18181B),
+                                      bg: Color(0xFFD4D4D8),
                                       radius: BorderRadius.circular(16),
                                       shadow: [
                                         BoxShadow(
@@ -318,7 +319,7 @@ class CardTierEditPage extends StatelessWidget {
                                     off: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFF3E2B3),
+                                      bg: Color(0xFFD4D4D8),
                                       radius: BorderRadius.circular(16),
                                     ),
                                   ),
@@ -328,7 +329,7 @@ class CardTierEditPage extends StatelessWidget {
                                     on: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFF18181B),
+                                      bg: Color(0xFF0B5FD6),
                                       radius: BorderRadius.circular(16),
                                       shadow: [
                                         BoxShadow(
@@ -348,7 +349,7 @@ class CardTierEditPage extends StatelessWidget {
                                     off: hbox(
                                       w: 32,
                                       h: 32,
-                                      bg: Color(0xFFF3E2B3),
+                                      bg: Color(0xFF0B5FD6),
                                       radius: BorderRadius.circular(16),
                                     ),
                                   ),
@@ -645,44 +646,56 @@ class CardTierEditPage extends StatelessWidget {
                             bg: Color(0xFFEFEFF1),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
-                          hbox(
-                            minH: 58,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                hbox(
-                                  w: 32,
-                                  h: 32,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(10),
-                                  child: hrow(
-                                    [hsvg(Svgs.s28, w: 18, h: 18)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
+                          HStrHolder(
+                            initial: '2 倍',
+                            builder: (context, s2) => hTap(
+                              context,
+                              hbox(
+                                minH: 58,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 32,
+                                      h: 32,
+                                      bg: Color(0xFFE1F0FE),
+                                      radius: BorderRadius.circular(10),
+                                      child: hrow(
+                                        [hsvg(Svgs.s28, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        '积分倍率',
+                                        style: hts(
+                                          15,
+                                          Color(0xFF18181B),
+                                          lh: 22,
+                                        ),
+                                      ),
+                                    ),
+                                    hStr(
+                                      s2,
+                                      hts(
+                                        15,
+                                        Color(0xFF18181B),
+                                        w: FontWeight.w600,
+                                        lh: 22,
+                                      ),
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '积分倍率',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
-                                  ),
-                                ),
-                                Text(
-                                  '2 倍',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                    lh: 22,
-                                  ),
-                                ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
+                              ),
+                              onTap: () =>
+                                  hPick(context, 'multiplier', '积分倍率', s2),
                             ),
                           ),
                           hbox(
@@ -690,54 +703,57 @@ class CardTierEditPage extends StatelessWidget {
                             bg: Color(0xFFEFEFF1),
                             margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
                           ),
-                          hbox(
-                            minH: 58,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                hbox(
-                                  w: 32,
-                                  h: 32,
-                                  bg: Color(0xFFFFE1E2),
-                                  radius: BorderRadius.circular(10),
-                                  child: hrow(
-                                    [hsvg(Svgs.s29, w: 18, h: 18)],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      Text(
-                                        '生日礼',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          lh: 22,
-                                        ),
+                          HStrHolder(
+                            initial: '赠精致洗车 2 次',
+                            builder: (context, s3) => hTap(
+                              context,
+                              hbox(
+                                minH: 58,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 32,
+                                      h: 32,
+                                      bg: Color(0xFFFFE1E2),
+                                      radius: BorderRadius.circular(10),
+                                      child: hrow(
+                                        [hsvg(Svgs.s29, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Text(
-                                        '赠精致洗车 2 次',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
-                                        ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '生日礼',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              lh: 22,
+                                            ),
+                                          ),
+                                          hStr(
+                                            s3,
+                                            hts(12, Color(0xFF71717A), lh: 16),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 0,
-                                  ),
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
+                              ),
+                              onTap: () => hPick(context, 'gift', '生日礼', s3),
                             ),
                           ),
                           hbox(
@@ -830,12 +846,12 @@ class CardTierEditPage extends StatelessWidget {
                           groups: [
                             ({0}, false),
                           ],
-                          builder: (context, g2) => hrow(
+                          builder: (context, g4) => hrow(
                             [
                               Expanded(
                                 flex: 1,
                                 child: HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 0,
                                   on: hbox(
                                     h: 32,
@@ -885,7 +901,7 @@ class CardTierEditPage extends StatelessWidget {
                               Expanded(
                                 flex: 1,
                                 child: HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 1,
                                   on: hbox(
                                     h: 32,
@@ -935,7 +951,7 @@ class CardTierEditPage extends StatelessWidget {
                               Expanded(
                                 flex: 1,
                                 child: HSel(
-                                  ctrl: g2[0],
+                                  ctrl: g4[0],
                                   index: 2,
                                   on: hbox(
                                     h: 32,

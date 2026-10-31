@@ -153,72 +153,76 @@ class ServiceEditPage extends StatelessWidget {
                         bg: Color(0xFFEFEFF1),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
-                      hTap(
-                        context,
-                        hbox(
-                          minH: 54,
-                          pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                          child: hrow(
-                            [
-                              hbox(
-                                w: 72,
-                                child: Text(
-                                  '所属分类',
-                                  style: hts(14, Color(0xFF52525B), lh: 20),
+                      HStrHolder(
+                        initial: '镀晶镀膜',
+                        builder: (context, s1) => hTap(
+                          context,
+                          hbox(
+                            minH: 54,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                hbox(
+                                  w: 72,
+                                  child: Text(
+                                    '所属分类',
+                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  '镀晶镀膜',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
-                                  textAlign: TextAlign.right,
+                                Expanded(
+                                  flex: 1,
+                                  child: hStr(
+                                    s1,
+                                    hts(15, Color(0xFF18181B), lh: 22),
+                                  ),
                                 ),
-                              ),
-                              hsvg(Svgs.s9, w: 16, h: 16),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.center,
-                            gap: 12,
+                                hsvg(Svgs.s9, w: 16, h: 16),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
+                            ),
                           ),
+                          onTap: () => hPick(context, 'category', '所属分类', s1),
                         ),
-                        label: '所属分类镀晶镀膜',
                       ),
                       hbox(
                         h: 1,
                         bg: Color(0xFFEFEFF1),
                         margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       ),
-                      hTap(
-                        context,
-                        hbox(
-                          minH: 54,
-                          pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                          child: hrow(
-                            [
-                              hbox(
-                                w: 72,
-                                child: Text(
-                                  '标准工时',
-                                  style: hts(14, Color(0xFF52525B), lh: 20),
+                      HStrHolder(
+                        initial: '4 小时',
+                        builder: (context, s2) => hTap(
+                          context,
+                          hbox(
+                            minH: 54,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                hbox(
+                                  w: 72,
+                                  child: Text(
+                                    '标准工时',
+                                    style: hts(14, Color(0xFF52525B), lh: 20),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  '4 小时',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
-                                  textAlign: TextAlign.right,
+                                Expanded(
+                                  flex: 1,
+                                  child: hStr(
+                                    s2,
+                                    hts(15, Color(0xFF18181B), lh: 22),
+                                  ),
                                 ),
-                              ),
-                              hsvg(Svgs.s9, w: 16, h: 16),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.center,
-                            gap: 12,
+                                hsvg(Svgs.s9, w: 16, h: 16),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
+                            ),
                           ),
+                          onTap: () => hPick(context, 'duration', '标准工时', s2),
                         ),
-                        label: '标准工时4 小时',
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -495,12 +499,12 @@ class ServiceEditPage extends StatelessWidget {
                           groups: [
                             ({0}, false),
                           ],
-                          builder: (context, g1) => hrow(
+                          builder: (context, g3) => hrow(
                             [
                               Expanded(
                                 flex: 1,
                                 child: HSel(
-                                  ctrl: g1[0],
+                                  ctrl: g3[0],
                                   index: 0,
                                   on: hbox(
                                     h: 32,
@@ -550,7 +554,7 @@ class ServiceEditPage extends StatelessWidget {
                               Expanded(
                                 flex: 1,
                                 child: HSel(
-                                  ctrl: g1[0],
+                                  ctrl: g3[0],
                                   index: 1,
                                   on: hbox(
                                     h: 32,

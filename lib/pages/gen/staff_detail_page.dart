@@ -317,7 +317,8 @@ class StaffDetailPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 18,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -80,

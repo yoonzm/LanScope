@@ -352,27 +352,39 @@ class StockOutPage extends StatelessWidget {
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
-                          hbox(
-                            minH: 54,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '关联工单',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
-                                  ),
+                          HStrHolder(
+                            initial: '沪A·8K29M 镀晶养护',
+                            builder: (context, s2) => hTap(
+                              context,
+                              hbox(
+                                minH: 54,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        '关联工单',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF52525B),
+                                          lh: 20,
+                                        ),
+                                      ),
+                                    ),
+                                    hStr(
+                                      s2,
+                                      hts(15, Color(0xFF18181B), lh: 22),
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
-                                Text(
-                                  '沪A·8K29M 镀晶养护',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
-                                ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
+                              ),
+                              onTap: () =>
+                                  hPick(context, 'workorder', '关联工单', s2),
                             ),
                           ),
                           hbox(
@@ -380,27 +392,38 @@ class StockOutPage extends StatelessWidget {
                             bg: Color(0xFFEFEFF1),
                             margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
                           ),
-                          hbox(
-                            minH: 54,
-                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    '领用技师',
-                                    style: hts(14, Color(0xFF52525B), lh: 20),
-                                  ),
+                          HStrHolder(
+                            initial: '老周',
+                            builder: (context, s3) => hTap(
+                              context,
+                              hbox(
+                                minH: 54,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        '领用技师',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF52525B),
+                                          lh: 20,
+                                        ),
+                                      ),
+                                    ),
+                                    hStr(
+                                      s3,
+                                      hts(15, Color(0xFF18181B), lh: 22),
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
-                                Text(
-                                  '老周',
-                                  style: hts(15, Color(0xFF18181B), lh: 22),
-                                ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 12,
+                              ),
+                              onTap: () => hPick(context, 'tech', '领用技师', s3),
                             ),
                           ),
                         ],
@@ -569,7 +592,7 @@ class StockOutPage extends StatelessWidget {
                               HHolder(
                                 inits: [1],
                                 builder: (context, ctrls) {
-                                  final c2 = ctrls[0];
+                                  final c4 = ctrls[0];
                                   return hrow(
                                     [
                                       hTap(
@@ -586,14 +609,14 @@ class StockOutPage extends StatelessWidget {
                                             gap: 0,
                                           ),
                                         ),
-                                        onTap: () => c2.add(-1),
+                                        onTap: () => c4.add(-1),
                                       ),
                                       Flexible(
                                         flex: 9,
                                         child: hbox(
                                           minW: 36,
                                           child: hCount(
-                                            c2,
+                                            c4,
                                             hts(
                                               15,
                                               Color(0xFF18181B),
@@ -618,7 +641,7 @@ class StockOutPage extends StatelessWidget {
                                             gap: 0,
                                           ),
                                         ),
-                                        onTap: () => c2.add(1),
+                                        onTap: () => c4.add(1),
                                       ),
                                     ],
                                     main: MainAxisAlignment.start,

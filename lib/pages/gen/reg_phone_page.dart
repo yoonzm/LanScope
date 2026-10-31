@@ -449,7 +449,11 @@ class RegPhonePage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    hPwdLabel(p1, hts(13, Color(0xFF71717A))),
+                                    hTap(
+                                      context,
+                                      hPwdLabel(p1, hts(13, Color(0xFF71717A))),
+                                      onTap: () => p1.flip(),
+                                    ),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,

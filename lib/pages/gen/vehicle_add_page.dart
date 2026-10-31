@@ -107,19 +107,16 @@ class VehicleAddPage extends StatelessWidget {
                     child: hstack(
                       hcol(
                         [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: hbox(
-                              w: 48,
-                              h: 48,
-                              bg: Color(0xFF18181B),
-                              radius: BorderRadius.circular(24),
-                              child: hrow(
-                                [hsvg(Svgs.s147, w: 22, h: 22)],
-                                main: MainAxisAlignment.center,
-                                cross: CrossAxisAlignment.center,
-                                gap: 0,
-                              ),
+                          hbox(
+                            w: 48,
+                            h: 48,
+                            bg: Color(0xFF18181B),
+                            radius: BorderRadius.circular(24),
+                            child: hrow(
+                              [hsvg(Svgs.s147, w: 22, h: 22)],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 0,
                             ),
                           ),
                           Text(
@@ -137,7 +134,8 @@ class VehicleAddPage extends StatelessWidget {
                         gap: 10,
                         min: false,
                       ),
-                      [
+                      [],
+                      behind: [
                         Positioned(
                           left: 14,
                           top: 14,
@@ -188,6 +186,7 @@ class VehicleAddPage extends StatelessWidget {
                           groups: [
                             ({1}, false),
                           ],
+                          onSelect: {0: (i) => plateEnergy.value = i == 1},
                           builder: (context, g1) => hrow(
                             [
                               Expanded(
@@ -298,207 +297,42 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      hbox(
-                        pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                        child: hcol([
-                          hrow(
-                            [
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFF1F9D55),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '沪',
-                                      style: hts(
-                                        18,
-                                        Color(0xFFFFFFFF),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      'A',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      'F',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '0',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '9',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '3',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '1',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hbox(
-                                  h: 46,
-                                  bg: Color(0xFFE8F7EE),
-                                  radius: BorderRadius.circular(10),
-                                  child: Align(
-                                    alignment: Alignment(0, 0),
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '6',
-                                      style: hts(
-                                        18,
-                                        Color(0xFF14532D),
-                                        w: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                            cross: CrossAxisAlignment.stretch,
-                            gap: 5,
-                            intrinsic: true,
-                            min: false,
-                          ),
-                        ], gap: 5),
-                      ),
+                      HPlate(initial: '沪AF09316', green: true, linked: true),
                       hcol(
                         [
-                          hTap(
-                            context,
-                            hbox(
-                              minH: 54,
-                              pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                              child: hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      '品牌车型',
-                                      style: hts(14, Color(0xFF52525B), lh: 20),
+                          HStrHolder(
+                            initial: '理想 L7 · 灰',
+                            builder: (context, s2) => hTap(
+                              context,
+                              hbox(
+                                minH: 54,
+                                pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        '品牌车型',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF52525B),
+                                          lh: 20,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    '理想 L7 · 灰',
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
-                                  ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 12,
+                                    hStr(
+                                      s2,
+                                      hts(15, Color(0xFF18181B), lh: 22),
+                                    ),
+                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
+                                ),
                               ),
+                              onTap: () => hPick(context, 'car', '品牌车型', s2),
                             ),
-                            label: '品牌车型理想 L7 · 灰',
                           ),
                           hbox(
                             h: 1,

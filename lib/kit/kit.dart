@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../routes.dart';
 import 'keyboard.dart';
+export 'pickers.dart';
 
 /// 页面骨架：可滚动的正常流内容 + 固定在屏幕上的浮层（底部栏、弹层等）。
 class HPage extends StatelessWidget {
@@ -385,10 +386,15 @@ Widget hwrap(
 );
 
 /// 层叠容器：第一个子项决定尺寸，其余为绝对定位。
-Widget hstack(Widget flow, List<Widget> abs, {bool clip = false}) => Stack(
+Widget hstack(
+  Widget flow,
+  List<Widget> abs, {
+  List<Widget> behind = const [],
+  bool clip = false,
+}) => Stack(
   clipBehavior: clip ? Clip.hardEdge : Clip.none,
   fit: StackFit.passthrough,
-  children: [flow, ...abs],
+  children: [...behind, flow, ...abs],
 );
 
 // ───────── 文本 ─────────
@@ -550,8 +556,10 @@ class HInput extends StatelessWidget {
 class SelCtrl extends ChangeNotifier {
   final Set<int> selected;
   final bool multi;
+  void Function(int)? onSelect;
   SelCtrl(this.selected, this.multi);
   void tap(int i) {
+    onSelect?.call(i);
     if (multi) {
       selected.contains(i) ? selected.remove(i) : selected.add(i);
     } else {
@@ -567,14 +575,24 @@ class HSelHolder extends StatefulWidget {
   /// 每组：(初始选中集合, 是否多选)
   final List<(Set<int>, bool)> groups;
   final Widget Function(BuildContext, List<SelCtrl>) builder;
-  const HSelHolder({super.key, required this.groups, required this.builder});
+
+  /// 分组下标 -> 选中变化时的回调（参数为被点选的序号）
+  final Map<int, void Function(int)> onSelect;
+  const HSelHolder({
+    super.key,
+    required this.groups,
+    required this.builder,
+    this.onSelect = const {},
+  });
   @override
   State<HSelHolder> createState() => _HSelHolderState();
 }
 
 class _HSelHolderState extends State<HSelHolder> {
   late final List<SelCtrl> ctrls = [
-    for (final g in widget.groups) SelCtrl({...g.$1}, g.$2),
+    for (var i = 0; i < widget.groups.length; i++)
+      SelCtrl({...widget.groups[i].$1}, widget.groups[i].$2)
+        ..onSelect = widget.onSelect[i],
   ];
   @override
   Widget build(BuildContext context) => widget.builder(context, ctrls);

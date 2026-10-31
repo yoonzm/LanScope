@@ -436,7 +436,8 @@ class MainTrialPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 16,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -80,
                         right: -70,
@@ -508,7 +509,8 @@ class MainTrialPage extends StatelessWidget {
                                   cross: CrossAxisAlignment.stretch,
                                   gap: 0,
                                 ),
-                                [
+                                [],
+                                behind: [
                                   Positioned(
                                     right: -80,
                                     bottom: -80,
@@ -571,7 +573,8 @@ class MainTrialPage extends StatelessWidget {
                                       cross: CrossAxisAlignment.stretch,
                                       gap: 0,
                                     ),
-                                    [
+                                    [],
+                                    behind: [
                                       Positioned(
                                         right: -8,
                                         bottom: -10,
@@ -632,7 +635,8 @@ class MainTrialPage extends StatelessWidget {
                                       cross: CrossAxisAlignment.stretch,
                                       gap: 0,
                                     ),
-                                    [
+                                    [],
+                                    behind: [
                                       Positioned(
                                         right: -8,
                                         bottom: -10,
@@ -710,7 +714,8 @@ class MainTrialPage extends StatelessWidget {
                             cross: CrossAxisAlignment.center,
                             gap: 12,
                           ),
-                          [
+                          [],
+                          behind: [
                             Positioned(
                               top: -70,
                               right: -50,
@@ -1157,10 +1162,7 @@ class MainTrialPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s75, w: 24, h: 24),
-                            ),
+                            hsvg(Svgs.s75, w: 24, h: 24),
                             Text(
                               '首页',
                               style: hts(
@@ -1187,10 +1189,7 @@ class MainTrialPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s76, w: 24, h: 24),
-                            ),
+                            hsvg(Svgs.s76, w: 24, h: 24),
                             Text(
                               '会员',
                               style: hts(
@@ -1218,33 +1217,30 @@ class MainTrialPage extends StatelessWidget {
                         left: 0,
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hbox(
-                                w: 54,
-                                h: 54,
-                                bg: Color(0xFF18181B),
-                                radius: BorderRadius.circular(27),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color(0xFFFFFFFF),
-                                    offset: Offset(0, 0),
-                                    blurRadius: 0,
-                                    spreadRadius: 5,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(24, 24, 27, 0.25),
-                                    offset: Offset(0, 10),
-                                    blurRadius: 20,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: hrow(
-                                  [hsvg(Svgs.s77, w: 24, h: 24)],
-                                  main: MainAxisAlignment.center,
-                                  cross: CrossAxisAlignment.center,
-                                  gap: 0,
+                            hbox(
+                              w: 54,
+                              h: 54,
+                              bg: Color(0xFF18181B),
+                              radius: BorderRadius.circular(27),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color(0xFFFFFFFF),
+                                  offset: Offset(0, 0),
+                                  blurRadius: 0,
+                                  spreadRadius: 5,
                                 ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(24, 24, 27, 0.25),
+                                  offset: Offset(0, 10),
+                                  blurRadius: 20,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: hrow(
+                                [hsvg(Svgs.s77, w: 24, h: 24)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
                               ),
                             ),
                             Text(
@@ -1273,10 +1269,7 @@ class MainTrialPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s78, w: 24, h: 24),
-                            ),
+                            hsvg(Svgs.s78, w: 24, h: 24),
                             Text(
                               '库存',
                               style: hts(
@@ -1303,10 +1296,7 @@ class MainTrialPage extends StatelessWidget {
                         pad: EdgeInsets.fromLTRB(0, 4, 0, 0),
                         child: hcol(
                           [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s79, w: 24, h: 24),
-                            ),
+                            hsvg(Svgs.s79, w: 24, h: 24),
                             Text(
                               '统计',
                               style: hts(

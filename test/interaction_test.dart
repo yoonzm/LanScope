@@ -144,6 +144,54 @@ void main() {
     await t.pump();
     expect(focusOf(t), isFalse);
   });
+
+  testWidgets('新增会员：生日 / 品牌车型 / 城市选择器可用并回写', (t) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    await open(t, 'MemberAdd');
+    expect(find.text('选填，用于生日礼'), findsOneWidget);
+    await t.tap(find.text('生日'));
+    await t.pumpAndSettle();
+    expect(find.text('选择生日'), findsOneWidget);
+    await t.tap(find.text('确定'));
+    await t.pumpAndSettle();
+    expect(find.text('选填，用于生日礼'), findsNothing);
+    expect(find.textContaining('1990.06.18'), findsOneWidget);
+
+    await t.tap(find.text('品牌车型'));
+    await t.pumpAndSettle();
+    expect(find.text('选择品牌车型'), findsOneWidget);
+    await t.drag(find.text('宝马').last, const Offset(0, -40));
+    await t.pumpAndSettle();
+    await t.tap(find.text('确定'));
+    await t.pumpAndSettle();
+    expect(find.text('宝马 5系 525Li'), findsNothing);
+  });
+
+  testWidgets('车牌输入：点格子弹出键盘，可输入并切换新能源', (t) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    await open(t, 'VehicleAdd');
+    expect(find.text('沪'), findsWidgets);
+    await t.tap(find.text('6').first); // 最后一格
+    await t.pumpAndSettle();
+    expect(find.text('输入字母或数字'), findsOneWidget);
+    await t.tap(find.text('Z').last);
+    await t.pump();
+    expect(find.text('Z'), findsWidgets);
+    await t.tap(find.text('完成'));
+    await t.pumpAndSettle();
+    expect(find.text('输入字母或数字'), findsNothing);
+    await t.tap(find.text('沪').first);
+    await t.pumpAndSettle();
+    expect(find.text('选择省份简称'), findsOneWidget);
+  });
 }
 
 bool focusOf(WidgetTester t) =>

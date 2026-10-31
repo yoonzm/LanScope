@@ -116,7 +116,8 @@ class PlanExpiredPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 12,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,

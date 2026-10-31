@@ -571,7 +571,8 @@ class PlansPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 14,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,

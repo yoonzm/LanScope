@@ -328,7 +328,8 @@ class ExpensesPage extends StatelessWidget {
                       cross: CrossAxisAlignment.stretch,
                       gap: 16,
                     ),
-                    [
+                    [],
+                    behind: [
                       Positioned(
                         top: -90,
                         right: -90,
