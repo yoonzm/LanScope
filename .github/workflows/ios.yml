@@ -1,4 +1,4 @@
-name: iOS TestFlight
+name: Build iOS & Android
 
 on:
   push:
@@ -137,3 +137,46 @@ jobs:
             rm -f "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
           fi
           rm -rf "$HOME/.appstoreconnect/private_keys"
+
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Set up Flutter
+        timeout-minutes: 15
+        run: |
+          curl --fail --silent --show-error --retry 3 --max-time 600 \
+            -o "$RUNNER_TEMP/flutter.tar.xz" \
+            "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz"
+          tar xf "$RUNNER_TEMP/flutter.tar.xz" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+          rm "$RUNNER_TEMP/flutter.tar.xz"
+          "$RUNNER_TEMP/flutter/bin/flutter" --version
+
+      - name: Analyze and test
+        run: |
+          flutter pub get
+          flutter analyze
+          flutter test
+
+      - name: Build release APK
+        run: |
+          flutter build apk --release \
+            --build-name="$APP_VERSION" --build-number="$GITHUB_RUN_NUMBER"
+
+      - name: Save APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Qimei-Android-${{ github.run_number }}-${{ github.run_attempt }}
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+          retention-days: 14

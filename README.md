@@ -16,6 +16,6 @@ flutter run
 flutter test
 ```
 
-## iOS 自动打包
-推送到本分支会触发 `.github/workflows/ios.yml`：分析 + 测试 → 签名归档 → 上传 TestFlight。
+## 自动打包（iOS + Android）
+推送到本分支会触发 `.github/workflows/ios.yml`（沿用原文件名以保持构建号连续）：iOS 签名归档并上传 TestFlight；Android 产出 release APK（Actions 产物 `Qimei-Android-*`，使用 Flutter 默认调试签名，仅供内测安装）。
 暂沿用 `com.yoonzm.lanscope` 的 Bundle ID 与仓库已有签名 secrets，版本号 `1.0.0`，构建号为 workflow 运行序号。
