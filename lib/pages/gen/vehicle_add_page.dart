@@ -48,7 +48,7 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s26, w: 20, h: 20)],
+                          [hsvg(Svgs.s32, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -113,7 +113,7 @@ class VehicleAddPage extends StatelessWidget {
                             bg: Color(0xFF18181B),
                             radius: BorderRadius.circular(24),
                             child: hrow(
-                              [hsvg(Svgs.s147, w: 22, h: 22)],
+                              [hsvg(Svgs.s179, w: 22, h: 22)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -324,7 +324,7 @@ class VehicleAddPage extends StatelessWidget {
                                       s2,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,

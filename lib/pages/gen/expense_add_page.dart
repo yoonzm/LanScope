@@ -48,7 +48,7 @@ class ExpenseAddPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -216,7 +216,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s35, w: 19, h: 19)],
+                                          [hsvg(Svgs.s53, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -260,7 +260,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFFDEFD6),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s36, w: 19, h: 19)],
+                                          [hsvg(Svgs.s54, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -300,7 +300,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFDDF6E7),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s37, w: 19, h: 19)],
+                                          [hsvg(Svgs.s55, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -340,7 +340,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s38, w: 19, h: 19)],
+                                          [hsvg(Svgs.s56, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -388,7 +388,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFEEEEF0),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s39, w: 19, h: 19)],
+                                          [hsvg(Svgs.s57, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -428,7 +428,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFFFE1E2),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s40, w: 19, h: 19)],
+                                          [hsvg(Svgs.s58, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -468,7 +468,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFEEEEF0),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s41, w: 19, h: 19)],
+                                          [hsvg(Svgs.s59, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -508,7 +508,7 @@ class ExpenseAddPage extends StatelessWidget {
                                         bg: Color(0xFFEEEEF0),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s42, w: 19, h: 19)],
+                                          [hsvg(Svgs.s60, w: 19, h: 19)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -588,7 +588,7 @@ class ExpenseAddPage extends StatelessWidget {
                                   ),
                                 ),
                                 hStr(s1, hts(15, Color(0xFF18181B), lh: 22)),
-                                hsvg(Svgs.s9, w: 16, h: 16),
+                                hsvg(Svgs.s2, w: 16, h: 16),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -620,7 +620,7 @@ class ExpenseAddPage extends StatelessWidget {
                                   ),
                                 ),
                                 hStr(s2, hts(15, Color(0xFF18181B), lh: 22)),
-                                hsvg(Svgs.s9, w: 16, h: 16),
+                                hsvg(Svgs.s2, w: 16, h: 16),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -652,7 +652,7 @@ class ExpenseAddPage extends StatelessWidget {
                                   ),
                                 ),
                                 hStr(s3, hts(15, Color(0xFF18181B), lh: 22)),
-                                hsvg(Svgs.s9, w: 16, h: 16),
+                                hsvg(Svgs.s2, w: 16, h: 16),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -945,7 +945,7 @@ class ExpenseAddPage extends StatelessWidget {
                                 width: 1.5,
                               ),
                               child: hrow(
-                                [hsvg(Svgs.s43, w: 24, h: 24)],
+                                [hsvg(Svgs.s61, w: 24, h: 24)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,

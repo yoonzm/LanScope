@@ -97,7 +97,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s5, w: 20, h: 20)],
+                          [hsvg(Svgs.s7, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -1481,7 +1481,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                       radius: BorderRadius.circular(25),
                       child: hrow(
                         [
-                          hsvg(Svgs.s6, w: 18, h: 18),
+                          hsvg(Svgs.s8, w: 18, h: 18),
                           Flexible(
                             flex: 60,
                             child: Text(

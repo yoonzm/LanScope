@@ -48,7 +48,7 @@ class RegPhonePage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -138,7 +138,7 @@ class RegPhonePage extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s123, w: 12, h: 12)],
+                            [hsvg(Svgs.s11, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -164,7 +164,7 @@ class RegPhonePage extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s123, w: 12, h: 12)],
+                            [hsvg(Svgs.s11, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -190,7 +190,7 @@ class RegPhonePage extends StatelessWidget {
                           bg: Color.fromRGBO(23, 201, 100, 0.133),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s123, w: 12, h: 12)],
+                            [hsvg(Svgs.s11, w: 12, h: 12)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -350,36 +350,38 @@ class RegPhonePage extends StatelessWidget {
                                     hint: '6 位数字',
                                   ),
                                 ),
-                                hTap(
-                                  context,
-                                  hbox(
-                                    h: 36,
-                                    bg: Color(0xFFFFFFFF),
-                                    radius: BorderRadius.circular(18),
-                                    shadow: [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.06),
-                                        offset: Offset(0, 1),
-                                        blurRadius: 2,
-                                        spreadRadius: 0,
-                                      ),
-                                    ],
-                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                    child: Align(
-                                      alignment: Alignment.center,
-                                      widthFactor: 1,
-                                      child: Text(
-                                        '获取验证码',
-                                        style: hts(
-                                          13,
-                                          Color(0xFF1E63AE),
-                                          w: FontWeight.w500,
-                                          lh: 18,
+                                HCodeHolder(
+                                  builder: (context, k1) => hTap(
+                                    context,
+                                    hbox(
+                                      h: 36,
+                                      bg: Color(0xFFFFFFFF),
+                                      radius: BorderRadius.circular(18),
+                                      shadow: [
+                                        BoxShadow(
+                                          color: Color.fromRGBO(0, 0, 0, 0.06),
+                                          offset: Offset(0, 1),
+                                          blurRadius: 2,
+                                          spreadRadius: 0,
+                                        ),
+                                      ],
+                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        widthFactor: 1,
+                                        child: hCodeText(
+                                          k1,
+                                          hts(
+                                            13,
+                                            Color(0xFF1E63AE),
+                                            w: FontWeight.w500,
+                                            lh: 18,
+                                          ),
                                         ),
                                       ),
                                     ),
+                                    onTap: () => hSendCode(context, k1),
                                   ),
-                                  label: '获取验证码',
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -432,12 +434,12 @@ class RegPhonePage extends StatelessWidget {
                             child: HHolder(
                               inits: [1],
                               builder: (context, ctrls) {
-                                final p1 = ctrls[0];
+                                final p2 = ctrls[0];
                                 return hrow(
                                   [
                                     Expanded(
                                       child: ListenableBuilder(
-                                        listenable: p1,
+                                        listenable: p2,
                                         builder: (context, _) => HInput(
                                           style: hts(
                                             15,
@@ -445,14 +447,14 @@ class RegPhonePage extends StatelessWidget {
                                             lh: 22,
                                           ),
                                           hint: '8-20 位，含字母和数字',
-                                          obscure: p1.on,
+                                          obscure: p2.on,
                                         ),
                                       ),
                                     ),
                                     hTap(
                                       context,
-                                      hPwdLabel(p1, hts(13, Color(0xFF71717A))),
-                                      onTap: () => p1.flip(),
+                                      hPwdLabel(p2, hts(13, Color(0xFF71717A))),
+                                      onTap: () => p2.flip(),
                                     ),
                                   ],
                                   main: MainAxisAlignment.start,
@@ -492,7 +494,7 @@ class RegPhonePage extends StatelessWidget {
                                 '《用户服务协议》',
                                 style: hts(12, Color(0xFF1E63AE), lh: 18),
                               ),
-                              label: '《用户服务协议》',
+                              to: 'Terms',
                             ),
                           ),
                           Flexible(
@@ -510,7 +512,7 @@ class RegPhonePage extends StatelessWidget {
                                 '《隐私政策》',
                                 style: hts(12, Color(0xFF1E63AE), lh: 18),
                               ),
-                              label: '《隐私政策》',
+                              to: 'Privacy',
                             ),
                           ),
                         ],

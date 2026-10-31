@@ -48,7 +48,7 @@ class PlanExpiredPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -91,7 +91,7 @@ class PlanExpiredPage extends StatelessWidget {
                             bg: Color(0xFFFDEFD6),
                             radius: BorderRadius.circular(26),
                             child: hrow(
-                              [hsvg(Svgs.s106, w: 26, h: 26)],
+                              [hsvg(Svgs.s134, w: 26, h: 26)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -121,7 +121,7 @@ class PlanExpiredPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -314,7 +314,7 @@ class PlanExpiredPage extends StatelessWidget {
                             bg: Color(0xFFDDF6E7),
                             radius: BorderRadius.circular(12),
                             child: hrow(
-                              [hsvg(Svgs.s107, w: 18, h: 18)],
+                              [hsvg(Svgs.s135, w: 18, h: 18)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,

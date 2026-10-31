@@ -97,7 +97,7 @@ class AppointmentDetailPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s1, w: 20, h: 20)],
+                          [hsvg(Svgs.s3, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -195,7 +195,7 @@ class AppointmentDetailPage extends StatelessWidget {
                                 bg: Color(0xFFDDF6E7),
                                 radius: BorderRadius.circular(20),
                                 child: hrow(
-                                  [hsvg(Svgs.s3, w: 18, h: 18)],
+                                  [hsvg(Svgs.s5, w: 18, h: 18)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -282,7 +282,7 @@ class AppointmentDetailPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -325,7 +325,7 @@ class AppointmentDetailPage extends StatelessWidget {
                                   bg: Color(0xFF17C964),
                                   radius: BorderRadius.circular(11),
                                   child: hrow(
-                                    [hsvg(Svgs.s4, w: 13, h: 13)],
+                                    [hsvg(Svgs.s6, w: 13, h: 13)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,

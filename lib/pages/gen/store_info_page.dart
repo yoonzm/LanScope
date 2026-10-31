@@ -129,7 +129,7 @@ class StoreInfoPage extends StatelessWidget {
                         child: hstack(
                           hcol(
                             [
-                              hsvg(Svgs.s139, w: 28, h: 28),
+                              hsvg(Svgs.s169, w: 28, h: 28),
                               Text(
                                 '[门店门头照片]',
                                 style: hts(12, Color(0xFF52525B), lh: 16),
@@ -285,7 +285,7 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s140, w: 20, h: 20),
+                              child: hsvg(Svgs.s170, w: 20, h: 20),
                             ),
                             Expanded(
                               flex: 1,
@@ -335,7 +335,7 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s141, w: 20, h: 20),
+                              child: hsvg(Svgs.s171, w: 20, h: 20),
                             ),
                             Expanded(
                               flex: 1,
@@ -372,7 +372,7 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s142, w: 20, h: 20),
+                              child: hsvg(Svgs.s172, w: 20, h: 20),
                             ),
                             Expanded(
                               flex: 1,
@@ -409,7 +409,7 @@ class StoreInfoPage extends StatelessWidget {
                           [
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                              child: hsvg(Svgs.s143, w: 20, h: 20),
+                              child: hsvg(Svgs.s173, w: 20, h: 20),
                             ),
                             Expanded(
                               flex: 1,
@@ -549,7 +549,7 @@ class StoreInfoPage extends StatelessWidget {
                                     bg: Color(0xFFDDF6E7),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s144, w: 18, h: 18)],
+                                      [hsvg(Svgs.s174, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -571,14 +571,14 @@ class StoreInfoPage extends StatelessWidget {
                                       lh: 18,
                                     ),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
                                 gap: 12,
                               ),
                             ),
-                            label: '营业执照已认证',
+                            to: 'License',
                           ),
                           hbox(
                             h: 1,
@@ -598,7 +598,7 @@ class StoreInfoPage extends StatelessWidget {
                                     bg: Color(0xFFFDEFD6),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s145, w: 18, h: 18)],
+                                      [hsvg(Svgs.s175, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -620,14 +620,14 @@ class StoreInfoPage extends StatelessWidget {
                                       lh: 18,
                                     ),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
                                 gap: 12,
                               ),
                             ),
-                            label: '排水许可 / 环保备案待上传',
+                            to: 'EcoFiling',
                           ),
                         ],
                         main: MainAxisAlignment.start,
@@ -654,7 +654,7 @@ class StoreInfoPage extends StatelessWidget {
                           bg: Color(0xFFFFFFFF),
                           radius: BorderRadius.circular(12),
                           child: hrow(
-                            [hsvg(Svgs.s146, w: 22, h: 22)],
+                            [hsvg(Svgs.s176, w: 22, h: 22)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -683,14 +683,14 @@ class StoreInfoPage extends StatelessWidget {
                             gap: 2,
                           ),
                         ),
-                        hsvg(Svgs.s9, w: 16, h: 16),
+                        hsvg(Svgs.s2, w: 16, h: 16),
                       ],
                       main: MainAxisAlignment.start,
                       cross: CrossAxisAlignment.center,
                       gap: 12,
                     ),
                   ),
-                  label: '门店二维码客户扫码即可入会、',
+                  to: 'StoreQR',
                 ),
               ],
               main: MainAxisAlignment.start,

@@ -321,7 +321,7 @@ class ChannelConfigPage extends StatelessWidget {
                                   width: 1,
                                 ),
                                 child: hrow(
-                                  [hsvg(Svgs.s33, w: 76, h: 76)],
+                                  [hsvg(Svgs.s41, w: 76, h: 76)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -404,7 +404,7 @@ class ChannelConfigPage extends StatelessWidget {
                                     '已启用 5 个模板',
                                     style: hts(13, Color(0xFF71717A), lh: 18),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -496,7 +496,7 @@ class ChannelConfigPage extends StatelessWidget {
                           Positioned(
                             top: -80,
                             right: -70,
-                            child: hsvg(Svgs.s34, w: 200, h: 200),
+                            child: hsvg(Svgs.s42, w: 200, h: 200),
                           ),
                         ],
                       ),

@@ -579,7 +579,7 @@ class BudgetAdjustSheet extends StatelessWidget {
                       ),
                     ),
                     hStr(s4, hts(13, Color(0xFF71717A), lh: 18)),
-                    hsvg(Svgs.s9, w: 16, h: 16),
+                    hsvg(Svgs.s2, w: 16, h: 16),
                   ],
                   main: MainAxisAlignment.start,
                   cross: CrossAxisAlignment.center,

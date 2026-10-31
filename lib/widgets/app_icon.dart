@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 const Map<String, String> _icons = {
+  'edit': '<path d="M4 20h4L19 9a2.1 2.1 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>',
+  'mail': '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l8 6 8-6"/>',
   'close': '<path d="M6 6l12 12M18 6L6 18"/>',
   'chevronRight': '<path d="M9 6l6 6-6 6"/>',
   'chevronLeft': '<path d="M15 6l-6 6 6 6"/>',

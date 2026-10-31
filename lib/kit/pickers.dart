@@ -1,4 +1,6 @@
 // 表单里的选择类交互：日期、车型、城市、列表选择、金额输入、车牌输入。数据均为 mock。
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -424,6 +426,7 @@ Future<String?> pickDate(
   required bool birthday,
   required String current,
   bool pastOnly = false,
+  bool fullFormat = false,
 }) {
   final now = DateTime(_today.$1, _today.$2, _today.$3);
   final min = birthday
@@ -472,7 +475,7 @@ Future<String?> pickDate(
               final d = picked;
               Navigator.pop(
                 ctx,
-                birthday
+                (birthday || fullFormat)
                     ? '${d.year}.${d.month.toString().padLeft(2, '0')}.${d.day.toString().padLeft(2, '0')}'
                     : (d == now
                           ? '今天 ${d.month}.${d.day.toString().padLeft(2, '0')}'
@@ -780,6 +783,14 @@ Future<void> hPick(
   switch (kind) {
     case 'birthday':
       r = await pickDate(context, '选择生日', birthday: true, current: c.v);
+    case 'datefull':
+      r = await pickDate(
+        context,
+        '选择$label',
+        birthday: false,
+        current: c.v,
+        fullFormat: true,
+      );
     case 'date':
       r = await pickDate(
         context,
@@ -1147,3 +1158,68 @@ class _PlateKeyboard extends StatelessWidget {
     ),
   );
 }
+
+// ───────── 获取验证码（60 秒倒计时）─────────
+class CodeCtrl extends ChangeNotifier {
+  int seconds = 0;
+  Timer? _timer;
+  void start() {
+    seconds = 60;
+    notifyListeners();
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      seconds--;
+      if (seconds <= 0) t.cancel();
+      notifyListeners();
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+}
+
+class HCodeHolder extends StatefulWidget {
+  final Widget Function(BuildContext, CodeCtrl) builder;
+  const HCodeHolder({super.key, required this.builder});
+  @override
+  State<HCodeHolder> createState() => _HCodeHolderState();
+}
+
+class _HCodeHolderState extends State<HCodeHolder> {
+  final CodeCtrl ctrl = CodeCtrl();
+  @override
+  void dispose() {
+    ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.builder(context, ctrl);
+}
+
+void hSendCode(BuildContext context, CodeCtrl c) {
+  if (c.seconds > 0) return;
+  c.start();
+  ScaffoldMessenger.of(context)
+    ..hideCurrentSnackBar()
+    ..showSnackBar(
+      SnackBar(
+        content: const Text('验证码已发送（演示）'),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(milliseconds: 1400),
+        backgroundColor: _ink,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+    );
+}
+
+Widget hCodeText(CodeCtrl c, TextStyle style) => ListenableBuilder(
+  listenable: c,
+  builder: (_, _) => Text(
+    c.seconds > 0 ? '${c.seconds} 秒后重发' : '获取验证码',
+    style: c.seconds > 0 ? style.copyWith(color: _muted) : style,
+  ),
+);

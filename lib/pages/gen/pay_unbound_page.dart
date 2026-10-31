@@ -48,7 +48,7 @@ class PayUnboundPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -86,7 +86,7 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                 ],
                                 child: hrow(
-                                  [hsvg(Svgs.s12, w: 36, h: 36)],
+                                  [hsvg(Svgs.s17, w: 36, h: 36)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -102,7 +102,7 @@ class PayUnboundPage extends StatelessWidget {
                             Positioned(
                               left: -32,
                               top: -32,
-                              child: hsvg(Svgs.s11, w: 160, h: 160),
+                              child: hsvg(Svgs.s16, w: 160, h: 160),
                             ),
                           ],
                         ),
@@ -282,7 +282,7 @@ class PayUnboundPage extends StatelessWidget {
                             bg: Color(0xFFFDEFD6),
                             radius: BorderRadius.circular(10),
                             child: hrow(
-                              [hsvg(Svgs.s103, w: 18, h: 18)],
+                              [hsvg(Svgs.s133, w: 18, h: 18)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -334,7 +334,7 @@ class PayUnboundPage extends StatelessWidget {
                             ),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hrow(
-                              [hsvg(Svgs.s84, w: 132, h: 132)],
+                              [hsvg(Svgs.s105, w: 132, h: 132)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,

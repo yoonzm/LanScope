@@ -48,7 +48,7 @@ class StoreEditPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s26, w: 20, h: 20)],
+                          [hsvg(Svgs.s32, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -158,7 +158,7 @@ class StoreEditPage extends StatelessWidget {
                                   radius: BorderRadius.circular(14),
                                   child: hstack(
                                     hrow(
-                                      [hsvg(Svgs.s136, w: 20, h: 20)],
+                                      [hsvg(Svgs.s166, w: 20, h: 20)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -195,7 +195,7 @@ class StoreEditPage extends StatelessWidget {
                                   bg: Color(0xFFE4E4E7),
                                   radius: BorderRadius.circular(14),
                                   child: hrow(
-                                    [hsvg(Svgs.s136, w: 20, h: 20)],
+                                    [hsvg(Svgs.s166, w: 20, h: 20)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -211,7 +211,7 @@ class StoreEditPage extends StatelessWidget {
                                   bg: Color(0xFFE4E4E7),
                                   radius: BorderRadius.circular(14),
                                   child: hrow(
-                                    [hsvg(Svgs.s136, w: 20, h: 20)],
+                                    [hsvg(Svgs.s166, w: 20, h: 20)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -233,7 +233,7 @@ class StoreEditPage extends StatelessWidget {
                                       width: 1.5,
                                     ),
                                     child: hrow(
-                                      [hsvg(Svgs.s137, w: 22, h: 22)],
+                                      [hsvg(Svgs.s167, w: 22, h: 22)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -387,7 +387,7 @@ class StoreEditPage extends StatelessWidget {
                                     bg: Color(0xFFE1F0FE),
                                     radius: BorderRadius.circular(16),
                                     child: hrow(
-                                      [hsvg(Svgs.s138, w: 16, h: 16)],
+                                      [hsvg(Svgs.s168, w: 16, h: 16)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,

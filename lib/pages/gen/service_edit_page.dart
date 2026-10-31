@@ -48,7 +48,7 @@ class ServiceEditPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s26, w: 20, h: 20)],
+                          [hsvg(Svgs.s32, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -176,7 +176,7 @@ class ServiceEditPage extends StatelessWidget {
                                     hts(15, Color(0xFF18181B), lh: 22),
                                   ),
                                 ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
+                                hsvg(Svgs.s2, w: 16, h: 16),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -214,7 +214,7 @@ class ServiceEditPage extends StatelessWidget {
                                     hts(15, Color(0xFF18181B), lh: 22),
                                   ),
                                 ),
-                                hsvg(Svgs.s9, w: 16, h: 16),
+                                hsvg(Svgs.s2, w: 16, h: 16),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -714,7 +714,7 @@ class ServiceEditPage extends StatelessWidget {
                             bg: Color(0xFFE1F0FE),
                             radius: BorderRadius.circular(12),
                             child: hrow(
-                              [hsvg(Svgs.s125, w: 18, h: 18)],
+                              [hsvg(Svgs.s155, w: 18, h: 18)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -765,7 +765,7 @@ class ServiceEditPage extends StatelessWidget {
                             bg: Color(0xFFEEEEF0),
                             radius: BorderRadius.circular(12),
                             child: hrow(
-                              [hsvg(Svgs.s126, w: 18, h: 18)],
+                              [hsvg(Svgs.s156, w: 18, h: 18)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -819,7 +819,7 @@ class ServiceEditPage extends StatelessWidget {
                           ),
                           child: hrow(
                             [
-                              hsvg(Svgs.s127, w: 16, h: 16),
+                              hsvg(Svgs.s157, w: 16, h: 16),
                               Flexible(
                                 flex: 91,
                                 child: Text(

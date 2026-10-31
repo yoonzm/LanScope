@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../kit/keyboard.dart';
@@ -22,10 +23,16 @@ class _LoginPageState extends State<LoginPage> {
   final code = TextEditingController();
   final pwd = TextEditingController();
   int countdown = 0;
+  late final TapGestureRecognizer _terms = TapGestureRecognizer()
+    ..onTap = () => openRoute(context, 'Terms');
+  late final TapGestureRecognizer _privacy = TapGestureRecognizer()
+    ..onTap = () => openRoute(context, 'Privacy');
   Timer? _timer;
 
   @override
   void dispose() {
+    _terms.dispose();
+    _privacy.dispose();
     _timer?.cancel();
     super.dispose();
   }
@@ -325,11 +332,13 @@ class _LoginPageState extends State<LoginPage> {
                       TextSpan(
                         text: '《用户协议》',
                         style: ts(12, w: FontWeight.w500, color: C.primaryInk),
+                        recognizer: _terms,
                       ),
                       const TextSpan(text: '和'),
                       TextSpan(
                         text: '《隐私政策》',
                         style: ts(12, w: FontWeight.w500, color: C.primaryInk),
+                        recognizer: _privacy,
                       ),
                     ],
                   ),

@@ -48,7 +48,7 @@ class StockOutPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -376,7 +376,7 @@ class StockOutPage extends StatelessWidget {
                                       s2,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -416,7 +416,7 @@ class StockOutPage extends StatelessWidget {
                                       s3,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -512,7 +512,7 @@ class StockOutPage extends StatelessWidget {
                                       bg: Color(0xFFF4F4F5),
                                       radius: BorderRadius.circular(16),
                                       child: hrow(
-                                        [hsvg(Svgs.s7, w: 14, h: 14)],
+                                        [hsvg(Svgs.s9, w: 14, h: 14)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -545,7 +545,7 @@ class StockOutPage extends StatelessWidget {
                                       bg: Color(0xFFF4F4F5),
                                       radius: BorderRadius.circular(16),
                                       child: hrow(
-                                        [hsvg(Svgs.s8, w: 14, h: 14)],
+                                        [hsvg(Svgs.s10, w: 14, h: 14)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -603,7 +603,7 @@ class StockOutPage extends StatelessWidget {
                                           bg: Color(0xFFF4F4F5),
                                           radius: BorderRadius.circular(16),
                                           child: hrow(
-                                            [hsvg(Svgs.s7, w: 14, h: 14)],
+                                            [hsvg(Svgs.s9, w: 14, h: 14)],
                                             main: MainAxisAlignment.center,
                                             cross: CrossAxisAlignment.center,
                                             gap: 0,
@@ -635,7 +635,7 @@ class StockOutPage extends StatelessWidget {
                                           bg: Color(0xFFF4F4F5),
                                           radius: BorderRadius.circular(16),
                                           child: hrow(
-                                            [hsvg(Svgs.s8, w: 14, h: 14)],
+                                            [hsvg(Svgs.s10, w: 14, h: 14)],
                                             main: MainAxisAlignment.center,
                                             cross: CrossAxisAlignment.center,
                                             gap: 0,
@@ -663,7 +663,7 @@ class StockOutPage extends StatelessWidget {
                               radius: BorderRadius.circular(21),
                               child: hrow(
                                 [
-                                  hsvg(Svgs.s133, w: 16, h: 16),
+                                  hsvg(Svgs.s163, w: 16, h: 16),
                                   Flexible(
                                     flex: 56,
                                     child: Text(
@@ -727,7 +727,7 @@ class StockOutPage extends StatelessWidget {
                         bg: Color(0xFFFDEFD6),
                         radius: BorderRadius.circular(10),
                         child: hrow(
-                          [hsvg(Svgs.s135, w: 18, h: 18)],
+                          [hsvg(Svgs.s165, w: 18, h: 18)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,

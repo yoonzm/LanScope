@@ -48,7 +48,7 @@ class StockInPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -177,7 +177,7 @@ class StockInPage extends StatelessWidget {
                                       s1,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -217,7 +217,7 @@ class StockInPage extends StatelessWidget {
                                       s2,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -350,7 +350,7 @@ class StockInPage extends StatelessWidget {
                                           bg: Color(0xFFF4F4F5),
                                           radius: BorderRadius.circular(16),
                                           child: hrow(
-                                            [hsvg(Svgs.s132, w: 14, h: 14)],
+                                            [hsvg(Svgs.s162, w: 14, h: 14)],
                                             main: MainAxisAlignment.center,
                                             cross: CrossAxisAlignment.center,
                                             gap: 0,
@@ -410,7 +410,7 @@ class StockInPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -452,7 +452,7 @@ class StockInPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -536,7 +536,7 @@ class StockInPage extends StatelessWidget {
                                           bg: Color(0xFFF4F4F5),
                                           radius: BorderRadius.circular(16),
                                           child: hrow(
-                                            [hsvg(Svgs.s132, w: 14, h: 14)],
+                                            [hsvg(Svgs.s162, w: 14, h: 14)],
                                             main: MainAxisAlignment.center,
                                             cross: CrossAxisAlignment.center,
                                             gap: 0,
@@ -596,7 +596,7 @@ class StockInPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -638,7 +638,7 @@ class StockInPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -697,7 +697,7 @@ class StockInPage extends StatelessWidget {
                                       radius: BorderRadius.circular(21),
                                       child: hrow(
                                         [
-                                          hsvg(Svgs.s133, w: 16, h: 16),
+                                          hsvg(Svgs.s163, w: 16, h: 16),
                                           Flexible(
                                             flex: 56,
                                             child: Text(
@@ -729,7 +729,7 @@ class StockInPage extends StatelessWidget {
                                       radius: BorderRadius.circular(21),
                                       child: hrow(
                                         [
-                                          hsvg(Svgs.s134, w: 16, h: 16),
+                                          hsvg(Svgs.s164, w: 16, h: 16),
                                           Flexible(
                                             flex: 56,
                                             child: Text(
@@ -833,7 +833,7 @@ class StockInPage extends StatelessWidget {
                                       s6,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -1268,7 +1268,7 @@ class StockInPage extends StatelessWidget {
                             bg: Color(0xFFEEEEF0),
                             radius: BorderRadius.circular(16),
                             child: hrow(
-                              [hsvg(Svgs.s52, w: 26, h: 26)],
+                              [hsvg(Svgs.s70, w: 26, h: 26)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -1285,7 +1285,7 @@ class StockInPage extends StatelessWidget {
                                 width: 1.5,
                               ),
                               child: hrow(
-                                [hsvg(Svgs.s43, w: 24, h: 24)],
+                                [hsvg(Svgs.s61, w: 24, h: 24)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,

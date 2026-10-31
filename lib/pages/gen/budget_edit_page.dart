@@ -48,7 +48,7 @@ class BudgetEditPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -128,7 +128,7 @@ class BudgetEditPage extends StatelessWidget {
                             bg: Color(0xFFE1F0FE),
                             radius: BorderRadius.circular(14),
                             child: hrow(
-                              [hsvg(Svgs.s17, w: 22, h: 22)],
+                              [hsvg(Svgs.s22, w: 22, h: 22)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -1078,7 +1078,7 @@ class BudgetEditPage extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.topLeft,
-                        child: hsvg(Svgs.s18, w: 314, h: 124),
+                        child: hsvg(Svgs.s23, w: 314, h: 124),
                       ),
                       Text(
                         '近 6 个月有 2 个月超出预算，平均支出 ¥32,100，预算可适当上调。',
@@ -1134,7 +1134,7 @@ class BudgetEditPage extends StatelessWidget {
                                 '共 7 笔',
                                 style: hts(15, Color(0xFF18181B), lh: 22),
                               ),
-                              hsvg(Svgs.s9, w: 16, h: 16),
+                              hsvg(Svgs.s2, w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,

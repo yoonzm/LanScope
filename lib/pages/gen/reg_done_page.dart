@@ -91,7 +91,7 @@ class RegDonePage extends StatelessWidget {
                             bg: Color(0xFF17C964),
                             radius: BorderRadius.circular(26),
                             child: hrow(
-                              [hsvg(Svgs.s122, w: 26, h: 26)],
+                              [hsvg(Svgs.s151, w: 26, h: 26)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -192,7 +192,7 @@ class RegDonePage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -237,60 +237,56 @@ class RegDonePage extends StatelessWidget {
                       pad: EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: hcol(
                         [
-                          hTap(
-                            context,
-                            hbox(
-                              minH: 62,
-                              pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                              child: hrow(
-                                [
-                                  hbox(
-                                    w: 20,
-                                    h: 20,
-                                    bg: Color.fromRGBO(23, 201, 100, 0.133),
-                                    radius: BorderRadius.circular(10),
-                                    child: hrow(
-                                      [hsvg(Svgs.s123, w: 12, h: 12)],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 0,
-                                    ),
+                          hbox(
+                            minH: 62,
+                            pad: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                            child: hrow(
+                              [
+                                hbox(
+                                  w: 20,
+                                  h: 20,
+                                  bg: Color.fromRGBO(23, 201, 100, 0.133),
+                                  radius: BorderRadius.circular(10),
+                                  child: hrow(
+                                    [hsvg(Svgs.s11, w: 12, h: 12)],
+                                    main: MainAxisAlignment.center,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 0,
                                   ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '创建门店账号',
-                                          style: hts(
-                                            15,
-                                            Color(0xFFA1A1AA),
-                                            w: FontWeight.w500,
-                                            lh: 22,
-                                            deco: TextDecoration.lineThrough,
-                                          ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: hcol(
+                                    [
+                                      Text(
+                                        '创建门店账号',
+                                        style: hts(
+                                          15,
+                                          Color(0xFFA1A1AA),
+                                          w: FontWeight.w500,
+                                          lh: 22,
+                                          deco: TextDecoration.lineThrough,
                                         ),
-                                        Text(
-                                          '手机号 139 **** 8812',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
+                                      ),
+                                      Text(
+                                        '手机号 139 **** 8812',
+                                        style: hts(
+                                          12,
+                                          Color(0xFF71717A),
+                                          lh: 16,
                                         ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 1,
-                                    ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.stretch,
+                                    gap: 1,
                                   ),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 12,
-                              ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.center,
+                              gap: 12,
                             ),
-                            label: '创建门店账号手机号 139 ',
                           ),
                           hbox(
                             h: 1,
@@ -340,7 +336,7 @@ class RegDonePage extends StatelessWidget {
                                       gap: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -397,7 +393,7 @@ class RegDonePage extends StatelessWidget {
                                       gap: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,
@@ -454,7 +450,7 @@ class RegDonePage extends StatelessWidget {
                                       gap: 1,
                                     ),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,

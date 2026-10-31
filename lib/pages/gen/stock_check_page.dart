@@ -48,7 +48,7 @@ class StockCheckPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -275,7 +275,7 @@ class StockCheckPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -1014,7 +1014,7 @@ class StockCheckPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                   child: hrow(
                     [
-                      hsvg(Svgs.s131, w: 16, h: 16),
+                      hsvg(Svgs.s161, w: 16, h: 16),
                       Expanded(
                         flex: 1,
                         child: Text(

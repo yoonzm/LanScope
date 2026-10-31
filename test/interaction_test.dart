@@ -7,6 +7,7 @@ import 'package:qimei_guanjia/mock/app_state.dart';
 import 'package:qimei_guanjia/pages/appointments_page.dart';
 import 'package:qimei_guanjia/pages/home_page.dart';
 import 'package:qimei_guanjia/pages/login_page.dart';
+import 'package:qimei_guanjia/pages/settings_page.dart';
 import 'package:qimei_guanjia/routes.dart';
 import 'package:qimei_guanjia/pages/gen/gen_routes.dart';
 
@@ -312,6 +313,50 @@ void main() {
     await t.pumpAndSettle();
     expect(find.text('09:00'), findsNothing); // 已改成新的时间
     expect(find.text('20:00'), findsOneWidget);
+  });
+
+  testWidgets('更换手机号：获取验证码后进入 60 秒倒计时', (tester) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    await open(tester, 'ChangePhone');
+    expect(find.text('获取验证码'), findsNWidgets(2));
+    await tester.tap(find.text('获取验证码').first);
+    await tester.pump();
+    expect(find.text('60 秒后重发'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 3));
+    expect(find.text('57 秒后重发'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 60)); // 让计时器结束
+  });
+
+  testWidgets('我的：各设置项都能进入对应页面', (tester) async {
+    final old = FlutterError.onError;
+    FlutterError.onError = (d) {
+      if (!d.exceptionAsString().contains('overflowed')) old?.call(d);
+    };
+    addTearDown(() => FlutterError.onError = old);
+    phone(tester);
+    await tester.pumpWidget(
+      MaterialApp(navigatorObservers: [navTracker], home: const SettingsPage()),
+    );
+    for (final (row, title) in [
+      ('支付与收款', '支付与收款'),
+      ('小票打印机', '小票打印机'),
+      ('营业时间与工位', '营业时间与工位'),
+      ('账号与安全', '账号与安全'),
+      ('数据备份', '数据备份'),
+      ('关于汽美管家', '关于汽美管家'),
+    ]) {
+      await tester.ensureVisible(find.text(row));
+      await tester.tap(find.text(row));
+      await tester.pumpAndSettle();
+      expect(find.text(title), findsWidgets, reason: row);
+      expect(find.text('我的'), findsNothing, reason: '$row 应进入新页面');
+      Navigator.of(tester.element(find.byType(Scaffold).last)).pop();
+      await tester.pumpAndSettle();
+    }
   });
 
   testWidgets('车牌输入：点格子弹出键盘，可输入并切换新能源', (t) async {

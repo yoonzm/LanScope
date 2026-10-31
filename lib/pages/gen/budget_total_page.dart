@@ -48,7 +48,7 @@ class BudgetTotalPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s10, w: 20, h: 20)],
+                          [hsvg(Svgs.s15, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -491,7 +491,7 @@ class BudgetTotalPage extends StatelessWidget {
                                       bg: Color(0xFFE1F0FE),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s19, w: 17, h: 17)],
+                                        [hsvg(Svgs.s24, w: 17, h: 17)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -589,7 +589,7 @@ class BudgetTotalPage extends StatelessWidget {
                                       bg: Color(0xFFDDF6E7),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s20, w: 17, h: 17)],
+                                        [hsvg(Svgs.s25, w: 17, h: 17)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -687,7 +687,7 @@ class BudgetTotalPage extends StatelessWidget {
                                       bg: Color(0xFFE1F0FE),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s21, w: 17, h: 17)],
+                                        [hsvg(Svgs.s26, w: 17, h: 17)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -785,7 +785,7 @@ class BudgetTotalPage extends StatelessWidget {
                                       bg: Color(0xFFFDEFD6),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s22, w: 17, h: 17)],
+                                        [hsvg(Svgs.s27, w: 17, h: 17)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -883,7 +883,7 @@ class BudgetTotalPage extends StatelessWidget {
                                       bg: Color(0xFFFFE1E2),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s23, w: 17, h: 17)],
+                                        [hsvg(Svgs.s28, w: 17, h: 17)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -981,7 +981,7 @@ class BudgetTotalPage extends StatelessWidget {
                                       bg: Color(0xFFEEEEF0),
                                       radius: BorderRadius.circular(10),
                                       child: hrow(
-                                        [hsvg(Svgs.s24, w: 17, h: 17)],
+                                        [hsvg(Svgs.s29, w: 17, h: 17)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -1079,7 +1079,7 @@ class BudgetTotalPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(16, 14, 16, 14),
                   child: hrow(
                     [
-                      hsvg(Svgs.s25, w: 18, h: 18),
+                      hsvg(Svgs.s30, w: 18, h: 18),
                       Expanded(
                         flex: 1,
                         child: Text(

@@ -92,7 +92,7 @@ class BindH5Page extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -133,7 +133,7 @@ class BindH5Page extends StatelessWidget {
                               bg: Color(0xFFE1F0FE),
                               radius: BorderRadius.circular(10),
                               child: hrow(
-                                [hsvg(Svgs.s14, w: 18, h: 18)],
+                                [hsvg(Svgs.s19, w: 18, h: 18)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -184,7 +184,7 @@ class BindH5Page extends StatelessWidget {
                               bg: Color(0xFFDDF6E7),
                               radius: BorderRadius.circular(10),
                               child: hrow(
-                                [hsvg(Svgs.s15, w: 18, h: 18)],
+                                [hsvg(Svgs.s20, w: 18, h: 18)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -235,7 +235,7 @@ class BindH5Page extends StatelessWidget {
                               bg: Color(0xFFFFE1E2),
                               radius: BorderRadius.circular(10),
                               child: hrow(
-                                [hsvg(Svgs.s16, w: 18, h: 18)],
+                                [hsvg(Svgs.s21, w: 18, h: 18)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,

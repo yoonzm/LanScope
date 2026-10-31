@@ -407,7 +407,7 @@ class RenewSheet extends StatelessWidget {
                   bg: Color(0xFFDDF6E7),
                   radius: BorderRadius.circular(12),
                   child: hrow(
-                    [hsvg(Svgs.s93, w: 18, h: 18)],
+                    [hsvg(Svgs.s120, w: 18, h: 18)],
                     main: MainAxisAlignment.center,
                     cross: CrossAxisAlignment.center,
                     gap: 0,
@@ -420,7 +420,7 @@ class RenewSheet extends StatelessWidget {
                     style: hts(15, Color(0xFF18181B), w: FontWeight.w500),
                   ),
                 ),
-                hsvg(Svgs.s9, w: 16, h: 16),
+                hsvg(Svgs.s2, w: 16, h: 16),
               ],
               main: MainAxisAlignment.start,
               cross: CrossAxisAlignment.center,

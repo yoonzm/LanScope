@@ -107,7 +107,7 @@ class ExpenseDetailPage extends StatelessWidget {
                         bg: Color(0xFFE1F0FE),
                         radius: BorderRadius.circular(17),
                         child: hrow(
-                          [hsvg(Svgs.s51, w: 26, h: 26)],
+                          [hsvg(Svgs.s69, w: 26, h: 26)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -297,7 +297,7 @@ class ExpenseDetailPage extends StatelessWidget {
                                 '入库单 RK-20261031-03',
                                 style: hts(15, Color(0xFF1E63AE), lh: 22),
                               ),
-                              hsvg(Svgs.s9, w: 16, h: 16),
+                              hsvg(Svgs.s2, w: 16, h: 16),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
@@ -383,7 +383,7 @@ class ExpenseDetailPage extends StatelessWidget {
                             radius: BorderRadius.circular(16),
                             child: hcol(
                               [
-                                hsvg(Svgs.s52, w: 26, h: 26),
+                                hsvg(Svgs.s70, w: 26, h: 26),
                                 Text('送货单', style: hts(11, Color(0xFF71717A))),
                               ],
                               main: MainAxisAlignment.center,
@@ -399,7 +399,7 @@ class ExpenseDetailPage extends StatelessWidget {
                             radius: BorderRadius.circular(16),
                             child: hcol(
                               [
-                                hsvg(Svgs.s52, w: 26, h: 26),
+                                hsvg(Svgs.s70, w: 26, h: 26),
                                 Text('转账回单', style: hts(11, Color(0xFF71717A))),
                               ],
                               main: MainAxisAlignment.center,
@@ -481,7 +481,7 @@ class ExpenseDetailPage extends StatelessWidget {
                       radius: BorderRadius.circular(25),
                       child: hrow(
                         [
-                          hsvg(Svgs.s53, w: 18, h: 18),
+                          hsvg(Svgs.s71, w: 18, h: 18),
                           Flexible(
                             flex: 30,
                             child: Text(

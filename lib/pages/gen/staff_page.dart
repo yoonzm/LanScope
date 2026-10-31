@@ -77,7 +77,7 @@ class StaffPage extends StatelessWidget {
                         bg: Color(0xFF18181B),
                         radius: BorderRadius.circular(22),
                         child: hrow(
-                          [hsvg(Svgs.s31, w: 20, h: 20)],
+                          [hsvg(Svgs.s37, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -773,7 +773,7 @@ class StaffPage extends StatelessWidget {
                                     bg: Color(0xFFDDF6E7),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s128, w: 12, h: 12)],
+                                      [hsvg(Svgs.s158, w: 12, h: 12)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -802,7 +802,7 @@ class StaffPage extends StatelessWidget {
                                     bg: Color(0xFFDDF6E7),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s128, w: 12, h: 12)],
+                                      [hsvg(Svgs.s158, w: 12, h: 12)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -839,7 +839,7 @@ class StaffPage extends StatelessWidget {
                                     bg: Color(0xFFDDF6E7),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s128, w: 12, h: 12)],
+                                      [hsvg(Svgs.s158, w: 12, h: 12)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -868,7 +868,7 @@ class StaffPage extends StatelessWidget {
                                     bg: Color(0xFFDDF6E7),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s128, w: 12, h: 12)],
+                                      [hsvg(Svgs.s158, w: 12, h: 12)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -905,7 +905,7 @@ class StaffPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s129, w: 12, h: 12)],
+                                      [hsvg(Svgs.s159, w: 12, h: 12)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -934,7 +934,7 @@ class StaffPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(10),
                                     child: hrow(
-                                      [hsvg(Svgs.s129, w: 12, h: 12)],
+                                      [hsvg(Svgs.s159, w: 12, h: 12)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,

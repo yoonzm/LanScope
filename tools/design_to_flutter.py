@@ -652,7 +652,9 @@ class Gen:
         content = None
         direction = 'row'
         is_text = self.text_only(n)
-        if is_text and '_str' in n.attrs:
+        if is_text and '_code' in n.attrs:
+            content = 'hCodeText(%s, %s)' % (n.attrs['_code'], self.ts(inh2))
+        elif is_text and '_str' in n.attrs:
             ph = n.attrs.get('_ph')
             content = 'hStr(%s, %s%s)' % (n.attrs['_str'], self.ts(inh2), ', placeholder: %s' % dstr(ph) if ph else '')
         elif is_text and '_count' in n.attrs:
@@ -711,8 +713,11 @@ class Gen:
         # 点击
         if n.tag == 'a' or n.tag == 'button' or ('_tap' in n.attrs and not n.attrs.get('_notap')):
             code = self.tap(n, code)
-        for pv, init in reversed(pick_vars):
-            code = 'HStrHolder(initial: %s, builder: (context, %s) => %s)' % (dstr(init), pv, code)
+        for pv, init, pk in reversed(pick_vars):
+            if pk == 'code':
+                code = 'HCodeHolder(builder: (context, %s) => %s)' % (pv, code)
+            else:
+                code = 'HStrHolder(initial: %s, builder: (context, %s) => %s)' % (dstr(init), pv, code)
         return code
 
     def tap(self, n, code):
@@ -728,7 +733,7 @@ class Gen:
             return 'hTap(context, %s, back: true)' % code
         if m:
             return 'hTap(context, %s, to: %s)' % (code, dstr(m.group(1)))
-        if re.search(r'(删除此|停用)', label):
+        if re.search(r'(删除此|停用|解除绑定|退出所有|注销账号)', label):
             return 'hTap(context, %s, onTap: () => hConfirmPop(context, %s))' % (code, dstr(label[:14]))
         if href.startswith('tel:'):
             return 'hTap(context, %s, label: %s)' % (code, dstr('拨打电话'))
@@ -746,6 +751,13 @@ class Gen:
         raw = n.raw
         cur = inh.get('color') or (0, 0, 0, 1)
         raw = re.sub(r'currentColor', scolor(cur), raw)
+        if 'id="abg"' in raw:
+            # 设计稿里这个图标的子元素被误写入了外层的 width/height/style，这里还原为 1024 画布
+            head_end = raw.index('>') + 1
+            rest = raw[head_end:]
+            rest = re.sub(r'\s*aria-hidden="true"\s*style="display: block;"', '', rest)
+            rest = rest.replace('width="88" height="88"', 'width="1024" height="1024"')
+            raw = raw[:head_end] + rest
         # 去掉外层 style
         raw = re.sub(r'^(<svg\b[^>]*?)\sstyle="[^"]*"', r'\1', raw, count=1, flags=re.S)
         if 'xmlns=' not in raw[:200]:
@@ -966,8 +978,8 @@ class Gen:
         (r'^生日(?!礼)', 'birthday'), (r'品牌车型', 'car'), (r'^(所在)?城市', 'city'), (r'^所属分类', 'category'),
         (r'^标准工时', 'duration'), (r'^供应商', 'supplier'), (r'^收款方', 'payee'),
         (r'^支付(账户|方式)', 'account'), (r'^推荐人', 'referrer'), (r'^工位', 'station'),
-        (r'^(领用)?技师', 'tech'), (r'^关联工单', 'workorder'), (r'^积分倍率', 'multiplier'),
-        (r'^生日礼', 'gift'), (r'^运费', 'amount'), (r'^(入库|出库)?日期', 'date'), (r'^从 ', 'budgetFrom'),
+        (r'^(领用|默认)?技师', 'tech'), (r'^关联工单', 'workorder'), (r'^积分倍率', 'multiplier'),
+        (r'^生日礼', 'gift'), (r'^(开始|结束)日期$', 'datefull'), (r'^运费', 'amount'), (r'^(入库|出库)?日期', 'date'), (r'^从 ', 'budgetFrom'),
     ]
 
     def leaf_texts(self, n, out=None):
@@ -992,6 +1004,8 @@ class Gen:
         if '_picked' in n.attrs or n.tag not in ('div', 'button') or n.attrs.get('href') or self.is_abs(n):
             return []
         leaves = self.leaf_texts(n)
+        if n.tag == 'button' and self.text_only(n):
+            leaves = [n]
         texts = [re.sub(r'\s+', ' ', self.tree_text(l)).strip() for l in leaves]
         # 时间区间：09:00 至 20:00，两个时间各自可选
         if n.tag == 'div' and len(texts) == 3 and texts[1] == '至' and all(re.fullmatch(self.TIME_RE, t) for t in (texts[0], texts[2])):
@@ -1000,7 +1014,7 @@ class Gen:
                 var = self.new_ctrl('s')
                 leaf.attrs['_str'] = var
                 leaf.attrs['_tap'] = '() => hPick(context, \'time\', %s, %s)' % (dstr(lab), var)
-                out.append((var, t))
+                out.append((var, t, 'str'))
             n.attrs['_picked'] = 'time-range'
             return out
         # 单个时间按钮：开门 09:00 / 打烊 20:00
@@ -1009,8 +1023,16 @@ class Gen:
             n.attrs['_picked'] = var
             leaves[1].attrs['_str'] = var
             n.attrs['_tap'] = '() => hPick(context, \'time\', %s, %s)' % (dstr(texts[0]), var)
-            return [(var, texts[1])]
-        if not self.has_chevron(n) or n.attrs.get('aria-label') in ('上个月', '下个月'):
+            return [(var, texts[1], 'str')]
+        # 获取验证码：点击后 60 秒倒计时
+        if n.tag == 'button' and len(texts) == 1 and texts[0] == '获取验证码':
+            var = self.new_ctrl('k')
+            n.attrs['_picked'] = var
+            leaves[0].attrs['_code'] = var
+            n.attrs['_tap'] = '() => hSendCode(context, %s)' % var
+            return [(var, '', 'code')]
+        free_date = (len(texts) == 2 and re.match(r'^(开始|结束)日期$', texts[0]) and re.fullmatch(r'\d{4}\.\d{2}\.\d{2}', texts[1]))
+        if not free_date and (not self.has_chevron(n) or n.attrs.get('aria-label') in ('上个月', '下个月')):
             return []
         texts = [t for t in texts if t and t != '*']
         if not texts or len(texts) > 3:
@@ -1034,7 +1056,7 @@ class Gen:
         if re.match(r'^(选填|请选择|请输入)', value):
             value_node.attrs['_ph'] = value
         n.attrs['_tap'] = '() => hPick(context, %s, %s, %s)' % (dstr(kind), dstr(label), var)
-        return [(var, value)]
+        return [(var, value, 'str')]
 
     def emit_plate(self, n):
         cells = [c for c in self.kids(n) if isinstance(c, Node)]

@@ -97,7 +97,7 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s112, w: 20, h: 20)],
+                          [hsvg(Svgs.s140, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -126,7 +126,7 @@ class ProductDetailPage extends StatelessWidget {
                               bg: Color(0xFF27272A),
                               radius: BorderRadius.circular(14),
                               child: hrow(
-                                [hsvg(Svgs.s113, w: 22, h: 22)],
+                                [hsvg(Svgs.s141, w: 22, h: 22)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,
@@ -390,7 +390,7 @@ class ProductDetailPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -540,7 +540,7 @@ class ProductDetailPage extends StatelessWidget {
                                       s1,
                                       hts(15, Color(0xFF18181B), lh: 22),
                                     ),
-                                    hsvg(Svgs.s9, w: 16, h: 16),
+                                    hsvg(Svgs.s2, w: 16, h: 16),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,
@@ -1030,7 +1030,7 @@ class ProductDetailPage extends StatelessWidget {
                                   bg: Color(0xFFFDEFD6),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s114, w: 18, h: 18)],
+                                    [hsvg(Svgs.s142, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1105,7 +1105,7 @@ class ProductDetailPage extends StatelessWidget {
                                   bg: Color(0xFFFDEFD6),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s114, w: 18, h: 18)],
+                                    [hsvg(Svgs.s142, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1180,7 +1180,7 @@ class ProductDetailPage extends StatelessWidget {
                                   bg: Color(0xFFDDF6E7),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s115, w: 18, h: 18)],
+                                    [hsvg(Svgs.s143, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1255,7 +1255,7 @@ class ProductDetailPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s116, w: 18, h: 18)],
+                                    [hsvg(Svgs.s144, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -1386,7 +1386,7 @@ class ProductDetailPage extends StatelessWidget {
                       radius: BorderRadius.circular(25),
                       child: hrow(
                         [
-                          hsvg(Svgs.s6, w: 18, h: 18),
+                          hsvg(Svgs.s8, w: 18, h: 18),
                           Flexible(
                             flex: 60,
                             child: Text(

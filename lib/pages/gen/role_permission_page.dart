@@ -288,7 +288,7 @@ class RolePermissionPage extends StatelessWidget {
                   pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
                   child: hrow(
                     [
-                      hsvg(Svgs.s124, w: 18, h: 18),
+                      hsvg(Svgs.s152, w: 18, h: 18),
                       Flexible(
                         flex: 210,
                         child: Text(

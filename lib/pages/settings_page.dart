@@ -22,18 +22,41 @@ class SettingsPage extends StatelessWidget {
                     ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
                 children: [
-                  _profile(),
+                  _profile(context),
                   const SizedBox(height: 20),
                   _group(context, '门店管理', [
                     _Item(
                       'store',
                       '门店信息',
                       '地址 · 电话 · 营业执照',
+                      bg: const Color(0xFFE1F0FE),
+                      fg: const Color(0xFF1E63AE),
                       route: 'StoreInfo',
                     ),
-                    _Item('users', '员工与权限', '8 人', route: 'Staff'),
-                    _Item('sparkle', '服务项目与价格', '36 项', route: 'Services'),
-                    _Item('card', '会员卡种与权益', '4 种', route: 'CardTiers'),
+                    _Item(
+                      'users',
+                      '员工与权限',
+                      '8 人',
+                      bg: const Color(0xFFDDF6E7),
+                      fg: const Color(0xFF2B7745),
+                      route: 'Staff',
+                    ),
+                    _Item(
+                      'sparkle',
+                      '服务项目与价格',
+                      '36 项',
+                      bg: const Color(0xFFFDEFD6),
+                      fg: const Color(0xFF855F2E),
+                      route: 'Services',
+                    ),
+                    _Item(
+                      'card',
+                      '会员卡种与权益',
+                      '4 种',
+                      bg: const Color(0xFF18181B),
+                      fg: const Color(0xFFF5D78E),
+                      route: 'CardTiers',
+                    ),
                   ]),
                   const SizedBox(height: 20),
                   _group(context, '营业设置', [
@@ -41,24 +64,49 @@ class SettingsPage extends StatelessWidget {
                       'crown',
                       '套餐与订阅',
                       '专业版 · 365 天后到期',
+                      bg: const Color(0xFFF5D78E),
+                      fg: const Color(0xFF18181B),
                       route: 'Subscription',
                     ),
-                    _Item('card2', '支付与收款', '微信 · 支付宝 · 储值'),
-                    _Item('printer', '小票打印机', '已连接'),
-                    _Item('clock', '营业时间与工位', '09:00–20:00 · 6 工位'),
+                    _Item(
+                      'card2',
+                      '支付与收款',
+                      '微信 · 支付宝 · 储值',
+                      bg: const Color(0xFFDDF6E7),
+                      fg: const Color(0xFF2B7745),
+                      route: 'PayConfig',
+                    ),
+                    _Item(
+                      'printer',
+                      '小票打印机',
+                      '已连接',
+                      dot: true,
+                      route: 'Printer',
+                    ),
+                    _Item(
+                      'clock',
+                      '营业时间与工位',
+                      '09:00–20:00 · 6 工位',
+                      bg: const Color(0xFFE1F0FE),
+                      fg: const Color(0xFF1E63AE),
+                      route: 'BusinessHours',
+                    ),
                     _Item(
                       'bell',
                       '通知与消息',
                       '会员消费充值 · 微信 / 短信',
+                      bg: const Color(0xFFFFE1E2),
+                      fg: const Color(0xFFA43433),
                       route: 'NotifySettings',
                     ),
                   ]),
                   const SizedBox(height: 20),
                   _group(context, '通用', [
-                    _Item('shield', '账号与安全', '密码 · 登录设备'),
-                    _Item('moon', '外观', '跟随系统'),
-                    _Item('trash', '清除缓存', '128 MB'),
-                    _Item('info', '关于汽美管家', 'v1.0.0'),
+                    _Item('shield', '账号与安全', '密码 · 登录设备', route: 'Security'),
+                    _Item('moon', '外观', '跟随系统', route: 'ThemeSheet'),
+                    _Item('mail', '数据备份', '已开启', route: 'DataBackup'),
+                    _Item('trash', '清除缓存', '128 MB', route: 'ClearCache'),
+                    _Item('info', '关于汽美管家', 'v1.0.0', route: 'AboutApp'),
                   ]),
                   const SizedBox(height: 24),
                   GestureDetector(
@@ -152,113 +200,154 @@ class SettingsPage extends StatelessWidget {
   }
 
   void _open(BuildContext context, _Item item) {
-    if (item.title.startsWith('关于')) {
-      _demoSheet(context);
-    } else if (item.route != null) {
+    if (item.route != null) {
       openRoute(context, item.route!);
     } else {
       toast(context, '${item.title}（演示）');
     }
   }
 
-  Widget _profile() => Container(
-    clipBehavior: Clip.antiAlias,
-    padding: const EdgeInsets.all(20),
-    decoration: BoxDecoration(
-      color: C.ink,
-      borderRadius: BorderRadius.circular(28),
-    ),
-    child: Stack(
-      clipBehavior: Clip.hardEdge,
-      children: [
-        const Positioned(right: -90, top: -100, child: Rings(size: 220)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const Avatar('陈', size: 56, bg: C.primary, fg: Colors.white),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            '陈明',
-                            style: ts(
-                              18,
-                              w: FontWeight.w600,
-                              color: const Color(0xFFFAFAFA),
-                              h: 26,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Pill('店长', bg: C.gold, fg: C.ink, size: 11),
-                        ],
-                      ),
-                      Text(
-                        '139 **** 8812',
-                        style: ts(13, color: C.faint, h: 18),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.only(top: 14),
-              decoration: const BoxDecoration(
-                border: Border(top: BorderSide(color: Color(0xFF2E2E33))),
-              ),
-              child: Row(
+  Widget _profile(BuildContext context) => GestureDetector(
+    // 演示入口：长按个人卡片，切换套餐状态（首页提醒条 / 到期页）
+    onLongPress: () => _demoSheet(context),
+    child: Container(
+      clipBehavior: Clip.antiAlias,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: C.ink,
+        borderRadius: BorderRadius.circular(28),
+      ),
+      child: Stack(
+        clipBehavior: Clip.hardEdge,
+        children: [
+          const Positioned(right: -90, top: -100, child: Rings(size: 240)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
                 children: [
+                  Container(
+                    width: 56,
+                    height: 56,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      color: C.primary,
+                      shape: BoxShape.circle,
+                      boxShadow: [BoxShadow(color: C.dark2, spreadRadius: 3)],
+                    ),
+                    child: Text(
+                      '陈',
+                      style: ts(20, w: FontWeight.w600, color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(width: 14),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '驰光汽车美容 · 徐汇店',
-                          style: ts(
-                            14,
-                            w: FontWeight.w500,
-                            color: const Color(0xFFFAFAFA),
-                            h: 20,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              '陈明',
+                              style: ts(
+                                18,
+                                w: FontWeight.w600,
+                                color: const Color(0xFFFAFAFA),
+                                h: 26,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Pill('店长', bg: C.gold, fg: C.ink, size: 11),
+                          ],
                         ),
+                        const SizedBox(height: 4),
                         Text(
-                          '专业版 · 2027.10.30 到期',
+                          '139 **** 8812',
                           style: ts(12, color: C.faint, h: 16),
                         ),
                       ],
                     ),
                   ),
-                  Container(
-                    height: 32,
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: C.dark2,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Text(
-                      '切换门店',
-                      style: ts(
-                        13,
-                        w: FontWeight.w500,
-                        color: const Color(0xFFFAFAFA),
-                        h: 18,
+                  Semantics(
+                    button: true,
+                    label: '编辑资料',
+                    child: GestureDetector(
+                      onTap: () => openRoute(context, 'ProfileEdit'),
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: const BoxDecoration(
+                          color: C.dark2,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Center(
+                          child: AppIcon(
+                            'edit',
+                            size: 18,
+                            color: Color(0xFFFAFAFA),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
-        ),
-      ],
+              const SizedBox(height: 16),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  color: C.dark2,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '驰光汽车美容 · 徐汇店',
+                            style: ts(
+                              14,
+                              w: FontWeight.w500,
+                              color: const Color(0xFFFAFAFA),
+                              h: 20,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            '专业版 · 2027.10.30 到期',
+                            style: ts(12, color: C.faint, h: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => openRoute(context, 'StoreSwitch'),
+                      child: Container(
+                        height: 32,
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFAFAFA),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Text(
+                          '切换门店',
+                          style: ts(13, w: FontWeight.w500, h: 18),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
   );
 
@@ -281,36 +370,75 @@ class SettingsPage extends StatelessWidget {
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
                     onTap: () => _open(context, items[i]),
-                    child: Padding(
+                    child: Container(
+                      constraints: const BoxConstraints(minHeight: 56),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
-                        vertical: 13,
+                        vertical: 6,
                       ),
                       child: Row(
                         children: [
-                          AppIcon(items[i].icon, size: 20, color: C.sub),
-                          const SizedBox(width: 12),
-                          Text(
-                            items[i].title,
-                            style: ts(15, w: FontWeight.w500, h: 22),
+                          Container(
+                            width: 32,
+                            height: 32,
+                            decoration: BoxDecoration(
+                              color: items[i].bg,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: AppIcon(
+                                items[i].icon,
+                                size: 18,
+                                color: items[i].fg,
+                              ),
+                            ),
                           ),
+                          const SizedBox(width: 12),
+                          Text(items[i].title, style: ts(15, h: 22)),
                           const SizedBox(width: 8),
                           Expanded(
-                            child: Text(
-                              items[i].sub,
-                              textAlign: TextAlign.right,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: ts(12, color: C.muted, h: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                if (items[i].dot) ...[
+                                  Container(
+                                    width: 6,
+                                    height: 6,
+                                    decoration: const BoxDecoration(
+                                      color: C.green,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                ],
+                                Flexible(
+                                  child: Text(
+                                    items[i].sub,
+                                    textAlign: TextAlign.right,
+                                    style: ts(
+                                      13,
+                                      color: items[i].dot
+                                          ? C.greenInk
+                                          : C.muted,
+                                      h: 18,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           const SizedBox(width: 4),
-                          AppIcon('chevronRight', size: 18, color: C.faint),
+                          const AppIcon(
+                            'chevronRight',
+                            size: 16,
+                            color: C.faint,
+                            stroke: 2,
+                          ),
                         ],
                       ),
                     ),
                   ),
-                  if (i < items.length - 1) const Divider1(indent: 48),
+                  if (i < items.length - 1) const Divider1(indent: 60),
                 ],
               ],
             ),
@@ -323,5 +451,15 @@ class _Item {
   final String icon;
   final String title, sub;
   final String? route;
-  _Item(this.icon, this.title, this.sub, {this.route});
+  final Color bg, fg;
+  final bool dot;
+  _Item(
+    this.icon,
+    this.title,
+    this.sub, {
+    this.route,
+    this.bg = const Color(0xFFEEEEF0),
+    this.fg = const Color(0xFF3F3F46),
+    this.dot = false,
+  });
 }

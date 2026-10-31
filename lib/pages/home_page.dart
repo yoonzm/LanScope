@@ -122,29 +122,33 @@ class HomePage extends StatelessWidget {
   Widget _header(BuildContext context) => Row(
     children: [
       Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('周六 · 10月31日', style: ts(13, color: C.sub, h: 18)),
-            const SizedBox(height: 2),
-            Row(
-              children: [
-                Text(
-                  '驰光汽车美容',
-                  style: ts(22, w: FontWeight.w600, h: 30, spacing: -0.4),
-                ),
-                const SizedBox(width: 4),
-                AppIcon('chevronDown', size: 20, color: C.muted),
-              ],
-            ),
-          ],
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => openRoute(context, 'StoreSwitch'),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('周六 · 10月31日', style: ts(13, color: C.sub, h: 18)),
+              const SizedBox(height: 2),
+              Row(
+                children: [
+                  Text(
+                    '驰光汽车美容',
+                    style: ts(22, w: FontWeight.w600, h: 30, spacing: -0.4),
+                  ),
+                  const SizedBox(width: 4),
+                  AppIcon('chevronDown', size: 20, color: C.muted),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       RoundBtn(
         'bell',
         label: '消息通知',
         dot: true,
-        onTap: () => toast(context, '暂无新消息（演示）'),
+        onTap: () => openRoute(context, 'Messages'),
       ),
       const SizedBox(width: 12),
       GestureDetector(

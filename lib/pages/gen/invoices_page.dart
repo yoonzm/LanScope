@@ -126,7 +126,7 @@ class InvoicesPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(12),
                                   child: hrow(
-                                    [hsvg(Svgs.s60, w: 18, h: 18)],
+                                    [hsvg(Svgs.s80, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -212,7 +212,7 @@ class InvoicesPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(12),
                                   child: hrow(
-                                    [hsvg(Svgs.s60, w: 18, h: 18)],
+                                    [hsvg(Svgs.s80, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,

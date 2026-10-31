@@ -949,7 +949,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -991,7 +991,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1091,7 +1091,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1133,7 +1133,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1233,7 +1233,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1275,7 +1275,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1383,7 +1383,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1425,7 +1425,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1604,7 +1604,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1646,7 +1646,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1744,7 +1744,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s7,
+                                                        Svgs.s9,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -1786,7 +1786,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                                   child: hrow(
                                                     [
                                                       hsvg(
-                                                        Svgs.s8,
+                                                        Svgs.s10,
                                                         w: 14,
                                                         h: 14,
                                                       ),
@@ -2016,7 +2016,7 @@ class AppointmentSettingsPage extends StatelessWidget {
                                     '微信 + 短信',
                                     style: hts(15, Color(0xFF18181B), lh: 22),
                                   ),
-                                  hsvg(Svgs.s9, w: 16, h: 16),
+                                  hsvg(Svgs.s2, w: 16, h: 16),
                                 ],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.center,

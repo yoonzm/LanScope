@@ -175,7 +175,7 @@ class RechargePage extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 6),
-                              child: hsvg(Svgs.s118, w: 20, h: 20),
+                              child: hsvg(Svgs.s147, w: 20, h: 20),
                             ),
                             hcol(
                               [
@@ -213,7 +213,7 @@ class RechargePage extends StatelessWidget {
                       Positioned(
                         right: -80,
                         bottom: -110,
-                        child: hsvg(Svgs.s117, w: 220, h: 220),
+                        child: hsvg(Svgs.s146, w: 220, h: 220),
                       ),
                     ],
                   ),
@@ -711,7 +711,7 @@ class RechargePage extends StatelessWidget {
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s119, w: 20, h: 20),
+                                      hsvg(Svgs.s148, w: 20, h: 20),
                                       Text(
                                         '扫码收款',
                                         style: hts(
@@ -741,7 +741,7 @@ class RechargePage extends StatelessWidget {
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s120, w: 20, h: 20),
+                                      hsvg(Svgs.s149, w: 20, h: 20),
                                       Text(
                                         '现金',
                                         style: hts(
@@ -771,7 +771,7 @@ class RechargePage extends StatelessWidget {
                                   radius: BorderRadius.circular(16),
                                   child: hcol(
                                     [
-                                      hsvg(Svgs.s121, w: 20, h: 20),
+                                      hsvg(Svgs.s150, w: 20, h: 20),
                                       Text(
                                         'POS 刷卡',
                                         style: hts(

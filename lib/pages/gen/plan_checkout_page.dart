@@ -139,7 +139,7 @@ class PlanCheckoutPage extends StatelessWidget {
                       Positioned(
                         top: -90,
                         right: -90,
-                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                        child: hsvg(Svgs.s4, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -461,7 +461,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFDDF6E7),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s93, w: 18, h: 18)],
+                                        [hsvg(Svgs.s120, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -512,7 +512,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFDDF6E7),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s93, w: 18, h: 18)],
+                                        [hsvg(Svgs.s120, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -571,7 +571,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFE1F0FE),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s104, w: 18, h: 18)],
+                                        [hsvg(Svgs.s128, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -615,7 +615,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFE1F0FE),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s104, w: 18, h: 18)],
+                                        [hsvg(Svgs.s128, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -667,7 +667,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFEEEEF0),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s105, w: 18, h: 18)],
+                                        [hsvg(Svgs.s129, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -718,7 +718,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFEEEEF0),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s105, w: 18, h: 18)],
+                                        [hsvg(Svgs.s129, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -932,14 +932,14 @@ class PlanCheckoutPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              hsvg(Svgs.s82, w: 14, h: 14),
+                              hsvg(Svgs.s103, w: 14, h: 14),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
                           ),
                         ),
-                        label: '新店首购券-¥200',
+                        to: 'CouponSheet',
                       ),
                       hbox(h: 1, bg: Color(0xFFEFEFF1)),
                       hrow(
