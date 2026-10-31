@@ -81,6 +81,12 @@ struct DeviceIdentity: Codable, Equatable {
         ("_hap", "HomeKit 配件"), ("_homekit", "HomeKit 配件"),
         ("_smb", "电脑 / NAS"), ("_afpovertcp", "电脑 / NAS"), ("_workstation", "电脑"),
         ("_companion-link", "Apple 设备"), ("_rdlink", "Apple 设备"),
-        ("_airplay", "AirPlay 设备"), ("_raop", "AirPlay 设备")
+        ("_airplay", "AirPlay 设备"), ("_raop", "AirPlay 设备"),
+        // UPnP root device types and NetBIOS rank below Bonjour, which is more specific.
+        ("upnp:dial", "智能电视"),
+        ("upnp:InternetGatewayDevice", "路由器"), ("upnp:WLANAccessPointDevice", "路由器"),
+        ("upnp:MediaServer", "媒体服务器"), ("upnp:MediaRenderer", "媒体播放器"),
+        ("upnp:Printer", "打印机"),
+        ("netbios", "电脑 / NAS")
     ]
 }

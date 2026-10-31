@@ -97,7 +97,7 @@ struct WebService: Codable, Identifiable {
     }
 
     // Preserve complete and partial chunk payloads so a title split across chunks works.
-    private static func unchunk(_ data: Data) -> Data {
+    static func unchunk(_ data: Data) -> Data {
         var cursor = data.startIndex
         var body = Data()
         while cursor < data.endIndex {

@@ -14,7 +14,7 @@
     <key>LSRequiresIPhoneOS</key><true/>
     <key>ITSAppUsesNonExemptEncryption</key><false/>
     <key>NSLocalNetworkUsageDescription</key>
-    <string>用于通过 Wi-Fi 探测你指定的局域网地址，并通过 Bonjour 和主机名读取设备名称与类型，在本机显示有响应的设备。</string>
+    <string>用于通过 Wi-Fi 探测你指定的局域网地址，并通过 Bonjour、UPnP、NetBIOS 和主机名读取设备名称与类型，在本机显示有响应的设备。</string>
     <key>NSBonjourServices</key>
     <array><string>_airplay._tcp</string><string>_raop._tcp</string><string>_googlecast._tcp</string><string>_androidtvremote2._tcp</string><string>_mediaremotetv._tcp</string><string>_companion-link._tcp</string><string>_rdlink._tcp</string><string>_device-info._tcp</string><string>_homekit._tcp</string><string>_hap._tcp</string><string>_smb._tcp</string><string>_afpovertcp._tcp</string><string>_workstation._tcp</string><string>_ipp._tcp</string><string>_printer._tcp</string><string>_spotify-connect._tcp</string><string>_http._tcp</string><string>_ssh._tcp</string></array>
     <key>NSLocationWhenInUseUsageDescription</key>

@@ -202,15 +202,26 @@ final class Scanner {
         queue.asyncAfter(deadline: .now() + 25, execute: stop)
     }
 
+    // Runs once per responding host, alongside its port probes: reverse DNS, NetBIOS and SSDP/UPnP.
     private func lookUpName(ip: String) {
         guard lookedUp.insert(ip).inserted else { return }
         let token = generation
-        nameLookups.async { [weak self] in
-            guard let name = ReverseDNS.lookup(ip) else { return }
+        let interface = self.interface
+        let deliver: (DeviceIdentity?) -> Void = { [weak self] identity in
+            guard let identity else { return }
             self?.queue.async {
                 guard let self, self.generation == token else { return }
-                self.emit(identity: HostIdentityUpdate(ip: ip, identity: DeviceIdentity(hostname: name)))
+                self.emit(identity: HostIdentityUpdate(ip: ip, identity: identity))
             }
+        }
+        nameLookups.async {
+            deliver(ReverseDNS.lookup(ip).map { DeviceIdentity(hostname: $0) })
+        }
+        nameLookups.async {
+            deliver(NameProbes.netBIOS(ip: ip, interface: interface))
+        }
+        nameLookups.async {
+            NameProbes.upnp(ip: ip, interface: interface, completion: deliver)
         }
     }
 

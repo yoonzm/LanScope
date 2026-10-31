@@ -388,6 +388,28 @@
         }
       }
     },
+    "媒体播放器" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Media player"
+          }
+        }
+      }
+    },
+    "媒体服务器" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Media server"
+          }
+        }
+      }
+    },
     "已停止 · 未完成" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -884,6 +906,17 @@
         }
       }
     },
+    "智能电视" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smart TV"
+          }
+        }
+      }
+    },
     "暂无已发现资产" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1199,6 +1232,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Asset type"
+          }
+        }
+      }
+    },
+    "路由器" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Router"
           }
         }
       }

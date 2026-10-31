@@ -122,6 +122,10 @@ enum DeviceSymbol {
         if kind.contains("NAS") { return "externaldrive" }
         if kind.contains("打印机") { return "printer" }
         if kind.contains("HomeKit") { return "house" }
+        if kind == "智能电视" { return "tv" }
+        if kind == "路由器" { return "wifi.router" }
+        if kind == "媒体服务器" { return "server.rack" }
+        if kind == "媒体播放器" { return "play.rectangle" }
         if kind == "Mac" || kind == "电脑" { return "desktopcomputer" }
         return "dot.radiowaves.left.and.right"
     }

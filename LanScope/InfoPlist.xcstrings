@@ -8,13 +8,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Used to probe the local network addresses you choose over Wi-Fi and to read device names and types via Bonjour and host names. Responding devices are shown only on this device."
+            "value" : "Used to probe the local network addresses you choose over Wi-Fi and to read device names and types via Bonjour, UPnP, NetBIOS and host names. Responding devices are shown only on this device."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用于通过 Wi-Fi 探测你指定的局域网地址，并通过 Bonjour 和主机名读取设备名称与类型，在本机显示有响应的设备。"
+            "value" : "用于通过 Wi-Fi 探测你指定的局域网地址，并通过 Bonjour、UPnP、NetBIOS 和主机名读取设备名称与类型，在本机显示有响应的设备。"
           }
         }
       }
