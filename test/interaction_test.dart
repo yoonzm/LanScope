@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:qimei_guanjia/kit/keyboard.dart';
 import 'package:qimei_guanjia/kit/kit.dart';
 import 'package:qimei_guanjia/mock/app_state.dart';
 import 'package:qimei_guanjia/pages/home_page.dart';
@@ -104,4 +105,46 @@ void main() {
     expect(find.text('去续费'), findsOneWidget);
     subState.value = SubState.normal;
   });
+
+  testWidgets('键盘弹出时出现「完成」栏，点击后收起；点输入框外也会收起', (t) async {
+    phone(t);
+    await t.pumpWidget(
+      MaterialApp(
+        builder: (context, child) => KeyboardDoneBar(child: child!),
+        home: const Scaffold(
+          body: Column(
+            children: [
+              TextField(
+                onTapOutside: onTapOutsideDismiss,
+                keyboardType: TextInputType.number,
+              ),
+              Spacer(),
+              Text('空白区域'),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(find.text('完成'), findsNothing);
+    await t.tap(find.byType(TextField));
+    t.view.viewInsets = const FakeViewPadding(bottom: 900);
+    addTearDown(t.view.resetViewInsets);
+    await t.pump();
+    expect(find.text('完成'), findsOneWidget);
+    expect(FocusManager.instance.primaryFocus?.hasPrimaryFocus, isTrue);
+    await t.tap(find.text('完成'));
+    await t.pump();
+    expect(find.byType(EditableText), findsOneWidget);
+    expect(focusOf(t), isFalse);
+    // 再次聚焦后点击空白处同样收起
+    await t.tap(find.byType(TextField));
+    await t.pump();
+    expect(focusOf(t), isTrue);
+    await t.tapAt(const Offset(195, 400));
+    await t.pump();
+    expect(focusOf(t), isFalse);
+  });
 }
+
+bool focusOf(WidgetTester t) =>
+    t.widget<EditableText>(find.byType(EditableText)).focusNode.hasFocus;

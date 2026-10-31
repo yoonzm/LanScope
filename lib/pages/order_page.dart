@@ -107,6 +107,8 @@ class _OrderPageState extends State<OrderPage> {
             ),
             Expanded(
               child: ListView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   _customer(context),
@@ -195,6 +197,7 @@ class _OrderPageState extends State<OrderPage> {
             maxHeight: MediaQuery.of(ctx).size.height * 0.7,
           ),
           child: ListView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
             shrinkWrap: true,
             children: [

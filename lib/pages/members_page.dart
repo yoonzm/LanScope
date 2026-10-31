@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../mock/mock_data.dart';
+import '../kit/keyboard.dart';
 import '../theme.dart';
 import '../routes.dart';
 import '../widgets/app_icon.dart';
@@ -31,6 +32,7 @@ class _MembersPageState extends State<MembersPage> {
 
     return Scaffold(
       body: ListView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         padding: EdgeInsets.fromLTRB(
           0,
           MediaQuery.of(context).padding.top + 12,
@@ -99,6 +101,7 @@ class _MembersPageState extends State<MembersPage> {
                   const SizedBox(width: 8),
                   Expanded(
                     child: TextField(
+                      onTapOutside: onTapOutsideDismiss,
                       onChanged: (v) => setState(() => query = v.trim()),
                       style: ts(14),
                       decoration: InputDecoration(

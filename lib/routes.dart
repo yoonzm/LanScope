@@ -117,7 +117,10 @@ void openRoute(BuildContext context, String name) {
           constraints: BoxConstraints(
             maxHeight: MediaQuery.of(ctx).size.height * 0.94,
           ),
-          child: SingleChildScrollView(child: genSheets[name]!(ctx)),
+          child: SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            child: genSheets[name]!(ctx),
+          ),
         ),
       ),
     );

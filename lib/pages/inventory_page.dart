@@ -23,6 +23,7 @@ class _InventoryPageState extends State<InventoryPage> {
         .toList();
     return Scaffold(
       body: ListView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         padding: EdgeInsets.fromLTRB(
           20,
           MediaQuery.of(context).padding.top + 12,

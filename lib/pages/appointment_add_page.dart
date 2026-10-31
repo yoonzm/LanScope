@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../mock/mock_data.dart';
+import '../kit/keyboard.dart';
 import '../theme.dart';
 import '../widgets/app_icon.dart';
 import '../widgets/common.dart';
@@ -80,6 +81,8 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
             const SubHeader('新建预约'),
             Expanded(
               child: ListView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   _label('客户'),
@@ -270,6 +273,7 @@ class _AppointmentAddPageState extends State<AppointmentAddPage> {
                       boxShadow: softShadow,
                     ),
                     child: TextField(
+                      onTapOutside: onTapOutsideDismiss,
                       maxLines: 2,
                       style: ts(14),
                       decoration: InputDecoration(

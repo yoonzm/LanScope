@@ -18,6 +18,8 @@ class SettingsPage extends StatelessWidget {
             const SubHeader('我的'),
             Expanded(
               child: ListView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
                 children: [
                   _profile(),

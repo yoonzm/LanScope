@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../routes.dart';
+import 'keyboard.dart';
 
 /// 页面骨架：可滚动的正常流内容 + 固定在屏幕上的浮层（底部栏、弹层等）。
 class HPage extends StatelessWidget {
@@ -37,6 +38,8 @@ class HPage extends StatelessWidget {
             children: [
               Positioned.fill(
                 child: SingleChildScrollView(
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
                   child: fixedHeight
                       ? SizedBox(height: h, width: double.infinity, child: flow)
                       : ConstrainedBox(
@@ -523,6 +526,10 @@ class HInput extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) => TextFormField(
+    onTapOutside: onTapOutsideDismiss,
+    textInputAction: obscure || maxLines == 1
+        ? TextInputAction.done
+        : TextInputAction.newline,
     initialValue: value,
     style: style,
     textAlign: align,

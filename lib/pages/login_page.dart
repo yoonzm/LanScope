@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../kit/keyboard.dart';
 import '../theme.dart';
 import '../routes.dart';
 import '../widgets/app_icon.dart';
@@ -62,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: ConstrainedBox(
           constraints: BoxConstraints(
             minHeight: MediaQuery.of(context).size.height,
@@ -219,6 +221,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Expanded(
                 child: TextField(
+                  onTapOutside: onTapOutsideDismiss,
                   controller: phone,
                   keyboardType: TextInputType.phone,
                   style: ts(15),
@@ -236,6 +239,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Expanded(
                   child: TextField(
+                    onTapOutside: onTapOutsideDismiss,
                     controller: code,
                     keyboardType: TextInputType.number,
                     style: ts(15),
@@ -271,6 +275,7 @@ class _LoginPageState extends State<LoginPage> {
           _field(
             '密码',
             TextField(
+              onTapOutside: onTapOutsideDismiss,
               controller: pwd,
               obscureText: true,
               style: ts(15),

@@ -123,6 +123,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
             ),
             Expanded(
               child: ListView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 100),
                 children: [
                   _week(),

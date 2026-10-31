@@ -32,6 +32,8 @@ class MemberDetailPage extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   _hero(),

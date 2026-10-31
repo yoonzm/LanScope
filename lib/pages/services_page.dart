@@ -48,6 +48,8 @@ class _ServicesPageState extends State<ServicesPage> {
             ),
             Expanded(
               child: ListView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                 children: [
                   for (final e in groups.entries) ...[
