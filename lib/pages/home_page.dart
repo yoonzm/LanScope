@@ -108,7 +108,11 @@ class HomePage extends StatelessWidget {
                   ),
                   child: Text(
                     trial ? '去订阅' : '去续费',
-                    style: ts(13, w: FontWeight.w600, color: trial ? Colors.white : C.btnFg),
+                    style: ts(
+                      13,
+                      w: FontWeight.w600,
+                      color: trial ? Colors.white : C.btnFg,
+                    ),
                   ),
                 ),
               ),

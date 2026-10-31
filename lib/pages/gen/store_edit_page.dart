@@ -181,17 +181,80 @@ class StoreEditPage extends StatelessWidget {
                           [
                             Expanded(
                               flex: 1,
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: hbox(
-                                  bg: dk(
-                                    context,
-                                    Color(0xFFE4E4E7),
-                                    Color(0xFF3A3A40),
+                              child: HImageSlot(
+                                imgKey: 'StoreEdit_11',
+                                radius: 14,
+                                child: AspectRatio(
+                                  aspectRatio: 1,
+                                  child: hbox(
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE4E4E7),
+                                      Color(0xFF3A3A40),
+                                    ),
+                                    radius: BorderRadius.circular(14),
+                                    child: hstack(
+                                      hrow(
+                                        [
+                                          hsvg(
+                                            dk(context, Svgs.s303, Svgs.s304),
+                                            w: 20,
+                                            h: 20,
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
+                                      ),
+                                      [
+                                        Positioned(
+                                          left: 6,
+                                          bottom: 6,
+                                          child: hbox(
+                                            bg: dk(
+                                              context,
+                                              Color(0xFF18181B),
+                                              Color(0xFF1F1F23),
+                                            ),
+                                            radius: BorderRadius.circular(8),
+                                            pad: EdgeInsets.fromLTRB(
+                                              6,
+                                              0,
+                                              6,
+                                              0,
+                                            ),
+                                            child: Text(
+                                              '封面',
+                                              style: hts(
+                                                10,
+                                                Color(0xFFFFFFFF),
+                                                w: FontWeight.w600,
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  radius: BorderRadius.circular(14),
-                                  child: hstack(
-                                    hrow(
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: HImageSlot(
+                                imgKey: 'StoreEdit_12',
+                                radius: 14,
+                                child: AspectRatio(
+                                  aspectRatio: 1,
+                                  child: hbox(
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE4E4E7),
+                                      Color(0xFF3A3A40),
+                                    ),
+                                    radius: BorderRadius.circular(14),
+                                    child: hrow(
                                       [
                                         hsvg(
                                           dk(context, Svgs.s303, Svgs.s304),
@@ -203,91 +266,46 @@ class StoreEditPage extends StatelessWidget {
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
                                     ),
-                                    [
-                                      Positioned(
-                                        left: 6,
-                                        bottom: 6,
-                                        child: hbox(
-                                          bg: dk(
-                                            context,
-                                            Color(0xFF18181B),
-                                            Color(0xFF1F1F23),
-                                          ),
-                                          radius: BorderRadius.circular(8),
-                                          pad: EdgeInsets.fromLTRB(6, 0, 6, 0),
-                                          child: Text(
-                                            '封面',
-                                            style: hts(
-                                              10,
-                                              Color(0xFFFFFFFF),
-                                              w: FontWeight.w600,
-                                              lh: 16,
-                                            ),
-                                          ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: HImageSlot(
+                                imgKey: 'StoreEdit_13',
+                                radius: 14,
+                                child: AspectRatio(
+                                  aspectRatio: 1,
+                                  child: hbox(
+                                    bg: dk(
+                                      context,
+                                      Color(0xFFE4E4E7),
+                                      Color(0xFF3A3A40),
+                                    ),
+                                    radius: BorderRadius.circular(14),
+                                    child: hrow(
+                                      [
+                                        hsvg(
+                                          dk(context, Svgs.s303, Svgs.s304),
+                                          w: 20,
+                                          h: 20,
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                      main: MainAxisAlignment.center,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 0,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                             Expanded(
                               flex: 1,
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: hbox(
-                                  bg: dk(
-                                    context,
-                                    Color(0xFFE4E4E7),
-                                    Color(0xFF3A3A40),
-                                  ),
-                                  radius: BorderRadius.circular(14),
-                                  child: hrow(
-                                    [
-                                      hsvg(
-                                        dk(context, Svgs.s303, Svgs.s304),
-                                        w: 20,
-                                        h: 20,
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: hbox(
-                                  bg: dk(
-                                    context,
-                                    Color(0xFFE4E4E7),
-                                    Color(0xFF3A3A40),
-                                  ),
-                                  radius: BorderRadius.circular(14),
-                                  child: hrow(
-                                    [
-                                      hsvg(
-                                        dk(context, Svgs.s303, Svgs.s304),
-                                        w: 20,
-                                        h: 20,
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.center,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: hTap(
-                                context,
-                                AspectRatio(
+                              child: HImageSlot(
+                                imgKey: 'StoreEdit_14',
+                                radius: 14,
+                                child: AspectRatio(
                                   aspectRatio: 1,
                                   child: hbox(
                                     bg: dk(
@@ -321,7 +339,6 @@ class StoreEditPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                label: '添加照片',
                               ),
                             ),
                           ],

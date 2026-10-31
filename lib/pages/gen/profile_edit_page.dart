@@ -107,71 +107,79 @@ class ProfileEditPage extends StatelessWidget {
                 ),
                 hcol(
                   [
-                    hbox(
-                      w: 88,
-                      h: 88,
-                      bg: Color(0xFF0485F7),
-                      radius: BorderRadius.circular(44),
-                      child: hstack(
-                        hrow(
+                    HImageSlot(
+                      imgKey: 'ProfileEdit_avatar',
+                      radius: 44,
+                      child: hbox(
+                        w: 88,
+                        h: 88,
+                        bg: Color(0xFF0485F7),
+                        radius: BorderRadius.circular(44),
+                        child: hstack(
+                          hrow(
+                            [
+                              Flexible(
+                                flex: 32,
+                                child: Text(
+                                  '陈',
+                                  style: hts(
+                                    32,
+                                    Color(0xFFFFFFFF),
+                                    w: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.center,
+                            cross: CrossAxisAlignment.center,
+                            gap: 0,
+                          ),
                           [
-                            Flexible(
-                              flex: 32,
-                              child: Text(
-                                '陈',
-                                style: hts(
-                                  32,
-                                  Color(0xFFFFFFFF),
-                                  w: FontWeight.w600,
+                            Positioned(
+                              right: -2,
+                              bottom: -2,
+                              width: 30,
+                              height: 30,
+                              child: hbox(
+                                w: 30,
+                                h: 30,
+                                bg: dk(
+                                  context,
+                                  Color(0xFF18181B),
+                                  Color(0xFF34343A),
+                                ),
+                                radius: BorderRadius.circular(15),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color(0xFFF4F4F5),
+                                    offset: Offset(0, 0),
+                                    blurRadius: 0,
+                                    spreadRadius: 3,
+                                  ),
+                                ],
+                                child: hrow(
+                                  [hsvg(Svgs.s264, w: 15, h: 15)],
+                                  main: MainAxisAlignment.center,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 0,
                                 ),
                               ),
                             ),
                           ],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
                         ),
-                        [
-                          Positioned(
-                            right: -2,
-                            bottom: -2,
-                            width: 30,
-                            height: 30,
-                            child: hbox(
-                              w: 30,
-                              h: 30,
-                              bg: dk(
-                                context,
-                                Color(0xFF18181B),
-                                Color(0xFF34343A),
-                              ),
-                              radius: BorderRadius.circular(15),
-                              shadow: [
-                                BoxShadow(
-                                  color: Color(0xFFF4F4F5),
-                                  offset: Offset(0, 0),
-                                  blurRadius: 0,
-                                  spreadRadius: 3,
-                                ),
-                              ],
-                              child: hrow(
-                                [hsvg(Svgs.s264, w: 15, h: 15)],
-                                main: MainAxisAlignment.center,
-                                cross: CrossAxisAlignment.center,
-                                gap: 0,
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
                     ),
-                    Text(
-                      '更换头像',
-                      style: hts(
-                        13,
-                        dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
-                        w: FontWeight.w500,
+                    hTap(
+                      context,
+                      Text(
+                        '更换头像',
+                        style: hts(
+                          13,
+                          dk(context, Color(0xFF1E63AE), Color(0xFF6AB4FA)),
+                          w: FontWeight.w500,
+                        ),
                       ),
+                      onTap: () => hPickImage(context, 'ProfileEdit_avatar'),
                     ),
                   ],
                   main: MainAxisAlignment.start,

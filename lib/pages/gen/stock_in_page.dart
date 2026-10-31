@@ -1704,9 +1704,11 @@ class StockInPage extends StatelessWidget {
                               gap: 0,
                             ),
                           ),
-                          hTap(
-                            context,
-                            hbox(
+                          HImageAdd(
+                            imgKey: 'StockIn_10',
+                            size: 72,
+                            radius: 16,
+                            child: hbox(
                               w: 72,
                               h: 72,
                               radius: BorderRadius.circular(16),
@@ -1727,7 +1729,6 @@ class StockInPage extends StatelessWidget {
                                 gap: 0,
                               ),
                             ),
-                            label: '拍照添加凭证',
                           ),
                         ],
                         main: MainAxisAlignment.start,

@@ -41,13 +41,18 @@ class _ThemeSheetState extends State<ThemeSheet> {
               width: 40,
               height: 5,
               decoration: BoxDecoration(
-                color: C.dark ? const Color(0xFF3F3F46) : const Color(0xFFD4D4D8),
+                color: C.dark
+                    ? const Color(0xFF3F3F46)
+                    : const Color(0xFFD4D4D8),
                 borderRadius: BorderRadius.circular(3),
               ),
             ),
           ),
           const SizedBox(height: 14),
-          Text('外观', style: ts(20, w: FontWeight.w600, color: C.ink, h: 28)),
+          Text(
+            '外观',
+            style: ts(20, w: FontWeight.w600, color: C.ink, h: 28),
+          ),
           const SizedBox(height: 4),
           Text('选择应用的显示模式', style: ts(13, color: C.muted, h: 18)),
           const SizedBox(height: 14),
@@ -57,7 +62,10 @@ class _ThemeSheetState extends State<ThemeSheet> {
               onTap: () => setState(() => _sel = o.$1),
               child: Container(
                 margin: const EdgeInsets.only(bottom: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
                 decoration: BoxDecoration(
                   color: C.inset,
                   borderRadius: BorderRadius.circular(18),
@@ -72,7 +80,15 @@ class _ThemeSheetState extends State<ThemeSheet> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(o.$2, style: ts(15, w: FontWeight.w500, color: C.ink, h: 22)),
+                          Text(
+                            o.$2,
+                            style: ts(
+                              15,
+                              w: FontWeight.w500,
+                              color: C.ink,
+                              h: 22,
+                            ),
+                          ),
                           Text(o.$3, style: ts(12, color: C.muted, h: 17)),
                         ],
                       ),
@@ -111,7 +127,10 @@ class _ThemeSheetState extends State<ThemeSheet> {
                       color: C.chip,
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Text('取消', style: ts(15, w: FontWeight.w500, color: C.ink, h: 22)),
+                    child: Text(
+                      '取消',
+                      style: ts(15, w: FontWeight.w500, color: C.ink, h: 22),
+                    ),
                   ),
                 ),
               ),
@@ -130,7 +149,10 @@ class _ThemeSheetState extends State<ThemeSheet> {
                       color: C.btn,
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Text('应用', style: ts(15, w: FontWeight.w600, color: C.btnFg, h: 22)),
+                    child: Text(
+                      '应用',
+                      style: ts(15, w: FontWeight.w600, color: C.btnFg, h: 22),
+                    ),
                   ),
                 ),
               ),

@@ -123,9 +123,12 @@ void openRoute(BuildContext context, String name) {
   final inSheet = cur != null && cur.startsWith('sheet:');
   if (inSheet) {
     nav.pop(); // 先收起当前弹层
-    if (sheetParents[cur.substring(6)] == name || (cur == 'sheet:ThemeSheet' && name == 'Settings')) return; // 点遮罩 / 取消：回到所属页面
+    if (sheetParents[cur.substring(6)] == name ||
+        (cur == 'sheet:ThemeSheet' && name == 'Settings'))
+      return; // 点遮罩 / 取消：回到所属页面
   }
   if (_allSheets.containsKey(name)) {
+    if (navTracker.has('sheet:$name')) return; // 防止连点叠出两层遮罩
     final nc = nav.context;
     showModalBottomSheet<void>(
       context: nc,

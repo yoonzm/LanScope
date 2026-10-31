@@ -9,6 +9,7 @@ class C {
   // 背景与卡片
   static Color get bg => _p(0xFFF4F4F5, 0xFF09090B);
   static Color get card => _p(0xFFFFFFFF, 0xFF18181B);
+
   /// 卡片内部的凹陷填充（输入框、未选中项）
   static Color get inset => _p(0xFFF4F4F5, 0xFF27272A);
   static Color get chip => _p(0xFFEEEEF0, 0xFF27272A);
@@ -27,7 +28,8 @@ class C {
   static Color get btnFg => _p(0xFFFFFFFF, 0xFF18181B);
   static Color get heroCard => _p(0xFF18181B, 0xFF1F1F23);
   static Color get pill => _p(0xFF18181B, 0xFF34343A);
-  static Border? get heroBorder => dark ? Border.all(color: const Color(0xFF2E2E33)) : null;
+  static Border? get heroBorder =>
+      dark ? Border.all(color: const Color(0xFF2E2E33)) : null;
   static BoxDecoration hero(double radius) => BoxDecoration(
     color: heroCard,
     borderRadius: BorderRadius.circular(radius),
@@ -53,6 +55,7 @@ class C {
   static Color get redSoft => _p(0xFFFFE4E4, 0x2EFF383C);
 
   static const gold = Color(0xFFF5D78E);
+
   /// 金色 / 反白底上的深色文字（不随主题反转）
   static const onGold = Color(0xFF18181B);
   static const dark2 = Color(0xFF27272A);
@@ -61,8 +64,16 @@ class C {
 List<BoxShadow> get softShadow => C.dark
     ? const [BoxShadow(color: Color(0xFF26262B), spreadRadius: 1)]
     : const [
-        BoxShadow(color: Color(0x0A000000), blurRadius: 4, offset: Offset(0, 2)),
-        BoxShadow(color: Color(0x0F000000), blurRadius: 2, offset: Offset(0, 1)),
+        BoxShadow(
+          color: Color(0x0A000000),
+          blurRadius: 4,
+          offset: Offset(0, 2),
+        ),
+        BoxShadow(
+          color: Color(0x0F000000),
+          blurRadius: 2,
+          offset: Offset(0, 1),
+        ),
         BoxShadow(color: Color(0x0F000000), blurRadius: 1),
       ];
 
@@ -92,9 +103,15 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
     useMaterial3: true,
     brightness: brightness,
     scaffoldBackgroundColor: bg,
-    colorScheme: ColorScheme.fromSeed(seedColor: C.primary, brightness: brightness, surface: bg),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: C.primary,
+      brightness: brightness,
+      surface: bg,
+    ),
     cardColor: dark ? const Color(0xFF18181B) : Colors.white,
-    dialogTheme: DialogThemeData(backgroundColor: dark ? const Color(0xFF18181B) : Colors.white),
+    dialogTheme: DialogThemeData(
+      backgroundColor: dark ? const Color(0xFF18181B) : Colors.white,
+    ),
     splashFactory: NoSplash.splashFactory,
     highlightColor: Colors.transparent,
     appBarTheme: AppBarTheme(backgroundColor: bg, elevation: 0),

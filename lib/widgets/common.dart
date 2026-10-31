@@ -180,9 +180,7 @@ class RoundBtn extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: C.red,
                     shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(color: C.card, spreadRadius: 2),
-                    ],
+                    boxShadow: [BoxShadow(color: C.card, spreadRadius: 2)],
                   ),
                 ),
               ),
@@ -291,9 +289,9 @@ class ChipTabs extends StatelessWidget {
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(horizontal: 14),
             decoration: BoxDecoration(
-              color: on ? C.btn : C.card,
+              color: on ? C.btn : (C.dark ? C.chip : C.card),
               borderRadius: BorderRadius.circular(16),
-              boxShadow: on ? null : softShadow,
+              boxShadow: on || C.dark ? null : softShadow,
             ),
             child: Text(
               labels[i],
@@ -339,7 +337,9 @@ class Segmented extends StatelessWidget {
                 height: 32,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: i == selected ? (C.dark ? C.stroke : Colors.white) : Colors.transparent,
+                  color: i == selected
+                      ? (C.dark ? C.stroke : Colors.white)
+                      : Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: i == selected ? softShadow : null,
                 ),
@@ -465,11 +465,7 @@ class PlaceholderPage extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
-                    Icons.construction_rounded,
-                    size: 40,
-                    color: C.faint,
-                  ),
+                  Icon(Icons.construction_rounded, size: 40, color: C.faint),
                   const SizedBox(height: 12),
                   Text('该页面稍后实现', style: ts(15, color: C.muted)),
                 ],

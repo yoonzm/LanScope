@@ -242,98 +242,106 @@ class EcoFilingPage extends StatelessWidget {
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: hcol(
                         [
-                          hbox(
-                            minH: 150,
-                            bg: Color(0xFFFAFAFA),
-                            radius: BorderRadius.circular(20),
-                            dashed: true,
-                            dashColor: dk(
-                              context,
-                              Color(0xFFD4D4D8),
-                              Color(0xFF3F3F46),
-                            ),
-                            dashWidth: 2,
-                            child: hcol(
-                              [
-                                hsvg(
-                                  dk(context, Svgs.s90, Svgs.s91),
-                                  w: 28,
-                                  h: 28,
-                                ),
-                                Text(
-                                  '上传排水许可证',
-                                  style: hts(
-                                    14,
-                                    dk(
-                                      context,
-                                      Color(0xFF3F3F46),
-                                      Color(0xFFD4D4D8),
-                                    ),
-                                    w: FontWeight.w500,
+                          HImageSlot(
+                            imgKey: 'EcoFiling_1',
+                            radius: 20,
+                            child: hbox(
+                              minH: 150,
+                              bg: Color(0xFFFAFAFA),
+                              radius: BorderRadius.circular(20),
+                              dashed: true,
+                              dashColor: dk(
+                                context,
+                                Color(0xFFD4D4D8),
+                                Color(0xFF3F3F46),
+                              ),
+                              dashWidth: 2,
+                              child: hcol(
+                                [
+                                  hsvg(
+                                    dk(context, Svgs.s90, Svgs.s91),
+                                    w: 28,
+                                    h: 28,
                                   ),
-                                ),
-                                Text(
-                                  '拍照或从相册选择 · 支持 JPG、PNG、PDF',
-                                  style: hts(
-                                    12,
-                                    dk(
-                                      context,
-                                      Color(0xFF71717A),
-                                      Color(0xFF9A9AA3),
+                                  Text(
+                                    '上传排水许可证',
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
+                                      w: FontWeight.w500,
                                     ),
                                   ),
-                                ),
-                              ],
-                              main: MainAxisAlignment.center,
-                              cross: CrossAxisAlignment.center,
-                              gap: 8,
+                                  Text(
+                                    '拍照或从相册选择 · 支持 JPG、PNG、PDF',
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 8,
+                              ),
                             ),
                           ),
-                          hbox(
-                            minH: 150,
-                            bg: Color(0xFFFAFAFA),
-                            radius: BorderRadius.circular(20),
-                            dashed: true,
-                            dashColor: dk(
-                              context,
-                              Color(0xFFD4D4D8),
-                              Color(0xFF3F3F46),
-                            ),
-                            dashWidth: 2,
-                            child: hcol(
-                              [
-                                hsvg(
-                                  dk(context, Svgs.s90, Svgs.s91),
-                                  w: 28,
-                                  h: 28,
-                                ),
-                                Text(
-                                  '上传环保备案回执',
-                                  style: hts(
-                                    14,
-                                    dk(
-                                      context,
-                                      Color(0xFF3F3F46),
-                                      Color(0xFFD4D4D8),
-                                    ),
-                                    w: FontWeight.w500,
+                          HImageSlot(
+                            imgKey: 'EcoFiling_2',
+                            radius: 20,
+                            child: hbox(
+                              minH: 150,
+                              bg: Color(0xFFFAFAFA),
+                              radius: BorderRadius.circular(20),
+                              dashed: true,
+                              dashColor: dk(
+                                context,
+                                Color(0xFFD4D4D8),
+                                Color(0xFF3F3F46),
+                              ),
+                              dashWidth: 2,
+                              child: hcol(
+                                [
+                                  hsvg(
+                                    dk(context, Svgs.s90, Svgs.s91),
+                                    w: 28,
+                                    h: 28,
                                   ),
-                                ),
-                                Text(
-                                  '拍照或从相册选择 · 支持 JPG、PNG、PDF',
-                                  style: hts(
-                                    12,
-                                    dk(
-                                      context,
-                                      Color(0xFF71717A),
-                                      Color(0xFF9A9AA3),
+                                  Text(
+                                    '上传环保备案回执',
+                                    style: hts(
+                                      14,
+                                      dk(
+                                        context,
+                                        Color(0xFF3F3F46),
+                                        Color(0xFFD4D4D8),
+                                      ),
+                                      w: FontWeight.w500,
                                     ),
                                   ),
-                                ),
-                              ],
-                              main: MainAxisAlignment.center,
-                              cross: CrossAxisAlignment.center,
-                              gap: 8,
+                                  Text(
+                                    '拍照或从相册选择 · 支持 JPG、PNG、PDF',
+                                    style: hts(
+                                      12,
+                                      dk(
+                                        context,
+                                        Color(0xFF71717A),
+                                        Color(0xFF9A9AA3),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 8,
+                              ),
                             ),
                           ),
                         ],

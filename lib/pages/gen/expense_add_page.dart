@@ -1291,9 +1291,11 @@ class ExpenseAddPage extends StatelessWidget {
                       ),
                       hrow(
                         [
-                          hTap(
-                            context,
-                            hbox(
+                          HImageAdd(
+                            imgKey: 'ExpenseAdd_3',
+                            size: 72,
+                            radius: 16,
+                            child: hbox(
                               w: 72,
                               h: 72,
                               radius: BorderRadius.circular(16),
@@ -1314,7 +1316,6 @@ class ExpenseAddPage extends StatelessWidget {
                                 gap: 0,
                               ),
                             ),
-                            label: '拍照添加凭证',
                           ),
                         ],
                         main: MainAxisAlignment.start,

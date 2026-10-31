@@ -346,9 +346,7 @@ class _MemberPickerState extends State<_MemberPicker> {
                                       height: 40,
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
-                                        color: m.level == '黑金'
-                                            ? _ink
-                                            : C.chip,
+                                        color: m.level == '黑金' ? _ink : C.chip,
                                         shape: BoxShape.circle,
                                       ),
                                       child: Text(
@@ -989,7 +987,9 @@ class _HPlateState extends State<HPlate> {
     _sheetOpen = true;
     await showModalBottomSheet<void>(
       context: context,
-      backgroundColor: C.dark ? const Color(0xFF111114) : const Color(0xFFF2F2F7),
+      backgroundColor: C.dark
+          ? const Color(0xFF111114)
+          : const Color(0xFFF2F2F7),
       barrierColor: Colors.black12,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),

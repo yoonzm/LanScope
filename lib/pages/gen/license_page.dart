@@ -98,7 +98,7 @@ class LicensePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      to: 'StoreInfo',
+                      onTap: () => hPickImage(context, 'License_license'),
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -194,32 +194,40 @@ class LicensePage extends StatelessWidget {
                         cross: CrossAxisAlignment.center,
                         gap: 10,
                       ),
-                      hbox(
-                        minH: 170,
-                        bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
-                        radius: BorderRadius.circular(18),
-                        child: hcol(
-                          [
-                            hsvg(
-                              dk(context, Svgs.s150, Svgs.s151),
-                              w: 30,
-                              h: 30,
-                            ),
-                            Text(
-                              '[营业执照照片]',
-                              style: hts(
-                                13,
-                                dk(
-                                  context,
-                                  Color(0xFFA1A1AA),
-                                  Color(0xFF80808A),
+                      HImageSlot(
+                        imgKey: 'License_license',
+                        radius: 18,
+                        child: hbox(
+                          minH: 170,
+                          bg: dk(context, Color(0xFFF4F4F5), Color(0xFF27272A)),
+                          radius: BorderRadius.circular(18),
+                          child: hcol(
+                            [
+                              hsvg(
+                                dk(context, Svgs.s150, Svgs.s151),
+                                w: 30,
+                                h: 30,
+                              ),
+                              HImageSlot(
+                                imgKey: 'License_license',
+                                radius: 16,
+                                child: Text(
+                                  '[营业执照照片]',
+                                  style: hts(
+                                    13,
+                                    dk(
+                                      context,
+                                      Color(0xFFA1A1AA),
+                                      Color(0xFF80808A),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 8,
+                            ],
+                            main: MainAxisAlignment.center,
+                            cross: CrossAxisAlignment.center,
+                            gap: 8,
+                          ),
                         ),
                       ),
                     ],

@@ -398,9 +398,7 @@ class _OrderPageState extends State<OrderPage> {
                           style: ts(
                             13,
                             w: FontWeight.w500,
-                            color: techs.contains(t)
-                                ? C.primaryInk
-                                : C.sub,
+                            color: techs.contains(t) ? C.primaryInk : C.sub,
                             h: 18,
                           ),
                         ),

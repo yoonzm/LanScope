@@ -159,26 +159,25 @@ class _MembersPageState extends State<MembersPage> {
   }
 
   Widget _summary() {
-    Widget cell(
-      String label,
-      String value,
-      String? note, {
-      Color? noteColor,
-    }) => Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(label, style: ts(12, color: C.muted, h: 16)),
-          const SizedBox(height: 2),
-          Text(value, style: ts(20, w: FontWeight.w600, h: 28, tabular: true)),
-          if (note != null)
-            Text(
-              note,
-              style: ts(11, w: FontWeight.w500, color: noteColor, h: 16),
-            ),
-        ],
-      ),
-    );
+    Widget cell(String label, String value, String? note, {Color? noteColor}) =>
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(label, style: ts(12, color: C.muted, h: 16)),
+              const SizedBox(height: 2),
+              Text(
+                value,
+                style: ts(20, w: FontWeight.w600, h: 28, tabular: true),
+              ),
+              if (note != null)
+                Text(
+                  note,
+                  style: ts(11, w: FontWeight.w500, color: noteColor, h: 16),
+                ),
+            ],
+          ),
+        );
     return AppCard(
       padding: const EdgeInsets.all(16),
       child: Row(

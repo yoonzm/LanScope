@@ -73,5 +73,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>用于拍摄凭证、证照与门店照片</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>用于从相册选择凭证、证照与门店照片</string>
 </dict>
 </plist>

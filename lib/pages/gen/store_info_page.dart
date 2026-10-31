@@ -145,55 +145,59 @@ class StoreInfoPage extends StatelessWidget {
                   clip: true,
                   child: hcol(
                     [
-                      hbox(
-                        h: 150,
-                        bg: dk(context, Color(0xFFE4E4E7), Color(0xFF3A3A40)),
-                        child: hstack(
-                          hcol(
-                            [
-                              hsvg(
-                                dk(context, Svgs.s309, Svgs.s310),
-                                w: 28,
-                                h: 28,
-                              ),
-                              Text(
-                                '[门店门头照片]',
-                                style: hts(
-                                  12,
-                                  dk(
-                                    context,
-                                    Color(0xFF52525B),
-                                    Color(0xFFA8A8B3),
+                      HImageSlot(
+                        imgKey: 'StoreInfo_15',
+                        radius: 16,
+                        child: hbox(
+                          h: 150,
+                          bg: dk(context, Color(0xFFE4E4E7), Color(0xFF3A3A40)),
+                          child: hstack(
+                            hcol(
+                              [
+                                hsvg(
+                                  dk(context, Svgs.s309, Svgs.s310),
+                                  w: 28,
+                                  h: 28,
+                                ),
+                                Text(
+                                  '[门店门头照片]',
+                                  style: hts(
+                                    12,
+                                    dk(
+                                      context,
+                                      Color(0xFF52525B),
+                                      Color(0xFFA8A8B3),
+                                    ),
+                                    lh: 16,
                                   ),
-                                  lh: 16,
+                                ),
+                              ],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 6,
+                              min: false,
+                            ),
+                            [
+                              Positioned(
+                                right: 12,
+                                bottom: 12,
+                                child: hbox(
+                                  bg: Color.fromRGBO(24, 24, 27, 0.7),
+                                  radius: BorderRadius.circular(12),
+                                  pad: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  child: Text(
+                                    '共 6 张',
+                                    style: hts(
+                                      12,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w500,
+                                      lh: 24,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
-                            main: MainAxisAlignment.center,
-                            cross: CrossAxisAlignment.center,
-                            gap: 6,
-                            min: false,
                           ),
-                          [
-                            Positioned(
-                              right: 12,
-                              bottom: 12,
-                              child: hbox(
-                                bg: Color.fromRGBO(24, 24, 27, 0.7),
-                                radius: BorderRadius.circular(12),
-                                pad: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                child: Text(
-                                  '共 6 张',
-                                  style: hts(
-                                    12,
-                                    Color(0xFFFFFFFF),
-                                    w: FontWeight.w500,
-                                    lh: 24,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                       hbox(

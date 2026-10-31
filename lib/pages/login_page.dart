@@ -170,18 +170,20 @@ class _LoginPageState extends State<LoginPage> {
     decoration: BoxDecoration(
       color: C.card,
       borderRadius: BorderRadius.circular(28),
-      boxShadow: C.dark ? softShadow : const [
-        BoxShadow(
-          color: Color(0x0F000000),
-          blurRadius: 8,
-          offset: Offset(0, 2),
-        ),
-        BoxShadow(
-          color: Color(0x14000000),
-          blurRadius: 28,
-          offset: Offset(0, 14),
-        ),
-      ],
+      boxShadow: C.dark
+          ? softShadow
+          : const [
+              BoxShadow(
+                color: Color(0x0F000000),
+                blurRadius: 8,
+                offset: Offset(0, 2),
+              ),
+              BoxShadow(
+                color: Color(0x14000000),
+                blurRadius: 28,
+                offset: Offset(0, 14),
+              ),
+            ],
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,

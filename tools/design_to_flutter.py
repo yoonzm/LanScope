@@ -842,8 +842,23 @@ class Gen:
             code = 'hfrac(%s, %s)' % (num(frac), code)
         if neg:
             code = 'NegMargin(top: %s, left: %s, child: %s)' % (num(neg.get('top', 0)), num(neg.get('left', 0)), code)
-        # 点击
-        if n.tag == 'a' or n.tag == 'button' or ('_tap' in n.attrs and not n.attrs.get('_notap')):
+        # 图片选择：拍照 / 相册（“添加”按钮、虚线上传框、照片占位）
+        pk = self.image_kind(n)
+        if pk:
+            self.img_n = getattr(self, 'img_n', 0) + 1
+            ikey = dstr('%s_%s' % (self.page_name, pk[1] if len(pk) > 1 and pk[1] else self.img_n))
+            rad = n.style.get('border-radius', '16px')
+            rv = float(re.match(r'[\d.]+', rad).group(0)) if re.match(r'[\d.]+', rad) else 16
+            if rad.endswith('%'):
+                rv = 999
+            if pk[0] == 'add':
+                sz = n.style.get('width', '72px')
+                szv = float(re.match(r'[\d.]+', sz).group(0)) if re.match(r'[\d.]+', sz) else 72
+                code = 'HImageAdd(imgKey: %s, size: %s, radius: %s, child: %s)' % (ikey, num(szv), num(rv), code)
+            else:
+                code = 'HImageSlot(imgKey: %s, radius: %s, child: %s)' % (ikey, num(rv), code)
+        elif n.tag == 'a' or n.tag == 'button' or ('_tap' in n.attrs and not n.attrs.get('_notap')) \
+                or (self.page_name == 'ProfileEdit' and re.sub(r'\s+', ' ', self.tree_text(n)).strip() == '更换头像'):
             code = self.tap(n, code)
         for pv, init, pk in reversed(pick_vars):
             if pk == 'code':
@@ -852,7 +867,32 @@ class Gen:
                 code = 'HStrHolder(initial: %s, builder: (context, %s) => %s)' % (dstr(init), pv, code)
         return code
 
+    def image_kind(self, n):
+        """返回 ('add'|'slot', key) 表示该节点是图片选择入口。"""
+        label = n.attrs.get('aria-label', '')
+        txt = re.sub(r'\s+', ' ', self.tree_text(n)).strip()
+        st = n.style
+        if label == '拍照添加凭证':
+            return ('add', None)
+        if label in ('添加照片', '照片占位', '封面照片占位', '门店照片占位'):
+            return ('slot', None)
+        if 'dashed' in (st.get('border') or '') and txt.startswith('上传'):
+            return ('slot', None)
+        if 'dashed' in (st.get('border') or '') and not txt and st.get('width', '').endswith('px') \
+                and float(st['width'][:-2]) <= 90:
+            return ('slot', None)
+        if self.page_name == 'License' and txt == '[营业执照照片]':
+            return ('slot', 'license')
+        if self.page_name == 'ProfileEdit' and n.tag == 'span' and st.get('width') == '88px' and txt.startswith('陈'):
+            return ('slot', 'avatar')
+        return None
+
     def tap(self, n, code):
+        txt0 = re.sub(r'\s+', ' ', self.tree_text(n)).strip()
+        if self.page_name == 'License' and txt0 == '重新上传':
+            return "hTap(context, %s, onTap: () => hPickImage(context, 'License_license'))" % code
+        if self.page_name == 'ProfileEdit' and txt0 == '更换头像':
+            return "hTap(context, %s, onTap: () => hPickImage(context, 'ProfileEdit_avatar'))" % code
         if n.attrs.get('_notap'):
             return code
         if '_tap' in n.attrs:

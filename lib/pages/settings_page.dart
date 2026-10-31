@@ -104,7 +104,12 @@ class SettingsPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   _group(context, '通用', [
                     _Item('shield', '账号与安全', '密码 · 登录设备', route: 'Security'),
-                    _Item('moon', '外观', themeModeLabel(appThemeMode.value), route: 'ThemeSheet'),
+                    _Item(
+                      'moon',
+                      '外观',
+                      themeModeLabel(appThemeMode.value),
+                      route: 'ThemeSheet',
+                    ),
                     _Item('mail', '数据备份', '已开启', route: 'DataBackup'),
                     _Item('trash', '清除缓存', '128 MB', route: 'ClearCache'),
                     _Item('info', '关于汽美管家', 'v1.0.0', route: 'AboutApp'),
@@ -339,7 +344,12 @@ class SettingsPage extends StatelessWidget {
                         ),
                         child: Text(
                           '切换门店',
-                          style: ts(13, w: FontWeight.w500, color: C.onGold, h: 18),
+                          style: ts(
+                            13,
+                            w: FontWeight.w500,
+                            color: C.onGold,
+                            h: 18,
+                          ),
                         ),
                       ),
                     ),

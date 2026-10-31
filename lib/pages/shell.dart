@@ -46,8 +46,7 @@ class _ShellState extends State<Shell> {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<SubState>(
       valueListenable: subState,
-      builder: (context, st, _) =>
-          st == SubState.expired
+      builder: (context, st, _) => st == SubState.expired
           ? const PopScope(canPop: false, child: PlanExpiredPage())
           : _tabs(context),
     );

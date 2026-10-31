@@ -179,7 +179,11 @@ class _StatsPageState extends State<StatsPage> {
       ),
       child: Row(
         children: [
-          AppIcon(icon, size: 18, color: dark ? (C.dark ? C.gold : Colors.white) : C.ink),
+          AppIcon(
+            icon,
+            size: 18,
+            color: dark ? (C.dark ? C.gold : Colors.white) : C.ink,
+          ),
           const SizedBox(width: 6),
           Text(
             t,
@@ -232,12 +236,7 @@ class _StatsPageState extends State<StatsPage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AppIcon(
-                    'trendUp',
-                    size: 14,
-                    color: C.greenInk,
-                    stroke: 2.2,
-                  ),
+                  AppIcon('trendUp', size: 14, color: C.greenInk, stroke: 2.2),
                   const SizedBox(width: 4),
                   Text(
                     r.delta,

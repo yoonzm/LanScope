@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../routes.dart';
 import 'keyboard.dart';
 export 'pickers.dart';
+export 'image_pick.dart';
 
 /// 页面骨架：可滚动的正常流内容 + 固定在屏幕上的浮层（底部栏、弹层等）。
 class HPage extends StatelessWidget {
@@ -131,57 +132,164 @@ void hToast(BuildContext context, String msg) {
         content: Text(msg),
         behavior: SnackBarBehavior.floating,
         duration: const Duration(milliseconds: 1400),
-        backgroundColor: dk(context, const Color(0xFF18181B), const Color(0xFF34343A)),
+        backgroundColor: dk(
+          context,
+          const Color(0xFF18181B),
+          const Color(0xFF34343A),
+        ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     );
 }
 
+bool _confirming = false;
+
+/// 确认弹窗：居中卡片，标题 + 说明 + 两个胶囊按钮。
 Future<bool> hConfirm(
   BuildContext context,
   String title, {
   String ok = '确定',
+  String cancel = '取消',
+  String? message,
   bool danger = true,
 }) async {
-  final r = await showDialog<bool>(
-    context: context,
-    builder: (ctx) => AlertDialog(
-      backgroundColor: dk(ctx, Colors.white, const Color(0xFF1F1F23)),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      title: Text(
-        title,
-        style: hts(17, dk(ctx, const Color(0xFF18181B), const Color(0xFFFAFAFA)), w: FontWeight.w600),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(ctx, false),
-          child: Text(
-            '取消',
-            style: hts(15, dk(ctx, const Color(0xFF71717A), const Color(0xFF9A9AA3)), w: FontWeight.w500),
-          ),
-        ),
-        TextButton(
-          onPressed: () => Navigator.pop(ctx, true),
-          child: Text(
-            ok,
-            style: hts(
-              15,
-              danger ? dk(ctx, const Color(0xFFA43433), const Color(0xFFFF7B7E)) : const Color(0xFF0485F7),
-              w: FontWeight.w600,
+  if (_confirming) return false;
+  _confirming = true;
+  try {
+    final r = await showDialog<bool>(
+      context: context,
+      useRootNavigator: true,
+      barrierColor: const Color(0x73000000),
+      builder: (ctx) => Dialog(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        insetPadding: const EdgeInsets.symmetric(horizontal: 36),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 18),
+          decoration: BoxDecoration(
+            color: dk(ctx, Colors.white, const Color(0xFF1F1F23)),
+            borderRadius: BorderRadius.circular(28),
+            border: dk<Border?>(
+              ctx,
+              null,
+              Border.all(color: const Color(0xFF2E2E33)),
             ),
+            boxShadow: dk(ctx, const [
+              BoxShadow(
+                color: Color(0x29000000),
+                blurRadius: 40,
+                offset: Offset(0, 16),
+              ),
+            ], const <BoxShadow>[]),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: hts(
+                  18,
+                  dk(ctx, const Color(0xFF18181B), const Color(0xFFFAFAFA)),
+                  w: FontWeight.w600,
+                  lh: 26,
+                ),
+              ),
+              if (message != null) ...[
+                const SizedBox(height: 8),
+                Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: hts(
+                    14,
+                    dk(ctx, const Color(0xFF71717A), const Color(0xFF9A9AA3)),
+                    lh: 20,
+                  ),
+                ),
+              ],
+              const SizedBox(height: 22),
+              Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(ctx).pop(false),
+                      child: Container(
+                        height: 46,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: dk(
+                            ctx,
+                            const Color(0xFFEEEEF0),
+                            const Color(0xFF34343A),
+                          ),
+                          borderRadius: BorderRadius.circular(23),
+                        ),
+                        child: Text(
+                          cancel,
+                          style: hts(
+                            15,
+                            dk(
+                              ctx,
+                              const Color(0xFF18181B),
+                              const Color(0xFFFAFAFA),
+                            ),
+                            w: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(ctx).pop(true),
+                      child: Container(
+                        height: 46,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: danger
+                              ? const Color(0xFFFF383C)
+                              : const Color(0xFF0485F7),
+                          borderRadius: BorderRadius.circular(23),
+                        ),
+                        child: Text(
+                          ok,
+                          style: hts(15, Colors.white, w: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
-      ],
-    ),
-  );
-  return r ?? false;
+      ),
+    );
+    return r ?? false;
+  } finally {
+    _confirming = false;
+  }
 }
 
 /// 删除 / 停用类操作：确认后返回上一页。
 Future<void> hConfirmPop(BuildContext context, String label) async {
-  if (await hConfirm(context, '确认$label？') && context.mounted) {
-    Navigator.of(context).maybePop();
-    hToast(context, '已完成（演示）');
+  final nav = Navigator.of(context);
+  final messenger = ScaffoldMessenger.of(context);
+  if (await hConfirm(context, '确认$label？', message: '该操作会立即生效，请再确认一次。')) {
+    // 等弹窗退场动画结束再返回，避免两层转场叠在一起留下遮罩
+    await Future<void>.delayed(const Duration(milliseconds: 240));
+    nav.maybePop();
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        const SnackBar(
+          content: Text('已完成（演示）'),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(milliseconds: 1400),
+        ),
+      );
   }
 }
 
@@ -490,7 +598,15 @@ class _HSwitchState extends State<HSwitch> {
       padding: const EdgeInsets.all(2),
       alignment: on ? Alignment.centerRight : Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: on ? widget.onColor : dk(context, widget.offColor, widget.offColor == const Color(0xFFD4D4D8) ? const Color(0xFF3F3F46) : widget.offColor),
+        color: on
+            ? widget.onColor
+            : dk(
+                context,
+                widget.offColor,
+                widget.offColor == const Color(0xFFD4D4D8)
+                    ? const Color(0xFF3F3F46)
+                    : widget.offColor,
+              ),
         borderRadius: BorderRadius.circular(14),
       ),
       child: Container(
@@ -535,7 +651,9 @@ class _HCheckState extends State<HCheck> {
       width: widget.size,
       height: widget.size,
       decoration: BoxDecoration(
-        color: on ? widget.color : dk(context, Colors.white, const Color(0xFF1F1F23)),
+        color: on
+            ? widget.color
+            : dk(context, Colors.white, const Color(0xFF1F1F23)),
         borderRadius: BorderRadius.circular(widget.size * 0.25),
         border: Border.all(
           color: on ? widget.color : const Color(0xFFA1A1AA),
