@@ -1,0 +1,542 @@
+// 设计稿转换后的页面所用的运行时组件。
+// 页面代码由 tools/design_to_flutter.py 生成，请勿手工修改 lib/pages/gen 下的文件。
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../routes.dart';
+
+/// 页面骨架：可滚动的正常流内容 + 固定在屏幕上的浮层（底部栏、弹层等）。
+class HPage extends StatelessWidget {
+  final Color bg;
+  final double height;
+  final bool fixedHeight;
+  final Widget flow;
+  final List<Widget> overlays;
+  const HPage({
+    super.key,
+    required this.bg,
+    required this.height,
+    required this.flow,
+    this.fixedHeight = false,
+    this.overlays = const [],
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: bg,
+      resizeToAvoidBottomInset: true,
+      body: LayoutBuilder(
+        builder: (context, c) {
+          final h = math.max(height, c.maxHeight);
+          return Stack(
+            children: [
+              Positioned.fill(
+                child: SingleChildScrollView(
+                  child: fixedHeight
+                      ? SizedBox(height: h, width: double.infinity, child: flow)
+                      : ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minHeight: h,
+                            minWidth: double.infinity,
+                          ),
+                          child: flow,
+                        ),
+                ),
+              ),
+              ...overlays,
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+/// 固定在屏幕底部的浮层，超出屏幕高度时内部可滚动。
+class HBottomDock extends StatelessWidget {
+  final Widget child;
+  final double left, right;
+  const HBottomDock({
+    super.key,
+    required this.child,
+    this.left = 0,
+    this.right = 0,
+  });
+  @override
+  Widget build(BuildContext context) {
+    final maxH = MediaQuery.of(context).size.height * 0.94;
+    return Positioned(
+      left: left,
+      right: right,
+      bottom: 0,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: maxH),
+        child: SingleChildScrollView(reverse: true, child: child),
+      ),
+    );
+  }
+}
+
+double bottomInset(BuildContext context, [double min = 16]) =>
+    math.max(MediaQuery.of(context).padding.bottom, min);
+
+double topInset(BuildContext context) =>
+    MediaQuery.of(context).padding.top + 12;
+
+// ───────── 点击与导航 ─────────
+Widget hTap(
+  BuildContext context,
+  Widget child, {
+  String? to,
+  bool back = false,
+  VoidCallback? onTap,
+}) {
+  return GestureDetector(
+    behavior: HitTestBehavior.opaque,
+    onTap: () {
+      if (onTap != null) {
+        onTap();
+      } else if (back) {
+        Navigator.of(context).maybePop();
+      } else if (to != null) {
+        openRoute(context, to);
+      } else {
+        HapticFeedback.selectionClick();
+      }
+    },
+    child: child,
+  );
+}
+
+// ───────── 盒子 ─────────
+Widget hbox({
+  double? w,
+  double? h,
+  double? minW,
+  double? minH,
+  double? maxW,
+  Color? bg,
+  Gradient? grad,
+  BorderRadiusGeometry? radius,
+  List<BoxShadow>? shadow,
+  BoxBorder? border,
+  EdgeInsetsGeometry? pad,
+  EdgeInsetsGeometry? margin,
+  bool clip = false,
+  double? opacity,
+  AlignmentGeometry? align,
+  bool dashed = false,
+  Color? dashColor,
+  double dashWidth = 2,
+  Widget? child,
+}) {
+  Widget r;
+  if (dashed) {
+    r = CustomPaint(
+      foregroundPainter: _DashedPainter(
+        dashColor ?? Colors.grey,
+        dashWidth,
+        radius is BorderRadius ? radius.topLeft.x : 0,
+      ),
+      child: child == null
+          ? null
+          : Container(padding: pad, alignment: align, child: child),
+    );
+    r = Container(
+      width: w,
+      height: h,
+      constraints: BoxConstraints(
+        minWidth: minW ?? 0,
+        minHeight: minH ?? 0,
+        maxWidth: maxW ?? double.infinity,
+      ),
+      margin: margin,
+      decoration: BoxDecoration(
+        color: bg,
+        gradient: grad,
+        borderRadius: radius,
+        boxShadow: shadow,
+      ),
+      clipBehavior: clip ? Clip.antiAlias : Clip.none,
+      child: r,
+    );
+  } else {
+    final hasDeco =
+        bg != null ||
+        grad != null ||
+        radius != null ||
+        shadow != null ||
+        border != null;
+    r = Container(
+      width: w,
+      height: h,
+      constraints: (minW != null || minH != null || maxW != null)
+          ? BoxConstraints(
+              minWidth: minW ?? 0,
+              minHeight: minH ?? 0,
+              maxWidth: maxW ?? double.infinity,
+            )
+          : null,
+      padding: pad,
+      margin: margin,
+      alignment: align,
+      decoration: hasDeco
+          ? BoxDecoration(
+              color: bg,
+              gradient: grad,
+              borderRadius: radius,
+              boxShadow: shadow,
+              border: border,
+            )
+          : null,
+      clipBehavior: (clip && hasDeco) ? Clip.antiAlias : Clip.none,
+      child: (clip && !hasDeco && child != null)
+          ? ClipRect(child: child)
+          : child,
+    );
+  }
+  if (opacity != null) r = Opacity(opacity: opacity, child: r);
+  return r;
+}
+
+class _DashedPainter extends CustomPainter {
+  final Color color;
+  final double width, radius;
+  _DashedPainter(this.color, this.width, this.radius);
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rr = RRect.fromRectAndRadius(
+      (Offset.zero & size).deflate(width / 2),
+      Radius.circular(radius),
+    );
+    final path = Path()..addRRect(rr);
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = width;
+    for (final m in path.computeMetrics()) {
+      double d = 0;
+      while (d < m.length) {
+        canvas.drawPath(m.extractPath(d, math.min(d + 6, m.length)), paint);
+        d += 10;
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _DashedPainter o) =>
+      o.color != color || o.width != width;
+}
+
+/// 负外边距（CSS margin-top: -22px 等）。
+class NegMargin extends SingleChildRenderObjectWidget {
+  final double top, left;
+  const NegMargin({super.key, this.top = 0, this.left = 0, super.child});
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      RenderNegMargin(top, left);
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    covariant RenderNegMargin renderObject,
+  ) {
+    renderObject
+      ..top = top
+      ..left = left;
+  }
+}
+
+class RenderNegMargin extends RenderShiftedBox {
+  double top, left;
+  RenderNegMargin(this.top, this.left) : super(null);
+  @override
+  void performLayout() {
+    final c = child;
+    if (c == null) {
+      size = constraints.smallest;
+      return;
+    }
+    c.layout(constraints, parentUsesSize: true);
+    size = constraints.constrain(
+      Size(c.size.width + left, c.size.height + top),
+    );
+    (c.parentData as BoxParentData).offset = Offset(left, top);
+  }
+}
+
+// ───────── 弹性布局 ─────────
+Widget hrow(
+  List<Widget> children, {
+  MainAxisAlignment main = MainAxisAlignment.start,
+  CrossAxisAlignment cross = CrossAxisAlignment.start,
+  double gap = 0,
+  bool intrinsic = false,
+  bool min = true,
+}) {
+  final r = Row(
+    mainAxisSize: min ? MainAxisSize.min : MainAxisSize.max,
+    mainAxisAlignment: main,
+    crossAxisAlignment: cross,
+    textBaseline: TextBaseline.alphabetic,
+    spacing: gap,
+    children: children,
+  );
+  return intrinsic ? IntrinsicHeight(child: r) : r;
+}
+
+Widget hcol(
+  List<Widget> children, {
+  MainAxisAlignment main = MainAxisAlignment.start,
+  CrossAxisAlignment cross = CrossAxisAlignment.stretch,
+  double gap = 0,
+  bool min = true,
+}) => Column(
+  mainAxisSize: min ? MainAxisSize.min : MainAxisSize.max,
+  mainAxisAlignment: main,
+  crossAxisAlignment: cross,
+  spacing: gap,
+  children: children,
+);
+
+Widget hwrap(
+  List<Widget> children, {
+  double gap = 0,
+  double rowGap = 0,
+  WrapCrossAlignment cross = WrapCrossAlignment.start,
+  WrapAlignment main = WrapAlignment.start,
+}) => Wrap(
+  spacing: gap,
+  runSpacing: rowGap,
+  crossAxisAlignment: cross,
+  alignment: main,
+  children: children,
+);
+
+/// 层叠容器：第一个子项决定尺寸，其余为绝对定位。
+Widget hstack(Widget flow, List<Widget> abs, {bool clip = false}) => Stack(
+  clipBehavior: clip ? Clip.hardEdge : Clip.none,
+  fit: StackFit.passthrough,
+  children: [flow, ...abs],
+);
+
+// ───────── 文本 ─────────
+TextStyle hts(
+  double size,
+  Color color, {
+  FontWeight w = FontWeight.w400,
+  double? lh,
+  double? ls,
+  bool tab = false,
+  TextDecoration? deco,
+}) => TextStyle(
+  fontSize: size,
+  color: color,
+  fontWeight: w,
+  height: lh != null ? lh / size : null,
+  letterSpacing: ls,
+  leadingDistribution: TextLeadingDistribution.even,
+  decoration: deco ?? TextDecoration.none,
+  fontFeatures: tab ? const [FontFeature.tabularFigures()] : null,
+);
+
+// ───────── SVG ─────────
+Widget hsvg(String markup, {double? w, double? h}) =>
+    SvgPicture.string(markup, width: w, height: h);
+
+// ───────── 表单控件 ─────────
+class HSwitch extends StatefulWidget {
+  final bool initial;
+  final Color onColor, offColor;
+  const HSwitch({
+    super.key,
+    required this.initial,
+    this.onColor = const Color(0xFF0485F7),
+    this.offColor = const Color(0xFFD4D4D8),
+  });
+  @override
+  State<HSwitch> createState() => _HSwitchState();
+}
+
+class _HSwitchState extends State<HSwitch> {
+  late bool on = widget.initial;
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+    onTap: () => setState(() => on = !on),
+    child: AnimatedContainer(
+      duration: const Duration(milliseconds: 160),
+      width: 48,
+      height: 28,
+      padding: const EdgeInsets.all(2),
+      alignment: on ? Alignment.centerRight : Alignment.centerLeft,
+      decoration: BoxDecoration(
+        color: on ? widget.onColor : widget.offColor,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Container(
+        width: 24,
+        height: 24,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x33000000),
+              blurRadius: 3,
+              offset: Offset(0, 1),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+class HCheck extends StatefulWidget {
+  final bool initial;
+  final double size;
+  final Color color;
+  const HCheck({
+    super.key,
+    required this.initial,
+    this.size = 16,
+    this.color = const Color(0xFF0485F7),
+  });
+  @override
+  State<HCheck> createState() => _HCheckState();
+}
+
+class _HCheckState extends State<HCheck> {
+  late bool on = widget.initial;
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+    onTap: () => setState(() => on = !on),
+    child: Container(
+      width: widget.size,
+      height: widget.size,
+      decoration: BoxDecoration(
+        color: on ? widget.color : Colors.white,
+        borderRadius: BorderRadius.circular(widget.size * 0.25),
+        border: Border.all(
+          color: on ? widget.color : const Color(0xFFA1A1AA),
+          width: 1.5,
+        ),
+      ),
+      child: on
+          ? Icon(
+              Icons.check_rounded,
+              size: widget.size - 3,
+              color: Colors.white,
+            )
+          : null,
+    ),
+  );
+}
+
+class HInput extends StatelessWidget {
+  final String hint;
+  final String value;
+  final TextStyle style;
+  final TextInputType? keyboard;
+  final bool obscure;
+  final int? maxLines;
+  final TextAlign align;
+  final Color hintColor;
+  const HInput({
+    super.key,
+    required this.style,
+    this.hint = '',
+    this.value = '',
+    this.keyboard,
+    this.obscure = false,
+    this.maxLines = 1,
+    this.align = TextAlign.start,
+    this.hintColor = const Color(0xFF71717A),
+  });
+  @override
+  Widget build(BuildContext context) => TextFormField(
+    initialValue: value,
+    style: style,
+    textAlign: align,
+    keyboardType: keyboard,
+    obscureText: obscure,
+    maxLines: obscure ? 1 : maxLines,
+    minLines: 1,
+    decoration: InputDecoration(
+      isCollapsed: true,
+      border: InputBorder.none,
+      hintText: hint,
+      hintStyle: style.copyWith(color: hintColor),
+    ),
+  );
+}
+
+// ───────── 单选 / 多选组 ─────────
+class SelCtrl extends ChangeNotifier {
+  final Set<int> selected;
+  final bool multi;
+  SelCtrl(this.selected, this.multi);
+  void tap(int i) {
+    if (multi) {
+      selected.contains(i) ? selected.remove(i) : selected.add(i);
+    } else {
+      selected
+        ..clear()
+        ..add(i);
+    }
+    notifyListeners();
+  }
+}
+
+class HSelHolder extends StatefulWidget {
+  /// 每组：(初始选中集合, 是否多选)
+  final List<(Set<int>, bool)> groups;
+  final Widget Function(BuildContext, List<SelCtrl>) builder;
+  const HSelHolder({super.key, required this.groups, required this.builder});
+  @override
+  State<HSelHolder> createState() => _HSelHolderState();
+}
+
+class _HSelHolderState extends State<HSelHolder> {
+  late final List<SelCtrl> ctrls = [
+    for (final g in widget.groups) SelCtrl({...g.$1}, g.$2),
+  ];
+  @override
+  Widget build(BuildContext context) => widget.builder(context, ctrls);
+}
+
+class HSel extends StatelessWidget {
+  final SelCtrl ctrl;
+  final int index;
+  final Widget on, off;
+  const HSel({
+    super.key,
+    required this.ctrl,
+    required this.index,
+    required this.on,
+    required this.off,
+  });
+  @override
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: ctrl,
+    builder: (_, _) => GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => ctrl.tap(index),
+      child: ctrl.selected.contains(index) ? on : off,
+    ),
+  );
+}
+
+/// 将原始 [Positioned] 的百分比宽度包装。
+Widget hfrac(
+  double f,
+  Widget child, {
+  AlignmentGeometry align = Alignment.centerLeft,
+}) => Align(
+  alignment: align,
+  child: FractionallySizedBox(widthFactor: f, child: child),
+);

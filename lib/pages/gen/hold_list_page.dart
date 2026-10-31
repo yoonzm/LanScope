@@ -1,0 +1,1567 @@
+import 'package:flutter/material.dart';
+
+import '../../kit/kit.dart';
+import 'svgs.dart';
+
+class HoldListPage extends StatelessWidget {
+  const HoldListPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return HPage(
+      bg: Color(0xFFF4F4F5),
+      height: 1180,
+      fixedHeight: false,
+      flow: hcol(
+        [
+          hbox(
+            pad: EdgeInsets.fromLTRB(20, topInset(context), 20, 120),
+            child: hcol(
+              [
+                hrow(
+                  [
+                    hTap(
+                      context,
+                      hbox(
+                        w: 44,
+                        h: 44,
+                        bg: Color(0xFFFFFFFF),
+                        radius: BorderRadius.circular(22),
+                        shadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.04),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.06),
+                            offset: Offset(0, 0),
+                            blurRadius: 1,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        child: hrow(
+                          [hsvg(Svgs.s0, w: 20, h: 20)],
+                          main: MainAxisAlignment.center,
+                          cross: CrossAxisAlignment.center,
+                          gap: 0,
+                        ),
+                      ),
+                      back: true,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '挂单',
+                        style: hts(
+                          17,
+                          Color(0xFF18181B),
+                          w: FontWeight.w600,
+                          lh: 24,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    hbox(w: 44),
+                  ],
+                  main: MainAxisAlignment.start,
+                  cross: CrossAxisAlignment.center,
+                  gap: 8,
+                ),
+                hbox(
+                  bg: Color(0xFF18181B),
+                  radius: BorderRadius.circular(28),
+                  pad: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                  clip: true,
+                  child: hstack(
+                    hcol(
+                      [
+                        hrow(
+                          [
+                            Expanded(
+                              flex: 1,
+                              child: hcol(
+                                [
+                                  Text(
+                                    '当前挂单',
+                                    style: hts(13, Color(0xFFA1A1AA), lh: 18),
+                                  ),
+                                  hrow(
+                                    [
+                                      Flexible(
+                                        flex: 21,
+                                        child: Text(
+                                          '4',
+                                          style: hts(
+                                            36,
+                                            Color(0xFFFAFAFA),
+                                            w: FontWeight.w600,
+                                            lh: 44,
+                                          ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 139,
+                                        child: Text(
+                                          '单 · 合计 ¥21,200.00',
+                                          style: hts(14, Color(0xFFA1A1AA)),
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.baseline,
+                                    gap: 6,
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 4,
+                              ),
+                            ),
+                          ],
+                          main: MainAxisAlignment.start,
+                          cross: CrossAxisAlignment.end,
+                          gap: 0,
+                        ),
+                        hrow(
+                          [
+                            Expanded(
+                              flex: 1,
+                              child: hbox(
+                                bg: Color(0xFF27272A),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                                child: hcol(
+                                  [
+                                    Text(
+                                      '施工中',
+                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                    ),
+                                    Text(
+                                      '2 单',
+                                      style: hts(
+                                        15,
+                                        Color(0xFFFAFAFA),
+                                        w: FontWeight.w600,
+                                        lh: 20,
+                                      ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 2,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: hbox(
+                                bg: Color(0xFF27272A),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                                child: hcol(
+                                  [
+                                    Text(
+                                      '待结算',
+                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                    ),
+                                    Text(
+                                      '1 单 · 超 20 分钟',
+                                      style: hts(
+                                        15,
+                                        Color(0xFFF5D78E),
+                                        w: FontWeight.w600,
+                                        lh: 20,
+                                      ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 2,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: hbox(
+                                bg: Color(0xFF27272A),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                                child: hcol(
+                                  [
+                                    Text(
+                                      '待施工',
+                                      style: hts(11, Color(0xFFA1A1AA), lh: 14),
+                                    ),
+                                    Text(
+                                      '1 单',
+                                      style: hts(
+                                        15,
+                                        Color(0xFFFAFAFA),
+                                        w: FontWeight.w600,
+                                        lh: 20,
+                                      ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 2,
+                                ),
+                              ),
+                            ),
+                          ],
+                          main: MainAxisAlignment.start,
+                          cross: CrossAxisAlignment.stretch,
+                          gap: 8,
+                          intrinsic: true,
+                        ),
+                      ],
+                      main: MainAxisAlignment.start,
+                      cross: CrossAxisAlignment.stretch,
+                      gap: 14,
+                    ),
+                    [
+                      Positioned(
+                        top: -90,
+                        right: -90,
+                        child: hsvg(Svgs.s2, w: 240, h: 240),
+                      ),
+                    ],
+                  ),
+                ),
+                hbox(
+                  bg: Color(0xFFE9E9EB),
+                  radius: BorderRadius.circular(20),
+                  pad: EdgeInsets.fromLTRB(4, 4, 4, 4),
+                  child: HSelHolder(
+                    groups: [
+                      ({0}, false),
+                    ],
+                    builder: (context, g1) => hrow(
+                      [
+                        Expanded(
+                          flex: 1,
+                          child: HSel(
+                            ctrl: g1[0],
+                            index: 0,
+                            on: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                bg: Color(0xFFFFFFFF),
+                                radius: BorderRadius.circular(16),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '全部 4',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF18181B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                radius: BorderRadius.circular(16),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '全部 4',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF52525B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: HSel(
+                            ctrl: g1[0],
+                            index: 1,
+                            on: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                bg: Color(0xFFFFFFFF),
+                                radius: BorderRadius.circular(16),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '待施工',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF18181B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                radius: BorderRadius.circular(16),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '待施工',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF52525B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: HSel(
+                            ctrl: g1[0],
+                            index: 2,
+                            on: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                bg: Color(0xFFFFFFFF),
+                                radius: BorderRadius.circular(16),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '施工中',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF18181B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                radius: BorderRadius.circular(16),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '施工中',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF52525B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: HSel(
+                            ctrl: g1[0],
+                            index: 3,
+                            on: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                bg: Color(0xFFFFFFFF),
+                                radius: BorderRadius.circular(16),
+                                shadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.04),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                  ),
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.06),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '待结算',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF18181B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hTap(
+                              context,
+                              hbox(
+                                h: 32,
+                                radius: BorderRadius.circular(16),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '待结算',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF52525B),
+                                      w: FontWeight.w500,
+                                      lh: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                      main: MainAxisAlignment.start,
+                      cross: CrossAxisAlignment.stretch,
+                      gap: 2,
+                      intrinsic: true,
+                    ),
+                  ),
+                ),
+                hbox(
+                  bg: Color(0xFFFFFFFF),
+                  radius: BorderRadius.circular(24),
+                  shadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 1),
+                      blurRadius: 2,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 0),
+                      blurRadius: 1,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                  pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  child: hcol(
+                    [
+                      hrow(
+                        [
+                          hbox(
+                            w: 40,
+                            h: 40,
+                            bg: Color(0xFF18181B),
+                            radius: BorderRadius.circular(20),
+                            align: Alignment(0, 0),
+                            child: Text(
+                              '王',
+                              style: hts(
+                                16,
+                                Color(0xFFF5D78E),
+                                w: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: hbox(
+                              minW: 0,
+                              child: hcol(
+                                [
+                                  hrow(
+                                    [
+                                      Flexible(
+                                        flex: 45,
+                                        child: Text(
+                                          '王建国',
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            w: FontWeight.w600,
+                                            lh: 22,
+                                          ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 38,
+                                        child: hbox(
+                                          bg: Color(0xFF18181B),
+                                          radius: BorderRadius.circular(9),
+                                          pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                          child: Text(
+                                            '黑金',
+                                            style: hts(
+                                              11,
+                                              Color(0xFFF5D78E),
+                                              w: FontWeight.w600,
+                                              lh: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 6,
+                                  ),
+                                  hbox(
+                                    bg: Color(0xFF0B5FD6),
+                                    radius: BorderRadius.circular(4),
+                                    border: Border.all(
+                                      color: Color(0xFF5B9BF0),
+                                      width: 1.5,
+                                    ),
+                                    pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
+                                    child: Text(
+                                      '沪A·8K29M',
+                                      style: hts(
+                                        11,
+                                        Color(0xFFFFFFFF),
+                                        w: FontWeight.w600,
+                                        lh: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 3,
+                              ),
+                            ),
+                          ),
+                          hbox(
+                            bg: Color(0xFFE1F0FE),
+                            radius: BorderRadius.circular(9),
+                            pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: Text(
+                              '施工中',
+                              style: hts(
+                                11,
+                                Color(0xFF1E63AE),
+                                w: FontWeight.w600,
+                                lh: 18,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 10,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              '镀晶养护 · 内饰精洗',
+                              style: hts(14, Color(0xFF3F3F46), lh: 20),
+                            ),
+                          ),
+                          Text(
+                            '¥1,422.00',
+                            style: hts(
+                              20,
+                              Color(0xFF18181B),
+                              w: FontWeight.w600,
+                              lh: 26,
+                              tab: true,
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.end,
+                        gap: 12,
+                      ),
+                      hrow(
+                        [
+                          hsvg(Svgs.s60, w: 14, h: 14),
+                          Flexible(
+                            flex: 261,
+                            child: Text(
+                              '老周 · 3 号工位 · 14:02 挂单 · 预计 17:00 完工',
+                              style: hts(12, Color(0xFF71717A), lh: 16),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 6,
+                      ),
+                      hbox(
+                        bg: Color(0xFFFDF8EC),
+                        radius: BorderRadius.circular(12),
+                        pad: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                        child: Text(
+                          '备注：客户去开会，17:00 取车',
+                          style: hts(12, Color(0xFF855F2E), lh: 18),
+                        ),
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                h: 42,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(21),
+                                child: Align(
+                                  alignment: Alignment(0, 0),
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '取单结算',
+                                    style: hts(
+                                      14,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w600,
+                                      lh: 20,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              to: 'Order',
+                            ),
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              h: 42,
+                              bg: Color(0xFFEEEEF0),
+                              radius: BorderRadius.circular(21),
+                              pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                              child: Align(
+                                alignment: Alignment(0, 0),
+                                widthFactor: 1,
+                                child: Text(
+                                  '加项',
+                                  style: hts(
+                                    14,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            to: 'Order',
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              w: 42,
+                              h: 42,
+                              bg: Color(0xFFFFE1E2),
+                              radius: BorderRadius.circular(21),
+                              child: hrow(
+                                [hsvg(Svgs.s61, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.stretch,
+                        gap: 8,
+                        intrinsic: true,
+                      ),
+                    ],
+                    main: MainAxisAlignment.start,
+                    cross: CrossAxisAlignment.stretch,
+                    gap: 12,
+                  ),
+                ),
+                hbox(
+                  bg: Color(0xFFFFFFFF),
+                  radius: BorderRadius.circular(24),
+                  shadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 1),
+                      blurRadius: 2,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 0),
+                      blurRadius: 1,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                  pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  child: hcol(
+                    [
+                      hrow(
+                        [
+                          hbox(
+                            w: 40,
+                            h: 40,
+                            bg: Color(0xFFF3E2B3),
+                            radius: BorderRadius.circular(20),
+                            align: Alignment(0, 0),
+                            child: Text(
+                              '赵',
+                              style: hts(
+                                16,
+                                Color(0xFF3D2B0E),
+                                w: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: hbox(
+                              minW: 0,
+                              child: hcol(
+                                [
+                                  hrow(
+                                    [
+                                      Flexible(
+                                        flex: 45,
+                                        child: Text(
+                                          '赵先生',
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            w: FontWeight.w600,
+                                            lh: 22,
+                                          ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 38,
+                                        child: hbox(
+                                          bg: Color(0xFFF5D78E),
+                                          radius: BorderRadius.circular(9),
+                                          pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                          child: Text(
+                                            '金卡',
+                                            style: hts(
+                                              11,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 6,
+                                  ),
+                                  hbox(
+                                    bg: Color(0xFFD7F5E1),
+                                    radius: BorderRadius.circular(4),
+                                    border: Border.all(
+                                      color: Color(0xFF86D9A4),
+                                      width: 1.5,
+                                    ),
+                                    pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
+                                    child: Text(
+                                      '沪AD·61207',
+                                      style: hts(
+                                        11,
+                                        Color(0xFF14532D),
+                                        w: FontWeight.w600,
+                                        lh: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 3,
+                              ),
+                            ),
+                          ),
+                          hbox(
+                            bg: Color(0xFFE1F0FE),
+                            radius: BorderRadius.circular(9),
+                            pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: Text(
+                              '施工中',
+                              style: hts(
+                                11,
+                                Color(0xFF1E63AE),
+                                w: FontWeight.w600,
+                                lh: 18,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 10,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              '全车隐形车衣',
+                              style: hts(14, Color(0xFF3F3F46), lh: 20),
+                            ),
+                          ),
+                          Text(
+                            '¥18,800.00',
+                            style: hts(
+                              20,
+                              Color(0xFF18181B),
+                              w: FontWeight.w600,
+                              lh: 26,
+                              tab: true,
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.end,
+                        gap: 12,
+                      ),
+                      hrow(
+                        [
+                          hsvg(Svgs.s60, w: 14, h: 14),
+                          Flexible(
+                            flex: 290,
+                            child: Text(
+                              '张师傅 · 贴膜间 · 预计 明天 18:00 · 昨天 16:20 挂单',
+                              style: hts(12, Color(0xFF71717A), lh: 16),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 6,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                h: 42,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(21),
+                                child: Align(
+                                  alignment: Alignment(0, 0),
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '取单结算',
+                                    style: hts(
+                                      14,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w600,
+                                      lh: 20,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              to: 'Order',
+                            ),
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              h: 42,
+                              bg: Color(0xFFEEEEF0),
+                              radius: BorderRadius.circular(21),
+                              pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                              child: Align(
+                                alignment: Alignment(0, 0),
+                                widthFactor: 1,
+                                child: Text(
+                                  '加项',
+                                  style: hts(
+                                    14,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            to: 'Order',
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              w: 42,
+                              h: 42,
+                              bg: Color(0xFFFFE1E2),
+                              radius: BorderRadius.circular(21),
+                              child: hrow(
+                                [hsvg(Svgs.s61, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.stretch,
+                        gap: 8,
+                        intrinsic: true,
+                      ),
+                    ],
+                    main: MainAxisAlignment.start,
+                    cross: CrossAxisAlignment.stretch,
+                    gap: 12,
+                  ),
+                ),
+                hbox(
+                  bg: Color(0xFFFFFFFF),
+                  radius: BorderRadius.circular(24),
+                  shadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 1),
+                      blurRadius: 2,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 0),
+                      blurRadius: 1,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                  pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  child: hcol(
+                    [
+                      hrow(
+                        [
+                          hbox(
+                            w: 40,
+                            h: 40,
+                            bg: Color(0xFFE1F0FE),
+                            radius: BorderRadius.circular(20),
+                            align: Alignment(0, 0),
+                            child: Text(
+                              '李',
+                              style: hts(
+                                16,
+                                Color(0xFF1E63AE),
+                                w: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: hbox(
+                              minW: 0,
+                              child: hcol(
+                                [
+                                  hrow(
+                                    [
+                                      Flexible(
+                                        flex: 45,
+                                        child: Text(
+                                          '李女士',
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            w: FontWeight.w600,
+                                            lh: 22,
+                                          ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 38,
+                                        child: hbox(
+                                          bg: Color(0xFFF5D78E),
+                                          radius: BorderRadius.circular(9),
+                                          pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                          child: Text(
+                                            '金卡',
+                                            style: hts(
+                                              11,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 6,
+                                  ),
+                                  hbox(
+                                    bg: Color(0xFF0B5FD6),
+                                    radius: BorderRadius.circular(4),
+                                    border: Border.all(
+                                      color: Color(0xFF5B9BF0),
+                                      width: 1.5,
+                                    ),
+                                    pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
+                                    child: Text(
+                                      '沪B·2C519',
+                                      style: hts(
+                                        11,
+                                        Color(0xFFFFFFFF),
+                                        w: FontWeight.w600,
+                                        lh: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 3,
+                              ),
+                            ),
+                          ),
+                          hbox(
+                            bg: Color(0xFFFDEFD6),
+                            radius: BorderRadius.circular(9),
+                            pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: Text(
+                              '待结算',
+                              style: hts(
+                                11,
+                                Color(0xFF855F2E),
+                                w: FontWeight.w600,
+                                lh: 18,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 10,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              '全车精洗 · 打蜡',
+                              style: hts(14, Color(0xFF3F3F46), lh: 20),
+                            ),
+                          ),
+                          Text(
+                            '¥880.00',
+                            style: hts(
+                              20,
+                              Color(0xFF18181B),
+                              w: FontWeight.w600,
+                              lh: 26,
+                              tab: true,
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.end,
+                        gap: 12,
+                      ),
+                      hrow(
+                        [
+                          hsvg(Svgs.s60, w: 14, h: 14),
+                          Flexible(
+                            flex: 229,
+                            child: Text(
+                              '小陈 · 已完工，等待 25 分钟 · 14:16 挂单',
+                              style: hts(12, Color(0xFF71717A), lh: 16),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 6,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                h: 42,
+                                bg: Color(0xFF0485F7),
+                                radius: BorderRadius.circular(21),
+                                child: Align(
+                                  alignment: Alignment(0, 0),
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '取单结算',
+                                    style: hts(
+                                      14,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w600,
+                                      lh: 20,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              to: 'Order',
+                            ),
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              h: 42,
+                              bg: Color(0xFFEEEEF0),
+                              radius: BorderRadius.circular(21),
+                              pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                              child: Align(
+                                alignment: Alignment(0, 0),
+                                widthFactor: 1,
+                                child: Text(
+                                  '提醒取车',
+                                  style: hts(
+                                    14,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            to: 'Order',
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              w: 42,
+                              h: 42,
+                              bg: Color(0xFFFFE1E2),
+                              radius: BorderRadius.circular(21),
+                              child: hrow(
+                                [hsvg(Svgs.s61, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.stretch,
+                        gap: 8,
+                        intrinsic: true,
+                      ),
+                    ],
+                    main: MainAxisAlignment.start,
+                    cross: CrossAxisAlignment.stretch,
+                    gap: 12,
+                  ),
+                ),
+                hbox(
+                  bg: Color(0xFFFFFFFF),
+                  radius: BorderRadius.circular(24),
+                  shadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 1),
+                      blurRadius: 2,
+                      spreadRadius: 0,
+                    ),
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.06),
+                      offset: Offset(0, 0),
+                      blurRadius: 1,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                  pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  child: hcol(
+                    [
+                      hrow(
+                        [
+                          hbox(
+                            w: 40,
+                            h: 40,
+                            bg: Color(0xFFEEEEF0),
+                            radius: BorderRadius.circular(20),
+                            align: Alignment(0, 0),
+                            child: Text(
+                              '客',
+                              style: hts(
+                                16,
+                                Color(0xFF3F3F46),
+                                w: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: hbox(
+                              minW: 0,
+                              child: hcol(
+                                [
+                                  hrow(
+                                    [
+                                      Flexible(
+                                        flex: 30,
+                                        child: Text(
+                                          '散客',
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            w: FontWeight.w600,
+                                            lh: 22,
+                                          ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 49,
+                                        child: hbox(
+                                          bg: Color(0xFFEEEEF0),
+                                          radius: BorderRadius.circular(9),
+                                          pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                          child: Text(
+                                            '非会员',
+                                            style: hts(
+                                              11,
+                                              Color(0xFF52525B),
+                                              w: FontWeight.w600,
+                                              lh: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 6,
+                                  ),
+                                  hbox(
+                                    bg: Color(0xFF0B5FD6),
+                                    radius: BorderRadius.circular(4),
+                                    border: Border.all(
+                                      color: Color(0xFF5B9BF0),
+                                      width: 1.5,
+                                    ),
+                                    pad: EdgeInsets.fromLTRB(5, 1, 5, 1),
+                                    child: Text(
+                                      '苏K·5F218',
+                                      style: hts(
+                                        11,
+                                        Color(0xFFFFFFFF),
+                                        w: FontWeight.w600,
+                                        lh: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 3,
+                              ),
+                            ),
+                          ),
+                          hbox(
+                            bg: Color(0xFFEEEEF0),
+                            radius: BorderRadius.circular(9),
+                            pad: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: Text(
+                              '待施工',
+                              style: hts(
+                                11,
+                                Color(0xFF52525B),
+                                w: FontWeight.w600,
+                                lh: 18,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 10,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              '基础洗车 · 轮毂清洁',
+                              style: hts(14, Color(0xFF3F3F46), lh: 20),
+                            ),
+                          ),
+                          Text(
+                            '¥98.00',
+                            style: hts(
+                              20,
+                              Color(0xFF18181B),
+                              w: FontWeight.w600,
+                              lh: 26,
+                              tab: true,
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.end,
+                        gap: 12,
+                      ),
+                      hrow(
+                        [
+                          hsvg(Svgs.s60, w: 14, h: 14),
+                          Flexible(
+                            flex: 164,
+                            child: Text(
+                              '预约 15:30 到店 · 13:40 挂单',
+                              style: hts(12, Color(0xFF71717A), lh: 16),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.center,
+                        gap: 6,
+                      ),
+                      hrow(
+                        [
+                          Expanded(
+                            flex: 1,
+                            child: hTap(
+                              context,
+                              hbox(
+                                h: 42,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(21),
+                                child: Align(
+                                  alignment: Alignment(0, 0),
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '取单结算',
+                                    style: hts(
+                                      14,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w600,
+                                      lh: 20,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              to: 'Order',
+                            ),
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              h: 42,
+                              bg: Color(0xFFEEEEF0),
+                              radius: BorderRadius.circular(21),
+                              pad: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                              child: Align(
+                                alignment: Alignment(0, 0),
+                                widthFactor: 1,
+                                child: Text(
+                                  '加项',
+                                  style: hts(
+                                    14,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            to: 'Order',
+                          ),
+                          hTap(
+                            context,
+                            hbox(
+                              w: 42,
+                              h: 42,
+                              bg: Color(0xFFFFE1E2),
+                              radius: BorderRadius.circular(21),
+                              child: hrow(
+                                [hsvg(Svgs.s61, w: 18, h: 18)],
+                                main: MainAxisAlignment.center,
+                                cross: CrossAxisAlignment.center,
+                                gap: 0,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.start,
+                        cross: CrossAxisAlignment.stretch,
+                        gap: 8,
+                        intrinsic: true,
+                      ),
+                    ],
+                    main: MainAxisAlignment.start,
+                    cross: CrossAxisAlignment.stretch,
+                    gap: 12,
+                  ),
+                ),
+                Text(
+                  '挂单超过 24 小时未处理，将提醒店长',
+                  style: hts(12, Color(0xFFA1A1AA), lh: 18),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+              main: MainAxisAlignment.start,
+              cross: CrossAxisAlignment.stretch,
+              gap: 16,
+            ),
+          ),
+        ],
+        main: MainAxisAlignment.start,
+        cross: CrossAxisAlignment.stretch,
+        gap: 0,
+      ),
+      overlays: [
+        HBottomDock(
+          child: hbox(
+            bg: Color.fromRGBO(255, 255, 255, 0.94),
+            shadow: [
+              BoxShadow(
+                color: Color(0xFFE4E4E7),
+                offset: Offset(0, -1),
+                blurRadius: 0,
+                spreadRadius: 0,
+              ),
+            ],
+            pad: EdgeInsets.fromLTRB(20, 12, 20, bottomInset(context)),
+            child: hrow(
+              [
+                Expanded(
+                  flex: 1,
+                  child: hTap(
+                    context,
+                    hbox(
+                      h: 50,
+                      bg: Color(0xFF18181B),
+                      radius: BorderRadius.circular(25),
+                      child: hrow(
+                        [
+                          hsvg(Svgs.s6, w: 18, h: 18),
+                          Flexible(
+                            flex: 60,
+                            child: Text(
+                              '新开一单',
+                              style: hts(
+                                15,
+                                Color(0xFFFFFFFF),
+                                w: FontWeight.w600,
+                                lh: 22,
+                              ),
+                            ),
+                          ),
+                        ],
+                        main: MainAxisAlignment.center,
+                        cross: CrossAxisAlignment.center,
+                        gap: 6,
+                      ),
+                    ),
+                    to: 'Order',
+                  ),
+                ),
+              ],
+              main: MainAxisAlignment.start,
+              cross: CrossAxisAlignment.center,
+              gap: 10,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -17,8 +17,15 @@ String money(num v, {int digits = 0}) {
 class Member {
   final String name, level, plate, lastVisit, amount, amountNote;
   final Set<String> tags;
-  const Member(this.name, this.level, this.plate, this.lastVisit, this.amount,
-      this.amountNote, this.tags);
+  const Member(
+    this.name,
+    this.level,
+    this.plate,
+    this.lastVisit,
+    this.amount,
+    this.amountNote,
+    this.tags,
+  );
 }
 
 const members = <Member>[
@@ -71,24 +78,80 @@ enum ApptStatus { waiting, arrived, late, done }
 class Appointment {
   final String time, duration, plate, customer, level, service, station;
   ApptStatus status;
-  Appointment(this.time, this.duration, this.plate, this.customer, this.level,
-      this.service, this.station, this.status);
+  Appointment(
+    this.time,
+    this.duration,
+    this.plate,
+    this.customer,
+    this.level,
+    this.service,
+    this.station,
+    this.status,
+  );
 }
 
 class AppointmentStore extends ChangeNotifier {
   final List<Appointment> items = [
-    Appointment('15:30', '1.5 小时', '苏K·5F218', '散客', '散客', '基础洗车 · 轮毂清洁',
-        '2 号工位 · 小陈', ApptStatus.arrived),
-    Appointment('16:30', '1 小时', '沪A·2M118', '孙先生', '金卡', '全车精洗',
-        '4 号工位 · 已超时 17 分钟', ApptStatus.late),
-    Appointment('17:30', '1.5 小时', '沪C·9H318', '刘先生', '金卡', '车身打蜡',
-        '4 号工位 · 老周', ApptStatus.waiting),
-    Appointment('18:00', '1.5 小时', '沪A·6Q552', '周女士', '黑金', '内饰深度清洁',
-        '1 号工位 · 小陈', ApptStatus.waiting),
-    Appointment('09:30', '1 小时', '沪B·3D820', '赵女士', '金卡', '基础洗车',
-        '1 号工位 · 小陈', ApptStatus.done),
-    Appointment('11:00', '1.5 小时', '沪A·7L305', '陈女士', '金卡', '内饰精洗',
-        '2 号工位 · 老周', ApptStatus.done),
+    Appointment(
+      '15:30',
+      '1.5 小时',
+      '苏K·5F218',
+      '散客',
+      '散客',
+      '基础洗车 · 轮毂清洁',
+      '2 号工位 · 小陈',
+      ApptStatus.arrived,
+    ),
+    Appointment(
+      '16:30',
+      '1 小时',
+      '沪A·2M118',
+      '孙先生',
+      '金卡',
+      '全车精洗',
+      '4 号工位 · 已超时 17 分钟',
+      ApptStatus.late,
+    ),
+    Appointment(
+      '17:30',
+      '1.5 小时',
+      '沪C·9H318',
+      '刘先生',
+      '金卡',
+      '车身打蜡',
+      '4 号工位 · 老周',
+      ApptStatus.waiting,
+    ),
+    Appointment(
+      '18:00',
+      '1.5 小时',
+      '沪A·6Q552',
+      '周女士',
+      '黑金',
+      '内饰深度清洁',
+      '1 号工位 · 小陈',
+      ApptStatus.waiting,
+    ),
+    Appointment(
+      '09:30',
+      '1 小时',
+      '沪B·3D820',
+      '赵女士',
+      '金卡',
+      '基础洗车',
+      '1 号工位 · 小陈',
+      ApptStatus.done,
+    ),
+    Appointment(
+      '11:00',
+      '1.5 小时',
+      '沪A·7L305',
+      '陈女士',
+      '金卡',
+      '内饰精洗',
+      '2 号工位 · 老周',
+      ApptStatus.done,
+    ),
   ];
 
   void add(Appointment a) {
@@ -125,22 +188,50 @@ class ServiceItem {
   final int price;
   final String memberNote;
   final bool offline;
-  const ServiceItem(this.category, this.name, this.desc, this.price,
-      {this.tag = '', this.memberNote = '', this.offline = false});
+  const ServiceItem(
+    this.category,
+    this.name,
+    this.desc,
+    this.price, {
+    this.tag = '',
+    this.memberNote = '',
+    this.offline = false,
+  });
 }
 
 const services = <ServiceItem>[
-  ServiceItem('镀晶镀膜', '全车镀晶 · 9H 陶瓷', '工时 4h · 提成 8% · 绑定耗材 2 项', 1580,
-      memberNote: '会员低至 ¥1,422'),
-  ServiceItem('镀晶镀膜', '石墨烯镀膜', '工时 6h · 提成 8%', 2680,
-      memberNote: '会员低至 ¥2,412'),
-  ServiceItem('镀晶镀膜', '漆面抛光', '工时 3h · 提成 ¥60/单', 680,
-      memberNote: '会员低至 ¥612'),
-  ServiceItem('洗车', '精致洗车', '工时 40min · 提成 ¥8/单', 68,
-      tag: '可次卡抵扣', memberNote: '本月 412 单'),
+  ServiceItem(
+    '镀晶镀膜',
+    '全车镀晶 · 9H 陶瓷',
+    '工时 4h · 提成 8% · 绑定耗材 2 项',
+    1580,
+    memberNote: '会员低至 ¥1,422',
+  ),
+  ServiceItem(
+    '镀晶镀膜',
+    '石墨烯镀膜',
+    '工时 6h · 提成 8%',
+    2680,
+    memberNote: '会员低至 ¥2,412',
+  ),
+  ServiceItem('镀晶镀膜', '漆面抛光', '工时 3h · 提成 ¥60/单', 680, memberNote: '会员低至 ¥612'),
+  ServiceItem(
+    '洗车',
+    '精致洗车',
+    '工时 40min · 提成 ¥8/单',
+    68,
+    tag: '可次卡抵扣',
+    memberNote: '本月 412 单',
+  ),
   ServiceItem('洗车', '快速洗车', '工时 20min · 提成 ¥4/单', 38, memberNote: '本月 268 单'),
   ServiceItem('洗车', '发动机舱清洗', '工时 30min', 120, tag: '已下架', offline: true),
-  ServiceItem('贴膜', '全车隐形车衣', '工时 2 天 · 提成 6%', 18800, memberNote: '会员低至 ¥16,920'),
+  ServiceItem(
+    '贴膜',
+    '全车隐形车衣',
+    '工时 2 天 · 提成 6%',
+    18800,
+    memberNote: '会员低至 ¥16,920',
+  ),
   ServiceItem('内饰', '内饰深度清洁', '工时 2h · 提成 ¥40/单', 380, memberNote: '会员低至 ¥342'),
 ];
 
@@ -164,9 +255,37 @@ const products = <Product>[
 
 // ───────── 统计 ─────────
 const monthDaily = <double>[
-  7.2, 8.1, 6.4, 9.8, 10.5, 12.9, 8.6, 9.2, 10.1, 11.4, 9.7, 13.2, 14.8, 10.3,
-  9.1, 8.8, 10.9, 12.2, 11.7, 13.9, 15.2, 12.4, 9.6, 10.8, 11.3, 12.7, 14.1,
-  13.4, 11.9, 12.1, 12.86,
+  7.2,
+  8.1,
+  6.4,
+  9.8,
+  10.5,
+  12.9,
+  8.6,
+  9.2,
+  10.1,
+  11.4,
+  9.7,
+  13.2,
+  14.8,
+  10.3,
+  9.1,
+  8.8,
+  10.9,
+  12.2,
+  11.7,
+  13.9,
+  15.2,
+  12.4,
+  9.6,
+  10.8,
+  11.3,
+  12.7,
+  14.1,
+  13.4,
+  11.9,
+  12.1,
+  12.86,
 ];
 
 class Share {
@@ -187,13 +306,39 @@ class WorkJob {
   final String plate, car, station, service, eta, tech;
   final int progress;
   final bool blue;
-  const WorkJob(this.plate, this.car, this.station, this.service, this.eta,
-      this.tech, this.progress, this.blue);
+  const WorkJob(
+    this.plate,
+    this.car,
+    this.station,
+    this.service,
+    this.eta,
+    this.tech,
+    this.progress,
+    this.blue,
+  );
 }
 
 const workJobs = <WorkJob>[
-  WorkJob('沪A·8K29M', '宝马 5系 · 黑', '3 号工位', '镀晶养护 · 内饰精洗', '预计 17:00', '周', 65, true),
-  WorkJob('沪AD·61207', '特斯拉 Model Y · 白', '贴膜间', '全车隐形车衣', '预计 明天 18:00', '张', 30, false),
+  WorkJob(
+    '沪A·8K29M',
+    '宝马 5系 · 黑',
+    '3 号工位',
+    '镀晶养护 · 内饰精洗',
+    '预计 17:00',
+    '周',
+    65,
+    true,
+  ),
+  WorkJob(
+    '沪AD·61207',
+    '特斯拉 Model Y · 白',
+    '贴膜间',
+    '全车隐形车衣',
+    '预计 明天 18:00',
+    '张',
+    30,
+    false,
+  ),
 ];
 
 class OrderService {

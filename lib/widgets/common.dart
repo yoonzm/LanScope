@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../theme.dart';
+import 'app_icon.dart';
 
 /// 白色圆角卡片
 class AppCard extends StatelessWidget {
@@ -32,7 +34,10 @@ class AppCard extends StatelessWidget {
     );
     if (onTap == null) return box;
     return GestureDetector(
-        behavior: HitTestBehavior.opaque, onTap: onTap, child: box);
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: box,
+    );
   }
 }
 
@@ -40,13 +45,25 @@ class Pill extends StatelessWidget {
   final String text;
   final Color bg, fg;
   final double size;
-  const Pill(this.text, {super.key, required this.bg, required this.fg, this.size = 12});
+  const Pill(
+    this.text, {
+    super.key,
+    required this.bg,
+    required this.fg,
+    this.size = 12,
+  });
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-        decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(10)),
-        child: Text(text, style: ts(size, w: FontWeight.w500, color: fg, h: 16)),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+    decoration: BoxDecoration(
+      color: bg,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Text(
+      text,
+      style: ts(size, w: FontWeight.w500, color: fg, h: 16),
+    ),
+  );
 }
 
 /// 会员等级徽标
@@ -75,76 +92,102 @@ class PlateTag extends StatelessWidget {
   const PlateTag(this.text, {super.key, this.green = false});
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-        decoration: BoxDecoration(
-          color: green ? const Color(0xFFD7F5E1) : C.plate,
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(
-              color: green ? const Color(0xFF86D9A4) : const Color(0xFF5B9BF0),
-              width: 1.5),
-        ),
-        child: Text(text,
-            style: ts(13,
-                w: FontWeight.w600,
-                color: green ? const Color(0xFF14532D) : Colors.white,
-                spacing: 0.5,
-                h: 18)),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+    decoration: BoxDecoration(
+      color: green ? const Color(0xFFD7F5E1) : C.plate,
+      borderRadius: BorderRadius.circular(6),
+      border: Border.all(
+        color: green ? const Color(0xFF86D9A4) : const Color(0xFF5B9BF0),
+        width: 1.5,
+      ),
+    ),
+    child: Text(
+      text,
+      style: ts(
+        13,
+        w: FontWeight.w600,
+        color: green ? const Color(0xFF14532D) : Colors.white,
+        spacing: 0.5,
+        h: 18,
+      ),
+    ),
+  );
 }
 
 class Avatar extends StatelessWidget {
   final String text;
   final double size;
   final Color bg, fg;
-  const Avatar(this.text,
-      {super.key, this.size = 44, this.bg = C.ink, this.fg = C.gold});
+  const Avatar(
+    this.text, {
+    super.key,
+    this.size = 44,
+    this.bg = C.ink,
+    this.fg = C.gold,
+  });
   @override
   Widget build(BuildContext context) => Container(
-        width: size,
-        height: size,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
-        child: Text(text, style: ts(size * 0.36, w: FontWeight.w600, color: fg)),
-      );
+    width: size,
+    height: size,
+    alignment: Alignment.center,
+    decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
+    child: Text(
+      text,
+      style: ts(size * 0.36, w: FontWeight.w600, color: fg),
+    ),
+  );
 }
 
 /// 白色圆形图标按钮（44）
 class RoundBtn extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String label;
   final VoidCallback? onTap;
   final bool dot;
-  const RoundBtn(this.icon, {super.key, required this.label, this.onTap, this.dot = false});
+  const RoundBtn(
+    this.icon, {
+    super.key,
+    required this.label,
+    this.onTap,
+    this.dot = false,
+  });
   @override
   Widget build(BuildContext context) => Semantics(
-        button: true,
-        label: label,
-        child: GestureDetector(
-          onTap: onTap,
-          child: Container(
-            width: 44,
-            height: 44,
-            decoration: const BoxDecoration(
-                color: Colors.white, shape: BoxShape.circle, boxShadow: softShadow),
-            child: Stack(alignment: Alignment.center, children: [
-              Icon(icon, size: 20, color: C.ink),
-              if (dot)
-                Positioned(
-                  top: 11,
-                  right: 12,
-                  child: Container(
-                    width: 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                        color: C.red,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 2)),
+    button: true,
+    label: label,
+    child: GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 44,
+        height: 44,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: softShadow,
+        ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            AppIcon(icon, size: 20, color: C.ink),
+            if (dot)
+              Positioned(
+                top: 11,
+                right: 12,
+                child: Container(
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: C.red,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2),
                   ),
                 ),
-            ]),
-          ),
+              ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
 
 /// 二级页面顶部栏
@@ -154,38 +197,68 @@ class SubHeader extends StatelessWidget {
   const SubHeader(this.title, {super.key, this.trailing});
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
-        child: Row(children: [
-          RoundBtn(Icons.chevron_left_rounded,
-              label: '返回', onTap: () => Navigator.of(context).maybePop()),
-          Expanded(
-              child: Text(title,
-                  textAlign: TextAlign.center,
-                  style: ts(17, w: FontWeight.w600, h: 24))),
-          SizedBox(width: 44, child: trailing),
-        ]),
-      );
+    padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+    child: Row(
+      children: [
+        RoundBtn(
+          'chevronLeft',
+          label: '返回',
+          onTap: () => Navigator.of(context).maybePop(),
+        ),
+        Expanded(
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: ts(17, w: FontWeight.w600, h: 24),
+          ),
+        ),
+        SizedBox(width: 44, child: trailing),
+      ],
+    ),
+  );
 }
 
 class SectionTitle extends StatelessWidget {
   final String title;
   final String? sub, action;
   final VoidCallback? onAction;
-  const SectionTitle(this.title, {super.key, this.sub, this.action, this.onAction});
+  const SectionTitle(
+    this.title, {
+    super.key,
+    this.sub,
+    this.action,
+    this.onAction,
+  });
   @override
-  Widget build(BuildContext context) => Row(children: [
-        Expanded(
-          child: Text.rich(TextSpan(children: [
-            TextSpan(text: title, style: ts(17, w: FontWeight.w600, h: 24)),
-            if (sub != null)
-              TextSpan(text: ' · $sub', style: ts(17, w: FontWeight.w500, color: C.muted, h: 24)),
-          ])),
+  Widget build(BuildContext context) => Row(
+    children: [
+      Expanded(
+        child: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: title,
+                style: ts(17, w: FontWeight.w600, h: 24),
+              ),
+              if (sub != null)
+                TextSpan(
+                  text: ' · $sub',
+                  style: ts(17, w: FontWeight.w500, color: C.muted, h: 24),
+                ),
+            ],
+          ),
         ),
-        if (action != null)
-          GestureDetector(
-              onTap: onAction,
-              child: Text(action!, style: ts(13, w: FontWeight.w500, color: C.primaryInk, h: 18))),
-      ]);
+      ),
+      if (action != null)
+        GestureDetector(
+          onTap: onAction,
+          child: Text(
+            action!,
+            style: ts(13, w: FontWeight.w500, color: C.primaryInk, h: 18),
+          ),
+        ),
+    ],
+  );
 }
 
 /// 深色选中的胶囊筛选
@@ -193,33 +266,46 @@ class ChipTabs extends StatelessWidget {
   final List<String> labels;
   final int selected;
   final ValueChanged<int> onChanged;
-  const ChipTabs({super.key, required this.labels, required this.selected, required this.onChanged});
+  const ChipTabs({
+    super.key,
+    required this.labels,
+    required this.selected,
+    required this.onChanged,
+  });
   @override
   Widget build(BuildContext context) => SizedBox(
-        height: 32,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          itemCount: labels.length,
-          separatorBuilder: (_, _) => const SizedBox(width: 8),
-          itemBuilder: (_, i) {
-            final on = i == selected;
-            return GestureDetector(
-              onTap: () => onChanged(i),
-              child: Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                decoration: BoxDecoration(
-                    color: on ? C.ink : Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: on ? null : softShadow),
-                child: Text(labels[i],
-                    style: ts(13, w: FontWeight.w500, color: on ? Colors.white : C.sub, h: 18)),
+    height: 32,
+    child: ListView.separated(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      itemCount: labels.length,
+      separatorBuilder: (_, _) => const SizedBox(width: 8),
+      itemBuilder: (_, i) {
+        final on = i == selected;
+        return GestureDetector(
+          onTap: () => onChanged(i),
+          child: Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            decoration: BoxDecoration(
+              color: on ? C.ink : Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: on ? null : softShadow,
+            ),
+            child: Text(
+              labels[i],
+              style: ts(
+                13,
+                w: FontWeight.w500,
+                color: on ? Colors.white : C.sub,
+                h: 18,
               ),
-            );
-          },
-        ),
-      );
+            ),
+          ),
+        );
+      },
+    ),
+  );
 }
 
 /// 灰底分段控件
@@ -227,33 +313,48 @@ class Segmented extends StatelessWidget {
   final List<String> labels;
   final int selected;
   final ValueChanged<int> onChanged;
-  const Segmented({super.key, required this.labels, required this.selected, required this.onChanged});
+  const Segmented({
+    super.key,
+    required this.labels,
+    required this.selected,
+    required this.onChanged,
+  });
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(color: C.segment, borderRadius: BorderRadius.circular(20)),
-        child: Row(children: [
-          for (var i = 0; i < labels.length; i++)
-            Expanded(
-              child: GestureDetector(
-                onTap: () => onChanged(i),
-                child: Container(
-                  height: 32,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: i == selected ? Colors.white : Colors.transparent,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: i == selected ? softShadow : null),
-                  child: Text(labels[i],
-                      style: ts(13,
-                          w: FontWeight.w500,
-                          color: i == selected ? C.ink : C.sub,
-                          h: 18)),
+    padding: const EdgeInsets.all(4),
+    decoration: BoxDecoration(
+      color: C.segment,
+      borderRadius: BorderRadius.circular(20),
+    ),
+    child: Row(
+      children: [
+        for (var i = 0; i < labels.length; i++)
+          Expanded(
+            child: GestureDetector(
+              onTap: () => onChanged(i),
+              child: Container(
+                height: 32,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: i == selected ? Colors.white : Colors.transparent,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: i == selected ? softShadow : null,
+                ),
+                child: Text(
+                  labels[i],
+                  style: ts(
+                    13,
+                    w: FontWeight.w500,
+                    color: i == selected ? C.ink : C.sub,
+                    h: 18,
+                  ),
                 ),
               ),
             ),
-        ]),
-      );
+          ),
+      ],
+    ),
+  );
 }
 
 class PrimaryButton extends StatelessWidget {
@@ -261,24 +362,31 @@ class PrimaryButton extends StatelessWidget {
   final VoidCallback? onTap;
   final Color bg, fg;
   final EdgeInsetsGeometry padding;
-  const PrimaryButton(this.text,
-      {super.key,
-      this.onTap,
-      this.bg = C.primary,
-      this.fg = Colors.white,
-      this.padding = const EdgeInsets.symmetric(horizontal: 24)});
+  const PrimaryButton(
+    this.text, {
+    super.key,
+    this.onTap,
+    this.bg = C.primary,
+    this.fg = Colors.white,
+    this.padding = const EdgeInsets.symmetric(horizontal: 24),
+  });
   @override
   Widget build(BuildContext context) => GestureDetector(
-        onTap: onTap,
-        child: Container(
-          height: 50,
-          padding: padding,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: onTap == null ? C.faint : bg, borderRadius: BorderRadius.circular(25)),
-          child: Text(text, style: ts(16, w: FontWeight.w600, color: fg, h: 24)),
-        ),
-      );
+    onTap: onTap,
+    child: Container(
+      height: 50,
+      padding: padding,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: onTap == null ? C.faint : bg,
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Text(
+        text,
+        style: ts(16, w: FontWeight.w600, color: fg, h: 24),
+      ),
+    ),
+  );
 }
 
 /// 圆环装饰（深色卡片背景）
@@ -287,8 +395,9 @@ class Rings extends StatelessWidget {
   final Color color;
   const Rings({super.key, this.size = 220, this.color = C.dark2});
   @override
-  Widget build(BuildContext context) =>
-      IgnorePointer(child: CustomPaint(size: Size(size, size), painter: _RingsPainter(color)));
+  Widget build(BuildContext context) => IgnorePointer(
+    child: CustomPaint(size: Size(size, size), painter: _RingsPainter(color)),
+  );
 }
 
 class _RingsPainter extends CustomPainter {
@@ -314,8 +423,11 @@ class Divider1 extends StatelessWidget {
   final double indent;
   const Divider1({super.key, this.indent = 0});
   @override
-  Widget build(BuildContext context) =>
-      Container(height: 1, margin: EdgeInsets.only(left: indent), color: C.line);
+  Widget build(BuildContext context) => Container(
+    height: 1,
+    margin: EdgeInsets.only(left: indent),
+    color: C.line,
+  );
 }
 
 void push(BuildContext context, Widget page) =>
@@ -324,13 +436,15 @@ void push(BuildContext context, Widget page) =>
 void toast(BuildContext context, String msg) {
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
-    ..showSnackBar(SnackBar(
-      content: Text(msg),
-      behavior: SnackBarBehavior.floating,
-      duration: const Duration(milliseconds: 1400),
-      backgroundColor: C.ink,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-    ));
+    ..showSnackBar(
+      SnackBar(
+        content: Text(msg),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(milliseconds: 1400),
+        backgroundColor: C.ink,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+    );
 }
 
 /// 暂未实现的页面占位
@@ -339,19 +453,28 @@ class PlaceholderPage extends StatelessWidget {
   const PlaceholderPage(this.title, {super.key});
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SafeArea(
-          child: Column(children: [
-            SubHeader(title),
-            Expanded(
-              child: Center(
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  const Icon(Icons.construction_rounded, size: 40, color: C.faint),
+    body: SafeArea(
+      child: Column(
+        children: [
+          SubHeader(title),
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.construction_rounded,
+                    size: 40,
+                    color: C.faint,
+                  ),
                   const SizedBox(height: 12),
                   Text('该页面稍后实现', style: ts(15, color: C.muted)),
-                ]),
+                ],
               ),
             ),
-          ]),
-        ),
-      );
+          ),
+        ],
+      ),
+    ),
+  );
 }

@@ -47,16 +47,16 @@ TextStyle ts(
   double? spacing,
   bool tabular = false,
   TextDecoration? deco,
-}) =>
-    TextStyle(
-      fontSize: size,
-      fontWeight: w,
-      color: color,
-      height: h != null ? h / size : null,
-      letterSpacing: spacing,
-      decoration: deco,
-      fontFeatures: tabular ? const [FontFeature.tabularFigures()] : null,
-    );
+}) => TextStyle(
+  fontSize: size,
+  fontWeight: w,
+  color: color,
+  height: h != null ? h / size : null,
+  leadingDistribution: TextLeadingDistribution.even,
+  letterSpacing: spacing,
+  decoration: deco,
+  fontFeatures: tabular ? const [FontFeature.tabularFigures()] : null,
+);
 
 ThemeData buildTheme() {
   return ThemeData(
