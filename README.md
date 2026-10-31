@@ -16,6 +16,7 @@ SwiftUI + Network.framework 的 iOS 局域网主机发现原型。无后端、�
 - 本地扫描历史：扫描完成或已有进度/发现主机的扫描中断后自动保存，保留最近 30 次；按今天、昨天、更早展示，支持查看单次结果及滑动删除。记录网段、起止时间、完成状态、进度、主机响应信息、诊断提示及当次扫描设置；兼容旧版历史。
 - 历史记录保存扫描开始时的 Wi-Fi 名称，名称和时间在同一行显示；今天、昨天仅显示时分，更早的记录同时显示日期。旧记录或未取得名称时显示“未记录 Wi-Fi”，不使用查看历史时的网络信息回填。
 - 扫描区域标题显示 Wi-Fi 图标和名称，右侧保留设置按钮；前台每 3 秒刷新，返回前台立即刷新，读取失败时仅显示“Wi-Fi”。仅展示名称，不提供设置跳转，也不因名称变化修改扫描网段。首次进入扫描页请求使用期间的定位授权，启用精确位置后可读取 Wi-Fi 名称；不请求或保存位置坐标。拒绝授权或关闭精确位置不影响扫描，但无法显示或记录名称。
+- 界面采用深色“雷达”风格：待机时以雷达环显示待扫描地址数；扫描中外圈为进度弧线，已发现设备以光点出现在雷达上（有 Web 服务的为蓝色）；结束后以摘要卡片和设备卡片展示结果，“IP / Web”分段切换，Web 卡片点击打开。扫描历史、历史详情和高级设置使用同一套主题。界面固定为深色外观，暂无浅色版本；系统字体随“动态字体”缩放，开启“减弱动态效果”时雷达不旋转。本次只替换视图层，扫描逻辑、数据模型和历史格式均未改动。
 - 局域网权限说明、网络错误提示、独立核心单元测试和 macOS CI。
 
 ## 在 Mac 上运行
@@ -78,7 +79,11 @@ xcodebuild -project LanScope.xcodeproj -scheme LanScope \
 | `LanScope/AdvancedSettingsView.swift` | 高级设置弹窗 |
 | `LanScope/Scanner.swift` | 独立串行队列管理连接、超时、取消与结果 |
 | `LanScope/ScanViewModel.swift` | 主线程 UI 状态、会话隔离 |
-| `LanScope/ContentView.swift` | SwiftUI 界面 |
+| `LanScope/ContentView.swift` | 扫描主页（待机 / 扫描中 / 结果三种状态）和底部操作栏 |
+| `LanScope/Theme.swift` | 配色、字体、卡片、标签、按钮样式等通用界面组件 |
+| `LanScope/RadarView.swift` | 雷达环、扫描扫掠动画、设备光点和结果状态徽标 |
+| `LanScope/DeviceCards.swift` | “IP / Web”分段、设备卡片、Web 资产卡片（实时结果与历史详情共用） |
+| `LanScope/ScanHistoryViews.swift` | 扫描历史列表与单次扫描详情 |
 | `LanScope/Info.plist` | 局域网权限用途 |
 | `Tests/IPv4RangeTests.swift` | 可通过 Swift Package 执行的核心测试 |
 
