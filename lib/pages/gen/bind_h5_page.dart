@@ -384,6 +384,7 @@ class BindH5Page extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '52 秒后重发',
                               ),
                             ],
                             main: MainAxisAlignment.start,

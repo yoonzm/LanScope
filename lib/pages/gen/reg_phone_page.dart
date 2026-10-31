@@ -379,6 +379,7 @@ class RegPhonePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
+                                  label: '获取验证码',
                                 ),
                               ],
                               main: MainAxisAlignment.start,
@@ -428,20 +429,33 @@ class RegPhonePage extends StatelessWidget {
                             bg: Color(0xFFF4F4F5),
                             radius: BorderRadius.circular(14),
                             pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  child: HInput(
-                                    style: hts(15, Color(0xFF18181B), lh: 22),
-                                    hint: '8-20 位，含字母和数字',
-                                    obscure: true,
-                                  ),
-                                ),
-                                Text('显示', style: hts(13, Color(0xFF71717A))),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
+                            child: HHolder(
+                              inits: [1],
+                              builder: (context, ctrls) {
+                                final p1 = ctrls[0];
+                                return hrow(
+                                  [
+                                    Expanded(
+                                      child: ListenableBuilder(
+                                        listenable: p1,
+                                        builder: (context, _) => HInput(
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            lh: 22,
+                                          ),
+                                          hint: '8-20 位，含字母和数字',
+                                          obscure: p1.on,
+                                        ),
+                                      ),
+                                    ),
+                                    hPwdLabel(p1, hts(13, Color(0xFF71717A))),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 10,
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -474,6 +488,7 @@ class RegPhonePage extends StatelessWidget {
                                 '《用户服务协议》',
                                 style: hts(12, Color(0xFF1E63AE), lh: 18),
                               ),
+                              label: '《用户服务协议》',
                             ),
                           ),
                           Flexible(
@@ -491,6 +506,7 @@ class RegPhonePage extends StatelessWidget {
                                 '《隐私政策》',
                                 style: hts(12, Color(0xFF1E63AE), lh: 18),
                               ),
+                              label: '《隐私政策》',
                             ),
                           ),
                         ],

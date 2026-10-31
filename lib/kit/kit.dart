@@ -95,6 +95,7 @@ Widget hTap(
   String? to,
   bool back = false,
   VoidCallback? onTap,
+  String? label,
 }) {
   return GestureDetector(
     behavior: HitTestBehavior.opaque,
@@ -107,10 +108,73 @@ Widget hTap(
         openRoute(context, to);
       } else {
         HapticFeedback.selectionClick();
+        if (label != null && label.isNotEmpty) hToast(context, '$label（演示）');
       }
     },
     child: child,
   );
+}
+
+void hToast(BuildContext context, String msg) {
+  ScaffoldMessenger.of(context)
+    ..hideCurrentSnackBar()
+    ..showSnackBar(
+      SnackBar(
+        content: Text(msg),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(milliseconds: 1400),
+        backgroundColor: const Color(0xFF18181B),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+    );
+}
+
+Future<bool> hConfirm(
+  BuildContext context,
+  String title, {
+  String ok = '确定',
+  bool danger = true,
+}) async {
+  final r = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      title: Text(
+        title,
+        style: hts(17, const Color(0xFF18181B), w: FontWeight.w600),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, false),
+          child: Text(
+            '取消',
+            style: hts(15, const Color(0xFF71717A), w: FontWeight.w500),
+          ),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, true),
+          child: Text(
+            ok,
+            style: hts(
+              15,
+              danger ? const Color(0xFFA43433) : const Color(0xFF0485F7),
+              w: FontWeight.w600,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+  return r ?? false;
+}
+
+/// 删除 / 停用类操作：确认后返回上一页。
+Future<void> hConfirmPop(BuildContext context, String label) async {
+  if (await hConfirm(context, '确认$label？') && context.mounted) {
+    Navigator.of(context).maybePop();
+    hToast(context, '已完成（演示）');
+  }
 }
 
 // ───────── 盒子 ─────────
@@ -540,3 +604,139 @@ Widget hfrac(
   alignment: align,
   child: FractionallySizedBox(widthFactor: f, child: child),
 );
+
+// ───────── 计数 / 开关状态 ─────────
+class ValCtrl extends ChangeNotifier {
+  int v;
+  ValCtrl(this.v);
+  bool get on => v != 0;
+  void set(int x) {
+    if (x != v) {
+      v = x;
+      notifyListeners();
+    }
+  }
+
+  void add(int d, {int min = 0}) => set(math.max(min, v + d));
+  void flip() => set(on ? 0 : 1);
+}
+
+class HHolder extends StatefulWidget {
+  final List<int> inits;
+  final Widget Function(BuildContext, List<ValCtrl>) builder;
+  const HHolder({super.key, required this.inits, required this.builder});
+  @override
+  State<HHolder> createState() => _HHolderState();
+}
+
+class _HHolderState extends State<HHolder> {
+  late final List<ValCtrl> ctrls = [for (final i in widget.inits) ValCtrl(i)];
+  @override
+  void dispose() {
+    for (final c in ctrls) {
+      c.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.builder(context, ctrls);
+}
+
+Widget hCount(ValCtrl c, TextStyle style) => ListenableBuilder(
+  listenable: c,
+  builder: (_, _) => Text('${c.v}', style: style),
+);
+
+Widget hMonth(ValCtrl c, TextStyle style) => ListenableBuilder(
+  listenable: c,
+  builder: (_, _) => Text('${c.v ~/ 12} 年 ${c.v % 12 + 1} 月', style: style),
+);
+
+Widget hPwdLabel(ValCtrl c, TextStyle style) => ListenableBuilder(
+  listenable: c,
+  builder: (_, _) => Text(c.on ? '显示' : '隐藏', style: style),
+);
+
+/// 独立的开关式控件（复选、多选标签）。
+class HToggle extends StatefulWidget {
+  final bool initial;
+  final Widget on, off;
+  const HToggle({
+    super.key,
+    required this.initial,
+    required this.on,
+    required this.off,
+  });
+  @override
+  State<HToggle> createState() => _HToggleState();
+}
+
+class _HToggleState extends State<HToggle> {
+  late bool sel = widget.initial;
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+    behavior: HitTestBehavior.opaque,
+    onTap: () => setState(() => sel = !sel),
+    child: sel ? widget.on : widget.off,
+  );
+}
+
+/// 可按标签筛选、可删除条目的列表。
+class HDyn extends StatefulWidget {
+  final List<String> texts;
+  final SelCtrl? filter;
+  final List<String> labels;
+  final Widget Function(BuildContext, HDynState) builder;
+  const HDyn({
+    super.key,
+    required this.texts,
+    this.filter,
+    this.labels = const [],
+    required this.builder,
+  });
+  @override
+  State<HDyn> createState() => HDynState();
+}
+
+class HDynState extends State<HDyn> {
+  final Set<int> removed = {};
+
+  List<Widget> vis(List<Widget> items) {
+    String? want;
+    final f = widget.filter;
+    if (f != null && f.selected.isNotEmpty) {
+      final i = f.selected.first;
+      if (i < widget.labels.length) want = widget.labels[i];
+    }
+    final out = <Widget>[];
+    for (var i = 0; i < items.length; i++) {
+      if (removed.contains(i)) continue;
+      if (want != null &&
+          want.isNotEmpty &&
+          !want.contains('全部') &&
+          !widget.texts[i].contains(want)) {
+        continue;
+      }
+      out.add(items[i]);
+    }
+    return out;
+  }
+
+  Future<void> confirmRemove(BuildContext context, int i) async {
+    if (await hConfirm(context, '确认删除？', ok: '删除') && mounted) {
+      setState(() => removed.add(i));
+      if (context.mounted) hToast(context, '已删除（演示）');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final f = widget.filter;
+    if (f == null) return widget.builder(context, this);
+    return ListenableBuilder(
+      listenable: f,
+      builder: (ctx, _) => widget.builder(ctx, this),
+    );
+  }
+}

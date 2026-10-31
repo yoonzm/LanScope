@@ -506,6 +506,7 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              label: '本次改发短信通知',
                             ),
                           ),
                           Expanded(
@@ -534,6 +535,7 @@ class PayUnboundPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              label: '会员已扫码（演示）',
                             ),
                           ),
                         ],

@@ -169,6 +169,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '一26—',
                           ),
                         ),
                         Expanded(
@@ -203,6 +204,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '二271 单',
                           ),
                         ),
                         Expanded(
@@ -237,6 +239,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '三28—',
                           ),
                         ),
                         Expanded(
@@ -271,6 +274,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '四292 单',
                           ),
                         ),
                         Expanded(
@@ -305,6 +309,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '五303 单',
                           ),
                         ),
                         Expanded(
@@ -340,6 +345,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '六316 单',
                           ),
                         ),
                         Expanded(
@@ -374,6 +380,7 @@ class AppointmentSchedulePage extends StatelessWidget {
                                 gap: 2,
                               ),
                             ),
+                            label: '日12 单',
                           ),
                         ),
                       ],

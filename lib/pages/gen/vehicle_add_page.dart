@@ -151,6 +151,7 @@ class VehicleAddPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  label: '拍摄行驶证，自动填写',
                 ),
                 hbox(
                   bg: Color(0xFFFFFFFF),
@@ -194,51 +195,45 @@ class VehicleAddPage extends StatelessWidget {
                                 child: HSel(
                                   ctrl: g1[0],
                                   index: 0,
-                                  on: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      bg: Color(0xFFFFFFFF),
-                                      radius: BorderRadius.circular(16),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.08),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '燃油车 · 蓝牌',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  on: hbox(
+                                    h: 32,
+                                    bg: Color(0xFFFFFFFF),
+                                    radius: BorderRadius.circular(16),
+                                    shadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.08),
+                                        offset: Offset(0, 1),
+                                        blurRadius: 2,
+                                        spreadRadius: 0,
+                                      ),
+                                    ],
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '燃油车 · 蓝牌',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF18181B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  off: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      radius: BorderRadius.circular(16),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '燃油车 · 蓝牌',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF52525B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  off: hbox(
+                                    h: 32,
+                                    radius: BorderRadius.circular(16),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '燃油车 · 蓝牌',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF52525B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
@@ -250,51 +245,45 @@ class VehicleAddPage extends StatelessWidget {
                                 child: HSel(
                                   ctrl: g1[0],
                                   index: 1,
-                                  on: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      bg: Color(0xFFFFFFFF),
-                                      radius: BorderRadius.circular(16),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.08),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '新能源 · 绿牌',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  on: hbox(
+                                    h: 32,
+                                    bg: Color(0xFFFFFFFF),
+                                    radius: BorderRadius.circular(16),
+                                    shadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.08),
+                                        offset: Offset(0, 1),
+                                        blurRadius: 2,
+                                        spreadRadius: 0,
+                                      ),
+                                    ],
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '新能源 · 绿牌',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF18181B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  off: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      radius: BorderRadius.circular(16),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '新能源 · 绿牌',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF52525B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  off: hbox(
+                                    h: 32,
+                                    radius: BorderRadius.circular(16),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '新能源 · 绿牌',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF52525B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
@@ -509,6 +498,7 @@ class VehicleAddPage extends StatelessWidget {
                                 gap: 12,
                               ),
                             ),
+                            label: '品牌车型理想 L7 · 灰',
                           ),
                           hbox(
                             h: 1,

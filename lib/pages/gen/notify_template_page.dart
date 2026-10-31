@@ -638,6 +638,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '+ 会员姓名',
                               ),
                               hTap(
                                 context,
@@ -660,6 +661,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '+ 金额',
                               ),
                               hTap(
                                 context,
@@ -682,6 +684,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '+ 项目',
                               ),
                               hTap(
                                 context,
@@ -704,6 +707,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '+ 车牌',
                               ),
                               hTap(
                                 context,
@@ -726,6 +730,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '+ 余额',
                               ),
                               hTap(
                                 context,
@@ -748,6 +753,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '+ 门店电话',
                               ),
                             ],
                             gap: 8,
@@ -855,6 +861,7 @@ class NotifyTemplatePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    label: '发给我测试',
                   ),
                 ),
                 Expanded(

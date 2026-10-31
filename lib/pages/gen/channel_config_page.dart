@@ -215,6 +215,7 @@ class ChannelConfigPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '重新授权',
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -371,6 +372,7 @@ class ChannelConfigPage extends StatelessWidget {
                                             ),
                                           ),
                                         ),
+                                        label: '保存到相册',
                                       ),
                                     ),
                                   ],
@@ -569,82 +571,76 @@ class ChannelConfigPage extends StatelessWidget {
                                       child: HSel(
                                         ctrl: g1[0],
                                         index: 0,
-                                        on: hTap(
-                                          context,
-                                          hbox(
-                                            bg: Color(0xFFE1F0FE),
-                                            radius: BorderRadius.circular(16),
-                                            border: Border.all(
-                                              color: Color(0xFF0485F7),
-                                              width: 1.5,
-                                            ),
-                                            pad: EdgeInsets.fromLTRB(
-                                              0,
-                                              12,
-                                              0,
-                                              12,
-                                            ),
-                                            child: hcol(
-                                              [
-                                                Text(
-                                                  '1,000 条',
-                                                  style: hts(
-                                                    16,
-                                                    Color(0xFF1E63AE),
-                                                    w: FontWeight.w600,
-                                                    lh: 22,
-                                                  ),
+                                        on: hbox(
+                                          bg: Color(0xFFE1F0FE),
+                                          radius: BorderRadius.circular(16),
+                                          border: Border.all(
+                                            color: Color(0xFF0485F7),
+                                            width: 1.5,
+                                          ),
+                                          pad: EdgeInsets.fromLTRB(
+                                            0,
+                                            12,
+                                            0,
+                                            12,
+                                          ),
+                                          child: hcol(
+                                            [
+                                              Text(
+                                                '1,000 条',
+                                                style: hts(
+                                                  16,
+                                                  Color(0xFF1E63AE),
+                                                  w: FontWeight.w600,
+                                                  lh: 22,
                                                 ),
-                                                Text(
-                                                  '¥60',
-                                                  style: hts(
-                                                    12,
-                                                    Color(0xFF71717A),
-                                                    lh: 16,
-                                                  ),
+                                              ),
+                                              Text(
+                                                '¥60',
+                                                style: hts(
+                                                  12,
+                                                  Color(0xFF71717A),
+                                                  lh: 16,
                                                 ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.center,
-                                              gap: 2,
-                                            ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 2,
                                           ),
                                         ),
-                                        off: hTap(
-                                          context,
-                                          hbox(
-                                            bg: Color(0xFFF4F4F5),
-                                            radius: BorderRadius.circular(16),
-                                            pad: EdgeInsets.fromLTRB(
-                                              0,
-                                              12,
-                                              0,
-                                              12,
-                                            ),
-                                            child: hcol(
-                                              [
-                                                Text(
-                                                  '1,000 条',
-                                                  style: hts(
-                                                    16,
-                                                    Color(0xFF18181B),
-                                                    w: FontWeight.w600,
-                                                    lh: 22,
-                                                  ),
+                                        off: hbox(
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          pad: EdgeInsets.fromLTRB(
+                                            0,
+                                            12,
+                                            0,
+                                            12,
+                                          ),
+                                          child: hcol(
+                                            [
+                                              Text(
+                                                '1,000 条',
+                                                style: hts(
+                                                  16,
+                                                  Color(0xFF18181B),
+                                                  w: FontWeight.w600,
+                                                  lh: 22,
                                                 ),
-                                                Text(
-                                                  '¥60',
-                                                  style: hts(
-                                                    12,
-                                                    Color(0xFF71717A),
-                                                    lh: 16,
-                                                  ),
+                                              ),
+                                              Text(
+                                                '¥60',
+                                                style: hts(
+                                                  12,
+                                                  Color(0xFF71717A),
+                                                  lh: 16,
                                                 ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.center,
-                                              gap: 2,
-                                            ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 2,
                                           ),
                                         ),
                                       ),
@@ -654,82 +650,76 @@ class ChannelConfigPage extends StatelessWidget {
                                       child: HSel(
                                         ctrl: g1[0],
                                         index: 1,
-                                        on: hTap(
-                                          context,
-                                          hbox(
-                                            bg: Color(0xFFE1F0FE),
-                                            radius: BorderRadius.circular(16),
-                                            border: Border.all(
-                                              color: Color(0xFF0485F7),
-                                              width: 1.5,
-                                            ),
-                                            pad: EdgeInsets.fromLTRB(
-                                              0,
-                                              12,
-                                              0,
-                                              12,
-                                            ),
-                                            child: hcol(
-                                              [
-                                                Text(
-                                                  '5,000 条',
-                                                  style: hts(
-                                                    16,
-                                                    Color(0xFF1E63AE),
-                                                    w: FontWeight.w600,
-                                                    lh: 22,
-                                                  ),
+                                        on: hbox(
+                                          bg: Color(0xFFE1F0FE),
+                                          radius: BorderRadius.circular(16),
+                                          border: Border.all(
+                                            color: Color(0xFF0485F7),
+                                            width: 1.5,
+                                          ),
+                                          pad: EdgeInsets.fromLTRB(
+                                            0,
+                                            12,
+                                            0,
+                                            12,
+                                          ),
+                                          child: hcol(
+                                            [
+                                              Text(
+                                                '5,000 条',
+                                                style: hts(
+                                                  16,
+                                                  Color(0xFF1E63AE),
+                                                  w: FontWeight.w600,
+                                                  lh: 22,
                                                 ),
-                                                Text(
-                                                  '¥270',
-                                                  style: hts(
-                                                    12,
-                                                    Color(0xFF1E63AE),
-                                                    lh: 16,
-                                                  ),
+                                              ),
+                                              Text(
+                                                '¥270',
+                                                style: hts(
+                                                  12,
+                                                  Color(0xFF1E63AE),
+                                                  lh: 16,
                                                 ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.center,
-                                              gap: 2,
-                                            ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 2,
                                           ),
                                         ),
-                                        off: hTap(
-                                          context,
-                                          hbox(
-                                            bg: Color(0xFFF4F4F5),
-                                            radius: BorderRadius.circular(16),
-                                            pad: EdgeInsets.fromLTRB(
-                                              0,
-                                              12,
-                                              0,
-                                              12,
-                                            ),
-                                            child: hcol(
-                                              [
-                                                Text(
-                                                  '5,000 条',
-                                                  style: hts(
-                                                    16,
-                                                    Color(0xFF18181B),
-                                                    w: FontWeight.w600,
-                                                    lh: 22,
-                                                  ),
+                                        off: hbox(
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          pad: EdgeInsets.fromLTRB(
+                                            0,
+                                            12,
+                                            0,
+                                            12,
+                                          ),
+                                          child: hcol(
+                                            [
+                                              Text(
+                                                '5,000 条',
+                                                style: hts(
+                                                  16,
+                                                  Color(0xFF18181B),
+                                                  w: FontWeight.w600,
+                                                  lh: 22,
                                                 ),
-                                                Text(
-                                                  '¥270',
-                                                  style: hts(
-                                                    12,
-                                                    Color(0xFF18181B),
-                                                    lh: 16,
-                                                  ),
+                                              ),
+                                              Text(
+                                                '¥270',
+                                                style: hts(
+                                                  12,
+                                                  Color(0xFF18181B),
+                                                  lh: 16,
                                                 ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.center,
-                                              gap: 2,
-                                            ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 2,
                                           ),
                                         ),
                                       ),
@@ -739,82 +729,76 @@ class ChannelConfigPage extends StatelessWidget {
                                       child: HSel(
                                         ctrl: g1[0],
                                         index: 2,
-                                        on: hTap(
-                                          context,
-                                          hbox(
-                                            bg: Color(0xFFE1F0FE),
-                                            radius: BorderRadius.circular(16),
-                                            border: Border.all(
-                                              color: Color(0xFF0485F7),
-                                              width: 1.5,
-                                            ),
-                                            pad: EdgeInsets.fromLTRB(
-                                              0,
-                                              12,
-                                              0,
-                                              12,
-                                            ),
-                                            child: hcol(
-                                              [
-                                                Text(
-                                                  '2 万条',
-                                                  style: hts(
-                                                    16,
-                                                    Color(0xFF1E63AE),
-                                                    w: FontWeight.w600,
-                                                    lh: 22,
-                                                  ),
+                                        on: hbox(
+                                          bg: Color(0xFFE1F0FE),
+                                          radius: BorderRadius.circular(16),
+                                          border: Border.all(
+                                            color: Color(0xFF0485F7),
+                                            width: 1.5,
+                                          ),
+                                          pad: EdgeInsets.fromLTRB(
+                                            0,
+                                            12,
+                                            0,
+                                            12,
+                                          ),
+                                          child: hcol(
+                                            [
+                                              Text(
+                                                '2 万条',
+                                                style: hts(
+                                                  16,
+                                                  Color(0xFF1E63AE),
+                                                  w: FontWeight.w600,
+                                                  lh: 22,
                                                 ),
-                                                Text(
-                                                  '¥1,000',
-                                                  style: hts(
-                                                    12,
-                                                    Color(0xFF71717A),
-                                                    lh: 16,
-                                                  ),
+                                              ),
+                                              Text(
+                                                '¥1,000',
+                                                style: hts(
+                                                  12,
+                                                  Color(0xFF71717A),
+                                                  lh: 16,
                                                 ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.center,
-                                              gap: 2,
-                                            ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 2,
                                           ),
                                         ),
-                                        off: hTap(
-                                          context,
-                                          hbox(
-                                            bg: Color(0xFFF4F4F5),
-                                            radius: BorderRadius.circular(16),
-                                            pad: EdgeInsets.fromLTRB(
-                                              0,
-                                              12,
-                                              0,
-                                              12,
-                                            ),
-                                            child: hcol(
-                                              [
-                                                Text(
-                                                  '2 万条',
-                                                  style: hts(
-                                                    16,
-                                                    Color(0xFF18181B),
-                                                    w: FontWeight.w600,
-                                                    lh: 22,
-                                                  ),
+                                        off: hbox(
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          pad: EdgeInsets.fromLTRB(
+                                            0,
+                                            12,
+                                            0,
+                                            12,
+                                          ),
+                                          child: hcol(
+                                            [
+                                              Text(
+                                                '2 万条',
+                                                style: hts(
+                                                  16,
+                                                  Color(0xFF18181B),
+                                                  w: FontWeight.w600,
+                                                  lh: 22,
                                                 ),
-                                                Text(
-                                                  '¥1,000',
-                                                  style: hts(
-                                                    12,
-                                                    Color(0xFF71717A),
-                                                    lh: 16,
-                                                  ),
+                                              ),
+                                              Text(
+                                                '¥1,000',
+                                                style: hts(
+                                                  12,
+                                                  Color(0xFF71717A),
+                                                  lh: 16,
                                                 ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.center,
-                                              gap: 2,
-                                            ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 2,
                                           ),
                                         ),
                                       ),
@@ -851,6 +835,7 @@ class ChannelConfigPage extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            label: '充值 ¥270',
                           ),
                           hbox(h: 1, bg: Color(0xFFEFEFF1)),
                           hrow(

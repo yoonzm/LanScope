@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../theme.dart';
@@ -18,10 +20,37 @@ class _LoginPageState extends State<LoginPage> {
   final phone = TextEditingController(text: '13988888812');
   final code = TextEditingController();
   final pwd = TextEditingController();
+  int countdown = 0;
+  Timer? _timer;
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void sendCode() {
+    if (countdown > 0) return;
+    if (phone.text.trim().length < 11) {
+      toast(context, '请输入正确的手机号');
+      return;
+    }
+    toast(context, '验证码已发送（演示）');
+    setState(() => countdown = 60);
+    _timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      if (!mounted) return;
+      setState(() => countdown--);
+      if (countdown <= 0) t.cancel();
+    });
+  }
 
   void login() {
     if (!agree) {
       toast(context, '请先勾选用户协议和隐私政策');
+      return;
+    }
+    if (phone.text.trim().length < 11) {
+      toast(context, '请输入正确的手机号');
       return;
     }
     Navigator.of(context)
@@ -214,7 +243,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => toast(context, '验证码已发送（演示）'),
+                  onTap: sendCode,
                   child: Container(
                     height: 36,
                     padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -225,11 +254,11 @@ class _LoginPageState extends State<LoginPage> {
                       boxShadow: softShadow,
                     ),
                     child: Text(
-                      '获取验证码',
+                      countdown > 0 ? '$countdown 秒后重发' : '获取验证码',
                       style: ts(
                         13,
                         w: FontWeight.w500,
-                        color: C.primaryInk,
+                        color: countdown > 0 ? C.muted : C.primaryInk,
                         h: 18,
                       ),
                     ),

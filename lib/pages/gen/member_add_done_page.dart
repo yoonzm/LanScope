@@ -489,6 +489,7 @@ class MemberAddDonePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              label: '会员已扫码（演示）',
                             ),
                           ),
                         ],

@@ -90,57 +90,51 @@ class PlansPage extends StatelessWidget {
                           child: HSel(
                             ctrl: g1[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFFFFFFF),
-                                radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '月付',
-                                    style: hts(
-                                      14,
-                                      Color(0xFF18181B),
-                                      w: FontWeight.w600,
-                                      lh: 20,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFFFFFFF),
+                              radius: BorderRadius.circular(16),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '月付',
+                                  style: hts(
+                                    14,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w600,
+                                    lh: 20,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                radius: BorderRadius.circular(16),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '月付',
-                                    style: hts(
-                                      14,
-                                      Color(0xFF52525B),
-                                      w: FontWeight.w500,
-                                      lh: 20,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              radius: BorderRadius.circular(16),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '月付',
+                                  style: hts(
+                                    14,
+                                    Color(0xFF52525B),
+                                    w: FontWeight.w500,
+                                    lh: 20,
                                   ),
                                 ),
                               ),
@@ -152,99 +146,93 @@ class PlansPage extends StatelessWidget {
                           child: HSel(
                             ctrl: g1[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFFFFFFF),
-                                radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text.rich(
-                                    TextSpan(
-                                      style: hts(
-                                        14,
-                                        Color(0xFF18181B),
-                                        w: FontWeight.w600,
-                                        lh: 20,
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: '年付 ',
-                                          style: hts(
-                                            14,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                            lh: 20,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: '省 2 个月',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF2B7745),
-                                            w: FontWeight.w600,
-                                            lh: 20,
-                                          ),
-                                        ),
-                                      ],
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFFFFFFF),
+                              radius: BorderRadius.circular(16),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text.rich(
+                                  TextSpan(
+                                    style: hts(
+                                      14,
+                                      Color(0xFF18181B),
+                                      w: FontWeight.w600,
+                                      lh: 20,
                                     ),
+                                    children: [
+                                      TextSpan(
+                                        text: '年付 ',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF18181B),
+                                          w: FontWeight.w600,
+                                          lh: 20,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '省 2 个月',
+                                        style: hts(
+                                          12,
+                                          Color(0xFF2B7745),
+                                          w: FontWeight.w600,
+                                          lh: 20,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                radius: BorderRadius.circular(16),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text.rich(
-                                    TextSpan(
-                                      style: hts(
-                                        14,
-                                        Color(0xFF52525B),
-                                        w: FontWeight.w500,
-                                        lh: 20,
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: '年付 ',
-                                          style: hts(
-                                            14,
-                                            Color(0xFF52525B),
-                                            w: FontWeight.w500,
-                                            lh: 20,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: '省 2 个月',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF2B7745),
-                                            w: FontWeight.w500,
-                                            lh: 20,
-                                          ),
-                                        ),
-                                      ],
+                            off: hbox(
+                              h: 36,
+                              radius: BorderRadius.circular(16),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text.rich(
+                                  TextSpan(
+                                    style: hts(
+                                      14,
+                                      Color(0xFF52525B),
+                                      w: FontWeight.w500,
+                                      lh: 20,
                                     ),
+                                    children: [
+                                      TextSpan(
+                                        text: '年付 ',
+                                        style: hts(
+                                          14,
+                                          Color(0xFF52525B),
+                                          w: FontWeight.w500,
+                                          lh: 20,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '省 2 个月',
+                                        style: hts(
+                                          12,
+                                          Color(0xFF2B7745),
+                                          w: FontWeight.w500,
+                                          lh: 20,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),

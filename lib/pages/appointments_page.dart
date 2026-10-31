@@ -15,6 +15,30 @@ class AppointmentsPage extends StatefulWidget {
 
 class _AppointmentsPageState extends State<AppointmentsPage> {
   int day = 5; // 周六 31 日（今天）
+  ApptStatus? filter;
+
+  // 其他日期的示例预约（仅展示用）
+  List<Appointment> _otherDay() {
+    final n = _days[day].$3;
+    const tpl = [
+      ('09:30', '1 小时', '沪B·3D820', '赵女士', '金卡', '基础洗车', '1 号工位 · 小陈'),
+      ('11:00', '1.5 小时', '沪A·7L305', '陈女士', '金卡', '内饰精洗', '2 号工位 · 老周'),
+      ('14:00', '1 小时', '沪C·9H318', '刘先生', '金卡', '全车精洗', '3 号工位 · 小陈'),
+    ];
+    return [
+      for (var i = 0; i < n && i < tpl.length; i++)
+        Appointment(
+          tpl[i].$1,
+          tpl[i].$2,
+          tpl[i].$3,
+          tpl[i].$4,
+          tpl[i].$5,
+          tpl[i].$6,
+          tpl[i].$7,
+          day < 5 ? ApptStatus.done : ApptStatus.waiting,
+        ),
+    ];
+  }
 
   static const _days = [
     ('一', '26', 0),
@@ -42,12 +66,15 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final items = appointmentStore.items;
+    final items = day == 5 ? appointmentStore.items : _otherDay();
     int count(ApptStatus s) => items.where((a) => a.status == s).length;
-    final pending = items.where((a) => a.status != ApptStatus.done).toList()
-      ..sort((a, b) => a.time.compareTo(b.time));
-    final done = items.where((a) => a.status == ApptStatus.done).toList()
-      ..sort((a, b) => a.time.compareTo(b.time));
+    bool show(Appointment a) => filter == null || a.status == filter;
+    final pending =
+        items.where((a) => a.status != ApptStatus.done && show(a)).toList()
+          ..sort((a, b) => a.time.compareTo(b.time));
+    final done =
+        items.where((a) => a.status == ApptStatus.done && show(a)).toList()
+          ..sort((a, b) => a.time.compareTo(b.time));
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -110,13 +137,43 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      _stat('待到店', count(ApptStatus.waiting), C.amberInk),
-                      _stat('已到店', count(ApptStatus.arrived), C.greenInk),
-                      _stat('超时未到', count(ApptStatus.late), C.redInk),
-                      _stat('已完成', count(ApptStatus.done), C.muted),
+                      _stat(
+                        '待到店',
+                        count(ApptStatus.waiting),
+                        C.amberInk,
+                        ApptStatus.waiting,
+                      ),
+                      _stat(
+                        '已到店',
+                        count(ApptStatus.arrived),
+                        C.greenInk,
+                        ApptStatus.arrived,
+                      ),
+                      _stat(
+                        '超时未到',
+                        count(ApptStatus.late),
+                        C.redInk,
+                        ApptStatus.late,
+                      ),
+                      _stat(
+                        '已完成',
+                        count(ApptStatus.done),
+                        C.muted,
+                        ApptStatus.done,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20),
+                  if (pending.isEmpty && done.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 48),
+                      child: Center(
+                        child: Text(
+                          '当天没有符合条件的预约',
+                          style: ts(14, color: C.muted),
+                        ),
+                      ),
+                    ),
                   ...[
                     Text(
                       '待处理 · 现在 16:47',
@@ -192,15 +249,27 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
     ),
   );
 
-  Widget _stat(String label, int n, Color c) => Expanded(
-    child: Column(
-      children: [
-        Text(
-          '$n',
-          style: ts(22, w: FontWeight.w600, color: c, h: 28, tabular: true),
+  Widget _stat(String label, int n, Color c, ApptStatus st) => Expanded(
+    child: GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => setState(() => filter = filter == st ? null : st),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        decoration: BoxDecoration(
+          color: filter == st ? Colors.white : Colors.transparent,
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: filter == st ? softShadow : null,
         ),
-        Text(label, style: ts(12, color: C.muted, h: 16)),
-      ],
+        child: Column(
+          children: [
+            Text(
+              '$n',
+              style: ts(22, w: FontWeight.w600, color: c, h: 28, tabular: true),
+            ),
+            Text(label, style: ts(12, color: C.muted, h: 16)),
+          ],
+        ),
+      ),
     ),
   );
 

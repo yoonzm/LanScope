@@ -508,180 +508,174 @@ class NotifySettingsPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 0,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            hcol(
-                                              [
-                                                Text(
-                                                  '优先微信，失败转短信',
-                                                  style: hts(
-                                                    15,
-                                                    Color(0xFF18181B),
-                                                    w: FontWeight.w500,
-                                                    lh: 22,
-                                                  ),
+                              on: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          hcol(
+                                            [
+                                              Text(
+                                                '优先微信，失败转短信',
+                                                style: hts(
+                                                  15,
+                                                  Color(0xFF18181B),
+                                                  w: FontWeight.w500,
+                                                  lh: 22,
                                                 ),
-                                                hbox(
-                                                  bg: Color(0xFFE1F0FE),
-                                                  radius: BorderRadius.circular(
-                                                    8,
-                                                  ),
-                                                  pad: EdgeInsets.fromLTRB(
-                                                    6,
-                                                    1,
-                                                    6,
-                                                    1,
-                                                  ),
-                                                  child: Text(
-                                                    '推荐',
-                                                    style: hts(
-                                                      11,
-                                                      Color(0xFF1E63AE),
-                                                      w: FontWeight.w600,
-                                                      lh: 16,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.stretch,
-                                              gap: 0,
-                                            ),
-                                            Text(
-                                              '会员已关注公众号走微信，否则自动发短信',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
                                               ),
+                                              hbox(
+                                                bg: Color(0xFFE1F0FE),
+                                                radius: BorderRadius.circular(
+                                                  8,
+                                                ),
+                                                pad: EdgeInsets.fromLTRB(
+                                                  6,
+                                                  1,
+                                                  6,
+                                                  1,
+                                                ),
+                                                child: Text(
+                                                  '推荐',
+                                                  style: hts(
+                                                    11,
+                                                    Color(0xFF1E63AE),
+                                                    w: FontWeight.w600,
+                                                    lh: 16,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.stretch,
+                                            gap: 0,
+                                          ),
+                                          Text(
+                                            '会员已关注公众号走微信，否则自动发短信',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        bg: Color(0xFF0485F7),
-                                        radius: BorderRadius.circular(11),
-                                        child: hrow(
-                                          [
-                                            hbox(
-                                              w: 8,
-                                              h: 8,
-                                              bg: Color(0xFFFFFFFF),
-                                              radius: BorderRadius.circular(4),
-                                            ),
-                                          ],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      bg: Color(0xFF0485F7),
+                                      radius: BorderRadius.circular(11),
+                                      child: hrow(
+                                        [
+                                          hbox(
+                                            w: 8,
+                                            h: 8,
+                                            bg: Color(0xFFFFFFFF),
+                                            radius: BorderRadius.circular(4),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            hcol(
-                                              [
-                                                Text(
-                                                  '优先微信，失败转短信',
-                                                  style: hts(
-                                                    15,
-                                                    Color(0xFF18181B),
-                                                    w: FontWeight.w500,
-                                                    lh: 22,
-                                                  ),
+                              off: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          hcol(
+                                            [
+                                              Text(
+                                                '优先微信，失败转短信',
+                                                style: hts(
+                                                  15,
+                                                  Color(0xFF18181B),
+                                                  w: FontWeight.w500,
+                                                  lh: 22,
                                                 ),
-                                                hbox(
-                                                  bg: Color(0xFFE1F0FE),
-                                                  radius: BorderRadius.circular(
-                                                    8,
-                                                  ),
-                                                  pad: EdgeInsets.fromLTRB(
-                                                    6,
-                                                    1,
-                                                    6,
-                                                    1,
-                                                  ),
-                                                  child: Text(
-                                                    '推荐',
-                                                    style: hts(
-                                                      11,
-                                                      Color(0xFF1E63AE),
-                                                      w: FontWeight.w600,
-                                                      lh: 16,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                              main: MainAxisAlignment.start,
-                                              cross: CrossAxisAlignment.stretch,
-                                              gap: 0,
-                                            ),
-                                            Text(
-                                              '会员已关注公众号走微信，否则自动发短信',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
                                               ),
+                                              hbox(
+                                                bg: Color(0xFFE1F0FE),
+                                                radius: BorderRadius.circular(
+                                                  8,
+                                                ),
+                                                pad: EdgeInsets.fromLTRB(
+                                                  6,
+                                                  1,
+                                                  6,
+                                                  1,
+                                                ),
+                                                child: Text(
+                                                  '推荐',
+                                                  style: hts(
+                                                    11,
+                                                    Color(0xFF1E63AE),
+                                                    w: FontWeight.w600,
+                                                    lh: 16,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.stretch,
+                                            gap: 0,
+                                          ),
+                                          Text(
+                                            '会员已关注公众号走微信，否则自动发短信',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        bg: Color(0xFF0485F7),
-                                        radius: BorderRadius.circular(11),
-                                        child: hrow(
-                                          [
-                                            hbox(
-                                              w: 8,
-                                              h: 8,
-                                              bg: Color(0xFFFFFFFF),
-                                              radius: BorderRadius.circular(4),
-                                            ),
-                                          ],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      bg: Color(0xFF0485F7),
+                                      radius: BorderRadius.circular(11),
+                                      child: hrow(
+                                        [
+                                          hbox(
+                                            w: 8,
+                                            h: 8,
+                                            bg: Color(0xFFFFFFFF),
+                                            radius: BorderRadius.circular(4),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),
@@ -693,104 +687,98 @@ class NotifySettingsPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 1,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '仅微信',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                              on: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '仅微信',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '不产生费用，未关注公众号的会员收不到',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '不产生费用，未关注公众号的会员收不到',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      radius: BorderRadius.circular(11),
+                                      border: Border.all(
+                                        color: Color(0xFFD4D4D8),
+                                        width: 2,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '仅微信',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                              off: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '仅微信',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '不产生费用，未关注公众号的会员收不到',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '不产生费用，未关注公众号的会员收不到',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      radius: BorderRadius.circular(11),
+                                      border: Border.all(
+                                        color: Color(0xFFD4D4D8),
+                                        width: 2,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),
@@ -802,104 +790,98 @@ class NotifySettingsPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 2,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '仅短信',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                              on: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '仅短信',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '所有会员都能收到，按条计费',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '所有会员都能收到，按条计费',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      radius: BorderRadius.circular(11),
+                                      border: Border.all(
+                                        color: Color(0xFFD4D4D8),
+                                        width: 2,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '仅短信',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                              off: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '仅短信',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '所有会员都能收到，按条计费',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '所有会员都能收到，按条计费',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      radius: BorderRadius.circular(11),
+                                      border: Border.all(
+                                        color: Color(0xFFD4D4D8),
+                                        width: 2,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),
@@ -911,104 +893,98 @@ class NotifySettingsPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 3,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '微信 + 短信同时发',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                              on: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '微信 + 短信同时发',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '重要通知双保险，费用最高',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '重要通知双保险，费用最高',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      radius: BorderRadius.circular(11),
+                                      border: Border.all(
+                                        color: Color(0xFFD4D4D8),
+                                        width: 2,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  minH: 60,
-                                  pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '微信 + 短信同时发',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                              off: hbox(
+                                minH: 60,
+                                pad: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '微信 + 短信同时发',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '重要通知双保险，费用最高',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '重要通知双保险，费用最高',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 2,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 2,
                                       ),
-                                      hbox(
-                                        w: 22,
-                                        h: 22,
-                                        radius: BorderRadius.circular(11),
-                                        border: Border.all(
-                                          color: Color(0xFFD4D4D8),
-                                          width: 2,
-                                        ),
+                                    ),
+                                    hbox(
+                                      w: 22,
+                                      h: 22,
+                                      radius: BorderRadius.circular(11),
+                                      border: Border.all(
+                                        color: Color(0xFFD4D4D8),
+                                        width: 2,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),

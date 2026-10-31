@@ -514,50 +514,44 @@ class InvoicesPage extends StatelessWidget {
                                 HSel(
                                   ctrl: g1[0],
                                   index: 0,
-                                  on: hTap(
-                                    context,
-                                    hbox(
-                                      h: 34,
-                                      bg: Color(0xFFE1F0FE),
-                                      radius: BorderRadius.circular(17),
-                                      border: Border.all(
-                                        color: Color(0xFF0485F7),
-                                        width: 1.5,
-                                      ),
-                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '增值税普通发票',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF1E63AE),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  on: hbox(
+                                    h: 34,
+                                    bg: Color(0xFFE1F0FE),
+                                    radius: BorderRadius.circular(17),
+                                    border: Border.all(
+                                      color: Color(0xFF0485F7),
+                                      width: 1.5,
+                                    ),
+                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '增值税普通发票',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF1E63AE),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  off: hTap(
-                                    context,
-                                    hbox(
-                                      h: 34,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(17),
-                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '增值税普通发票',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF3F3F46),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  off: hbox(
+                                    h: 34,
+                                    bg: Color(0xFFF4F4F5),
+                                    radius: BorderRadius.circular(17),
+                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '增值税普通发票',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF3F3F46),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
@@ -566,50 +560,44 @@ class InvoicesPage extends StatelessWidget {
                                 HSel(
                                   ctrl: g1[0],
                                   index: 1,
-                                  on: hTap(
-                                    context,
-                                    hbox(
-                                      h: 34,
-                                      bg: Color(0xFFE1F0FE),
-                                      radius: BorderRadius.circular(17),
-                                      border: Border.all(
-                                        color: Color(0xFF0485F7),
-                                        width: 1.5,
-                                      ),
-                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '增值税专用发票',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF1E63AE),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  on: hbox(
+                                    h: 34,
+                                    bg: Color(0xFFE1F0FE),
+                                    radius: BorderRadius.circular(17),
+                                    border: Border.all(
+                                      color: Color(0xFF0485F7),
+                                      width: 1.5,
+                                    ),
+                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '增值税专用发票',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF1E63AE),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  off: hTap(
-                                    context,
-                                    hbox(
-                                      h: 34,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(17),
-                                      pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '增值税专用发票',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF3F3F46),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  off: hbox(
+                                    h: 34,
+                                    bg: Color(0xFFF4F4F5),
+                                    radius: BorderRadius.circular(17),
+                                    pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '增值税专用发票',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF3F3F46),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),

@@ -345,12 +345,25 @@ class OrderService {
   final String name;
   final int price;
   final bool cardCovered; // 次卡可抵扣
-  const OrderService(this.name, this.price, {this.cardCovered = false});
+  final Set<String> cats;
+  const OrderService(
+    this.name,
+    this.price,
+    this.cats, {
+    this.cardCovered = false,
+  });
 }
 
 const orderServices = <OrderService>[
-  OrderService('精致洗车', 68, cardCovered: true),
-  OrderService('全车镀晶 · 9H 陶瓷', 1580),
-  OrderService('内饰深度清洁', 380),
-  OrderService('轮毂翻新（4 只）', 600),
+  OrderService('精致洗车', 68, {'常用', '洗车'}, cardCovered: true),
+  OrderService('全车镀晶 · 9H 陶瓷', 1580, {'常用', '镀晶镀膜'}),
+  OrderService('内饰深度清洁', 380, {'常用', '内饰'}),
+  OrderService('轮毂翻新（4 只）', 600, {'常用'}),
+  OrderService('快速洗车', 38, {'洗车'}),
+  OrderService('发动机舱清洗', 120, {'洗车'}),
+  OrderService('漆面抛光', 680, {'镀晶镀膜'}),
+  OrderService('石墨烯镀膜', 2680, {'镀晶镀膜'}),
+  OrderService('全车隐形车衣', 18800, {'贴膜'}),
+  OrderService('局部改色膜', 3200, {'贴膜'}),
+  OrderService('座椅深度清洁', 280, {'内饰'}),
 ];

@@ -352,6 +352,7 @@ class PlanExpiredPage extends StatelessWidget {
                                 w: FontWeight.w600,
                               ),
                             ),
+                            label: '拨打电话',
                           ),
                         ],
                         main: MainAxisAlignment.start,

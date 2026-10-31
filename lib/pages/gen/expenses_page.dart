@@ -94,79 +94,85 @@ class ExpensesPage extends StatelessWidget {
                   cross: CrossAxisAlignment.center,
                   gap: 8,
                 ),
-                hrow(
-                  [
-                    hTap(
-                      context,
-                      hbox(
-                        w: 36,
-                        h: 36,
-                        bg: Color(0xFFFFFFFF),
-                        radius: BorderRadius.circular(18),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
+                HHolder(
+                  inits: [24321],
+                  builder: (context, ctrls) {
+                    final m1 = ctrls[0];
+                    return hrow(
+                      [
+                        hTap(
+                          context,
+                          hbox(
+                            w: 36,
+                            h: 36,
+                            bg: Color(0xFFFFFFFF),
+                            radius: BorderRadius.circular(18),
+                            shadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            child: hrow(
+                              [hsvg(Svgs.s46, w: 16, h: 16)],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 0,
+                            ),
                           ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
-                        child: hrow(
-                          [hsvg(Svgs.s46, w: 16, h: 16)],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
+                          onTap: () => m1.add(-1, min: 0),
                         ),
-                      ),
-                      back: true,
-                    ),
-                    Flexible(
-                      flex: 96,
-                      child: hbox(
-                        minW: 130,
-                        child: Text(
-                          '2026 年 10 月',
-                          style: hts(
-                            15,
-                            Color(0xFF18181B),
-                            w: FontWeight.w600,
-                            lh: 22,
+                        Flexible(
+                          flex: 96,
+                          child: hbox(
+                            minW: 130,
+                            child: hMonth(
+                              m1,
+                              hts(
+                                15,
+                                Color(0xFF18181B),
+                                w: FontWeight.w600,
+                                lh: 22,
+                              ),
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                      ),
-                    ),
-                    hTap(
-                      context,
-                      hbox(
-                        w: 36,
-                        h: 36,
-                        bg: Color(0xFFEEEEF0),
-                        radius: BorderRadius.circular(18),
-                        child: hrow(
-                          [hsvg(Svgs.s9, w: 16, h: 16)],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
+                        hTap(
+                          context,
+                          hbox(
+                            w: 36,
+                            h: 36,
+                            bg: Color(0xFFEEEEF0),
+                            radius: BorderRadius.circular(18),
+                            child: hrow(
+                              [hsvg(Svgs.s9, w: 16, h: 16)],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 0,
+                            ),
+                          ),
+                          onTap: () => m1.add(1, min: 0),
                         ),
-                      ),
-                    ),
-                  ],
-                  main: MainAxisAlignment.center,
-                  cross: CrossAxisAlignment.center,
-                  gap: 6,
+                      ],
+                      main: MainAxisAlignment.center,
+                      cross: CrossAxisAlignment.center,
+                      gap: 6,
+                    );
+                  },
                 ),
                 hbox(
                   bg: Color(0xFF18181B),
@@ -685,64 +691,58 @@ class ExpensesPage extends StatelessWidget {
                     groups: [
                       ({0}, false),
                     ],
-                    builder: (context, g1) => hrow(
+                    builder: (context, g2) => hrow(
                       [
                         Expanded(
                           flex: 1,
                           child: HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                bg: Color(0xFFFFFFFF),
-                                radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '全部',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF18181B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 32,
+                              bg: Color(0xFFFFFFFF),
+                              radius: BorderRadius.circular(16),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '全部',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                radius: BorderRadius.circular(16),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '全部',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF52525B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 32,
+                              radius: BorderRadius.circular(16),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '全部',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF52525B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -752,59 +752,53 @@ class ExpensesPage extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                bg: Color(0xFFFFFFFF),
-                                radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '固定开支',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF18181B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 32,
+                              bg: Color(0xFFFFFFFF),
+                              radius: BorderRadius.circular(16),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '固定开支',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                radius: BorderRadius.circular(16),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '固定开支',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF52525B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 32,
+                              radius: BorderRadius.circular(16),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '固定开支',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF52525B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -814,59 +808,53 @@ class ExpensesPage extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                bg: Color(0xFFFFFFFF),
-                                radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '变动开支',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF18181B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 32,
+                              bg: Color(0xFFFFFFFF),
+                              radius: BorderRadius.circular(16),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '变动开支',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                radius: BorderRadius.circular(16),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '变动开支',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF52525B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 32,
+                              radius: BorderRadius.circular(16),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '变动开支',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF52525B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -876,59 +864,53 @@ class ExpensesPage extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 3,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                bg: Color(0xFFFFFFFF),
-                                radius: BorderRadius.circular(16),
-                                shadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.04),
-                                    offset: Offset(0, 2),
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.06),
-                                    offset: Offset(0, 1),
-                                    blurRadius: 2,
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '待付款 1',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF18181B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 32,
+                              bg: Color(0xFFFFFFFF),
+                              radius: BorderRadius.circular(16),
+                              shadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.04),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 0,
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(0, 0, 0, 0.06),
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '待付款 1',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 32,
-                                radius: BorderRadius.circular(16),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '待付款 1',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF52525B),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 32,
+                              radius: BorderRadius.circular(16),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '待付款 1',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF52525B),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),

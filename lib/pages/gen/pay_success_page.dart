@@ -384,162 +384,296 @@ class PaySuccessPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      hstack(
-                        hcol(
-                          [
-                            hTap(
-                              context,
-                              hbox(
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
+                      HSelHolder(
+                        groups: [
+                          ({0}, true),
+                        ],
+                        builder: (context, g1) => hstack(
+                          hcol(
+                            [
+                              HSel(
+                                ctrl: g1[0],
+                                index: 0,
+                                on: hbox(
+                                  bg: Color(0xFFE1F0FE),
+                                  radius: BorderRadius.circular(18),
+                                  border: Border.all(
+                                    color: Color(0xFF0485F7),
+                                    width: 1.5,
+                                  ),
+                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                  child: hrow(
+                                    [
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFDDF6E7),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s101, w: 20, h: 20)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '微信通知',
+                                              style: hts(
+                                                15,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w600,
+                                                lh: 22,
+                                              ),
+                                            ),
+                                            Text(
+                                              '模板：消费通知 · 免费',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF52525B),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 0,
+                                        ),
+                                      ),
+                                      hbox(
+                                        w: 22,
+                                        h: 22,
+                                        bg: Color(0xFF0485F7),
+                                        radius: BorderRadius.circular(11),
+                                        child: hrow(
+                                          [hsvg(Svgs.s102, w: 14, h: 14)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 12,
+                                  ),
                                 ),
-                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                child: hrow(
-                                  [
-                                    hbox(
-                                      w: 36,
-                                      h: 36,
-                                      bg: Color(0xFFDDF6E7),
-                                      radius: BorderRadius.circular(12),
-                                      child: hrow(
-                                        [hsvg(Svgs.s101, w: 20, h: 20)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
+                                off: hbox(
+                                  bg: Color(0xFFF4F4F5),
+                                  radius: BorderRadius.circular(18),
+                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                  child: hrow(
+                                    [
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFDDF6E7),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s101, w: 20, h: 20)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
+                                        ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: hcol(
-                                        [
-                                          Text(
-                                            '微信通知',
-                                            style: hts(
-                                              15,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w600,
-                                              lh: 22,
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '微信通知',
+                                              style: hts(
+                                                15,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w600,
+                                                lh: 22,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            '模板：消费通知 · 免费',
-                                            style: hts(
-                                              12,
-                                              Color(0xFF52525B),
-                                              lh: 16,
+                                            Text(
+                                              '模板：消费通知 · 免费',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF52525B),
+                                                lh: 16,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.stretch,
-                                        gap: 0,
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 0,
+                                        ),
                                       ),
-                                    ),
-                                    hbox(
-                                      w: 22,
-                                      h: 22,
-                                      bg: Color(0xFF0485F7),
-                                      radius: BorderRadius.circular(11),
-                                      child: hrow(
-                                        [hsvg(Svgs.s102, w: 14, h: 14)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
+                                      hbox(
+                                        w: 22,
+                                        h: 22,
+                                        bg: Color(0xFF0485F7),
+                                        radius: BorderRadius.circular(11),
+                                        child: hrow(
+                                          [hsvg(Svgs.s102, w: 14, h: 14)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                  main: MainAxisAlignment.start,
-                                  cross: CrossAxisAlignment.center,
-                                  gap: 12,
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 12,
+                                  ),
                                 ),
                               ),
-                            ),
-                            hTap(
-                              context,
-                              hbox(
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                child: hrow(
-                                  [
-                                    hbox(
-                                      w: 36,
-                                      h: 36,
-                                      bg: Color(0xFFE1F0FE),
-                                      radius: BorderRadius.circular(12),
-                                      child: hrow(
-                                        [hsvg(Svgs.s103, w: 20, h: 20)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
+                              HSel(
+                                ctrl: g1[0],
+                                index: 1,
+                                on: hbox(
+                                  bg: Color(0xFFE1F0FE),
+                                  radius: BorderRadius.circular(18),
+                                  border: Border.all(
+                                    color: Color(0xFF0485F7),
+                                    width: 1.5,
+                                  ),
+                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                  child: hrow(
+                                    [
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s103, w: 20, h: 20)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
+                                        ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: hcol(
-                                        [
-                                          Text(
-                                            '短信通知',
-                                            style: hts(
-                                              15,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w600,
-                                              lh: 22,
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '短信通知',
+                                              style: hts(
+                                                15,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w600,
+                                                lh: 22,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            '86 字 · 2 条 · 约 ¥0.12',
-                                            style: hts(
-                                              12,
-                                              Color(0xFF52525B),
-                                              lh: 16,
+                                            Text(
+                                              '86 字 · 2 条 · 约 ¥0.12',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF52525B),
+                                                lh: 16,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.stretch,
-                                        gap: 0,
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 0,
+                                        ),
                                       ),
-                                    ),
-                                    hbox(
-                                      w: 22,
-                                      h: 22,
-                                      radius: BorderRadius.circular(11),
-                                      border: Border.all(
-                                        color: Color(0xFFD4D4D8),
-                                        width: 2,
+                                      hbox(
+                                        w: 22,
+                                        h: 22,
+                                        radius: BorderRadius.circular(11),
+                                        border: Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                  main: MainAxisAlignment.start,
-                                  cross: CrossAxisAlignment.center,
-                                  gap: 12,
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 12,
+                                  ),
+                                ),
+                                off: hbox(
+                                  bg: Color(0xFFF4F4F5),
+                                  radius: BorderRadius.circular(18),
+                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                  child: hrow(
+                                    [
+                                      hbox(
+                                        w: 36,
+                                        h: 36,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(12),
+                                        child: hrow(
+                                          [hsvg(Svgs.s103, w: 20, h: 20)],
+                                          main: MainAxisAlignment.center,
+                                          cross: CrossAxisAlignment.center,
+                                          gap: 0,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '短信通知',
+                                              style: hts(
+                                                15,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w600,
+                                                lh: 22,
+                                              ),
+                                            ),
+                                            Text(
+                                              '86 字 · 2 条 · 约 ¥0.12',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF52525B),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 0,
+                                        ),
+                                      ),
+                                      hbox(
+                                        w: 22,
+                                        h: 22,
+                                        radius: BorderRadius.circular(11),
+                                        border: Border.all(
+                                          color: Color(0xFFD4D4D8),
+                                          width: 2,
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.stretch,
+                            gap: 8,
+                          ),
+                          [
+                            Positioned(
+                              width: 1,
+                              height: 1,
+                              child: hbox(
+                                w: 1,
+                                h: 1,
+                                clip: true,
+                                child: Text(
+                                  '发送渠道',
+                                  style: hts(16, Color(0xFF18181B)),
                                 ),
                               ),
                             ),
                           ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.stretch,
-                          gap: 8,
                         ),
-                        [
-                          Positioned(
-                            width: 1,
-                            height: 1,
-                            child: hbox(
-                              w: 1,
-                              h: 1,
-                              clip: true,
-                              child: Text(
-                                '发送渠道',
-                                style: hts(16, Color(0xFF18181B)),
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
                       hrow(
                         [
@@ -565,6 +699,7 @@ class PaySuccessPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              label: '本次不通知',
                             ),
                           ),
                           Expanded(
@@ -589,6 +724,7 @@ class PaySuccessPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              label: '发送通知',
                             ),
                           ),
                         ],

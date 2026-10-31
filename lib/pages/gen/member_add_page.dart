@@ -147,6 +147,7 @@ class MemberAddPage extends StatelessWidget {
                       gap: 12,
                     ),
                   ),
+                  label: '扫行驶证快速建档自动识别车牌',
                 ),
                 hcol(
                   [
@@ -314,72 +315,62 @@ class MemberAddPage extends StatelessWidget {
                                           child: HSel(
                                             ctrl: g1[0],
                                             index: 0,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                h: 28,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  14,
-                                                ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color.fromRGBO(
-                                                      0,
-                                                      0,
-                                                      0,
-                                                      0.08,
-                                                    ),
-                                                    offset: Offset(0, 1),
-                                                    blurRadius: 2,
-                                                    spreadRadius: 0,
+                                            on: hbox(
+                                              h: 28,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(14),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color.fromRGBO(
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0.08,
                                                   ),
-                                                ],
-                                                pad: EdgeInsets.fromLTRB(
-                                                  14,
-                                                  0,
-                                                  14,
-                                                  0,
+                                                  offset: Offset(0, 1),
+                                                  blurRadius: 2,
+                                                  spreadRadius: 0,
                                                 ),
-                                                child: Align(
-                                                  alignment: Alignment.center,
-                                                  widthFactor: 1,
-                                                  child: Text(
-                                                    '先生',
-                                                    style: hts(
-                                                      13,
-                                                      Color(0xFF18181B),
-                                                      w: FontWeight.w500,
-                                                      lh: 18,
-                                                    ),
+                                              ],
+                                              pad: EdgeInsets.fromLTRB(
+                                                14,
+                                                0,
+                                                14,
+                                                0,
+                                              ),
+                                              child: Align(
+                                                alignment: Alignment.center,
+                                                widthFactor: 1,
+                                                child: Text(
+                                                  '先生',
+                                                  style: hts(
+                                                    13,
+                                                    Color(0xFF18181B),
+                                                    w: FontWeight.w500,
+                                                    lh: 18,
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                h: 28,
-                                                radius: BorderRadius.circular(
-                                                  14,
-                                                ),
-                                                pad: EdgeInsets.fromLTRB(
-                                                  14,
-                                                  0,
-                                                  14,
-                                                  0,
-                                                ),
-                                                child: Align(
-                                                  alignment: Alignment.center,
-                                                  widthFactor: 1,
-                                                  child: Text(
-                                                    '先生',
-                                                    style: hts(
-                                                      13,
-                                                      Color(0xFF52525B),
-                                                      w: FontWeight.w500,
-                                                      lh: 18,
-                                                    ),
+                                            off: hbox(
+                                              h: 28,
+                                              radius: BorderRadius.circular(14),
+                                              pad: EdgeInsets.fromLTRB(
+                                                14,
+                                                0,
+                                                14,
+                                                0,
+                                              ),
+                                              child: Align(
+                                                alignment: Alignment.center,
+                                                widthFactor: 1,
+                                                child: Text(
+                                                  '先生',
+                                                  style: hts(
+                                                    13,
+                                                    Color(0xFF52525B),
+                                                    w: FontWeight.w500,
+                                                    lh: 18,
                                                   ),
                                                 ),
                                               ),
@@ -391,72 +382,62 @@ class MemberAddPage extends StatelessWidget {
                                           child: HSel(
                                             ctrl: g1[0],
                                             index: 1,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                h: 28,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  14,
-                                                ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color.fromRGBO(
-                                                      0,
-                                                      0,
-                                                      0,
-                                                      0.08,
-                                                    ),
-                                                    offset: Offset(0, 1),
-                                                    blurRadius: 2,
-                                                    spreadRadius: 0,
+                                            on: hbox(
+                                              h: 28,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(14),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color.fromRGBO(
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0.08,
                                                   ),
-                                                ],
-                                                pad: EdgeInsets.fromLTRB(
-                                                  14,
-                                                  0,
-                                                  14,
-                                                  0,
+                                                  offset: Offset(0, 1),
+                                                  blurRadius: 2,
+                                                  spreadRadius: 0,
                                                 ),
-                                                child: Align(
-                                                  alignment: Alignment.center,
-                                                  widthFactor: 1,
-                                                  child: Text(
-                                                    '女士',
-                                                    style: hts(
-                                                      13,
-                                                      Color(0xFF18181B),
-                                                      w: FontWeight.w500,
-                                                      lh: 18,
-                                                    ),
+                                              ],
+                                              pad: EdgeInsets.fromLTRB(
+                                                14,
+                                                0,
+                                                14,
+                                                0,
+                                              ),
+                                              child: Align(
+                                                alignment: Alignment.center,
+                                                widthFactor: 1,
+                                                child: Text(
+                                                  '女士',
+                                                  style: hts(
+                                                    13,
+                                                    Color(0xFF18181B),
+                                                    w: FontWeight.w500,
+                                                    lh: 18,
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                h: 28,
-                                                radius: BorderRadius.circular(
-                                                  14,
-                                                ),
-                                                pad: EdgeInsets.fromLTRB(
-                                                  14,
-                                                  0,
-                                                  14,
-                                                  0,
-                                                ),
-                                                child: Align(
-                                                  alignment: Alignment.center,
-                                                  widthFactor: 1,
-                                                  child: Text(
-                                                    '女士',
-                                                    style: hts(
-                                                      13,
-                                                      Color(0xFF52525B),
-                                                      w: FontWeight.w500,
-                                                      lh: 18,
-                                                    ),
+                                            off: hbox(
+                                              h: 28,
+                                              radius: BorderRadius.circular(14),
+                                              pad: EdgeInsets.fromLTRB(
+                                                14,
+                                                0,
+                                                14,
+                                                0,
+                                              ),
+                                              child: Align(
+                                                alignment: Alignment.center,
+                                                widthFactor: 1,
+                                                child: Text(
+                                                  '女士',
+                                                  style: hts(
+                                                    13,
+                                                    Color(0xFF52525B),
+                                                    w: FontWeight.w500,
+                                                    lh: 18,
                                                   ),
                                                 ),
                                               ),
@@ -507,6 +488,7 @@ class MemberAddPage extends StatelessWidget {
                                 gap: 12,
                               ),
                             ),
+                            label: '生日选填，用于生日礼',
                           ),
                         ],
                         main: MainAxisAlignment.start,
@@ -775,6 +757,7 @@ class MemberAddPage extends StatelessWidget {
                                     gap: 12,
                                   ),
                                 ),
+                                label: '品牌车型宝马 5系 525L',
                               ),
                               hbox(
                                 h: 1,
@@ -806,220 +789,170 @@ class MemberAddPage extends StatelessWidget {
                                           HSel(
                                             ctrl: g2[0],
                                             index: 0,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFF18181B),
-                                                radius: BorderRadius.circular(
-                                                  13,
+                                            on: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFF18181B),
+                                              radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
                                                 ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color(0xFFFFFFFF),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 2,
-                                                  ),
-                                                  BoxShadow(
-                                                    color: Color(0xFF0485F7),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 4,
-                                                  ),
-                                                ],
-                                              ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  13,
-                                                ),
-                                                border: Border.all(
-                                                  color: Color(0xFFD4D4D8),
-                                                  width: 1.5,
-                                                ),
+                                            off: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(13),
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
                                               ),
                                             ),
                                           ),
                                           HSel(
                                             ctrl: g2[0],
                                             index: 1,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFF18181B),
-                                                radius: BorderRadius.circular(
-                                                  13,
+                                            on: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFF18181B),
+                                              radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
                                                 ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color(0xFFFFFFFF),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 2,
-                                                  ),
-                                                  BoxShadow(
-                                                    color: Color(0xFF0485F7),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 4,
-                                                  ),
-                                                ],
-                                              ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  13,
-                                                ),
-                                                border: Border.all(
-                                                  color: Color(0xFFD4D4D8),
-                                                  width: 1.5,
-                                                ),
+                                            off: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(13),
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
                                               ),
                                             ),
                                           ),
                                           HSel(
                                             ctrl: g2[0],
                                             index: 2,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFF18181B),
-                                                radius: BorderRadius.circular(
-                                                  13,
+                                            on: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFF18181B),
+                                              radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
                                                 ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color(0xFFFFFFFF),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 2,
-                                                  ),
-                                                  BoxShadow(
-                                                    color: Color(0xFF0485F7),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 4,
-                                                  ),
-                                                ],
-                                              ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  13,
-                                                ),
-                                                border: Border.all(
-                                                  color: Color(0xFFD4D4D8),
-                                                  width: 1.5,
-                                                ),
+                                            off: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(13),
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
                                               ),
                                             ),
                                           ),
                                           HSel(
                                             ctrl: g2[0],
                                             index: 3,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFF18181B),
-                                                radius: BorderRadius.circular(
-                                                  13,
+                                            on: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFF18181B),
+                                              radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
                                                 ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color(0xFFFFFFFF),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 2,
-                                                  ),
-                                                  BoxShadow(
-                                                    color: Color(0xFF0485F7),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 4,
-                                                  ),
-                                                ],
-                                              ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  13,
-                                                ),
-                                                border: Border.all(
-                                                  color: Color(0xFFD4D4D8),
-                                                  width: 1.5,
-                                                ),
+                                            off: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(13),
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
                                               ),
                                             ),
                                           ),
                                           HSel(
                                             ctrl: g2[0],
                                             index: 4,
-                                            on: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFF18181B),
-                                                radius: BorderRadius.circular(
-                                                  13,
+                                            on: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFF18181B),
+                                              radius: BorderRadius.circular(13),
+                                              shadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFFFFFFF),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 2,
                                                 ),
-                                                shadow: [
-                                                  BoxShadow(
-                                                    color: Color(0xFFFFFFFF),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 2,
-                                                  ),
-                                                  BoxShadow(
-                                                    color: Color(0xFF0485F7),
-                                                    offset: Offset(0, 0),
-                                                    blurRadius: 0,
-                                                    spreadRadius: 4,
-                                                  ),
-                                                ],
-                                              ),
+                                                BoxShadow(
+                                                  color: Color(0xFF0485F7),
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 0,
+                                                  spreadRadius: 4,
+                                                ),
+                                              ],
                                             ),
-                                            off: hTap(
-                                              context,
-                                              hbox(
-                                                w: 26,
-                                                h: 26,
-                                                bg: Color(0xFFFFFFFF),
-                                                radius: BorderRadius.circular(
-                                                  13,
-                                                ),
-                                                border: Border.all(
-                                                  color: Color(0xFFD4D4D8),
-                                                  width: 1.5,
-                                                ),
+                                            off: hbox(
+                                              w: 26,
+                                              h: 26,
+                                              bg: Color(0xFFFFFFFF),
+                                              radius: BorderRadius.circular(13),
+                                              border: Border.all(
+                                                color: Color(0xFFD4D4D8),
+                                                width: 1.5,
                                               ),
                                             ),
                                           ),
@@ -1135,6 +1068,7 @@ class MemberAddPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '普通',
                               ),
                             ),
                             Expanded(
@@ -1159,6 +1093,7 @@ class MemberAddPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '银卡',
                               ),
                             ),
                             Expanded(
@@ -1187,6 +1122,7 @@ class MemberAddPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '金卡',
                               ),
                             ),
                             Expanded(
@@ -1211,6 +1147,7 @@ class MemberAddPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                label: '黑金',
                               ),
                             ),
                           ],
@@ -1274,46 +1211,40 @@ class MemberAddPage extends StatelessWidget {
                             HSel(
                               ctrl: g3[0],
                               index: 0,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFF18181B),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '到店自然客',
-                                      style: hts(
-                                        13,
-                                        Color(0xFFFFFFFF),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 32,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '到店自然客',
+                                    style: hts(
+                                      13,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '到店自然客',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 32,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '到店自然客',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -1322,46 +1253,40 @@ class MemberAddPage extends StatelessWidget {
                             HSel(
                               ctrl: g3[0],
                               index: 1,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFF18181B),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '老客推荐',
-                                      style: hts(
-                                        13,
-                                        Color(0xFFFFFFFF),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 32,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '老客推荐',
+                                    style: hts(
+                                      13,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '老客推荐',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 32,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '老客推荐',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -1370,46 +1295,40 @@ class MemberAddPage extends StatelessWidget {
                             HSel(
                               ctrl: g3[0],
                               index: 2,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFF18181B),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '团购平台',
-                                      style: hts(
-                                        13,
-                                        Color(0xFFFFFFFF),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 32,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '团购平台',
+                                    style: hts(
+                                      13,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '团购平台',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 32,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '团购平台',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -1418,46 +1337,40 @@ class MemberAddPage extends StatelessWidget {
                             HSel(
                               ctrl: g3[0],
                               index: 3,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFF18181B),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '短视频',
-                                      style: hts(
-                                        13,
-                                        Color(0xFFFFFFFF),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 32,
+                                bg: Color(0xFF18181B),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '短视频',
+                                    style: hts(
+                                      13,
+                                      Color(0xFFFFFFFF),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 32,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(16),
-                                  pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '短视频',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 32,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(16),
+                                pad: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '短视频',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -1500,6 +1413,7 @@ class MemberAddPage extends StatelessWidget {
                             gap: 10,
                           ),
                         ),
+                        label: '推荐人王建国 · 黑金',
                       ),
                       Text(
                         '备注',

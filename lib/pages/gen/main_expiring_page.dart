@@ -51,6 +51,7 @@ class MainExpiringPage extends StatelessWidget {
                               cross: CrossAxisAlignment.center,
                               gap: 4,
                             ),
+                            label: '驰光汽车美容',
                           ),
                         ],
                         main: MainAxisAlignment.start,
@@ -116,6 +117,7 @@ class MainExpiringPage extends StatelessWidget {
                           ],
                         ),
                       ),
+                      label: '消息通知',
                     ),
                     hTap(
                       context,

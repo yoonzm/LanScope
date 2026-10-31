@@ -526,6 +526,7 @@ class BindInvitePage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    label: '本次改发短信通知',
                                   ),
                                 ),
                                 Expanded(
@@ -554,6 +555,7 @@ class BindInvitePage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    label: '会员已扫码（演示）',
                                   ),
                                 ),
                               ],

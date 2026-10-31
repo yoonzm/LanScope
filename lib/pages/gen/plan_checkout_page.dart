@@ -187,216 +187,204 @@ class PlanCheckoutPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 0,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(18),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '1 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                              on: hbox(
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '1 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '按月订阅，随时可停',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '按月订阅，随时可停',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 1,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 1,
                                       ),
-                                      Text(
-                                        '¥399',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          w: FontWeight.w600,
-                                        ),
+                                    ),
+                                    Text(
+                                      '¥399',
+                                      style: hts(
+                                        15,
+                                        Color(0xFF18181B),
+                                        w: FontWeight.w600,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 10,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 10,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(18),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '1 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                              off: hbox(
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(18),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '1 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '按月订阅，随时可停',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '按月订阅，随时可停',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 1,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 1,
                                       ),
-                                      Text(
-                                        '¥399',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          w: FontWeight.w600,
-                                        ),
+                                    ),
+                                    Text(
+                                      '¥399',
+                                      style: hts(
+                                        15,
+                                        Color(0xFF18181B),
+                                        w: FontWeight.w600,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 10,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 10,
                                 ),
                               ),
                             ),
                             HSel(
                               ctrl: g1[0],
                               index: 1,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(18),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '12 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                              on: hbox(
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '12 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '相当于每月 ¥333，省 ¥798',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '相当于每月 ¥333，省 ¥798',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 1,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 1,
                                       ),
-                                      Text(
-                                        '¥3,990',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          w: FontWeight.w600,
-                                        ),
+                                    ),
+                                    Text(
+                                      '¥3,990',
+                                      style: hts(
+                                        15,
+                                        Color(0xFF18181B),
+                                        w: FontWeight.w600,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 10,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 10,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(18),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '12 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                              off: hbox(
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(18),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '12 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '相当于每月 ¥333，省 ¥798',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '相当于每月 ¥333，省 ¥798',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 1,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 1,
                                       ),
-                                      Text(
-                                        '¥3,990',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          w: FontWeight.w600,
-                                        ),
+                                    ),
+                                    Text(
+                                      '¥3,990',
+                                      style: hts(
+                                        15,
+                                        Color(0xFF18181B),
+                                        w: FontWeight.w600,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 10,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 10,
                                 ),
                               ),
                             ),
@@ -456,334 +444,316 @@ class PlanCheckoutPage extends StatelessWidget {
                             HSel(
                               ctrl: g2[0],
                               index: 0,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(18),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      hbox(
-                                        w: 36,
-                                        h: 36,
-                                        bg: Color(0xFFDDF6E7),
-                                        radius: BorderRadius.circular(12),
-                                        child: hrow(
-                                          [hsvg(Svgs.s94, w: 18, h: 18)],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                              on: hbox(
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 36,
+                                      h: 36,
+                                      bg: Color(0xFFDDF6E7),
+                                      radius: BorderRadius.circular(12),
+                                      child: hrow(
+                                        [hsvg(Svgs.s94, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '微信支付',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '微信支付',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '推荐，支持自动续费',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '推荐，支持自动续费',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 0,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(18),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      hbox(
-                                        w: 36,
-                                        h: 36,
-                                        bg: Color(0xFFDDF6E7),
-                                        radius: BorderRadius.circular(12),
-                                        child: hrow(
-                                          [hsvg(Svgs.s94, w: 18, h: 18)],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                              off: hbox(
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(18),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 36,
+                                      h: 36,
+                                      bg: Color(0xFFDDF6E7),
+                                      radius: BorderRadius.circular(12),
+                                      child: hrow(
+                                        [hsvg(Svgs.s94, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '微信支付',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '微信支付',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '推荐，支持自动续费',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '推荐，支持自动续费',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 0,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),
                             HSel(
                               ctrl: g2[0],
                               index: 1,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(18),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      hbox(
-                                        w: 36,
-                                        h: 36,
-                                        bg: Color(0xFFE1F0FE),
-                                        radius: BorderRadius.circular(12),
-                                        child: hrow(
-                                          [hsvg(Svgs.s104, w: 18, h: 18)],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                              on: hbox(
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 36,
+                                      h: 36,
+                                      bg: Color(0xFFE1F0FE),
+                                      radius: BorderRadius.circular(12),
+                                      child: hrow(
+                                        [hsvg(Svgs.s104, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '支付宝',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '支付宝',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            SizedBox.shrink(),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 0,
-                                        ),
+                                          ),
+                                          SizedBox.shrink(),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(18),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      hbox(
-                                        w: 36,
-                                        h: 36,
-                                        bg: Color(0xFFE1F0FE),
-                                        radius: BorderRadius.circular(12),
-                                        child: hrow(
-                                          [hsvg(Svgs.s104, w: 18, h: 18)],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                              off: hbox(
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(18),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 36,
+                                      h: 36,
+                                      bg: Color(0xFFE1F0FE),
+                                      radius: BorderRadius.circular(12),
+                                      child: hrow(
+                                        [hsvg(Svgs.s104, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '支付宝',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '支付宝',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            SizedBox.shrink(),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 0,
-                                        ),
+                                          ),
+                                          SizedBox.shrink(),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),
                             HSel(
                               ctrl: g2[0],
                               index: 2,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(18),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      hbox(
-                                        w: 36,
-                                        h: 36,
-                                        bg: Color(0xFFEEEEF0),
-                                        radius: BorderRadius.circular(12),
-                                        child: hrow(
-                                          [hsvg(Svgs.s105, w: 18, h: 18)],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                              on: hbox(
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 36,
+                                      h: 36,
+                                      bg: Color(0xFFEEEEF0),
+                                      radius: BorderRadius.circular(12),
+                                      child: hrow(
+                                        [hsvg(Svgs.s105, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '对公转账',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '对公转账',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '需人工确认，1 个工作日内开通',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '需人工确认，1 个工作日内开通',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 0,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(18),
-                                  pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                                  child: hrow(
-                                    [
-                                      hbox(
-                                        w: 36,
-                                        h: 36,
-                                        bg: Color(0xFFEEEEF0),
-                                        radius: BorderRadius.circular(12),
-                                        child: hrow(
-                                          [hsvg(Svgs.s105, w: 18, h: 18)],
-                                          main: MainAxisAlignment.center,
-                                          cross: CrossAxisAlignment.center,
-                                          gap: 0,
-                                        ),
+                              off: hbox(
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(18),
+                                pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                                child: hrow(
+                                  [
+                                    hbox(
+                                      w: 36,
+                                      h: 36,
+                                      bg: Color(0xFFEEEEF0),
+                                      radius: BorderRadius.circular(12),
+                                      child: hrow(
+                                        [hsvg(Svgs.s105, w: 18, h: 18)],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 0,
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: hcol(
-                                          [
-                                            Text(
-                                              '对公转账',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w500,
-                                                lh: 22,
-                                              ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: hcol(
+                                        [
+                                          Text(
+                                            '对公转账',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w500,
+                                              lh: 22,
                                             ),
-                                            Text(
-                                              '需人工确认，1 个工作日内开通',
-                                              style: hts(
-                                                12,
-                                                Color(0xFF71717A),
-                                                lh: 16,
-                                              ),
+                                          ),
+                                          Text(
+                                            '需人工确认，1 个工作日内开通',
+                                            style: hts(
+                                              12,
+                                              Color(0xFF71717A),
+                                              lh: 16,
                                             ),
-                                          ],
-                                          main: MainAxisAlignment.start,
-                                          cross: CrossAxisAlignment.stretch,
-                                          gap: 0,
-                                        ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.start,
+                                        cross: CrossAxisAlignment.stretch,
+                                        gap: 0,
                                       ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 12,
-                                  ),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.center,
+                                  gap: 12,
                                 ),
                               ),
                             ),
@@ -968,6 +938,7 @@ class PlanCheckoutPage extends StatelessWidget {
                             gap: 0,
                           ),
                         ),
+                        label: '新店首购券-¥200',
                       ),
                       hbox(h: 1, bg: Color(0xFFEFEFF1)),
                       hrow(

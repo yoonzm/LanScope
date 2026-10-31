@@ -613,6 +613,7 @@ class SubscriptionPage extends StatelessWidget {
                                 gap: 12,
                               ),
                             ),
+                            label: '支付方式微信支付',
                           ),
                           hbox(
                             h: 1,

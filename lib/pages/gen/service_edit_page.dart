@@ -182,6 +182,7 @@ class ServiceEditPage extends StatelessWidget {
                             gap: 12,
                           ),
                         ),
+                        label: '所属分类镀晶镀膜',
                       ),
                       hbox(
                         h: 1,
@@ -217,6 +218,7 @@ class ServiceEditPage extends StatelessWidget {
                             gap: 12,
                           ),
                         ),
+                        label: '标准工时4 小时',
                       ),
                     ],
                     main: MainAxisAlignment.start,
@@ -500,51 +502,45 @@ class ServiceEditPage extends StatelessWidget {
                                 child: HSel(
                                   ctrl: g1[0],
                                   index: 0,
-                                  on: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      bg: Color(0xFFFFFFFF),
-                                      radius: BorderRadius.circular(16),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.08),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '按实收比例',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  on: hbox(
+                                    h: 32,
+                                    bg: Color(0xFFFFFFFF),
+                                    radius: BorderRadius.circular(16),
+                                    shadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.08),
+                                        offset: Offset(0, 1),
+                                        blurRadius: 2,
+                                        spreadRadius: 0,
+                                      ),
+                                    ],
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '按实收比例',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF18181B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  off: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      radius: BorderRadius.circular(16),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '按实收比例',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF52525B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  off: hbox(
+                                    h: 32,
+                                    radius: BorderRadius.circular(16),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '按实收比例',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF52525B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
@@ -556,51 +552,45 @@ class ServiceEditPage extends StatelessWidget {
                                 child: HSel(
                                   ctrl: g1[0],
                                   index: 1,
-                                  on: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      bg: Color(0xFFFFFFFF),
-                                      radius: BorderRadius.circular(16),
-                                      shadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.08),
-                                          offset: Offset(0, 1),
-                                          blurRadius: 2,
-                                          spreadRadius: 0,
-                                        ),
-                                      ],
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '固定金额',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  on: hbox(
+                                    h: 32,
+                                    bg: Color(0xFFFFFFFF),
+                                    radius: BorderRadius.circular(16),
+                                    shadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.08),
+                                        offset: Offset(0, 1),
+                                        blurRadius: 2,
+                                        spreadRadius: 0,
+                                      ),
+                                    ],
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '固定金额',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF18181B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  off: hTap(
-                                    context,
-                                    hbox(
-                                      h: 32,
-                                      radius: BorderRadius.circular(16),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        widthFactor: 1,
-                                        child: Text(
-                                          '固定金额',
-                                          style: hts(
-                                            13,
-                                            Color(0xFF52525B),
-                                            w: FontWeight.w500,
-                                            lh: 18,
-                                          ),
+                                  off: hbox(
+                                    h: 32,
+                                    radius: BorderRadius.circular(16),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      widthFactor: 1,
+                                      child: Text(
+                                        '固定金额',
+                                        style: hts(
+                                          13,
+                                          Color(0xFF52525B),
+                                          w: FontWeight.w500,
+                                          lh: 18,
                                         ),
                                       ),
                                     ),
@@ -957,6 +947,7 @@ class ServiceEditPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  onTap: () => hConfirmPop(context, '删除此项目'),
                 ),
               ],
               main: MainAxisAlignment.start,

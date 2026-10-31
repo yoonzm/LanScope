@@ -272,7 +272,8 @@ class _OrderPageState extends State<OrderPage> {
           ),
         ),
         const SizedBox(height: 8),
-        for (var i = 0; i < orderServices.length; i++) _serviceRow(i),
+        for (var i = 0; i < orderServices.length; i++)
+          if (orderServices[i].cats.contains(_cats[cat])) _serviceRow(i),
       ],
     ),
   );

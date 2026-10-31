@@ -83,6 +83,7 @@ class StaffPage extends StatelessWidget {
                           gap: 0,
                         ),
                       ),
+                      label: '邀请员工',
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -150,6 +151,7 @@ class StaffPage extends StatelessWidget {
                               gap: 6,
                             ),
                           ),
+                          label: '店长1',
                         ),
                       ),
                       Expanded(
@@ -210,6 +212,7 @@ class StaffPage extends StatelessWidget {
                               gap: 6,
                             ),
                           ),
+                          label: '前台收银2',
                         ),
                       ),
                       Expanded(
@@ -250,6 +253,7 @@ class StaffPage extends StatelessWidget {
                               gap: 6,
                             ),
                           ),
+                          label: '施工技师5',
                         ),
                       ),
                     ],

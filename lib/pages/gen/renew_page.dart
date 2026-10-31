@@ -115,432 +115,390 @@ class RenewPage extends StatelessWidget {
                       HSel(
                         ctrl: g1[0],
                         index: 0,
-                        on: hTap(
-                          context,
-                          hbox(
-                            bg: Color(0xFFE1F0FE),
-                            radius: BorderRadius.circular(18),
-                            border: Border.all(
-                              color: Color(0xFF0485F7),
-                              width: 1.5,
-                            ),
-                            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      hrow(
-                                        [
-                                          Flexible(
-                                            flex: 43,
-                                            child: Text(
-                                              '1 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                        on: hbox(
+                          bg: Color(0xFFE1F0FE),
+                          radius: BorderRadius.circular(18),
+                          border: Border.all(
+                            color: Color(0xFF0485F7),
+                            width: 1.5,
+                          ),
+                          pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                          child: hrow(
+                            [
+                              Expanded(
+                                flex: 1,
+                                child: hcol(
+                                  [
+                                    hrow(
+                                      [
+                                        Flexible(
+                                          flex: 43,
+                                          child: Text(
+                                            '1 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
                                           ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 6,
-                                      ),
-                                      Text(
-                                        '到期日顺延至 2027.11.30',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
                                         ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 1,
-                                  ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 6,
+                                    ),
+                                    Text(
+                                      '到期日顺延至 2027.11.30',
+                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 1,
                                 ),
-                                Text(
-                                  '¥399',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                '¥399',
+                                style: hts(
+                                  15,
+                                  Color(0xFF18181B),
+                                  w: FontWeight.w600,
                                 ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.center,
+                            gap: 10,
                           ),
                         ),
-                        off: hTap(
-                          context,
-                          hbox(
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(18),
-                            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      hrow(
-                                        [
-                                          Flexible(
-                                            flex: 43,
-                                            child: Text(
-                                              '1 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                        off: hbox(
+                          bg: Color(0xFFF4F4F5),
+                          radius: BorderRadius.circular(18),
+                          pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                          child: hrow(
+                            [
+                              Expanded(
+                                flex: 1,
+                                child: hcol(
+                                  [
+                                    hrow(
+                                      [
+                                        Flexible(
+                                          flex: 43,
+                                          child: Text(
+                                            '1 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
                                           ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 6,
-                                      ),
-                                      Text(
-                                        '到期日顺延至 2027.11.30',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
                                         ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 1,
-                                  ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 6,
+                                    ),
+                                    Text(
+                                      '到期日顺延至 2027.11.30',
+                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 1,
                                 ),
-                                Text(
-                                  '¥399',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                '¥399',
+                                style: hts(
+                                  15,
+                                  Color(0xFF18181B),
+                                  w: FontWeight.w600,
                                 ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.center,
+                            gap: 10,
                           ),
                         ),
                       ),
                       HSel(
                         ctrl: g1[0],
                         index: 1,
-                        on: hTap(
-                          context,
-                          hbox(
-                            bg: Color(0xFFE1F0FE),
-                            radius: BorderRadius.circular(18),
-                            border: Border.all(
-                              color: Color(0xFF0485F7),
-                              width: 1.5,
-                            ),
-                            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      hrow(
-                                        [
-                                          Flexible(
-                                            flex: 43,
-                                            child: Text(
-                                              '3 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                        on: hbox(
+                          bg: Color(0xFFE1F0FE),
+                          radius: BorderRadius.circular(18),
+                          border: Border.all(
+                            color: Color(0xFF0485F7),
+                            width: 1.5,
+                          ),
+                          pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                          child: hrow(
+                            [
+                              Expanded(
+                                flex: 1,
+                                child: hcol(
+                                  [
+                                    hrow(
+                                      [
+                                        Flexible(
+                                          flex: 43,
+                                          child: Text(
+                                            '3 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
                                           ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 6,
-                                      ),
-                                      Text(
-                                        '到期日顺延至 2028.01.30 · 95 折',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
                                         ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 1,
-                                  ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 6,
+                                    ),
+                                    Text(
+                                      '到期日顺延至 2028.01.30 · 95 折',
+                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 1,
                                 ),
-                                Text(
-                                  '¥1,137',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                '¥1,137',
+                                style: hts(
+                                  15,
+                                  Color(0xFF18181B),
+                                  w: FontWeight.w600,
                                 ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.center,
+                            gap: 10,
                           ),
                         ),
-                        off: hTap(
-                          context,
-                          hbox(
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(18),
-                            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      hrow(
-                                        [
-                                          Flexible(
-                                            flex: 43,
-                                            child: Text(
-                                              '3 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                        off: hbox(
+                          bg: Color(0xFFF4F4F5),
+                          radius: BorderRadius.circular(18),
+                          pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                          child: hrow(
+                            [
+                              Expanded(
+                                flex: 1,
+                                child: hcol(
+                                  [
+                                    hrow(
+                                      [
+                                        Flexible(
+                                          flex: 43,
+                                          child: Text(
+                                            '3 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
                                           ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 6,
-                                      ),
-                                      Text(
-                                        '到期日顺延至 2028.01.30 · 95 折',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
                                         ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 1,
-                                  ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 6,
+                                    ),
+                                    Text(
+                                      '到期日顺延至 2028.01.30 · 95 折',
+                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 1,
                                 ),
-                                Text(
-                                  '¥1,137',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                '¥1,137',
+                                style: hts(
+                                  15,
+                                  Color(0xFF18181B),
+                                  w: FontWeight.w600,
                                 ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.center,
+                            gap: 10,
                           ),
                         ),
                       ),
                       HSel(
                         ctrl: g1[0],
                         index: 2,
-                        on: hTap(
-                          context,
-                          hbox(
-                            bg: Color(0xFFE1F0FE),
-                            radius: BorderRadius.circular(18),
-                            border: Border.all(
-                              color: Color(0xFF0485F7),
-                              width: 1.5,
-                            ),
-                            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      hrow(
-                                        [
-                                          Flexible(
-                                            flex: 52,
-                                            child: Text(
-                                              '12 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                        on: hbox(
+                          bg: Color(0xFFE1F0FE),
+                          radius: BorderRadius.circular(18),
+                          border: Border.all(
+                            color: Color(0xFF0485F7),
+                            width: 1.5,
+                          ),
+                          pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                          child: hrow(
+                            [
+                              Expanded(
+                                flex: 1,
+                                child: hcol(
+                                  [
+                                    hrow(
+                                      [
+                                        Flexible(
+                                          flex: 52,
+                                          child: Text(
+                                            '12 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
                                           ),
-                                          Flexible(
-                                            flex: 38,
-                                            child: hbox(
-                                              bg: Color(0xFFFDEFD6),
-                                              radius: BorderRadius.circular(9),
-                                              pad: EdgeInsets.fromLTRB(
-                                                8,
-                                                0,
-                                                8,
-                                                0,
-                                              ),
-                                              child: Text(
-                                                '推荐',
-                                                style: hts(
-                                                  11,
-                                                  Color(0xFF855F2E),
-                                                  w: FontWeight.w600,
-                                                  lh: 18,
-                                                ),
-                                                softWrap: false,
-                                                maxLines: 1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 6,
-                                      ),
-                                      Text(
-                                        '到期日顺延至 2028.10.30 · 省 ¥798',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
                                         ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 1,
-                                  ),
+                                        Flexible(
+                                          flex: 38,
+                                          child: hbox(
+                                            bg: Color(0xFFFDEFD6),
+                                            radius: BorderRadius.circular(9),
+                                            pad: EdgeInsets.fromLTRB(
+                                              8,
+                                              0,
+                                              8,
+                                              0,
+                                            ),
+                                            child: Text(
+                                              '推荐',
+                                              style: hts(
+                                                11,
+                                                Color(0xFF855F2E),
+                                                w: FontWeight.w600,
+                                                lh: 18,
+                                              ),
+                                              softWrap: false,
+                                              maxLines: 1,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 6,
+                                    ),
+                                    Text(
+                                      '到期日顺延至 2028.10.30 · 省 ¥798',
+                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 1,
                                 ),
-                                Text(
-                                  '¥3,990',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                '¥3,990',
+                                style: hts(
+                                  15,
+                                  Color(0xFF18181B),
+                                  w: FontWeight.w600,
                                 ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.center,
+                            gap: 10,
                           ),
                         ),
-                        off: hTap(
-                          context,
-                          hbox(
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(18),
-                            pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
-                            child: hrow(
-                              [
-                                Expanded(
-                                  flex: 1,
-                                  child: hcol(
-                                    [
-                                      hrow(
-                                        [
-                                          Flexible(
-                                            flex: 52,
-                                            child: Text(
-                                              '12 个月',
-                                              style: hts(
-                                                15,
-                                                Color(0xFF18181B),
-                                                w: FontWeight.w600,
-                                                lh: 22,
-                                              ),
+                        off: hbox(
+                          bg: Color(0xFFF4F4F5),
+                          radius: BorderRadius.circular(18),
+                          pad: EdgeInsets.fromLTRB(14, 12, 14, 12),
+                          child: hrow(
+                            [
+                              Expanded(
+                                flex: 1,
+                                child: hcol(
+                                  [
+                                    hrow(
+                                      [
+                                        Flexible(
+                                          flex: 52,
+                                          child: Text(
+                                            '12 个月',
+                                            style: hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
                                             ),
                                           ),
-                                          Flexible(
-                                            flex: 38,
-                                            child: hbox(
-                                              bg: Color(0xFFFDEFD6),
-                                              radius: BorderRadius.circular(9),
-                                              pad: EdgeInsets.fromLTRB(
-                                                8,
-                                                0,
-                                                8,
-                                                0,
-                                              ),
-                                              child: Text(
-                                                '推荐',
-                                                style: hts(
-                                                  11,
-                                                  Color(0xFF855F2E),
-                                                  w: FontWeight.w600,
-                                                  lh: 18,
-                                                ),
-                                                softWrap: false,
-                                                maxLines: 1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                        main: MainAxisAlignment.start,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 6,
-                                      ),
-                                      Text(
-                                        '到期日顺延至 2028.10.30 · 省 ¥798',
-                                        style: hts(
-                                          12,
-                                          Color(0xFF71717A),
-                                          lh: 16,
                                         ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.stretch,
-                                    gap: 1,
-                                  ),
+                                        Flexible(
+                                          flex: 38,
+                                          child: hbox(
+                                            bg: Color(0xFFFDEFD6),
+                                            radius: BorderRadius.circular(9),
+                                            pad: EdgeInsets.fromLTRB(
+                                              8,
+                                              0,
+                                              8,
+                                              0,
+                                            ),
+                                            child: Text(
+                                              '推荐',
+                                              style: hts(
+                                                11,
+                                                Color(0xFF855F2E),
+                                                w: FontWeight.w600,
+                                                lh: 18,
+                                              ),
+                                              softWrap: false,
+                                              maxLines: 1,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                      main: MainAxisAlignment.start,
+                                      cross: CrossAxisAlignment.center,
+                                      gap: 6,
+                                    ),
+                                    Text(
+                                      '到期日顺延至 2028.10.30 · 省 ¥798',
+                                      style: hts(12, Color(0xFF71717A), lh: 16),
+                                    ),
+                                  ],
+                                  main: MainAxisAlignment.start,
+                                  cross: CrossAxisAlignment.stretch,
+                                  gap: 1,
                                 ),
-                                Text(
-                                  '¥3,990',
-                                  style: hts(
-                                    15,
-                                    Color(0xFF18181B),
-                                    w: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                '¥3,990',
+                                style: hts(
+                                  15,
+                                  Color(0xFF18181B),
+                                  w: FontWeight.w600,
                                 ),
-                              ],
-                              main: MainAxisAlignment.start,
-                              cross: CrossAxisAlignment.center,
-                              gap: 10,
-                            ),
+                              ),
+                            ],
+                            main: MainAxisAlignment.start,
+                            cross: CrossAxisAlignment.center,
+                            gap: 10,
                           ),
                         ),
                       ),

@@ -280,399 +280,465 @@ class StockInPage extends StatelessWidget {
                         ),
                       ],
                       pad: EdgeInsets.fromLTRB(16, 16, 16, 16),
-                      child: hcol(
-                        [
-                          hcol(
-                            [
-                              hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          'TPU 隐形车衣 7.5mil',
-                                          style: hts(
-                                            15,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                            lh: 22,
-                                          ),
-                                        ),
-                                        Text(
-                                          '当前库存 2 卷 · 低于安全库存',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
-                                    ),
-                                  ),
-                                  hTap(
-                                    context,
-                                    hbox(
-                                      w: 32,
-                                      h: 32,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(16),
-                                      child: hrow(
-                                        [hsvg(Svgs.s132, w: 14, h: 14)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
-                                      ),
-                                    ),
-                                    back: true,
-                                  ),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 10,
-                              ),
-                              hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '单价 ¥2,380.00 / 卷',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          '批次 自动生成 · 无保质期',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
-                                    ),
-                                  ),
-                                  hrow(
-                                    [
-                                      hTap(
-                                        context,
-                                        hbox(
-                                          w: 32,
-                                          h: 32,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(16),
-                                          child: hrow(
-                                            [hsvg(Svgs.s7, w: 14, h: 14)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
-                                        ),
-                                      ),
-                                      Flexible(
-                                        flex: 9,
-                                        child: hbox(
-                                          minW: 36,
-                                          child: Text(
-                                            '6',
-                                            style: hts(
-                                              15,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w600,
-                                              lh: 22,
-                                              tab: true,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                      hTap(
-                                        context,
-                                        hbox(
-                                          w: 32,
-                                          h: 32,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(16),
-                                          child: hrow(
-                                            [hsvg(Svgs.s8, w: 14, h: 14)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 4,
-                                  ),
-                                  hbox(
-                                    minW: 78,
-                                    child: Text(
-                                      '¥14,280.00',
-                                      style: hts(
-                                        15,
-                                        Color(0xFF18181B),
-                                        w: FontWeight.w600,
-                                        lh: 22,
-                                        tab: true,
-                                      ),
-                                      textAlign: TextAlign.right,
-                                    ),
-                                  ),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 10,
-                              ),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.stretch,
-                            gap: 10,
-                          ),
-                          hbox(h: 1, bg: Color(0xFFEFEFF1)),
-                          hcol(
-                            [
-                              hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '9H 陶瓷镀晶液 50ml',
-                                          style: hts(
-                                            15,
-                                            Color(0xFF18181B),
-                                            w: FontWeight.w600,
-                                            lh: 22,
-                                          ),
-                                        ),
-                                        Text(
-                                          '当前库存 6 瓶',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
-                                    ),
-                                  ),
-                                  hTap(
-                                    context,
-                                    hbox(
-                                      w: 32,
-                                      h: 32,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(16),
-                                      child: hrow(
-                                        [hsvg(Svgs.s132, w: 14, h: 14)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
-                                      ),
-                                    ),
-                                    back: true,
-                                  ),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 10,
-                              ),
-                              hrow(
-                                [
-                                  Expanded(
-                                    flex: 1,
-                                    child: hcol(
-                                      [
-                                        Text(
-                                          '单价 ¥168.00 / 瓶',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          '批次 自动生成 · 有效期 2028.10',
-                                          style: hts(
-                                            12,
-                                            Color(0xFF71717A),
-                                            lh: 16,
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.start,
-                                      cross: CrossAxisAlignment.stretch,
-                                      gap: 2,
-                                    ),
-                                  ),
-                                  hrow(
-                                    [
-                                      hTap(
-                                        context,
-                                        hbox(
-                                          w: 32,
-                                          h: 32,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(16),
-                                          child: hrow(
-                                            [hsvg(Svgs.s7, w: 14, h: 14)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
-                                        ),
-                                      ),
-                                      Flexible(
-                                        flex: 17,
-                                        child: hbox(
-                                          minW: 36,
-                                          child: Text(
-                                            '10',
-                                            style: hts(
-                                              15,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w600,
-                                              lh: 22,
-                                              tab: true,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                      hTap(
-                                        context,
-                                        hbox(
-                                          w: 32,
-                                          h: 32,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(16),
-                                          child: hrow(
-                                            [hsvg(Svgs.s8, w: 14, h: 14)],
-                                            main: MainAxisAlignment.center,
-                                            cross: CrossAxisAlignment.center,
-                                            gap: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                    main: MainAxisAlignment.start,
-                                    cross: CrossAxisAlignment.center,
-                                    gap: 4,
-                                  ),
-                                  hbox(
-                                    minW: 78,
-                                    child: Text(
-                                      '¥1,680.00',
-                                      style: hts(
-                                        15,
-                                        Color(0xFF18181B),
-                                        w: FontWeight.w600,
-                                        lh: 22,
-                                        tab: true,
-                                      ),
-                                      textAlign: TextAlign.right,
-                                    ),
-                                  ),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 10,
-                              ),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.stretch,
-                            gap: 10,
-                          ),
-                          hrow(
-                            [
-                              Expanded(
-                                flex: 1,
-                                child: hTap(
-                                  context,
-                                  hbox(
-                                    h: 42,
-                                    bg: Color(0xFFE1F0FE),
-                                    radius: BorderRadius.circular(21),
-                                    child: hrow(
-                                      [
-                                        hsvg(Svgs.s133, w: 16, h: 16),
-                                        Flexible(
-                                          flex: 56,
-                                          child: Text(
-                                            '添加商品',
-                                            style: hts(
-                                              14,
-                                              Color(0xFF1E63AE),
-                                              w: FontWeight.w600,
-                                              lh: 20,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 6,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: hTap(
-                                  context,
-                                  hbox(
-                                    h: 42,
-                                    bg: Color(0xFFEEEEF0),
-                                    radius: BorderRadius.circular(21),
-                                    child: hrow(
-                                      [
-                                        hsvg(Svgs.s134, w: 16, h: 16),
-                                        Flexible(
-                                          flex: 56,
-                                          child: Text(
-                                            '扫码添加',
-                                            style: hts(
-                                              14,
-                                              Color(0xFF18181B),
-                                              w: FontWeight.w500,
-                                              lh: 20,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      main: MainAxisAlignment.center,
-                                      cross: CrossAxisAlignment.center,
-                                      gap: 6,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                            main: MainAxisAlignment.start,
-                            cross: CrossAxisAlignment.stretch,
-                            gap: 8,
-                            intrinsic: true,
-                          ),
+                      child: HDyn(
+                        texts: [
+                          'TPU 隐形车衣 7.5mil当前库存 2 卷 · 低于安全库存单价 ¥2,380.00 / 卷批次 自动生成 · 无保质期6¥14,280.00',
+                          '9H 陶瓷镀晶液 50ml当前库存 6 瓶单价 ¥168.00 / 瓶批次 自动生成 · 有效期 2028.1010¥1,680.00',
                         ],
-                        main: MainAxisAlignment.start,
-                        cross: CrossAxisAlignment.stretch,
-                        gap: 14,
+                        builder: (context, d1) => hcol(
+                          [
+                            ...d1.vis([
+                              hcol(
+                                [
+                                  hrow(
+                                    [
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              'TPU 隐形车衣 7.5mil',
+                                              style: hts(
+                                                15,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w600,
+                                                lh: 22,
+                                              ),
+                                            ),
+                                            Text(
+                                              '当前库存 2 卷 · 低于安全库存',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF71717A),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 2,
+                                        ),
+                                      ),
+                                      hTap(
+                                        context,
+                                        hbox(
+                                          w: 32,
+                                          h: 32,
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          child: hrow(
+                                            [hsvg(Svgs.s132, w: 14, h: 14)],
+                                            main: MainAxisAlignment.center,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 0,
+                                          ),
+                                        ),
+                                        onTap: () =>
+                                            d1.confirmRemove(context, 0),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 10,
+                                  ),
+                                  hrow(
+                                    [
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '单价 ¥2,380.00 / 卷',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF71717A),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                            Text(
+                                              '批次 自动生成 · 无保质期',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF71717A),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 2,
+                                        ),
+                                      ),
+                                      HHolder(
+                                        inits: [6],
+                                        builder: (context, ctrls) {
+                                          final c2 = ctrls[0];
+                                          return hrow(
+                                            [
+                                              hTap(
+                                                context,
+                                                hbox(
+                                                  w: 32,
+                                                  h: 32,
+                                                  bg: Color(0xFFF4F4F5),
+                                                  radius: BorderRadius.circular(
+                                                    16,
+                                                  ),
+                                                  child: hrow(
+                                                    [
+                                                      hsvg(
+                                                        Svgs.s7,
+                                                        w: 14,
+                                                        h: 14,
+                                                      ),
+                                                    ],
+                                                    main: MainAxisAlignment
+                                                        .center,
+                                                    cross: CrossAxisAlignment
+                                                        .center,
+                                                    gap: 0,
+                                                  ),
+                                                ),
+                                                onTap: () => c2.add(-1),
+                                              ),
+                                              Flexible(
+                                                flex: 9,
+                                                child: hbox(
+                                                  minW: 36,
+                                                  child: hCount(
+                                                    c2,
+                                                    hts(
+                                                      15,
+                                                      Color(0xFF18181B),
+                                                      w: FontWeight.w600,
+                                                      lh: 22,
+                                                      tab: true,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              hTap(
+                                                context,
+                                                hbox(
+                                                  w: 32,
+                                                  h: 32,
+                                                  bg: Color(0xFFF4F4F5),
+                                                  radius: BorderRadius.circular(
+                                                    16,
+                                                  ),
+                                                  child: hrow(
+                                                    [
+                                                      hsvg(
+                                                        Svgs.s8,
+                                                        w: 14,
+                                                        h: 14,
+                                                      ),
+                                                    ],
+                                                    main: MainAxisAlignment
+                                                        .center,
+                                                    cross: CrossAxisAlignment
+                                                        .center,
+                                                    gap: 0,
+                                                  ),
+                                                ),
+                                                onTap: () => c2.add(1),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 4,
+                                          );
+                                        },
+                                      ),
+                                      hbox(
+                                        minW: 78,
+                                        child: Text(
+                                          '¥14,280.00',
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            w: FontWeight.w600,
+                                            lh: 22,
+                                            tab: true,
+                                          ),
+                                          textAlign: TextAlign.right,
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 10,
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 10,
+                              ),
+                              hcol(
+                                [
+                                  hrow(
+                                    [
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '9H 陶瓷镀晶液 50ml',
+                                              style: hts(
+                                                15,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w600,
+                                                lh: 22,
+                                              ),
+                                            ),
+                                            Text(
+                                              '当前库存 6 瓶',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF71717A),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 2,
+                                        ),
+                                      ),
+                                      hTap(
+                                        context,
+                                        hbox(
+                                          w: 32,
+                                          h: 32,
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          child: hrow(
+                                            [hsvg(Svgs.s132, w: 14, h: 14)],
+                                            main: MainAxisAlignment.center,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 0,
+                                          ),
+                                        ),
+                                        onTap: () =>
+                                            d1.confirmRemove(context, 1),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 10,
+                                  ),
+                                  hrow(
+                                    [
+                                      Expanded(
+                                        flex: 1,
+                                        child: hcol(
+                                          [
+                                            Text(
+                                              '单价 ¥168.00 / 瓶',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF71717A),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                            Text(
+                                              '批次 自动生成 · 有效期 2028.10',
+                                              style: hts(
+                                                12,
+                                                Color(0xFF71717A),
+                                                lh: 16,
+                                              ),
+                                            ),
+                                          ],
+                                          main: MainAxisAlignment.start,
+                                          cross: CrossAxisAlignment.stretch,
+                                          gap: 2,
+                                        ),
+                                      ),
+                                      HHolder(
+                                        inits: [10],
+                                        builder: (context, ctrls) {
+                                          final c3 = ctrls[0];
+                                          return hrow(
+                                            [
+                                              hTap(
+                                                context,
+                                                hbox(
+                                                  w: 32,
+                                                  h: 32,
+                                                  bg: Color(0xFFF4F4F5),
+                                                  radius: BorderRadius.circular(
+                                                    16,
+                                                  ),
+                                                  child: hrow(
+                                                    [
+                                                      hsvg(
+                                                        Svgs.s7,
+                                                        w: 14,
+                                                        h: 14,
+                                                      ),
+                                                    ],
+                                                    main: MainAxisAlignment
+                                                        .center,
+                                                    cross: CrossAxisAlignment
+                                                        .center,
+                                                    gap: 0,
+                                                  ),
+                                                ),
+                                                onTap: () => c3.add(-1),
+                                              ),
+                                              Flexible(
+                                                flex: 17,
+                                                child: hbox(
+                                                  minW: 36,
+                                                  child: hCount(
+                                                    c3,
+                                                    hts(
+                                                      15,
+                                                      Color(0xFF18181B),
+                                                      w: FontWeight.w600,
+                                                      lh: 22,
+                                                      tab: true,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              hTap(
+                                                context,
+                                                hbox(
+                                                  w: 32,
+                                                  h: 32,
+                                                  bg: Color(0xFFF4F4F5),
+                                                  radius: BorderRadius.circular(
+                                                    16,
+                                                  ),
+                                                  child: hrow(
+                                                    [
+                                                      hsvg(
+                                                        Svgs.s8,
+                                                        w: 14,
+                                                        h: 14,
+                                                      ),
+                                                    ],
+                                                    main: MainAxisAlignment
+                                                        .center,
+                                                    cross: CrossAxisAlignment
+                                                        .center,
+                                                    gap: 0,
+                                                  ),
+                                                ),
+                                                onTap: () => c3.add(1),
+                                              ),
+                                            ],
+                                            main: MainAxisAlignment.start,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 4,
+                                          );
+                                        },
+                                      ),
+                                      hbox(
+                                        minW: 78,
+                                        child: Text(
+                                          '¥1,680.00',
+                                          style: hts(
+                                            15,
+                                            Color(0xFF18181B),
+                                            w: FontWeight.w600,
+                                            lh: 22,
+                                            tab: true,
+                                          ),
+                                          textAlign: TextAlign.right,
+                                        ),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 10,
+                                  ),
+                                ],
+                                main: MainAxisAlignment.start,
+                                cross: CrossAxisAlignment.stretch,
+                                gap: 10,
+                              ),
+                            ]),
+                            hbox(h: 1, bg: Color(0xFFEFEFF1)),
+                            hrow(
+                              [
+                                Expanded(
+                                  flex: 1,
+                                  child: hTap(
+                                    context,
+                                    hbox(
+                                      h: 42,
+                                      bg: Color(0xFFE1F0FE),
+                                      radius: BorderRadius.circular(21),
+                                      child: hrow(
+                                        [
+                                          hsvg(Svgs.s133, w: 16, h: 16),
+                                          Flexible(
+                                            flex: 56,
+                                            child: Text(
+                                              '添加商品',
+                                              style: hts(
+                                                14,
+                                                Color(0xFF1E63AE),
+                                                w: FontWeight.w600,
+                                                lh: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 6,
+                                      ),
+                                    ),
+                                    label: '添加商品',
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: hTap(
+                                    context,
+                                    hbox(
+                                      h: 42,
+                                      bg: Color(0xFFEEEEF0),
+                                      radius: BorderRadius.circular(21),
+                                      child: hrow(
+                                        [
+                                          hsvg(Svgs.s134, w: 16, h: 16),
+                                          Flexible(
+                                            flex: 56,
+                                            child: Text(
+                                              '扫码添加',
+                                              style: hts(
+                                                14,
+                                                Color(0xFF18181B),
+                                                w: FontWeight.w500,
+                                                lh: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                        main: MainAxisAlignment.center,
+                                        cross: CrossAxisAlignment.center,
+                                        gap: 6,
+                                      ),
+                                    ),
+                                    label: '扫码添加',
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 8,
+                              intrinsic: true,
+                            ),
+                          ],
+                          main: MainAxisAlignment.start,
+                          cross: CrossAxisAlignment.stretch,
+                          gap: 14,
+                        ),
                       ),
                     ),
                   ],
@@ -874,251 +940,187 @@ class StockInPage extends StatelessWidget {
                                 groups: [
                                   ({2}, false),
                                 ],
-                                builder: (context, g1) => hwrap(
+                                builder: (context, g4) => hwrap(
                                   [
                                     HSel(
-                                      ctrl: g1[0],
+                                      ctrl: g4[0],
                                       index: 0,
-                                      on: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFE1F0FE),
-                                          radius: BorderRadius.circular(17),
-                                          border: Border.all(
-                                            color: Color(0xFF0485F7),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '现金',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF1E63AE),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      on: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(17),
+                                        border: Border.all(
+                                          color: Color(0xFF0485F7),
+                                          width: 1.5,
+                                        ),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '现金',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF1E63AE),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
-                                      off: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(17),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '现金',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF3F3F46),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      off: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFF4F4F5),
+                                        radius: BorderRadius.circular(17),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '现金',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF3F3F46),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                     HSel(
-                                      ctrl: g1[0],
+                                      ctrl: g4[0],
                                       index: 1,
-                                      on: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFE1F0FE),
-                                          radius: BorderRadius.circular(17),
-                                          border: Border.all(
-                                            color: Color(0xFF0485F7),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '微信',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF1E63AE),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      on: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(17),
+                                        border: Border.all(
+                                          color: Color(0xFF0485F7),
+                                          width: 1.5,
+                                        ),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '微信',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF1E63AE),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
-                                      off: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(17),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '微信',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF3F3F46),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      off: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFF4F4F5),
+                                        radius: BorderRadius.circular(17),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '微信',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF3F3F46),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                     HSel(
-                                      ctrl: g1[0],
+                                      ctrl: g4[0],
                                       index: 2,
-                                      on: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFE1F0FE),
-                                          radius: BorderRadius.circular(17),
-                                          border: Border.all(
-                                            color: Color(0xFF0485F7),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '对公转账',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF1E63AE),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      on: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(17),
+                                        border: Border.all(
+                                          color: Color(0xFF0485F7),
+                                          width: 1.5,
+                                        ),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '对公转账',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF1E63AE),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
-                                      off: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(17),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '对公转账',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF3F3F46),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      off: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFF4F4F5),
+                                        radius: BorderRadius.circular(17),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '对公转账',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF3F3F46),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                     HSel(
-                                      ctrl: g1[0],
+                                      ctrl: g4[0],
                                       index: 3,
-                                      on: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFE1F0FE),
-                                          radius: BorderRadius.circular(17),
-                                          border: Border.all(
-                                            color: Color(0xFF0485F7),
-                                            width: 1.5,
-                                          ),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '挂账',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF1E63AE),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      on: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFE1F0FE),
+                                        radius: BorderRadius.circular(17),
+                                        border: Border.all(
+                                          color: Color(0xFF0485F7),
+                                          width: 1.5,
+                                        ),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '挂账',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF1E63AE),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
                                       ),
-                                      off: hTap(
-                                        context,
-                                        hbox(
-                                          h: 34,
-                                          bg: Color(0xFFF4F4F5),
-                                          radius: BorderRadius.circular(17),
-                                          pad: EdgeInsets.fromLTRB(
-                                            14,
-                                            0,
-                                            14,
-                                            0,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            widthFactor: 1,
-                                            child: Text(
-                                              '挂账',
-                                              style: hts(
-                                                13,
-                                                Color(0xFF3F3F46),
-                                                w: FontWeight.w500,
-                                                lh: 18,
-                                              ),
+                                      off: hbox(
+                                        h: 34,
+                                        bg: Color(0xFFF4F4F5),
+                                        radius: BorderRadius.circular(17),
+                                        pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          widthFactor: 1,
+                                          child: Text(
+                                            '挂账',
+                                            style: hts(
+                                              13,
+                                              Color(0xFF3F3F46),
+                                              w: FontWeight.w500,
+                                              lh: 18,
                                             ),
                                           ),
                                         ),
@@ -1255,6 +1257,7 @@ class StockInPage extends StatelessWidget {
                                 gap: 0,
                               ),
                             ),
+                            label: '拍照添加凭证',
                           ),
                         ],
                         main: MainAxisAlignment.start,

@@ -107,97 +107,189 @@ class BudgetAdjustPage extends StatelessWidget {
                   '追加预算 · 材料采购',
                   style: hts(20, Color(0xFF18181B), w: FontWeight.w600, lh: 28),
                 ),
-                hrow(
-                  [
-                    Expanded(
-                      flex: 1,
-                      child: hbox(
-                        bg: Color(0xFFF4F4F5),
-                        radius: BorderRadius.circular(16),
-                        pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                        child: hcol(
-                          [
-                            Text(
-                              '当前预算',
-                              style: hts(11, Color(0xFF71717A), lh: 14),
-                            ),
-                            Text(
-                              '¥32,000',
-                              style: hts(
-                                15,
-                                Color(0xFF18181B),
-                                w: FontWeight.w600,
-                                lh: 20,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.stretch,
-                          gap: 2,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: hbox(
-                        bg: Color(0xFFF4F4F5),
-                        radius: BorderRadius.circular(16),
-                        pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                        child: hcol(
-                          [
-                            Text(
-                              '已用',
-                              style: hts(11, Color(0xFF71717A), lh: 14),
-                            ),
-                            Text(
-                              '¥36,570',
-                              style: hts(
-                                15,
-                                Color(0xFF18181B),
-                                w: FontWeight.w600,
-                                lh: 20,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.stretch,
-                          gap: 2,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: hbox(
-                        bg: Color(0xFFFFE1E2),
-                        radius: BorderRadius.circular(16),
-                        pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
-                        child: hcol(
-                          [
-                            Text(
-                              '超支',
-                              style: hts(11, Color(0xFFA43433), lh: 14),
-                            ),
-                            Text(
-                              '¥4,570',
-                              style: hts(
-                                15,
-                                Color(0xFFA43433),
-                                w: FontWeight.w600,
-                                lh: 20,
-                              ),
-                            ),
-                          ],
-                          main: MainAxisAlignment.start,
-                          cross: CrossAxisAlignment.stretch,
-                          gap: 2,
-                        ),
-                      ),
-                    ),
+                HSelHolder(
+                  groups: [
+                    ({2}, false),
                   ],
-                  main: MainAxisAlignment.start,
-                  cross: CrossAxisAlignment.stretch,
-                  gap: 8,
-                  intrinsic: true,
+                  builder: (context, g1) => hrow(
+                    [
+                      Expanded(
+                        flex: 1,
+                        child: HSel(
+                          ctrl: g1[0],
+                          index: 0,
+                          on: hbox(
+                            bg: Color(0xFFFFE1E2),
+                            radius: BorderRadius.circular(16),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hcol(
+                              [
+                                Text(
+                                  '当前预算',
+                                  style: hts(11, Color(0xFF71717A), lh: 14),
+                                ),
+                                Text(
+                                  '¥32,000',
+                                  style: hts(
+                                    15,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w600,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 2,
+                            ),
+                          ),
+                          off: hbox(
+                            bg: Color(0xFFF4F4F5),
+                            radius: BorderRadius.circular(16),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hcol(
+                              [
+                                Text(
+                                  '当前预算',
+                                  style: hts(11, Color(0xFF71717A), lh: 14),
+                                ),
+                                Text(
+                                  '¥32,000',
+                                  style: hts(
+                                    15,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w600,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: HSel(
+                          ctrl: g1[0],
+                          index: 1,
+                          on: hbox(
+                            bg: Color(0xFFFFE1E2),
+                            radius: BorderRadius.circular(16),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hcol(
+                              [
+                                Text(
+                                  '已用',
+                                  style: hts(11, Color(0xFF71717A), lh: 14),
+                                ),
+                                Text(
+                                  '¥36,570',
+                                  style: hts(
+                                    15,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w600,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 2,
+                            ),
+                          ),
+                          off: hbox(
+                            bg: Color(0xFFF4F4F5),
+                            radius: BorderRadius.circular(16),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hcol(
+                              [
+                                Text(
+                                  '已用',
+                                  style: hts(11, Color(0xFF71717A), lh: 14),
+                                ),
+                                Text(
+                                  '¥36,570',
+                                  style: hts(
+                                    15,
+                                    Color(0xFF18181B),
+                                    w: FontWeight.w600,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: HSel(
+                          ctrl: g1[0],
+                          index: 2,
+                          on: hbox(
+                            bg: Color(0xFFFFE1E2),
+                            radius: BorderRadius.circular(16),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hcol(
+                              [
+                                Text(
+                                  '超支',
+                                  style: hts(11, Color(0xFFA43433), lh: 14),
+                                ),
+                                Text(
+                                  '¥4,570',
+                                  style: hts(
+                                    15,
+                                    Color(0xFFA43433),
+                                    w: FontWeight.w600,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 2,
+                            ),
+                          ),
+                          off: hbox(
+                            bg: Color(0xFFF4F4F5),
+                            radius: BorderRadius.circular(16),
+                            pad: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                            child: hcol(
+                              [
+                                Text(
+                                  '超支',
+                                  style: hts(11, Color(0xFFA43433), lh: 14),
+                                ),
+                                Text(
+                                  '¥4,570',
+                                  style: hts(
+                                    15,
+                                    Color(0xFFA43433),
+                                    w: FontWeight.w600,
+                                    lh: 20,
+                                  ),
+                                ),
+                              ],
+                              main: MainAxisAlignment.start,
+                              cross: CrossAxisAlignment.stretch,
+                              gap: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                    main: MainAxisAlignment.start,
+                    cross: CrossAxisAlignment.stretch,
+                    gap: 8,
+                    intrinsic: true,
+                  ),
                 ),
                 hcol(
                   [
@@ -246,159 +338,141 @@ class BudgetAdjustPage extends StatelessWidget {
                       groups: [
                         ({1}, false),
                       ],
-                      builder: (context, g1) => hwrap(
+                      builder: (context, g2) => hwrap(
                         [
                           HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(17),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '补齐超支 ¥4,570',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 34,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(17),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '补齐超支 ¥4,570',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(17),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '补齐超支 ¥4,570',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 34,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(17),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '补齐超支 ¥4,570',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(17),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥5,000',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 34,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(17),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥5,000',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(17),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥5,000',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 34,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(17),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥5,000',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g1[0],
+                            ctrl: g2[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(17),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥8,000',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 34,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(17),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥8,000',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(17),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥8,000',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 34,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(17),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥8,000',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -433,159 +507,141 @@ class BudgetAdjustPage extends StatelessWidget {
                       groups: [
                         ({1}, false),
                       ],
-                      builder: (context, g2) => hwrap(
+                      builder: (context, g3) => hwrap(
                         [
                           HSel(
-                            ctrl: g2[0],
+                            ctrl: g3[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(17),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '总预算余额 ¥3,930',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 34,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(17),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '总预算余额 ¥3,930',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(17),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '总预算余额 ¥3,930',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 34,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(17),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '总预算余额 ¥3,930',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g2[0],
+                            ctrl: g3[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(17),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '其他分类调剂',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 34,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(17),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '其他分类调剂',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(17),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '其他分类调剂',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 34,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(17),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '其他分类调剂',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g2[0],
+                            ctrl: g3[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(17),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '追加总预算',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 34,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(17),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '追加总预算',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 34,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(17),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '追加总预算',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 34,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(17),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '追加总预算',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),

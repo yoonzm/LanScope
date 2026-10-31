@@ -94,99 +94,105 @@ class ExpenseBudgetPage extends StatelessWidget {
                   cross: CrossAxisAlignment.center,
                   gap: 8,
                 ),
-                hrow(
-                  [
-                    hTap(
-                      context,
-                      hbox(
-                        w: 36,
-                        h: 36,
-                        bg: Color(0xFFFFFFFF),
-                        radius: BorderRadius.circular(18),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
+                HHolder(
+                  inits: [24321],
+                  builder: (context, ctrls) {
+                    final m1 = ctrls[0];
+                    return hrow(
+                      [
+                        hTap(
+                          context,
+                          hbox(
+                            w: 36,
+                            h: 36,
+                            bg: Color(0xFFFFFFFF),
+                            radius: BorderRadius.circular(18),
+                            shadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            child: hrow(
+                              [hsvg(Svgs.s46, w: 16, h: 16)],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 0,
+                            ),
                           ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
-                        child: hrow(
-                          [hsvg(Svgs.s46, w: 16, h: 16)],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
+                          onTap: () => m1.add(-1, min: 0),
                         ),
-                      ),
-                      back: true,
-                    ),
-                    Flexible(
-                      flex: 96,
-                      child: hbox(
-                        minW: 130,
-                        child: Text(
-                          '2026 年 10 月',
-                          style: hts(
-                            15,
-                            Color(0xFF18181B),
-                            w: FontWeight.w600,
-                            lh: 22,
+                        Flexible(
+                          flex: 96,
+                          child: hbox(
+                            minW: 130,
+                            child: hMonth(
+                              m1,
+                              hts(
+                                15,
+                                Color(0xFF18181B),
+                                w: FontWeight.w600,
+                                lh: 22,
+                              ),
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                      ),
-                    ),
-                    hTap(
-                      context,
-                      hbox(
-                        w: 36,
-                        h: 36,
-                        bg: Color(0xFFFFFFFF),
-                        radius: BorderRadius.circular(18),
-                        shadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.04),
-                            offset: Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 0,
+                        hTap(
+                          context,
+                          hbox(
+                            w: 36,
+                            h: 36,
+                            bg: Color(0xFFFFFFFF),
+                            radius: BorderRadius.circular(18),
+                            shadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.04),
+                                offset: Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0,
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.06),
+                                offset: Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            child: hrow(
+                              [hsvg(Svgs.s47, w: 16, h: 16)],
+                              main: MainAxisAlignment.center,
+                              cross: CrossAxisAlignment.center,
+                              gap: 0,
+                            ),
                           ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 1),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.06),
-                            offset: Offset(0, 0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          ),
-                        ],
-                        child: hrow(
-                          [hsvg(Svgs.s47, w: 16, h: 16)],
-                          main: MainAxisAlignment.center,
-                          cross: CrossAxisAlignment.center,
-                          gap: 0,
+                          onTap: () => m1.add(1, min: 0),
                         ),
-                      ),
-                    ),
-                  ],
-                  main: MainAxisAlignment.center,
-                  cross: CrossAxisAlignment.center,
-                  gap: 6,
+                      ],
+                      main: MainAxisAlignment.center,
+                      cross: CrossAxisAlignment.center,
+                      gap: 6,
+                    );
+                  },
                 ),
                 hbox(
                   bg: Color(0xFF18181B),

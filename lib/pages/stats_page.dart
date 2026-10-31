@@ -12,8 +12,89 @@ class StatsPage extends StatefulWidget {
   State<StatsPage> createState() => _StatsPageState();
 }
 
+class _RangeData {
+  final String title, total, delta, from, to, orders, memberShare;
+  final int totalNum;
+  final List<double> bars;
+  const _RangeData(
+    this.title,
+    this.total,
+    this.totalNum,
+    this.delta,
+    this.bars,
+    this.from,
+    this.to,
+    this.orders,
+    this.memberShare,
+  );
+}
+
+const _ranges = <_RangeData>[
+  _RangeData(
+    '今日营业额（元）',
+    '12,860',
+    12860,
+    '较上周六 +18.4%',
+    [0.4, 0.9, 1.6, 2.1, 1.4, 1.1, 1.9, 2.4, 1.7, 1.2, 0.8, 0.3],
+    '08:00',
+    '20:00',
+    '36',
+    '68%',
+  ),
+  _RangeData(
+    '本周营业额（元）',
+    '71,280',
+    71280,
+    '较上周 +9.2%',
+    [9.2, 10.4, 8.8, 11.6, 12.3, 14.1, 12.9],
+    '周一',
+    '周日',
+    '198',
+    '70%',
+  ),
+  _RangeData(
+    '10 月营业额（元）',
+    '328,460',
+    328460,
+    '环比 +12.6%',
+    monthDaily,
+    '10.01',
+    '10.31',
+    '912',
+    '71%',
+  ),
+  _RangeData(
+    '10.01 – 10.15 营业额（元）',
+    '158,920',
+    158920,
+    '较上期 +6.3%',
+    [
+      7.2,
+      8.1,
+      6.4,
+      9.8,
+      10.5,
+      12.9,
+      8.6,
+      9.2,
+      10.1,
+      11.4,
+      9.7,
+      13.2,
+      14.8,
+      10.3,
+      9.1,
+    ],
+    '10.01',
+    '10.15',
+    '441',
+    '69%',
+  ),
+];
+
 class _StatsPageState extends State<StatsPage> {
   int range = 2;
+  _RangeData get r => _ranges[range];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +136,7 @@ class _StatsPageState extends State<StatsPage> {
               Expanded(
                 child: _mini(
                   '施工台次',
-                  '912',
+                  r.orders,
                   null,
                   C.primarySoft,
                   C.primaryInk,
@@ -66,7 +147,7 @@ class _StatsPageState extends State<StatsPage> {
               Expanded(
                 child: _mini(
                   '会员消费占比',
-                  '71%',
+                  r.memberShare,
                   null,
                   C.greenSoft,
                   C.greenInk,
@@ -104,7 +185,8 @@ class _StatsPageState extends State<StatsPage> {
   );
 
   Widget _chartCard() {
-    final maxV = monthDaily.reduce((a, b) => a > b ? a : b);
+    final bars = r.bars;
+    final maxV = bars.reduce((a, b) => a > b ? a : b);
     return Container(
       clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(20),
@@ -119,10 +201,10 @@ class _StatsPageState extends State<StatsPage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('10 月营业额（元）', style: ts(13, color: C.faint, h: 18)),
+              Text(r.title, style: ts(13, color: C.faint, h: 18)),
               const SizedBox(height: 4),
               Text(
-                '328,460',
+                r.total,
                 style: ts(
                   34,
                   w: FontWeight.w600,
@@ -138,7 +220,7 @@ class _StatsPageState extends State<StatsPage> {
                   AppIcon('trendUp', size: 14, color: Color(0xFF4ADE80)),
                   const SizedBox(width: 4),
                   Text(
-                    '环比 +12.6%',
+                    r.delta,
                     style: ts(
                       12,
                       w: FontWeight.w500,
@@ -154,13 +236,13 @@ class _StatsPageState extends State<StatsPage> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    for (var i = 0; i < monthDaily.length; i++)
+                    for (var i = 0; i < bars.length; i++)
                       Expanded(
                         child: Container(
-                          height: 110 * monthDaily[i] / maxV,
+                          height: 110 * bars[i] / maxV,
                           margin: const EdgeInsets.symmetric(horizontal: 1),
                           decoration: BoxDecoration(
-                            color: i == monthDaily.length - 1
+                            color: i == bars.length - 1
                                 ? C.primary
                                 : const Color(0xFF3F3F46),
                             borderRadius: BorderRadius.circular(3),
@@ -174,8 +256,8 @@ class _StatsPageState extends State<StatsPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('10.01', style: ts(11, color: C.faint, h: 14)),
-                  Text('10.31', style: ts(11, color: C.faint, h: 14)),
+                  Text(r.from, style: ts(11, color: C.faint, h: 14)),
+                  Text(r.to, style: ts(11, color: C.faint, h: 14)),
                 ],
               ),
             ],
@@ -216,7 +298,7 @@ class _StatsPageState extends State<StatsPage> {
                 SizedBox(
                   width: 84,
                   child: Text(
-                    '¥${money(revenueShares[i].amount)}',
+                    '¥${money(r.totalNum * revenueShares[i].percent ~/ 100)}',
                     textAlign: TextAlign.right,
                     style: ts(13, color: C.muted, h: 18, tabular: true),
                   ),

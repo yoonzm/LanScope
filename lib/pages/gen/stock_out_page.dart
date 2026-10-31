@@ -119,50 +119,44 @@ class StockOutPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 0,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(17),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '施工领用',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF1E63AE),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(17),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '施工领用',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF1E63AE),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(17),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '施工领用',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 34,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(17),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '施工领用',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -171,50 +165,44 @@ class StockOutPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 1,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(17),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '损耗报废',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF1E63AE),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(17),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '损耗报废',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF1E63AE),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(17),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '损耗报废',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 34,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(17),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '损耗报废',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -223,50 +211,44 @@ class StockOutPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 2,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(17),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '退回供应商',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF1E63AE),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(17),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '退回供应商',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF1E63AE),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(17),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '退回供应商',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 34,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(17),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '退回供应商',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -275,50 +257,44 @@ class StockOutPage extends StatelessWidget {
                             HSel(
                               ctrl: g1[0],
                               index: 3,
-                              on: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFE1F0FE),
-                                  radius: BorderRadius.circular(17),
-                                  border: Border.all(
-                                    color: Color(0xFF0485F7),
-                                    width: 1.5,
-                                  ),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '内部使用',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF1E63AE),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              on: hbox(
+                                h: 34,
+                                bg: Color(0xFFE1F0FE),
+                                radius: BorderRadius.circular(17),
+                                border: Border.all(
+                                  color: Color(0xFF0485F7),
+                                  width: 1.5,
+                                ),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '内部使用',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF1E63AE),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
                               ),
-                              off: hTap(
-                                context,
-                                hbox(
-                                  h: 34,
-                                  bg: Color(0xFFF4F4F5),
-                                  radius: BorderRadius.circular(17),
-                                  pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    widthFactor: 1,
-                                    child: Text(
-                                      '内部使用',
-                                      style: hts(
-                                        13,
-                                        Color(0xFF3F3F46),
-                                        w: FontWeight.w500,
-                                        lh: 18,
-                                      ),
+                              off: hbox(
+                                h: 34,
+                                bg: Color(0xFFF4F4F5),
+                                radius: BorderRadius.circular(17),
+                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: 1,
+                                  child: Text(
+                                    '内部使用',
+                                    style: hts(
+                                      13,
+                                      Color(0xFF3F3F46),
+                                      w: FontWeight.w500,
+                                      lh: 18,
                                     ),
                                   ),
                                 ),
@@ -519,6 +495,7 @@ class StockOutPage extends StatelessWidget {
                                         gap: 0,
                                       ),
                                     ),
+                                    label: '减少',
                                   ),
                                   Flexible(
                                     flex: 25,
@@ -551,6 +528,7 @@ class StockOutPage extends StatelessWidget {
                                         gap: 0,
                                       ),
                                     ),
+                                    label: '增加',
                                   ),
                                 ],
                                 main: MainAxisAlignment.start,
@@ -588,59 +566,66 @@ class StockOutPage extends StatelessWidget {
                                   gap: 2,
                                 ),
                               ),
-                              hrow(
-                                [
-                                  hTap(
-                                    context,
-                                    hbox(
-                                      w: 32,
-                                      h: 32,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(16),
-                                      child: hrow(
-                                        [hsvg(Svgs.s7, w: 14, h: 14)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
-                                      ),
-                                    ),
-                                  ),
-                                  Flexible(
-                                    flex: 9,
-                                    child: hbox(
-                                      minW: 36,
-                                      child: Text(
-                                        '1',
-                                        style: hts(
-                                          15,
-                                          Color(0xFF18181B),
-                                          w: FontWeight.w600,
-                                          lh: 22,
-                                          tab: true,
+                              HHolder(
+                                inits: [1],
+                                builder: (context, ctrls) {
+                                  final c2 = ctrls[0];
+                                  return hrow(
+                                    [
+                                      hTap(
+                                        context,
+                                        hbox(
+                                          w: 32,
+                                          h: 32,
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          child: hrow(
+                                            [hsvg(Svgs.s7, w: 14, h: 14)],
+                                            main: MainAxisAlignment.center,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 0,
+                                          ),
                                         ),
-                                        textAlign: TextAlign.center,
+                                        onTap: () => c2.add(-1),
                                       ),
-                                    ),
-                                  ),
-                                  hTap(
-                                    context,
-                                    hbox(
-                                      w: 32,
-                                      h: 32,
-                                      bg: Color(0xFFF4F4F5),
-                                      radius: BorderRadius.circular(16),
-                                      child: hrow(
-                                        [hsvg(Svgs.s8, w: 14, h: 14)],
-                                        main: MainAxisAlignment.center,
-                                        cross: CrossAxisAlignment.center,
-                                        gap: 0,
+                                      Flexible(
+                                        flex: 9,
+                                        child: hbox(
+                                          minW: 36,
+                                          child: hCount(
+                                            c2,
+                                            hts(
+                                              15,
+                                              Color(0xFF18181B),
+                                              w: FontWeight.w600,
+                                              lh: 22,
+                                              tab: true,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ],
-                                main: MainAxisAlignment.start,
-                                cross: CrossAxisAlignment.center,
-                                gap: 4,
+                                      hTap(
+                                        context,
+                                        hbox(
+                                          w: 32,
+                                          h: 32,
+                                          bg: Color(0xFFF4F4F5),
+                                          radius: BorderRadius.circular(16),
+                                          child: hrow(
+                                            [hsvg(Svgs.s8, w: 14, h: 14)],
+                                            main: MainAxisAlignment.center,
+                                            cross: CrossAxisAlignment.center,
+                                            gap: 0,
+                                          ),
+                                        ),
+                                        onTap: () => c2.add(1),
+                                      ),
+                                    ],
+                                    main: MainAxisAlignment.start,
+                                    cross: CrossAxisAlignment.center,
+                                    gap: 4,
+                                  );
+                                },
                               ),
                             ],
                             main: MainAxisAlignment.start,
@@ -674,6 +659,7 @@ class StockOutPage extends StatelessWidget {
                                 gap: 6,
                               ),
                             ),
+                            label: '添加商品',
                           ),
                         ],
                         main: MainAxisAlignment.start,

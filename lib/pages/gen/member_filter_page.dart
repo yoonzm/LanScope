@@ -121,6 +121,7 @@ class MemberFilterPage extends StatelessWidget {
                           lh: 20,
                         ),
                       ),
+                      label: '重置',
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -166,50 +167,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g1[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '普通会员',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '普通会员',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '普通会员',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '普通会员',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -218,50 +213,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g1[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '银卡',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '银卡',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '银卡',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '银卡',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -270,50 +259,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g1[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '金卡',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '金卡',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '金卡',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '金卡',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -322,50 +305,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g1[0],
                             index: 3,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '黑金卡',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '黑金卡',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '黑金卡',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '黑金卡',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -405,50 +382,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g2[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '不限',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '不限',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '不限',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '不限',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -457,50 +428,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g2[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥500 以下',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥500 以下',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥500 以下',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥500 以下',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -509,50 +474,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g2[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥500–2,000',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥500–2,000',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥500–2,000',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥500–2,000',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -561,50 +520,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g2[0],
                             index: 3,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥2,000 以上',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥2,000 以上',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '¥2,000 以上',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '¥2,000 以上',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -644,50 +597,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g3[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '7 天内',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '7 天内',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '7 天内',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '7 天内',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -696,50 +643,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g3[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '30 天内',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '30 天内',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '30 天内',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '30 天内',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -748,50 +689,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g3[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '超过 60 天',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '超过 60 天',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '超过 60 天',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '超过 60 天',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -800,50 +735,44 @@ class MemberFilterPage extends StatelessWidget {
                           HSel(
                             ctrl: g3[0],
                             index: 3,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '超过 90 天',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '超过 90 天',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '超过 90 天',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '超过 90 天',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
@@ -874,78 +803,153 @@ class MemberFilterPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    hwrap(
-                      [
-                        hTap(
-                          context,
-                          hbox(
-                            h: 36,
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(18),
-                            pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                            child: Align(
-                              alignment: Alignment.center,
-                              widthFactor: 1,
-                              child: Text(
-                                '7 天内到期',
-                                style: hts(
-                                  13,
-                                  Color(0xFF3F3F46),
-                                  w: FontWeight.w500,
-                                  lh: 18,
+                    HSelHolder(
+                      groups: [({}, true)],
+                      builder: (context, g4) => hwrap(
+                        [
+                          HSel(
+                            ctrl: g4[0],
+                            index: 0,
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '7 天内到期',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '7 天内到期',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        hTap(
-                          context,
-                          hbox(
-                            h: 36,
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(18),
-                            pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                            child: Align(
-                              alignment: Alignment.center,
-                              widthFactor: 1,
-                              child: Text(
-                                '剩余 ≤ 2 次',
-                                style: hts(
-                                  13,
-                                  Color(0xFF3F3F46),
-                                  w: FontWeight.w500,
-                                  lh: 18,
+                          HSel(
+                            ctrl: g4[0],
+                            index: 1,
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '剩余 ≤ 2 次',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '剩余 ≤ 2 次',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        hTap(
-                          context,
-                          hbox(
-                            h: 36,
-                            bg: Color(0xFFF4F4F5),
-                            radius: BorderRadius.circular(18),
-                            pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                            child: Align(
-                              alignment: Alignment.center,
-                              widthFactor: 1,
-                              child: Text(
-                                '已用完',
-                                style: hts(
-                                  13,
-                                  Color(0xFF3F3F46),
-                                  w: FontWeight.w500,
-                                  lh: 18,
+                          HSel(
+                            ctrl: g4[0],
+                            index: 2,
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '已用完',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '已用完',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                      gap: 8,
-                      rowGap: 8,
-                      cross: WrapCrossAlignment.start,
+                        ],
+                        gap: 8,
+                        rowGap: 8,
+                        cross: WrapCrossAlignment.start,
+                      ),
                     ),
                   ],
                   main: MainAxisAlignment.start,
@@ -970,211 +974,187 @@ class MemberFilterPage extends StatelessWidget {
                       groups: [
                         ({1}, true),
                       ],
-                      builder: (context, g4) => hwrap(
+                      builder: (context, g5) => hwrap(
                         [
                           HSel(
-                            ctrl: g4[0],
+                            ctrl: g5[0],
                             index: 0,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '新能源车主',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '新能源车主',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '新能源车主',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '新能源车主',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g4[0],
+                            ctrl: g5[0],
                             index: 1,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '做过镀晶',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '做过镀晶',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '做过镀晶',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '做过镀晶',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g4[0],
+                            ctrl: g5[0],
                             index: 2,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '车衣质保中',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '车衣质保中',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '车衣质保中',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '车衣质保中',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           HSel(
-                            ctrl: g4[0],
+                            ctrl: g5[0],
                             index: 3,
-                            on: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFE1F0FE),
-                                radius: BorderRadius.circular(18),
-                                border: Border.all(
-                                  color: Color(0xFF0485F7),
-                                  width: 1.5,
-                                ),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '多辆车',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF1E63AE),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            on: hbox(
+                              h: 36,
+                              bg: Color(0xFFE1F0FE),
+                              radius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: Color(0xFF0485F7),
+                                width: 1.5,
+                              ),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '多辆车',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF1E63AE),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),
                             ),
-                            off: hTap(
-                              context,
-                              hbox(
-                                h: 36,
-                                bg: Color(0xFFF4F4F5),
-                                radius: BorderRadius.circular(18),
-                                pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  widthFactor: 1,
-                                  child: Text(
-                                    '多辆车',
-                                    style: hts(
-                                      13,
-                                      Color(0xFF3F3F46),
-                                      w: FontWeight.w500,
-                                      lh: 18,
-                                    ),
+                            off: hbox(
+                              h: 36,
+                              bg: Color(0xFFF4F4F5),
+                              radius: BorderRadius.circular(18),
+                              pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                widthFactor: 1,
+                                child: Text(
+                                  '多辆车',
+                                  style: hts(
+                                    13,
+                                    Color(0xFF3F3F46),
+                                    w: FontWeight.w500,
+                                    lh: 18,
                                   ),
                                 ),
                               ),

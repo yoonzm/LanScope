@@ -201,6 +201,7 @@ class AppointmentDetailPage extends StatelessWidget {
                                   gap: 0,
                                 ),
                               ),
+                              label: '拨打电话',
                             ),
                           ],
                           main: MainAxisAlignment.start,

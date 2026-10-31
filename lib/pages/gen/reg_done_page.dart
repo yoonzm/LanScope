@@ -289,6 +289,7 @@ class RegDonePage extends StatelessWidget {
                                 gap: 12,
                               ),
                             ),
+                            label: '创建门店账号手机号 139 ',
                           ),
                           hbox(
                             h: 1,

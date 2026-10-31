@@ -279,6 +279,11 @@ class Gen:
     def __init__(self, svg_registry):
         self.svgs = svg_registry
         self.sel_counter = 0
+        self.refs = {}
+        self.global_refs = {}
+        self.shared = {}
+        self.dyn_filter = {}
+        self.page_name = ''
         self.warnings = []
         self.switch_off = None
 
@@ -644,7 +649,13 @@ class Gen:
         content = None
         direction = 'row'
         is_text = self.text_only(n)
-        if is_text:
+        if is_text and '_count' in n.attrs:
+            content = 'hCount(%s, %s)' % (n.attrs['_count'], self.ts(inh2))
+        elif is_text and '_month' in n.attrs:
+            content = 'hMonth(%s, %s)' % (n.attrs['_month'], self.ts(inh2))
+        elif is_text and '_pwd' in n.attrs:
+            content = 'hPwdLabel(%s, %s)' % (n.attrs['_pwd'], self.ts(inh2))
+        elif is_text:
             content = self.emit_text(n, inh2)
         elif not kids:
             content = None
@@ -688,15 +699,23 @@ class Gen:
         return code
 
     def tap(self, n, code):
+        if n.attrs.get('_notap'):
+            return code
+        if '_tap' in n.attrs:
+            return 'hTap(context, %s, onTap: %s)' % (code, n.attrs['_tap'])
         href = n.attrs.get('href', '')
-        label = n.attrs.get('aria-label', '')
+        label = n.attrs.get('aria-label', '') or re.sub(r'\s+', ' ', self.tree_text(n)).strip()
         m = re.match(r'([A-Za-z]+)\.dc\.html', href)
         back = any(k in label for k in ('返回', '关闭')) or self.has_back_icon(n)
         if back:
             return 'hTap(context, %s, back: true)' % code
         if m:
             return 'hTap(context, %s, to: %s)' % (code, dstr(m.group(1)))
-        return 'hTap(context, %s)' % code
+        if re.search(r'(删除此|停用)', label):
+            return 'hTap(context, %s, onTap: () => hConfirmPop(context, %s))' % (code, dstr(label[:14]))
+        if href.startswith('tel:'):
+            return 'hTap(context, %s, label: %s)' % (code, dstr('拨打电话'))
+        return 'hTap(context, %s, label: %s)' % (code, dstr(label[:14]))
 
     def has_back_icon(self, n):
         for c in n.children:
@@ -761,7 +780,12 @@ class Gen:
         ta = {'center': 'TextAlign.center', 'right': 'TextAlign.right'}.get(inh2.get('ta'))
         if ta:
             args.append('align: %s' % ta)
-        code = 'HInput(%s)' % ', '.join(args)
+        if '_obscure' in n.attrs:
+            ctl = n.attrs['_obscure']
+            args = [a for a in args if a != 'obscure: true'] + ['obscure: %s.on' % ctl]
+            code = 'ListenableBuilder(listenable: %s, builder: (context, _) => HInput(%s))' % (ctl, ', '.join(args))
+        else:
+            code = 'HInput(%s)' % ', '.join(args)
         box, _ = self.box_args(n, inh2, parent)
         if box:
             if any(a.startswith('h:') for a in box):
@@ -782,10 +806,10 @@ class Gen:
         a = [x for x in a if not x.startswith('w:')]
         return 'hbox(%s, child: %s)' % (', '.join(a), code) if a else code
 
-    # ── flex ──
+    # ── 交互：可选控件 ──
     def selectable(self, c):
         return (isinstance(c, Node) and c.tag == 'button' and 'disabled' not in c.attrs and (
-            c.attrs.get('role') in ('radio', 'tab') or 'aria-pressed' in c.attrs))
+            c.attrs.get('role') in ('radio', 'tab', 'checkbox') or 'aria-pressed' in c.attrs))
 
     def sel_state(self, c):
         for k in ('aria-checked', 'aria-selected', 'aria-pressed'):
@@ -793,52 +817,271 @@ class Gen:
                 return c.attrs[k] == 'true'
         return False
 
-    def find_groups(self, kids):
-        """按父级把可选按钮分组：返回 {id(child): (group_idx, index_in_group)} 与 groups 信息。"""
+    def kind(self, c):
+        if 'aria-pressed' in c.attrs:
+            return 'press'
+        return c.attrs.get('role', 'press')
+
+    def prescan(self, n):
+        """记录页面内各类可选控件的“选中/未选中”参考节点。"""
+        if not isinstance(n, Node):
+            return
+        if self.selectable(n):
+            ref = self.refs.setdefault(self.kind(n), {})
+            ref.setdefault('on' if self.sel_state(n) else 'off', n)
+        for c in n.children:
+            self.prescan(c)
+
+    def tree_text(self, n):
+        if isinstance(n, str):
+            return n
+        return ''.join(self.tree_text(c) for c in n.children)
+
+    def new_ctrl(self, prefix='g'):
+        self.sel_counter += 1
+        return '%s%d' % (prefix, self.sel_counter)
+
+    def find_groups(self, kids, pg=None):
+        """把同级的可选控件分组。每组：on_node/off_node 为样式参考，cands 为成员。"""
+        groups, mapping = [], {}
         cands = [c for c in kids if self.selectable(c)]
-        if len(cands) < 2:
-            return [], {}
-        # 按 role 区分单选/多选
-        groups = []
-        by = collections.OrderedDict()
-        for c in cands:
-            key = 'multi' if 'aria-pressed' in c.attrs else 'single'
-            by.setdefault(key, []).append(c)
-        mapping = {}
-        for key, cs in by.items():
-            ons = [c for c in cs if self.sel_state(c)]
-            offs = [c for c in cs if not self.sel_state(c)]
-            if not offs or (not ons and key == 'single'):
-                continue
-            if not ons:
-                continue
-            on_ref, off_ref = ons[0].style, offs[0].style
-            delta_keys = [k for k in set(on_ref) | set(off_ref) if on_ref.get(k) != off_ref.get(k)]
+        if len(cands) >= 2:
+            by = collections.OrderedDict()
+            for c in cands:
+                key = 'multi' if ('aria-pressed' in c.attrs or c.attrs.get('role') == 'checkbox') else 'single'
+                by.setdefault(key, []).append(c)
+            for key, cs in by.items():
+                ons = [c for c in cs if self.sel_state(c)]
+                offs = [c for c in cs if not self.sel_state(c)]
+                ref = self.refs.get(self.kind(cs[0]), {})
+                on_n = ons[0] if ons else ref.get('on')
+                off_n = offs[0] if offs else ref.get('off')
+                if on_n is None or off_n is None:
+                    continue
+                gi = len(groups)
+                groups.append({'multi': key == 'multi', 'on_node': on_n, 'off_node': off_n, 'cands': cs,
+                               'initial': [i for i, c in enumerate(cs) if self.sel_state(c)]})
+                for i, c in enumerate(cs):
+                    mapping[id(c)] = (gi, i)
+        # 非按钮的“样式差异”分组（日期条、标签条、芯片）
+        sg = self.style_group(kids)
+        if sg:
             gi = len(groups)
-            groups.append({'multi': key == 'multi', 'on': on_ref, 'off': off_ref, 'delta': delta_keys,
-                           'initial': [i for i, c in enumerate(cs) if self.sel_state(c)]})
-            for i, c in enumerate(cs):
+            groups.append(sg)
+            for i, c in enumerate(sg['cands']):
                 mapping[id(c)] = (gi, i)
         return groups, mapping
 
+    VIS = {'background', 'color', 'box-shadow', 'font-weight', 'border', 'opacity'}
+
+    def style_group(self, kids):
+        els = [c for c in kids if isinstance(c, Node) and not self.is_abs(c)]
+        if len(els) < 3 or any(self.selectable(c) for c in els):
+            return None
+        if len({c.tag for c in els}) != 1 or els[0].tag in ('svg', 'input', 'br', 'textarea', 'a'):
+            return None
+        keys = set()
+        for c in els:
+            keys |= set(c.style)
+        diff = [k for k in keys if len({c.style.get(k) for c in els}) > 1]
+        if not diff or not set(diff) <= self.VIS or 'background' not in diff:
+            return None
+        texts = [self.tree_text(c).strip() for c in els]
+        if any(len(t) < 2 or len(t) > 14 for t in texts):
+            return None
+        variants = collections.OrderedDict()
+        for c in els:
+            variants.setdefault(tuple(sorted((k, c.style.get(k)) for k in diff)), []).append(c)
+        if len(variants) != 2:
+            return None
+        v = sorted(variants.values(), key=len)
+        on_nodes, off_nodes = v[0], v[1]
+        if len(on_nodes) > len(off_nodes):
+            return None
+        multi = self.page_name in ('AppointmentAdd', 'RegShop')
+        return {'multi': multi, 'on_node': on_nodes[0], 'off_node': off_nodes[0], 'cands': els,
+                'initial': [i for i, c in enumerate(els) if c in on_nodes], 'style_only': True}
+
     def variant(self, c, g, want_on):
-        ref = g['on'] if want_on else g['off']
-        st = dict(c.style)
-        for k in g['delta']:
-            if k in ref:
-                st[k] = ref[k]
-            else:
-                st.pop(k, None)
-        return c.copy_with_style(st)
+        ref = g['on_node'] if want_on else g['off_node']
+        other = g['off_node'] if want_on else g['on_node']
+        keep = ('width', 'height', 'min-width', 'min-height', 'flex-grow', 'flex-shrink', 'margin-top', 'margin-right',
+                'margin-bottom', 'margin-left', 'position', 'left', 'right', 'top', 'bottom', 'align-self')
+        if not self.has_text(c) and not g.get('style_only'):
+            # 纯图标控件：直接用参考节点（含选中态里的 √ 图标）
+            st = dict(ref.style)
+            for k in keep:
+                if k in c.style:
+                    st[k] = c.style[k]
+            n = ref.copy_with_style(st)
+        else:
+            delta = [k for k in set(ref.style) | set(other.style) if ref.style.get(k) != other.style.get(k)]
+            st = dict(c.style)
+            for k in delta:
+                if k in ref.style:
+                    st[k] = ref.style[k]
+                else:
+                    st.pop(k, None)
+            n = c.copy_with_style(st)
+        n.attrs['_notap'] = '1'
+        return n
+
+    # 把页面内同一类控件当作独立开关处理（没有同级对照时使用页面参考）
+    def toggle_code(self, c, inh, direction):
+        ref = self.refs.get(self.kind(c), {})
+        if 'on' not in ref or 'off' not in ref:
+            return None
+        g = {'on_node': ref['on'], 'off_node': ref['off']}
+        on = self.emit(self.variant(c, g, True), inh, direction)
+        off = self.emit(self.variant(c, g, False), inh, direction)
+        return 'HToggle(initial: %s, on: %s, off: %s)' % ('true' if self.sel_state(c) else 'false', on, off)
+
+    # ── 交互：计数器 / 月份 / 密码显隐 / 列表筛选与删除 ──
+    def find_all(self, n, pred, out=None):
+        out = [] if out is None else out
+        if isinstance(n, Node):
+            if pred(n):
+                out.append(n)
+            for c in n.children:
+                self.find_all(c, pred, out)
+        return out
+
+    def setup_widgets(self, n, kids):
+        """识别 步进器 / 月份切换 / 密码显示 并给节点打上动作标记。返回 (holder 变量名, 创建表达式) 列表。"""
+        holders = []
+        sub = [c for k in kids if isinstance(k, Node) for c in [k]]
+        # 步进器：同一父级里同时存在 减少 / 增加 按钮
+        minus = [c for c in sub if c.tag == 'button' and c.attrs.get('aria-label') == '减少']
+        plus = [c for c in sub if c.tag == 'button' and c.attrs.get('aria-label') == '增加']
+        if minus and plus:
+            num_nodes = [c for c in sub if c.tag in ('span', 'div') and re.fullmatch(r'\d+', self.tree_text(c).strip() or 'x')]
+            if num_nodes:
+                v = self.new_ctrl('c')
+                init = int(self.tree_text(num_nodes[0]).strip())
+                holders.append((v, 'ValCtrl(%d)' % init))
+                minus[0].attrs['_tap'] = '() => %s.add(-1)' % v
+                plus[0].attrs['_tap'] = '() => %s.add(1)' % v
+                num_nodes[0].attrs['_count'] = v
+        # 月份切换
+        prev = [c for c in sub if c.attrs.get('aria-label') == '上个月']
+        nxt = [c for c in sub if c.attrs.get('aria-label') == '下个月']
+        if prev and nxt:
+            for c in prev:
+                pass
+            lab = [c for c in sub if c.tag in ('span', 'div') and re.fullmatch(r'\d{4} 年 \d{1,2} 月', self.tree_text(c).strip() or 'x')]
+            if lab:
+                m = re.fullmatch(r'(\d{4}) 年 (\d{1,2}) 月', self.tree_text(lab[0]).strip())
+                v = self.new_ctrl('m')
+                holders.append((v, 'ValCtrl(%d)' % (int(m.group(1)) * 12 + int(m.group(2)) - 1)))
+                prev[0].attrs['_tap'] = '() => %s.add(-1, min: 0)' % v
+                nxt[0].attrs['_tap'] = '() => %s.add(1, min: 0)' % v
+                lab[0].attrs['_month'] = v
+        # 密码显示
+        pwd = [c for c in sub if c.tag == 'input' and c.attrs.get('type') == 'password']
+        if pwd:
+            toggles = [c for c in sub if c.tag in ('button', 'span') and self.tree_text(c).strip() == '显示']
+            if toggles:
+                v = self.new_ctrl('p')
+                holders.append((v, 'ValCtrl(1)'))
+                pwd[0].attrs['_obscure'] = v
+                toggles[0].attrs['_tap'] = '() => %s.flip()' % v
+                toggles[0].attrs['_pwd'] = v
+        return holders
+
+    def delete_buttons(self, n):
+        return self.find_all(n, lambda x: x.tag == 'button' and re.match(r'(删除|移除)', x.attrs.get('aria-label', '')) and '此' not in x.attrs.get('aria-label', ''))
+
+    def tab_labels(self, P):
+        """P 下的 role=tab 单选组标签（去掉数字）。"""
+        tabs = [c for c in P.children if isinstance(c, Node) and c.tag == 'button' and c.attrs.get('role') in ('tab', 'radio')]
+        if len(tabs) < 3:
+            return None
+        return tabs, [re.sub(r'[\d\s·()（）]+', '', self.tree_text(t)) for t in tabs]
+
+    def filter_target(self, Y, labels):
+        """Y 或其唯一子容器是否是可按 labels 过滤的列表。"""
+        cur = Y
+        for _ in range(3):
+            if not isinstance(cur, Node):
+                return None
+            els = [c for c in self.kids(cur) if isinstance(c, Node) and not self.is_abs(c)]
+            if len(els) >= 3:
+                real = [l for l in labels if l and '全部' not in l]
+                if real and all(any(l in self.tree_text(e) for e in els) for l in real):
+                    return cur
+                return None
+            if len(els) == 1:
+                cur = els[0]
+                continue
+            return None
+        return None
+
+    def link_filters(self, n, kids):
+        """容器 n 内：前面的标签条与后面的列表联动 -> 返回需要在 n 处创建的分组 [(init, multi)]。"""
+        out = []
+        els = [c for c in kids if isinstance(c, Node)]
+        for i, X in enumerate(els):
+            for P in self.find_all(X, lambda x: self.tab_labels(x) is not None):
+                tabs, labels = self.tab_labels(P)
+                if id(tabs[0]) in self.shared:
+                    continue
+                done = False
+                for Y in els[i + 1:]:
+                    tgt = self.filter_target(Y, labels)
+                    if tgt is not None and id(tgt) not in self.dyn_filter:
+                        init = [j for j, t in enumerate(tabs) if self.sel_state(t)] or [0]
+                        out.append((tabs, labels, tgt, init, None))
+                        done = True
+                        break
+                if not done:
+                    real = [l for l in labels if l and '全部' not in l]
+                    after = [Y for Y in els[i + 1:] if any(l in self.tree_text(Y) for l in real)]
+                    if len(after) >= 2 and id(n) not in self.dyn_filter:
+                        init = [j for j, t in enumerate(tabs) if self.sel_state(t)] or [0]
+                        out.append((tabs, labels, n, init, set(id(a) for a in after)))
+        return out
 
     def emit_flex(self, n, inh, direction, disp, parent):
         st = n.style
         kids = self.kids(n)
+        holders = self.setup_widgets(n, kids)
+        links = self.link_filters(n, kids)
         groups, mapping = self.find_groups(kids)
         gname = None
-        if groups:
-            self.sel_counter += 1
-            gname = 'g%d' % self.sel_counter
+        own = []          # 在本容器创建的分组 (init, multi)
+        gref = {}         # 分组下标 -> 控制器表达式
+        for gi, g in enumerate(groups):
+            ext = self.shared.get(id(g['cands'][0]))
+            if ext:
+                gref[gi] = '%s[%d]' % ext
+        if any(gi not in gref for gi in range(len(groups))) or links:
+            gname = self.new_ctrl('g')
+        for gi, g in enumerate(groups):
+            if gi not in gref:
+                gref[gi] = '%s[%d]' % (gname, len(own))
+                own.append((g['initial'], g['multi']))
+        for tabs, labels, tgt, init, only in links:
+            idx = len(own)
+            own.append((init, False))
+            self.shared[id(tabs[0])] = (gname, idx)
+            self.dyn_filter[id(tgt)] = (gname, idx, labels, only)
+        dyn = None
+        dyn_codes, dyn_texts = [], []
+        els_for_dyn = [c for c in kids if isinstance(c, Node) and not self.is_abs(c)]
+        dels = [c for c in els_for_dyn if self.delete_buttons(c)]
+        if len(dels) < 2:
+            dels = []
+        flt = self.dyn_filter.get(id(n))
+        item_ids = set()
+        if flt:
+            item_ids |= (flt[3] if flt[3] is not None else set(id(c) for c in els_for_dyn))
+        item_ids |= set(id(c) for c in dels)
+        if item_ids:
+            dyn = self.new_ctrl('d')
+            for i, c in enumerate(els_for_dyn):
+                if id(c) in item_ids:
+                    for b in self.delete_buttons(c):
+                        b.attrs['_tap'] = '() => %s.confirmRemove(context, %d)' % (dyn, len(dyn_texts) + 0 if False else sum(1 for e in els_for_dyn[:i] if id(e) in item_ids))
         # 是否定义了主轴尺寸
         if direction == 'row':
             definite = parent in ('col', 'block', 'grid', 'root', 'abs', 'root_abs', 'root_fixed') or st.get('width') is not None or st.get('flex-grow', '0') not in ('0',)
@@ -884,12 +1127,22 @@ class Gen:
                 g = groups[gi]
                 on = self.emit(self.variant(c, g, True), inh, direction)
                 off = self.emit(self.variant(c, g, False), inh, direction)
-                code = 'HSel(ctrl: %s[%d], index: %d, on: %s, off: %s)' % (gname, gi, idx, on, off)
+                code = 'HSel(ctrl: %s, index: %d, on: %s, off: %s)' % (gref[gi], idx, on, off)
+            elif self.selectable(c) and self.toggle_code(c, inh, direction):
+                code = self.toggle_code(c, inh, direction)
             else:
                 code = self.emit(c, inh, direction if disp in ('flex', 'inline-flex') else 'block')
             if not wrap:
                 code = self.wrap_child(c, code, direction, definite, disp, scale, flow, any_grow, inh)
-            flow.append(code)
+            if dyn and id(c) in item_ids:
+                if not dyn_codes:
+                    flow.append('...%s.vis([DYN_PLACEHOLDER])' % dyn)
+                dyn_codes.append(code)
+                dyn_texts.append(dstr(re.sub(r'\s+', ' ', self.tree_text(c)).strip()))
+            else:
+                flow.append(code)
+        if dyn:
+            flow = [f.replace('DYN_PLACEHOLDER', ', '.join(dyn_codes)) if f.startswith('...%s.vis' % dyn) else f for f in flow]
         # 布局
         if disp == 'block' and direction == 'col' and not st.get('flex-direction'):
             cross = 'CrossAxisAlignment.stretch'
@@ -921,9 +1174,18 @@ class Gen:
         if absn:
             clip = st.get('overflow') == 'hidden'
             layout = 'hstack(%s, [%s]%s)' % (layout, ', '.join(absn), ', clip: true' if clip and False else '')
-        if groups:
-            gl = ', '.join('({%s}, %s)' % (', '.join(map(str, g['initial'])), 'true' if g['multi'] else 'false') for g in groups)
+        if dyn:
+            extra = ''
+            if flt:
+                extra = ', filter: %s[%d], labels: [%s]' % (flt[0], flt[1], ', '.join(dstr(l) for l in flt[2]))
+            layout = 'HDyn(texts: [%s]%s, builder: (context, %s) => %s)' % (', '.join(dyn_texts), extra, dyn, layout)
+        if gname:
+            gl = ', '.join('({%s}, %s)' % (', '.join(map(str, init)), 'true' if multi else 'false') for init, multi in own)
             layout = 'HSelHolder(groups: [%s], builder: (context, %s) => %s)' % (gl, gname, layout)
+        if holders:
+            names = ''.join('final %s = ctrls[%d];' % (v, i) for i, (v, _) in enumerate(holders))
+            layout = 'HHolder(inits: [%s], builder: (context, ctrls) { %s return %s; })' % (
+                ', '.join(e[len('ValCtrl('):-1] for _, e in holders), names, layout)
         return layout
 
     def grow(self, c):
@@ -1053,6 +1315,13 @@ class Gen:
 
     # ── 根 ──
     def emit_page(self, root, name):
+        self.page_name = name
+        self.refs, self.shared, self.dyn_filter = {}, {}, {}
+        self.prescan(root)
+        for k, v in self.global_refs.items():
+            for st in ('on', 'off'):
+                self.refs.setdefault(k, {}).setdefault(st, v.get(st))
+            self.refs[k] = {a: b for a, b in self.refs[k].items() if b is not None}
         st = root.style
         inh = {'color': parse_color(st.get('color', '#18181B')), 'size': 16.0, 'w': 400, 'lh': None}
         inh = self.inherit(inh, st)
@@ -1115,6 +1384,12 @@ def main():
     svgs = collections.OrderedDict()
     gen = Gen(svgs)
     done = []
+    for name in names:
+        if name in SKIP:
+            continue
+        tmp = Gen({})
+        tmp.refs = gen.global_refs
+        tmp.prescan(extract_page(open(os.path.join(src_dir, name + '.dc.html'), encoding='utf-8').read()))
     for name in names:
         if name in HANDWRITTEN or name in SKIP:
             continue
