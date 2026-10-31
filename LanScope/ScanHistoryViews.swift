@@ -142,8 +142,8 @@ struct ScanRecordView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     InfoRow(label: tr("网段"), value: record.cidr, mono: true)
                     if let settings = record.settings {
-                        InfoRow(label: tr("仅扫描 ping 成功的设备"),
-                                value: settings.pingOnly ? tr("是") : tr("否"))
+                        InfoRow(label: tr("扫描模式"),
+                                value: settings.pingOnly ? tr("快速模式") : tr("深度模式"))
                         InfoRow(label: tr("扫描端口"), value: settings.portsText, mono: true)
                     }
                     InfoRow(label: tr("扫描时 Wi-Fi"), value: wifiName)

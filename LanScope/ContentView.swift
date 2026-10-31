@@ -185,8 +185,8 @@ private struct IdleSection: View {
             RangeCard(model: model)
 
             HStack(spacing: 10) {
-                SettingChip(title: tr("Ping 筛选"),
-                            value: model.settings.pingOnly ? tr("已开启") : tr("已关闭")) {
+                SettingChip(title: tr("扫描模式"),
+                            value: model.settings.pingOnly ? tr("快速模式") : tr("深度模式")) {
                     showingSettings = true
                 }
                 SettingChip(title: tr("TCP 端口"),

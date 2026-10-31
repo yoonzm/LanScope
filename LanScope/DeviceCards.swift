@@ -144,7 +144,7 @@ struct HostCard: View {
     // Explain cards that would otherwise show nothing below the address.
     private var hint: String? {
         guard openPorts.isEmpty, host.ports != nil, host.open != true else { return nil }
-        if host.pingMilliseconds != nil { return tr("仅响应 Ping，未发现开放端口") }
+        if host.pingMilliseconds != nil { return tr("设备在线，未发现开放端口") }
         if host.identity != nil { return tr("仅通过 Bonjour 发现，未发现开放端口") }
         return nil
     }

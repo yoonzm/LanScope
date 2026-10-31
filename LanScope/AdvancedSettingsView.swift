@@ -25,10 +25,17 @@ struct AdvancedSettingsView: View {
             ScrollView {
                 VStack(spacing: 12) {
                     VStack(alignment: .leading, spacing: 10) {
-                        Toggle("只扫描 ping 成功的设备", isOn: $pingOnly)
+                        Text("扫描模式")
                             .font(.headline)
-                            .tint(Theme.mint)
-                        Text("开启后先进行 ICMP ping，只有回应的设备才会扫描端口。关闭后直接探测所有目标的指定 TCP 端口。不回应 ping 不代表设备离线。")
+                        // Quick = ping first and only probe replying hosts; thorough = probe every address.
+                        Picker("扫描模式", selection: $pingOnly) {
+                            Text("快速模式").tag(true)
+                            Text("深度模式").tag(false)
+                        }
+                        .pickerStyle(.segmented)
+                        .labelsHidden()
+                        Text(pingOnly ? tr("只检查有回应的设备，速度快，但可能漏掉少数设备。")
+                                      : tr("逐个检查所有地址，结果更全，但耗时更长。"))
                             .font(.footnote)
                             .foregroundStyle(Theme.secondary)
                     }
@@ -69,22 +76,17 @@ struct AdvancedSettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .card(radius: 22)
 
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Text("语言")
-                                .font(.headline)
-                            Spacer(minLength: 8)
-                            Picker("语言", selection: $language) {
-                                ForEach(AppLanguage.allCases) { option in
-                                    Text(option.title).tag(option)
-                                }
+                    HStack {
+                        Text("语言")
+                            .font(.headline)
+                        Spacer(minLength: 8)
+                        Picker("语言", selection: $language) {
+                            ForEach(AppLanguage.allCases) { option in
+                                Text(option.title).tag(option)
                             }
-                            .pickerStyle(.menu)
-                            .labelsHidden()
                         }
-                        Text("保存后立即切换。系统权限弹窗的文字将在下次打开 App 时更新。")
-                            .font(.footnote)
-                            .foregroundStyle(Theme.secondary)
+                        .pickerStyle(.menu)
+                        .labelsHidden()
                     }
                     .padding(16)
                     .frame(maxWidth: .infinity, alignment: .leading)

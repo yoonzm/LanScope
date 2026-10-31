@@ -99,6 +99,6 @@ final class PingProbe {
             return
         }
         let reason = String(cString: strerror(code))
-        finish(.failure(tr("ICMP 探测失败：\(reason)。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。")))
+        finish(.failure(tr("ICMP 探测失败：\(reason)。请检查 Wi-Fi 和局域网权限，或在高级设置中改用深度模式。")))
     }
 }

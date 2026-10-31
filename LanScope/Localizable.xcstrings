@@ -98,19 +98,19 @@
         }
       }
     },
-    "ICMP 探测失败：%@。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。" : {
+    "ICMP 探测失败：%@。请检查 Wi-Fi 和局域网权限，或在高级设置中改用深度模式。" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ICMP probe failed: %@. Check Wi-Fi and Local Network access, or turn off “Only scan devices that respond to ping”."
+            "value" : "Quick scan failed: %@. Check Wi-Fi and Local Network access, or switch to Thorough mode in Advanced Settings."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ICMP 探测失败：%@。请检查 Wi-Fi 和局域网权限，或关闭“只扫描 ping 成功的设备”。"
+            "value" : "ICMP 探测失败：%@。请检查 Wi-Fi 和局域网权限，或在高级设置中改用深度模式。"
           }
         }
       }
@@ -145,23 +145,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac 笔记本"
-          }
-        }
-      }
-    },
-    "Ping 筛选" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ping filter"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ping 筛选"
           }
         }
       }
@@ -302,40 +285,6 @@
         }
       }
     },
-    "仅响应 Ping，未发现开放端口" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Responded to ping only; no open ports found"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "仅响应 Ping，未发现开放端口"
-          }
-        }
-      }
-    },
-    "仅扫描 ping 成功的设备" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Only scan devices that respond to ping"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "仅扫描 ping 成功的设备"
-          }
-        }
-      }
-    },
     "仅通过 Bonjour 发现，未发现开放端口" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -417,23 +366,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存"
-          }
-        }
-      }
-    },
-    "保存后立即切换。系统权限弹窗的文字将在下次打开 App 时更新。" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Applies as soon as you save. System permission prompts switch on the next launch."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存后立即切换。系统权限弹窗的文字将在下次打开 App 时更新。"
           }
         }
       }
@@ -535,19 +467,19 @@
         }
       }
     },
-    "只扫描 ping 成功的设备" : {
+    "只检查有回应的设备，速度快，但可能漏掉少数设备。" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Only scan devices that respond to ping"
+            "value" : "Checks only devices that respond. Fast, but may miss a few."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "只扫描 ping 成功的设备"
+            "value" : "只检查有回应的设备，速度快，但可能漏掉少数设备。"
           }
         }
       }
@@ -565,23 +497,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "台设备"
-          }
-        }
-      }
-    },
-    "否" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "否"
           }
         }
       }
@@ -654,23 +569,6 @@
         }
       }
     },
-    "已关闭" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Off"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已关闭"
-          }
-        }
-      }
-    },
     "已发现资产" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -718,23 +616,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已完成 %lld / %lld · %@"
-          }
-        }
-      }
-    },
-    "已开启" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已开启"
           }
         }
       }
@@ -807,23 +688,6 @@
         }
       }
     },
-    "开启后先进行 ICMP ping，只有回应的设备才会扫描端口。关闭后直接探测所有目标的指定 TCP 端口。不回应 ping 不代表设备离线。" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "When on, each address is pinged (ICMP) first and only devices that reply have their ports scanned. When off, the selected TCP ports are probed on every address. Not replying to ping doesn't mean a device is offline."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开启后先进行 ICMP ping，只有回应的设备才会扫描端口。关闭后直接探测所有目标的指定 TCP 端口。不回应 ping 不代表设备离线。"
-          }
-        }
-      }
-    },
     "开始扫描" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -888,6 +752,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "当前 Wi-Fi：%@"
+          }
+        }
+      }
+    },
+    "快速模式" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快速模式"
           }
         }
       }
@@ -1057,6 +938,23 @@
         }
       }
     },
+    "扫描完成；快速模式会跳过没有回应的设备，可改用深度模式查找更多设备。若未发现设备，请检查局域网权限。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan complete. Quick mode skips devices that don't respond; try Thorough mode to find more. If no devices were found, check Local Network access."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描完成；快速模式会跳过没有回应的设备，可改用深度模式查找更多设备。若未发现设备，请检查局域网权限。"
+          }
+        }
+      }
+    },
     "扫描完成；未发现的地址仍可能在线。" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1070,23 +968,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "扫描完成；未发现的地址仍可能在线。"
-          }
-        }
-      }
-    },
-    "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scan complete. Addresses that didn't reply to ping skipped the port scan; that doesn't mean they're offline. If no devices were found, check Local Network access."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
           }
         }
       }
@@ -1172,6 +1053,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "扫描未完成"
+          }
+        }
+      }
+    },
+    "扫描模式" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Mode"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描模式"
           }
         }
       }
@@ -1380,23 +1278,6 @@
         }
       }
     },
-    "是" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yes"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "是"
-          }
-        }
-      }
-    },
     "智能电视" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1601,6 +1482,23 @@
         }
       }
     },
+    "深度模式" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thorough"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深度模式"
+          }
+        }
+      }
+    },
     "点击保存后仅保存在当前设备，下次启动自动沿用。" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1801,6 +1699,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "网络或权限异常 · 未完成"
+          }
+        }
+      }
+    },
+    "设备在线，未发现开放端口" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online, no open ports found"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备在线，未发现开放端口"
           }
         }
       }
@@ -2090,6 +2005,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "连接 Wi-Fi，确认网段后开始扫描。"
+          }
+        }
+      }
+    },
+    "逐个检查所有地址，结果更全，但耗时更长。" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checks every address. More complete, but takes longer."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "逐个检查所有地址，结果更全，但耗时更长。"
           }
         }
       }

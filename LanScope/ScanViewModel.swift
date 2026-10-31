@@ -187,7 +187,7 @@ final class ScanViewModel: ObservableObject {
                         self.status = "扫描完成；部分端口探测出现错误，请查看提示。未发现的地址仍可能在线。"
                     } else {
                         self.status = self.scanSettings.pingOnly
-                            ? "扫描完成；未回应 ping 的地址已跳过端口探测，不代表离线。若未发现设备，请检查局域网权限。"
+                            ? "扫描完成；快速模式会跳过没有回应的设备，可改用深度模式查找更多设备。若未发现设备，请检查局域网权限。"
                             : "扫描完成；未发现的地址仍可能在线。"
                     }
                 }
