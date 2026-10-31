@@ -8,7 +8,6 @@ import 'package:qimei_guanjia/pages/member_detail_page.dart';
 import 'package:qimei_guanjia/pages/order_page.dart';
 import 'package:qimei_guanjia/pages/services_page.dart';
 import 'package:qimei_guanjia/pages/settings_page.dart';
-import 'package:qimei_guanjia/pages/shell.dart';
 
 void main() {
   void phone(WidgetTester t) {
