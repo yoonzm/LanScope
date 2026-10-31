@@ -128,7 +128,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                               ),
                             ],
                             child: hrow(
-                              [hsvg(Svgs.s46, w: 16, h: 16)],
+                              [hsvg(Svgs.s44, w: 16, h: 16)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -179,7 +179,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                               ),
                             ],
                             child: hrow(
-                              [hsvg(Svgs.s47, w: 16, h: 16)],
+                              [hsvg(Svgs.s45, w: 16, h: 16)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -253,7 +253,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                 pad: EdgeInsets.fromLTRB(14, 0, 14, 0),
                                 child: hrow(
                                   [
-                                    hsvg(Svgs.s48, w: 15, h: 15),
+                                    hsvg(Svgs.s46, w: 15, h: 15),
                                     Flexible(
                                       flex: 26,
                                       child: Text(
@@ -423,7 +423,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                         bg: Color(0xFFFFFFFF),
                         radius: BorderRadius.circular(12),
                         child: hrow(
-                          [hsvg(Svgs.s49, w: 19, h: 19)],
+                          [hsvg(Svgs.s47, w: 19, h: 19)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -520,7 +520,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(11),
                                   child: hrow(
-                                    [hsvg(Svgs.s50, w: 18, h: 18)],
+                                    [hsvg(Svgs.s48, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -583,7 +583,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(11),
                                   child: hrow(
-                                    [hsvg(Svgs.s51, w: 18, h: 18)],
+                                    [hsvg(Svgs.s49, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -646,7 +646,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(11),
                                   child: hrow(
-                                    [hsvg(Svgs.s52, w: 18, h: 18)],
+                                    [hsvg(Svgs.s50, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -731,7 +731,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s21, w: 17, h: 17)],
+                                          [hsvg(Svgs.s19, w: 17, h: 17)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -834,7 +834,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         bg: Color(0xFFDDF6E7),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s22, w: 17, h: 17)],
+                                          [hsvg(Svgs.s20, w: 17, h: 17)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -943,7 +943,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s23, w: 17, h: 17)],
+                                          [hsvg(Svgs.s21, w: 17, h: 17)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -1052,7 +1052,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         bg: Color(0xFFFDEFD6),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s24, w: 17, h: 17)],
+                                          [hsvg(Svgs.s22, w: 17, h: 17)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -1161,7 +1161,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         bg: Color(0xFFFFE1E2),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s25, w: 17, h: 17)],
+                                          [hsvg(Svgs.s23, w: 17, h: 17)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -1270,7 +1270,7 @@ class ExpenseBudgetPage extends StatelessWidget {
                                         bg: Color(0xFFEEEEF0),
                                         radius: BorderRadius.circular(10),
                                         child: hrow(
-                                          [hsvg(Svgs.s26, w: 17, h: 17)],
+                                          [hsvg(Svgs.s24, w: 17, h: 17)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,

@@ -460,7 +460,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFDDF6E7),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s94, w: 18, h: 18)],
+                                        [hsvg(Svgs.s93, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -511,7 +511,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                       bg: Color(0xFFDDF6E7),
                                       radius: BorderRadius.circular(12),
                                       child: hrow(
-                                        [hsvg(Svgs.s94, w: 18, h: 18)],
+                                        [hsvg(Svgs.s93, w: 18, h: 18)],
                                         main: MainAxisAlignment.center,
                                         cross: CrossAxisAlignment.center,
                                         gap: 0,
@@ -931,7 +931,7 @@ class PlanCheckoutPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              hsvg(Svgs.s84, w: 14, h: 14),
+                              hsvg(Svgs.s82, w: 14, h: 14),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,

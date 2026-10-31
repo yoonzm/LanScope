@@ -585,7 +585,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s86, w: 18, h: 18)],
+                                      [hsvg(Svgs.s85, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -601,7 +601,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s87, w: 18, h: 18)],
+                                      [hsvg(Svgs.s86, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -781,7 +781,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s86, w: 18, h: 18)],
+                                      [hsvg(Svgs.s85, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -797,7 +797,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s87, w: 18, h: 18)],
+                                      [hsvg(Svgs.s86, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -977,7 +977,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s86, w: 18, h: 18)],
+                                      [hsvg(Svgs.s85, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -993,7 +993,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s87, w: 18, h: 18)],
+                                      [hsvg(Svgs.s86, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1173,7 +1173,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s86, w: 18, h: 18)],
+                                      [hsvg(Svgs.s85, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1189,7 +1189,7 @@ class MemberFollowUpPage extends StatelessWidget {
                                     bg: Color(0xFFEEEEF0),
                                     radius: BorderRadius.circular(20),
                                     child: hrow(
-                                      [hsvg(Svgs.s87, w: 18, h: 18)],
+                                      [hsvg(Svgs.s86, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,

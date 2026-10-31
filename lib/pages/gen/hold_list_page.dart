@@ -665,7 +665,7 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s60, w: 14, h: 14),
+                                hsvg(Svgs.s58, w: 14, h: 14),
                                 Flexible(
                                   flex: 261,
                                   child: Text(
@@ -745,7 +745,7 @@ class HoldListPage extends StatelessWidget {
                                     bg: Color(0xFFFFE1E2),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s61, w: 18, h: 18)],
+                                      [hsvg(Svgs.s59, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -927,7 +927,7 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s60, w: 14, h: 14),
+                                hsvg(Svgs.s58, w: 14, h: 14),
                                 Flexible(
                                   flex: 290,
                                   child: Text(
@@ -998,7 +998,7 @@ class HoldListPage extends StatelessWidget {
                                     bg: Color(0xFFFFE1E2),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s61, w: 18, h: 18)],
+                                      [hsvg(Svgs.s59, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1180,7 +1180,7 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s60, w: 14, h: 14),
+                                hsvg(Svgs.s58, w: 14, h: 14),
                                 Flexible(
                                   flex: 229,
                                   child: Text(
@@ -1251,7 +1251,7 @@ class HoldListPage extends StatelessWidget {
                                     bg: Color(0xFFFFE1E2),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s61, w: 18, h: 18)],
+                                      [hsvg(Svgs.s59, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,
@@ -1433,7 +1433,7 @@ class HoldListPage extends StatelessWidget {
                             ),
                             hrow(
                               [
-                                hsvg(Svgs.s60, w: 14, h: 14),
+                                hsvg(Svgs.s58, w: 14, h: 14),
                                 Flexible(
                                   flex: 164,
                                   child: Text(
@@ -1504,7 +1504,7 @@ class HoldListPage extends StatelessWidget {
                                     bg: Color(0xFFFFE1E2),
                                     radius: BorderRadius.circular(21),
                                     child: hrow(
-                                      [hsvg(Svgs.s61, w: 18, h: 18)],
+                                      [hsvg(Svgs.s59, w: 18, h: 18)],
                                       main: MainAxisAlignment.center,
                                       cross: CrossAxisAlignment.center,
                                       gap: 0,

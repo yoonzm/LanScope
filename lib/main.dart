@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'pages/login_page.dart';
+import 'routes.dart';
 import 'theme.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class QimeiApp extends StatelessWidget {
     title: '汽美管家',
     debugShowCheckedModeBanner: false,
     theme: buildTheme(),
+    navigatorObservers: [navTracker],
     home: const LoginPage(),
   );
 }

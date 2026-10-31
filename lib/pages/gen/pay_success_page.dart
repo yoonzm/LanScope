@@ -410,7 +410,7 @@ class PaySuccessPage extends StatelessWidget {
                                         bg: Color(0xFFDDF6E7),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s101, w: 20, h: 20)],
+                                          [hsvg(Svgs.s100, w: 20, h: 20)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -449,7 +449,7 @@ class PaySuccessPage extends StatelessWidget {
                                         bg: Color(0xFF0485F7),
                                         radius: BorderRadius.circular(11),
                                         child: hrow(
-                                          [hsvg(Svgs.s102, w: 14, h: 14)],
+                                          [hsvg(Svgs.s101, w: 14, h: 14)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -473,7 +473,7 @@ class PaySuccessPage extends StatelessWidget {
                                         bg: Color(0xFFDDF6E7),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s101, w: 20, h: 20)],
+                                          [hsvg(Svgs.s100, w: 20, h: 20)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -512,7 +512,7 @@ class PaySuccessPage extends StatelessWidget {
                                         bg: Color(0xFF0485F7),
                                         radius: BorderRadius.circular(11),
                                         child: hrow(
-                                          [hsvg(Svgs.s102, w: 14, h: 14)],
+                                          [hsvg(Svgs.s101, w: 14, h: 14)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -544,7 +544,7 @@ class PaySuccessPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s103, w: 20, h: 20)],
+                                          [hsvg(Svgs.s102, w: 20, h: 20)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -604,7 +604,7 @@ class PaySuccessPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(12),
                                         child: hrow(
-                                          [hsvg(Svgs.s103, w: 20, h: 20)],
+                                          [hsvg(Svgs.s102, w: 20, h: 20)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,

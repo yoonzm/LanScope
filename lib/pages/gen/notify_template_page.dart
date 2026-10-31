@@ -107,7 +107,7 @@ class NotifyTemplatePage extends StatelessWidget {
                         bg: Color(0xFFE1F0FE),
                         radius: BorderRadius.circular(13),
                         child: hrow(
-                          [hsvg(Svgs.s100, w: 22, h: 22)],
+                          [hsvg(Svgs.s99, w: 22, h: 22)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -372,7 +372,7 @@ class NotifyTemplatePage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    hsvg(Svgs.s84, w: 14, h: 14),
+                                    hsvg(Svgs.s82, w: 14, h: 14),
                                   ],
                                   main: MainAxisAlignment.start,
                                   cross: CrossAxisAlignment.center,

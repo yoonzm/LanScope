@@ -284,7 +284,7 @@ class PayUnboundPage extends StatelessWidget {
                             bg: Color(0xFFFDEFD6),
                             radius: BorderRadius.circular(10),
                             child: hrow(
-                              [hsvg(Svgs.s17, w: 18, h: 18)],
+                              [hsvg(Svgs.s103, w: 18, h: 18)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -336,7 +336,7 @@ class PayUnboundPage extends StatelessWidget {
                             ),
                             pad: EdgeInsets.fromLTRB(14, 14, 14, 14),
                             child: hrow(
-                              [hsvg(Svgs.s18, w: 132, h: 132)],
+                              [hsvg(Svgs.s84, w: 132, h: 132)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,

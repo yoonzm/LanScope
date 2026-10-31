@@ -1325,6 +1325,34 @@ class Gen:
         st = root.style
         inh = {'color': parse_color(st.get('color', '#18181B')), 'size': 16.0, 'w': 400, 'lh': None}
         inh = self.inherit(inh, st)
+        # 弹层页：设计稿把“底部弹层 + 它所覆盖的页面”画在一张图里，这里只生成弹层本体
+        self.is_sheet = False
+        for c in self.kids(root):
+            if isinstance(c, Node) and self.is_abs(c) and c.attrs.get('role') == 'dialog':
+                scrim = [x for x in self.kids(root) if isinstance(x, Node) and x.tag == 'a' and self.is_abs(x)]
+                m = re.match(r'([A-Za-z]+)\.dc\.html', scrim[0].attrs.get('href', '')) if scrim else None
+                self.sheet_parent = m.group(1) if m else ''
+                self.is_sheet = True
+                drop = ('position', 'left', 'right', 'bottom', 'top', 'box-shadow')
+                sst = {k: v for k, v in c.style.items() if k not in drop}
+                if 'height' in sst:
+                    sst['min-height'] = sst.pop('height')
+                sec = c.copy_with_style(sst)
+                code = self.emit(sec, inh, 'root_abs')
+                cls = '%sSheet' % name
+                imp = "import 'svgs.dart';\n" if 'Svgs.' in code else ''
+                return """import 'package:flutter/material.dart';
+import '../../kit/kit.dart';
+%s
+class %s extends StatelessWidget {
+  const %s({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return %s;
+  }
+}
+""" % (imp, cls, cls, code)
         bg = parse_color(st.get('background', '#F4F4F5'))
         height = px(st.get('height'), 844.0)
         kids = self.kids(root)
@@ -1384,6 +1412,7 @@ def main():
     svgs = collections.OrderedDict()
     gen = Gen(svgs)
     done = []
+    sheets = []
     for name in names:
         if name in SKIP:
             continue
@@ -1403,8 +1432,12 @@ def main():
         except Exception as e:  # noqa
             print('FAILED', name, repr(e))
             raise
-        open(os.path.join(out_dir, snake(name) + '_page.dart'), 'w', encoding='utf-8').write(code)
-        done.append(name)
+        if gen.is_sheet:
+            open(os.path.join(out_dir, snake(name) + '_sheet.dart'), 'w', encoding='utf-8').write(code)
+            sheets.append((name, gen.sheet_parent))
+        else:
+            open(os.path.join(out_dir, snake(name) + '_page.dart'), 'w', encoding='utf-8').write(code)
+            done.append(name)
     # svgs
     lines = ['// 由 tools/design_to_flutter.py 生成，请勿手工修改。', 'class Svgs {', '  Svgs._();']
     for markup, ident in svgs.items():
@@ -1413,14 +1446,20 @@ def main():
     open(os.path.join(out_dir, 'svgs.dart'), 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
     # routes
     imports = ["import 'package:flutter/widgets.dart';"]
-    entries = []
+    entries, sentries, parents = [], [], []
     for name in done:
         imports.append("import '%s_page.dart';" % snake(name))
         entries.append("  '%s': (_) => const %sPage()," % (name, name))
+    for name, parent in sheets:
+        imports.append("import '%s_sheet.dart';" % snake(name))
+        sentries.append("  '%s': (_) => const %sSheet()," % (name, name))
+        parents.append("  '%s': '%s'," % (name, parent))
     open(os.path.join(out_dir, 'gen_routes.dart'), 'w', encoding='utf-8').write(
         '// 由 tools/design_to_flutter.py 生成，请勿手工修改。\n' + '\n'.join(imports) +
-        '\n\nfinal Map<String, WidgetBuilder> genRoutes = {\n' + '\n'.join(entries) + '\n};\n')
-    print('generated', len(done), 'pages,', len(svgs), 'svgs')
+        '\n\nfinal Map<String, WidgetBuilder> genRoutes = {\n' + '\n'.join(entries) + '\n};\n' +
+        '\n/// 底部弹层（设计稿中叠在其他页面上的界面）。\nfinal Map<String, WidgetBuilder> genSheets = {\n' + '\n'.join(sentries) + '\n};\n' +
+        '\n/// 弹层所属的页面（设计稿里的遮罩点击目标）。\nconst Map<String, String> sheetParents = {\n' + '\n'.join(parents) + '\n};\n')
+    print('generated', len(done), 'pages,', len(sheets), 'sheets,', len(svgs), 'svgs')
 
 
 if __name__ == '__main__':

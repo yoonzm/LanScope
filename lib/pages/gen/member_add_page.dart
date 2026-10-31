@@ -48,7 +48,7 @@ class MemberAddPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s28, w: 20, h: 20)],
+                          [hsvg(Svgs.s26, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -111,7 +111,7 @@ class MemberAddPage extends StatelessWidget {
                           bg: Color(0xFF0485F7),
                           radius: BorderRadius.circular(12),
                           child: hrow(
-                            [hsvg(Svgs.s83, w: 22, h: 22)],
+                            [hsvg(Svgs.s81, w: 22, h: 22)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -1406,7 +1406,7 @@ class MemberAddPage extends StatelessWidget {
                                   lh: 20,
                                 ),
                               ),
-                              hsvg(Svgs.s84, w: 14, h: 14),
+                              hsvg(Svgs.s82, w: 14, h: 14),
                             ],
                             main: MainAxisAlignment.start,
                             cross: CrossAxisAlignment.center,

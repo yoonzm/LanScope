@@ -117,7 +117,7 @@ class MemberDetailPage extends StatelessWidget {
                   Expanded(
                     child: PrimaryButton(
                       '为他开单',
-                      onTap: () => push(context, const OrderPage()),
+                      onTap: () => push(context, OrderPage(member: member)),
                     ),
                   ),
                 ],
@@ -249,28 +249,36 @@ class MemberDetailPage extends StatelessWidget {
           width: 36,
           height: 36,
           decoration: BoxDecoration(
-            color: C.greenSoft,
+            color: member.bound ? C.greenSoft : C.chip,
             borderRadius: BorderRadius.circular(12),
           ),
-          child: AppIcon('chat', size: 18, color: C.greenInk),
+          child: AppIcon(
+            'chat',
+            size: 18,
+            color: member.bound ? C.greenInk : C.muted,
+          ),
         ),
         const SizedBox(width: 12),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('微信已绑定', style: ts(14, w: FontWeight.w500, h: 20)),
               Text(
-                '2024.03.12 绑定 · 通知已开启',
+                member.bound ? '微信已绑定' : '微信未绑定',
+                style: ts(14, w: FontWeight.w500, h: 20),
+              ),
+              Text(
+                member.bound ? '2024.03.12 绑定 · 通知已开启' : '绑定后可微信通知消费与充值',
                 style: ts(12, color: C.muted, h: 16),
               ),
             ],
           ),
         ),
         GestureDetector(
-          onTap: () => openRoute(context, 'NotifyLog'),
+          onTap: () =>
+              openRoute(context, member.bound ? 'NotifyLog' : 'BindInvite'),
           child: Text(
-            '通知记录',
+            member.bound ? '通知记录' : '发送邀请',
             style: ts(13, w: FontWeight.w500, color: C.primaryInk, h: 18),
           ),
         ),

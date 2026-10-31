@@ -120,7 +120,7 @@ class MemberRecordsPage extends StatelessWidget {
                               ),
                             ],
                             child: hrow(
-                              [hsvg(Svgs.s88, w: 20, h: 20)],
+                              [hsvg(Svgs.s87, w: 20, h: 20)],
                               main: MainAxisAlignment.center,
                               cross: CrossAxisAlignment.center,
                               gap: 0,
@@ -589,7 +589,7 @@ class MemberRecordsPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s62, w: 18, h: 18)],
+                                          [hsvg(Svgs.s60, w: 18, h: 18)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -653,7 +653,7 @@ class MemberRecordsPage extends StatelessWidget {
                                         bg: Color(0xFFDDF6E7),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s89, w: 18, h: 18)],
+                                          [hsvg(Svgs.s88, w: 18, h: 18)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -716,7 +716,7 @@ class MemberRecordsPage extends StatelessWidget {
                                         bg: Color(0xFFFDEFD6),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s90, w: 18, h: 18)],
+                                          [hsvg(Svgs.s89, w: 18, h: 18)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -780,7 +780,7 @@ class MemberRecordsPage extends StatelessWidget {
                                         bg: Color(0xFFDDF6E7),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s91, w: 18, h: 18)],
+                                          [hsvg(Svgs.s90, w: 18, h: 18)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -843,7 +843,7 @@ class MemberRecordsPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s62, w: 18, h: 18)],
+                                          [hsvg(Svgs.s60, w: 18, h: 18)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -967,7 +967,7 @@ class MemberRecordsPage extends StatelessWidget {
                                         bg: Color(0xFFE1F0FE),
                                         radius: BorderRadius.circular(13),
                                         child: hrow(
-                                          [hsvg(Svgs.s62, w: 18, h: 18)],
+                                          [hsvg(Svgs.s60, w: 18, h: 18)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,

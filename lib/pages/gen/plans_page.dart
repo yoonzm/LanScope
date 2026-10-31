@@ -446,7 +446,7 @@ class PlansPage extends StatelessWidget {
                               bg: Color(0xFF0485F7),
                               radius: BorderRadius.circular(12),
                               child: hrow(
-                                [hsvg(Svgs.s102, w: 14, h: 14)],
+                                [hsvg(Svgs.s101, w: 14, h: 14)],
                                 main: MainAxisAlignment.center,
                                 cross: CrossAxisAlignment.center,
                                 gap: 0,

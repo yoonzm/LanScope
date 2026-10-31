@@ -14,17 +14,29 @@ import 'package:qimei_guanjia/pages/gen/gen_routes.dart';
 void main() {
   const out = String.fromEnvironment('OUT', defaultValue: '/tmp/out');
   const only = String.fromEnvironment('ONLY', defaultValue: '');
-  final canvas = jsonDecode(File('/tmp/claude-0/ref/canvas.json').readAsStringSync());
+  final canvas = jsonDecode(
+    File('/tmp/claude-0/ref/canvas.json').readAsStringSync(),
+  );
   final boards = canvas['boards'] as Map<String, dynamic>;
 
   setUpAll(() async {
     final loader = FontLoader('Wqy')
-      ..addFont(Future.value(File('/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc').readAsBytesSync().buffer.asByteData()));
+      ..addFont(
+        Future.value(
+          File('/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc')
+              .readAsBytesSync()
+              .buffer
+              .asByteData(),
+        ),
+      );
     await loader.load();
     Directory(out).createSync(recursive: true);
   });
 
-  for (final e in genRoutes.entries) {
+  for (final e in {
+    ...genRoutes,
+    for (final s in genSheets.entries) '${s.key}__sheet': s.value,
+  }.entries) {
     if (only.isNotEmpty && !only.split(',').contains(e.key)) continue;
     testWidgets('render ${e.key}', (tester) async {
       final h = (boards['${e.key}.dc.html']?['h'] ?? 844).toDouble();
@@ -33,21 +45,35 @@ void main() {
       addTearDown(tester.view.reset);
       final errs = <String>{};
       final old = FlutterError.onError;
-      FlutterError.onError = (d) => errs.add(d.exceptionAsString().split('\n').first);
+      FlutterError.onError = (d) =>
+          errs.add(d.exceptionAsString().split('\n').first);
       addTearDown(() => FlutterError.onError = old);
       final key = GlobalKey();
-      await tester.pumpWidget(RepaintBoundary(
-        key: key,
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(fontFamily: 'Wqy', useMaterial3: true),
-          home: Builder(builder: e.value),
+      await tester.pumpWidget(
+        RepaintBoundary(
+          key: key,
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(fontFamily: 'Wqy', useMaterial3: true),
+            home: e.key.endsWith('__sheet')
+                ? Scaffold(
+                    backgroundColor: Colors.black38,
+                    body: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: SingleChildScrollView(
+                        child: Builder(builder: e.value),
+                      ),
+                    ),
+                  )
+                : Builder(builder: e.value),
+          ),
         ),
-      ));
+      );
       await tester.pump(const Duration(milliseconds: 300));
       tester.takeException();
       await tester.runAsync(() async {
-        final b = key.currentContext!.findRenderObject() as RenderRepaintBoundary;
+        final b =
+            key.currentContext!.findRenderObject() as RenderRepaintBoundary;
         final img = await b.toImage(pixelRatio: 1);
         final data = await img.toByteData(format: ui.ImageByteFormat.png);
         File('$out/${e.key}.png').writeAsBytesSync(data!.buffer.asUint8List());

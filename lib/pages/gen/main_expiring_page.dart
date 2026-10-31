@@ -45,7 +45,7 @@ class MainExpiringPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                hsvg(Svgs.s63, w: 18, h: 18),
+                                hsvg(Svgs.s61, w: 18, h: 18),
                               ],
                               main: MainAxisAlignment.start,
                               cross: CrossAxisAlignment.center,
@@ -88,7 +88,7 @@ class MainExpiringPage extends StatelessWidget {
                         ],
                         child: hstack(
                           hrow(
-                            [hsvg(Svgs.s64, w: 20, h: 20)],
+                            [hsvg(Svgs.s62, w: 20, h: 20)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -159,7 +159,7 @@ class MainExpiringPage extends StatelessWidget {
                         bg: Color.fromRGBO(255, 255, 255, 0.7),
                         radius: BorderRadius.circular(18),
                         child: hrow(
-                          [hsvg(Svgs.s65, w: 18, h: 18)],
+                          [hsvg(Svgs.s63, w: 18, h: 18)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -253,7 +253,7 @@ class MainExpiringPage extends StatelessWidget {
                                   ),
                                   hrow(
                                     [
-                                      hsvg(Svgs.s67, w: 14, h: 14),
+                                      hsvg(Svgs.s65, w: 14, h: 14),
                                       Flexible(
                                         flex: 90,
                                         child: Text(
@@ -440,7 +440,7 @@ class MainExpiringPage extends StatelessWidget {
                       Positioned(
                         top: -80,
                         right: -70,
-                        child: hsvg(Svgs.s66, w: 220, h: 220),
+                        child: hsvg(Svgs.s64, w: 220, h: 220),
                       ),
                     ],
                   ),
@@ -469,7 +469,7 @@ class MainExpiringPage extends StatelessWidget {
                                         bg: Color.fromRGBO(255, 255, 255, 0.2),
                                         radius: BorderRadius.circular(22),
                                         child: hrow(
-                                          [hsvg(Svgs.s73, w: 22, h: 22)],
+                                          [hsvg(Svgs.s71, w: 22, h: 22)],
                                           main: MainAxisAlignment.center,
                                           cross: CrossAxisAlignment.center,
                                           gap: 0,
@@ -512,7 +512,7 @@ class MainExpiringPage extends StatelessWidget {
                                   Positioned(
                                     right: -80,
                                     bottom: -80,
-                                    child: hsvg(Svgs.s72, w: 190, h: 190),
+                                    child: hsvg(Svgs.s70, w: 190, h: 190),
                                   ),
                                 ],
                               ),
@@ -537,7 +537,7 @@ class MainExpiringPage extends StatelessWidget {
                                       [
                                         hrow(
                                           [
-                                            hsvg(Svgs.s69, w: 20, h: 20),
+                                            hsvg(Svgs.s67, w: 20, h: 20),
                                             Flexible(
                                               flex: 60,
                                               child: Text(
@@ -575,7 +575,7 @@ class MainExpiringPage extends StatelessWidget {
                                       Positioned(
                                         right: -8,
                                         bottom: -10,
-                                        child: hsvg(Svgs.s68, w: 64, h: 64),
+                                        child: hsvg(Svgs.s66, w: 64, h: 64),
                                       ),
                                     ],
                                   ),
@@ -598,7 +598,7 @@ class MainExpiringPage extends StatelessWidget {
                                       [
                                         hrow(
                                           [
-                                            hsvg(Svgs.s71, w: 20, h: 20),
+                                            hsvg(Svgs.s69, w: 20, h: 20),
                                             Flexible(
                                               flex: 60,
                                               child: Text(
@@ -636,7 +636,7 @@ class MainExpiringPage extends StatelessWidget {
                                       Positioned(
                                         right: -8,
                                         bottom: -10,
-                                        child: hsvg(Svgs.s70, w: 64, h: 64),
+                                        child: hsvg(Svgs.s68, w: 64, h: 64),
                                       ),
                                     ],
                                   ),
@@ -670,7 +670,7 @@ class MainExpiringPage extends StatelessWidget {
                                 bg: Color(0xFFF5D78E),
                                 radius: BorderRadius.circular(18),
                                 child: hrow(
-                                  [hsvg(Svgs.s75, w: 18, h: 18)],
+                                  [hsvg(Svgs.s73, w: 18, h: 18)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -700,7 +700,7 @@ class MainExpiringPage extends StatelessWidget {
                                 ),
                               ),
                               hrow(
-                                [hsvg(Svgs.s76, w: 18, h: 18)],
+                                [hsvg(Svgs.s74, w: 18, h: 18)],
                                 main: MainAxisAlignment.start,
                                 cross: CrossAxisAlignment.start,
                                 gap: 0,
@@ -714,7 +714,7 @@ class MainExpiringPage extends StatelessWidget {
                             Positioned(
                               top: -70,
                               right: -50,
-                              child: hsvg(Svgs.s74, w: 190, h: 190),
+                              child: hsvg(Svgs.s72, w: 190, h: 190),
                             ),
                           ],
                         ),
@@ -1159,7 +1159,7 @@ class MainExpiringPage extends StatelessWidget {
                           [
                             Align(
                               alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s77, w: 24, h: 24),
+                              child: hsvg(Svgs.s75, w: 24, h: 24),
                             ),
                             Text(
                               '首页',
@@ -1189,7 +1189,7 @@ class MainExpiringPage extends StatelessWidget {
                           [
                             Align(
                               alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s78, w: 24, h: 24),
+                              child: hsvg(Svgs.s76, w: 24, h: 24),
                             ),
                             Text(
                               '会员',
@@ -1240,7 +1240,7 @@ class MainExpiringPage extends StatelessWidget {
                                   ),
                                 ],
                                 child: hrow(
-                                  [hsvg(Svgs.s79, w: 24, h: 24)],
+                                  [hsvg(Svgs.s77, w: 24, h: 24)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -1275,7 +1275,7 @@ class MainExpiringPage extends StatelessWidget {
                           [
                             Align(
                               alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s80, w: 24, h: 24),
+                              child: hsvg(Svgs.s78, w: 24, h: 24),
                             ),
                             Text(
                               '库存',
@@ -1305,7 +1305,7 @@ class MainExpiringPage extends StatelessWidget {
                           [
                             Align(
                               alignment: Alignment.topLeft,
-                              child: hsvg(Svgs.s81, w: 24, h: 24),
+                              child: hsvg(Svgs.s79, w: 24, h: 24),
                             ),
                             Text(
                               '统计',

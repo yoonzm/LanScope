@@ -7,20 +7,22 @@ import '../widgets/app_icon.dart';
 import '../widgets/common.dart';
 
 class OrderPage extends StatefulWidget {
-  const OrderPage({super.key});
+  final Member? member;
+  const OrderPage({super.key, this.member});
   @override
   State<OrderPage> createState() => _OrderPageState();
 }
 
 class _OrderPageState extends State<OrderPage> {
   static const _cats = ['常用', '洗车', '镀晶镀膜', '贴膜', '内饰'];
-  static const _pays = [
-    ('会员余额', '可用 ¥3,680'),
+  List<(String, String)> get _pays => [
+    ('会员余额', '可用 $_balanceText'),
     ('微信 / 支付宝', '扫码收款'),
     ('现金', '可找零'),
     ('组合支付', '余额 + 其他'),
   ];
   int cat = 0;
+  late Member customer = widget.member ?? members.first;
   int pay = 0;
   final Set<int> picked = {0, 1};
   final Set<String> techs = {'李国强 · 镀晶', '王磊 · 洗车'};
@@ -38,7 +40,7 @@ class _OrderPageState extends State<OrderPage> {
       toast(context, '请先选择服务项目');
       return;
     }
-    openRoute(context, 'PaySuccess');
+    openRoute(context, customer.bound ? 'PaySuccess' : 'PayUnbound');
   }
 
   @override
@@ -176,53 +178,110 @@ class _OrderPageState extends State<OrderPage> {
     );
   }
 
+  String get _balanceText =>
+      customer.amountNote == '余额' ? customer.amount : '¥0';
+
+  void _pickCustomer() {
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.white,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(ctx).size.height * 0.7,
+          ),
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+            shrinkWrap: true,
+            children: [
+              Text('选择客户', style: ts(17, w: FontWeight.w600, h: 24)),
+              const SizedBox(height: 8),
+              for (final m in members)
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    setState(() => customer = m);
+                    Navigator.of(ctx).pop();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      children: [
+                        Avatar(m.name.substring(0, 1), size: 40),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    m.name,
+                                    style: ts(15, w: FontWeight.w500, h: 22),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  LevelBadge(m.level),
+                                ],
+                              ),
+                              Text(
+                                '${m.plate} · ${m.bound ? '微信已绑定' : '微信未绑定'}',
+                                style: ts(12, color: C.muted, h: 16),
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (customer == m)
+                          const AppIcon(
+                            'check',
+                            size: 18,
+                            color: C.primary,
+                            stroke: 2.6,
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _customer(BuildContext context) => AppCard(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
     child: Row(
       children: [
-        const Avatar('王'),
+        Avatar(customer.name.substring(0, 1)),
         const SizedBox(width: 12),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 6,
+                runSpacing: 4,
                 children: [
-                  Text('王建国', style: ts(15, w: FontWeight.w500, h: 22)),
-                  const SizedBox(width: 6),
-                  const LevelBadge('黑金'),
-                  const SizedBox(width: 6),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 1,
-                    ),
-                    decoration: BoxDecoration(
-                      color: C.plate,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      '沪A·8K29M',
-                      style: ts(
-                        11,
-                        w: FontWeight.w600,
-                        color: Colors.white,
-                        h: 16,
-                      ),
-                    ),
-                  ),
+                  Text(customer.name, style: ts(15, w: FontWeight.w500, h: 22)),
+                  LevelBadge(customer.level),
+                  PlateTag(customer.plate),
                 ],
               ),
               const SizedBox(height: 4),
               Text(
-                '余额 ¥3,680 · 洗车次卡剩 8 次',
+                '余额 $_balanceText · ${customer.bound ? '微信已绑定' : '微信未绑定'}',
                 style: ts(12, color: C.muted, h: 16),
               ),
             ],
           ),
         ),
         GestureDetector(
-          onTap: () => openRoute(context, 'Members'),
+          onTap: _pickCustomer,
           child: Text(
             '更换',
             style: ts(13, w: FontWeight.w500, color: C.primaryInk, h: 18),

@@ -286,7 +286,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFDDF6E7),
                                             radius: BorderRadius.circular(13),
                                             child: hrow(
-                                              [hsvg(Svgs.s92, w: 22, h: 22)],
+                                              [hsvg(Svgs.s91, w: 22, h: 22)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -380,7 +380,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFE1F0FE),
                                             radius: BorderRadius.circular(13),
                                             child: hrow(
-                                              [hsvg(Svgs.s93, w: 22, h: 22)],
+                                              [hsvg(Svgs.s92, w: 22, h: 22)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1058,7 +1058,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFE1F0FE),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s62, w: 18, h: 18)],
+                                              [hsvg(Svgs.s60, w: 18, h: 18)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1183,7 +1183,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFDDF6E7),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s94, w: 18, h: 18)],
+                                              [hsvg(Svgs.s93, w: 18, h: 18)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1308,7 +1308,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFEEEEF0),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s95, w: 18, h: 18)],
+                                              [hsvg(Svgs.s94, w: 18, h: 18)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1407,7 +1407,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFFFE1E2),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s96, w: 18, h: 18)],
+                                              [hsvg(Svgs.s95, w: 18, h: 18)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1525,7 +1525,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFFDEFD6),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s97, w: 18, h: 18)],
+                                              [hsvg(Svgs.s96, w: 18, h: 18)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1669,7 +1669,7 @@ class NotifySettingsPage extends StatelessWidget {
                                             bg: Color(0xFFF5D78E),
                                             radius: BorderRadius.circular(10),
                                             child: hrow(
-                                              [hsvg(Svgs.s98, w: 18, h: 18)],
+                                              [hsvg(Svgs.s97, w: 18, h: 18)],
                                               main: MainAxisAlignment.center,
                                               cross: CrossAxisAlignment.center,
                                               gap: 0,
@@ -1810,7 +1810,7 @@ class NotifySettingsPage extends StatelessWidget {
                           bg: Color(0xFFEEEEF0),
                           radius: BorderRadius.circular(10),
                           child: hrow(
-                            [hsvg(Svgs.s99, w: 18, h: 18)],
+                            [hsvg(Svgs.s98, w: 18, h: 18)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,

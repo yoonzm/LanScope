@@ -48,7 +48,7 @@ class CardTierEditPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s28, w: 20, h: 20)],
+                          [hsvg(Svgs.s26, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -153,7 +153,7 @@ class CardTierEditPage extends StatelessWidget {
                       Positioned(
                         right: -80,
                         bottom: -110,
-                        child: hsvg(Svgs.s29, w: 240, h: 240),
+                        child: hsvg(Svgs.s27, w: 240, h: 240),
                       ),
                     ],
                   ),
@@ -656,7 +656,7 @@ class CardTierEditPage extends StatelessWidget {
                                   bg: Color(0xFFE1F0FE),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s30, w: 18, h: 18)],
+                                    [hsvg(Svgs.s28, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -701,7 +701,7 @@ class CardTierEditPage extends StatelessWidget {
                                   bg: Color(0xFFFFE1E2),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s31, w: 18, h: 18)],
+                                    [hsvg(Svgs.s29, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,
@@ -756,7 +756,7 @@ class CardTierEditPage extends StatelessWidget {
                                   bg: Color(0xFFDDF6E7),
                                   radius: BorderRadius.circular(10),
                                   child: hrow(
-                                    [hsvg(Svgs.s32, w: 18, h: 18)],
+                                    [hsvg(Svgs.s30, w: 18, h: 18)],
                                     main: MainAxisAlignment.center,
                                     cross: CrossAxisAlignment.center,
                                     gap: 0,

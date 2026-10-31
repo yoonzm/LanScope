@@ -321,7 +321,7 @@ class ChannelConfigPage extends StatelessWidget {
                                   width: 1,
                                 ),
                                 child: hrow(
-                                  [hsvg(Svgs.s35, w: 76, h: 76)],
+                                  [hsvg(Svgs.s33, w: 76, h: 76)],
                                   main: MainAxisAlignment.center,
                                   cross: CrossAxisAlignment.center,
                                   gap: 0,
@@ -495,7 +495,7 @@ class ChannelConfigPage extends StatelessWidget {
                           Positioned(
                             top: -80,
                             right: -70,
-                            child: hsvg(Svgs.s36, w: 200, h: 200),
+                            child: hsvg(Svgs.s34, w: 200, h: 200),
                           ),
                         ],
                       ),

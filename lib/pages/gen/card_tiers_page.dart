@@ -77,7 +77,7 @@ class CardTiersPage extends StatelessWidget {
                         bg: Color(0xFF18181B),
                         radius: BorderRadius.circular(22),
                         child: hrow(
-                          [hsvg(Svgs.s33, w: 20, h: 20)],
+                          [hsvg(Svgs.s31, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
@@ -312,7 +312,7 @@ class CardTiersPage extends StatelessWidget {
                         Positioned(
                           top: -80,
                           right: -60,
-                          child: hsvg(Svgs.s34, w: 200, h: 200),
+                          child: hsvg(Svgs.s32, w: 200, h: 200),
                         ),
                       ],
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../mock/app_state.dart';
 import '../mock/mock_data.dart';
 import '../theme.dart';
 import '../routes.dart';
@@ -25,6 +26,7 @@ class HomePage extends StatelessWidget {
         ),
         children: [
           _header(context),
+          _banner(context),
           const SizedBox(height: 20),
           _revenue(),
           const SizedBox(height: 20),
@@ -45,6 +47,76 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  /// 订阅状态提醒条：试用将到期 / 套餐将到期（同一首页在不同状态下的呈现）。
+  Widget _banner(BuildContext context) => ValueListenableBuilder<SubState>(
+    valueListenable: subState,
+    builder: (context, st, _) {
+      final trial = st == SubState.trialEnding;
+      if (st != SubState.trialEnding && st != SubState.expiring) {
+        return const SizedBox.shrink();
+      }
+      final bg = trial ? const Color(0xFFFFE1E2) : C.amberSoft;
+      final fg = trial ? const Color(0xFF8A2A29) : const Color(0xFF6B4A1F);
+      return Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+          decoration: BoxDecoration(
+            color: bg,
+            borderRadius: BorderRadius.circular(22),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 36,
+                height: 36,
+                decoration: const BoxDecoration(
+                  color: Color(0xB3FFFFFF),
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: AppIcon('clock', size: 18, color: fg, stroke: 1.9),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      trial ? '试用剩余 3 天' : '专业版 7 天后到期',
+                      style: ts(14, w: FontWeight.w600, color: fg, h: 20),
+                    ),
+                    Text(
+                      trial ? '11.14 结束，之后进入只读模式' : '2027.10.30 到期，建议提前续费',
+                      style: ts(12, color: fg.withValues(alpha: 0.8), h: 16),
+                    ),
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () => openRoute(context, trial ? 'Plans' : 'Renew'),
+                child: Container(
+                  height: 34,
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: trial ? const Color(0xFFA43433) : C.ink,
+                    borderRadius: BorderRadius.circular(17),
+                  ),
+                  child: Text(
+                    trial ? '去订阅' : '去续费',
+                    style: ts(13, w: FontWeight.w600, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 
   Widget _header(BuildContext context) => Row(
     children: [

@@ -2,13 +2,10 @@
 import 'package:flutter/widgets.dart';
 
 import 'appointment_detail_page.dart';
-import 'appointment_reschedule_page.dart';
 import 'appointment_schedule_page.dart';
 import 'appointment_settings_page.dart';
 import 'bind_done_page.dart';
 import 'bind_h5_page.dart';
-import 'bind_invite_page.dart';
-import 'budget_adjust_page.dart';
 import 'budget_edit_page.dart';
 import 'budget_total_page.dart';
 import 'card_tier_edit_page.dart';
@@ -19,13 +16,11 @@ import 'expense_budget_page.dart';
 import 'expense_detail_page.dart';
 import 'expenses_page.dart';
 import 'hold_list_page.dart';
-import 'hold_sheet_page.dart';
 import 'invoices_page.dart';
 import 'main_expiring_page.dart';
 import 'main_trial_page.dart';
 import 'member_add_page.dart';
 import 'member_add_done_page.dart';
-import 'member_filter_page.dart';
 import 'member_follow_up_page.dart';
 import 'member_records_page.dart';
 import 'notify_log_page.dart';
@@ -43,7 +38,6 @@ import 'recharge_success_page.dart';
 import 'reg_done_page.dart';
 import 'reg_phone_page.dart';
 import 'reg_shop_page.dart';
-import 'renew_page.dart';
 import 'renew_paid_page.dart';
 import 'role_permission_page.dart';
 import 'service_edit_page.dart';
@@ -56,16 +50,19 @@ import 'store_edit_page.dart';
 import 'store_info_page.dart';
 import 'subscription_page.dart';
 import 'vehicle_add_page.dart';
+import 'appointment_reschedule_sheet.dart';
+import 'bind_invite_sheet.dart';
+import 'budget_adjust_sheet.dart';
+import 'hold_sheet_sheet.dart';
+import 'member_filter_sheet.dart';
+import 'renew_sheet.dart';
 
 final Map<String, WidgetBuilder> genRoutes = {
   'AppointmentDetail': (_) => const AppointmentDetailPage(),
-  'AppointmentReschedule': (_) => const AppointmentReschedulePage(),
   'AppointmentSchedule': (_) => const AppointmentSchedulePage(),
   'AppointmentSettings': (_) => const AppointmentSettingsPage(),
   'BindDone': (_) => const BindDonePage(),
   'BindH5': (_) => const BindH5Page(),
-  'BindInvite': (_) => const BindInvitePage(),
-  'BudgetAdjust': (_) => const BudgetAdjustPage(),
   'BudgetEdit': (_) => const BudgetEditPage(),
   'BudgetTotal': (_) => const BudgetTotalPage(),
   'CardTierEdit': (_) => const CardTierEditPage(),
@@ -76,13 +73,11 @@ final Map<String, WidgetBuilder> genRoutes = {
   'ExpenseDetail': (_) => const ExpenseDetailPage(),
   'Expenses': (_) => const ExpensesPage(),
   'HoldList': (_) => const HoldListPage(),
-  'HoldSheet': (_) => const HoldSheetPage(),
   'Invoices': (_) => const InvoicesPage(),
   'MainExpiring': (_) => const MainExpiringPage(),
   'MainTrial': (_) => const MainTrialPage(),
   'MemberAdd': (_) => const MemberAddPage(),
   'MemberAddDone': (_) => const MemberAddDonePage(),
-  'MemberFilter': (_) => const MemberFilterPage(),
   'MemberFollowUp': (_) => const MemberFollowUpPage(),
   'MemberRecords': (_) => const MemberRecordsPage(),
   'NotifyLog': (_) => const NotifyLogPage(),
@@ -100,7 +95,6 @@ final Map<String, WidgetBuilder> genRoutes = {
   'RegDone': (_) => const RegDonePage(),
   'RegPhone': (_) => const RegPhonePage(),
   'RegShop': (_) => const RegShopPage(),
-  'Renew': (_) => const RenewPage(),
   'RenewPaid': (_) => const RenewPaidPage(),
   'RolePermission': (_) => const RolePermissionPage(),
   'ServiceEdit': (_) => const ServiceEditPage(),
@@ -113,4 +107,24 @@ final Map<String, WidgetBuilder> genRoutes = {
   'StoreInfo': (_) => const StoreInfoPage(),
   'Subscription': (_) => const SubscriptionPage(),
   'VehicleAdd': (_) => const VehicleAddPage(),
+};
+
+/// 底部弹层（设计稿中叠在其他页面上的界面）。
+final Map<String, WidgetBuilder> genSheets = {
+  'AppointmentReschedule': (_) => const AppointmentRescheduleSheet(),
+  'BindInvite': (_) => const BindInviteSheet(),
+  'BudgetAdjust': (_) => const BudgetAdjustSheet(),
+  'HoldSheet': (_) => const HoldSheetSheet(),
+  'MemberFilter': (_) => const MemberFilterSheet(),
+  'Renew': (_) => const RenewSheet(),
+};
+
+/// 弹层所属的页面（设计稿里的遮罩点击目标）。
+const Map<String, String> sheetParents = {
+  'AppointmentReschedule': 'AppointmentDetail',
+  'BindInvite': 'PayUnbound',
+  'BudgetAdjust': 'ExpenseBudget',
+  'HoldSheet': 'Order',
+  'MemberFilter': 'Members',
+  'Renew': 'Subscription',
 };

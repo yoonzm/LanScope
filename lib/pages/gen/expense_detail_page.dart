@@ -109,7 +109,7 @@ class ExpenseDetailPage extends StatelessWidget {
                           bg: Color(0xFFE1F0FE),
                           radius: BorderRadius.circular(17),
                           child: hrow(
-                            [hsvg(Svgs.s53, w: 26, h: 26)],
+                            [hsvg(Svgs.s51, w: 26, h: 26)],
                             main: MainAxisAlignment.center,
                             cross: CrossAxisAlignment.center,
                             gap: 0,
@@ -388,7 +388,7 @@ class ExpenseDetailPage extends StatelessWidget {
                               [
                                 Align(
                                   alignment: Alignment.topLeft,
-                                  child: hsvg(Svgs.s54, w: 26, h: 26),
+                                  child: hsvg(Svgs.s52, w: 26, h: 26),
                                 ),
                                 Text('送货单', style: hts(11, Color(0xFF71717A))),
                               ],
@@ -407,7 +407,7 @@ class ExpenseDetailPage extends StatelessWidget {
                               [
                                 Align(
                                   alignment: Alignment.topLeft,
-                                  child: hsvg(Svgs.s54, w: 26, h: 26),
+                                  child: hsvg(Svgs.s52, w: 26, h: 26),
                                 ),
                                 Text('转账回单', style: hts(11, Color(0xFF71717A))),
                               ],
@@ -490,7 +490,7 @@ class ExpenseDetailPage extends StatelessWidget {
                       radius: BorderRadius.circular(25),
                       child: hrow(
                         [
-                          hsvg(Svgs.s55, w: 18, h: 18),
+                          hsvg(Svgs.s53, w: 18, h: 18),
                           Flexible(
                             flex: 30,
                             child: Text(

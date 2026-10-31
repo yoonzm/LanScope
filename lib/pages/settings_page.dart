@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme.dart';
+import '../mock/app_state.dart';
 import '../routes.dart';
 import '../widgets/app_icon.dart';
 import '../widgets/common.dart';
@@ -88,8 +89,70 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
+  /// 演示用：切换订阅状态，查看首页在不同状态下的呈现。
+  void _demoSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+          child: ValueListenableBuilder<SubState>(
+            valueListenable: subState,
+            builder: (_, cur, _) => Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('汽美管家 v1.0.0', style: ts(17, w: FontWeight.w600, h: 24)),
+                const SizedBox(height: 4),
+                Text(
+                  '演示：切换套餐状态，首页会显示对应的提醒或到期页',
+                  style: ts(12, color: C.muted, h: 16),
+                ),
+                const SizedBox(height: 12),
+                for (final st in SubState.values)
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () {
+                      subState.value = st;
+                      Navigator.of(ctx).pop();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              subStateLabels[st]!,
+                              style: ts(15, h: 22),
+                            ),
+                          ),
+                          if (cur == st)
+                            const AppIcon(
+                              'check',
+                              size: 18,
+                              color: C.primary,
+                              stroke: 2.6,
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   void _open(BuildContext context, _Item item) {
-    if (item.route != null) {
+    if (item.title.startsWith('关于')) {
+      _demoSheet(context);
+    } else if (item.route != null) {
       openRoute(context, item.route!);
     } else {
       toast(context, '${item.title}（演示）');

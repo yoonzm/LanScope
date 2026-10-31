@@ -6,7 +6,9 @@ import '../widgets/common.dart';
 import 'home_page.dart';
 import 'inventory_page.dart';
 import 'members_page.dart';
+import '../mock/app_state.dart';
 import '../routes.dart';
+import 'gen/plan_expired_page.dart';
 import 'order_page.dart';
 import 'stats_page.dart';
 
@@ -42,6 +44,14 @@ class _ShellState extends State<Shell> {
 
   @override
   Widget build(BuildContext context) {
+    return ValueListenableBuilder<SubState>(
+      valueListenable: subState,
+      builder: (context, st, _) =>
+          st == SubState.expired ? const PlanExpiredPage() : _tabs(context),
+    );
+  }
+
+  Widget _tabs(BuildContext context) {
     return ValueListenableBuilder<int>(
       valueListenable: tabIndex,
       builder: (context, idx, _) => Scaffold(

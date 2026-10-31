@@ -48,7 +48,7 @@ class VehicleAddPage extends StatelessWidget {
                           ),
                         ],
                         child: hrow(
-                          [hsvg(Svgs.s28, w: 20, h: 20)],
+                          [hsvg(Svgs.s26, w: 20, h: 20)],
                           main: MainAxisAlignment.center,
                           cross: CrossAxisAlignment.center,
                           gap: 0,
